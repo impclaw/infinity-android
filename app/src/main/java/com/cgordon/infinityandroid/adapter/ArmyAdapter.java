@@ -1,5 +1,6 @@
 package com.cgordon.infinityandroid.adapter;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 
@@ -50,10 +52,17 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.m_textView.setText(m_data[position][0]);
         holder.m_imageView.setImageResource(m_data[position][1]);
         holder.m_imageView.setBackgroundResource(m_data[position][2]);
+        holder.m_cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(holder.m_textView.getContext(), holder.m_textView.getText().toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
 
@@ -67,11 +76,14 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
 
         public TextView m_textView;
         public ImageView m_imageView;
+        public CardView m_cardView;
+
         public ViewHolder(View itemView)
         {
             super(itemView);
             m_imageView = (ImageView) itemView.findViewById(R.id.image_view);
             m_textView = (TextView) itemView.findViewById(R.id.text_view);
+            m_cardView = (CardView) itemView.findViewById(R.id.card_view);
         }
     }
 
