@@ -2,6 +2,10 @@
 <resources>
     <color name="army_background">#F00</color>
 
+    <color name="colourPrimary">#2196F3</color>
+    <color name="colourPrimaryDark">#1976d2</color>
+    <color name="colourAccent">#FFC107</color>
+
     <color name="pano">#23A1D9</color>
     <color name="yujing">#DA8C31</color>
     <color name="ariadna">#4E7C3D</color>
