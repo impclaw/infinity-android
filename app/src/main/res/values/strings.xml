@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">InfinityAndroid</string>
+    <string name="title_activity_main">Infinity Android</string>
+
+    <string name="aleph_ass">Assault Subsection</string>
+    <string name="aleph_main">Aleph</string>
+    <string name="ariadna_caledonian">Caledonian Highlander Army</string>
+    <string name="ariadna_main">Ariadna</string>
+    <string name="ariadna_merovingian">Force de RR Merovingienne </string>
+    <string name="ariadna_usariadna">USAriadna</string>
+    <string name="ca_main">Combined Army</string>
+    <string name="ca_morat">Morat Aggression Force</string>
+    <string name="ca_shasvastii">Shasvastii Expeditionary Force</string>
+    <string name="haqqislam_hassassin">Hassassin Bahram</string>
+    <string name="haqqislam_main">Haqqislam</string>
+    <string name="haqqislam_qapu_khalqi">Qapu Khalqi </string>
+    <string name="merc_main">Mercs</string>
+    <string name="nomads_bakunin">Jurisdictional Command of Bakunin</string>
+    <string name="nomads_corregidor">Jurisdictional Command of Corregidor</string>
+    <string name="nomads_main">Nomads</string>
+    <string name="pano_acontecimento">Shock Army of Acontecimento</string>
+    <string name="pano_main">Pan-Oceania</string>
+    <string name="pano_military_orders">Military Orders</string>
+    <string name="pano_neoterra">Neoterran Capitaline Army</string>
+    <string name="tohaa_main">Tohaa</string>
+    <string name="yujing_iss">Imperial Service</string>
+    <string name="yujing_jsa">Japanese Sectorial Army</string>
+    <string name="yujing_main">Yu Jing</string>
+    <string name="action_settings">Settings</string>
+</resources>

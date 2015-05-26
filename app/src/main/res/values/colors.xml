@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="army_background">#F00</color>
+
+    <color name="pano">#23A1D9</color>
+    <color name="yujing">#DA8C31</color>
+    <color name="ariadna">#4E7C3D</color>
+    <color name="haqqislam">#E0DAA0</color>
+    <color name="nomads">#B12024</color>
+    <color name="ca">#36285A</color>
+    <color name="aleph">#A9A2B6</color>
+    <color name="tohaa">#020507</color>
+    <color name="mercs">#7C8768</color>
+
+</resources>
