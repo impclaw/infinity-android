@@ -1,7 +1,10 @@
 package com.cgordon.infinityandroid.adapter;
 
+import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,15 +55,17 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.m_textView.setText(m_data[position][0]);
         holder.m_imageView.setImageResource(m_data[position][1]);
-        holder.m_imageView.setBackgroundResource(m_data[position][2]);
+        //holder.m_imageView.setBackgroundResource(m_data[position][2]);
+        holder.m_imageView.setBackgroundResource(R.color.army_card_background);
         holder.m_cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(holder.m_textView.getContext(), holder.m_textView.getText().toString(), Toast.LENGTH_SHORT).show();
 
+                ((Activity) v.getContext()).findViewById(R.id.toolbar).setBackgroundResource(m_data[position][2]);
             }
         });
     }

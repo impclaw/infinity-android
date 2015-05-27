@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="army_background">#F00</color>
+    <color name="army_card_background">#EEE</color>
 
     <color name="colourPrimary">#2196F3</color>
     <color name="colourPrimaryDark">#1976d2</color>
