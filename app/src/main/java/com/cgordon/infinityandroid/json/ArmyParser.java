@@ -80,7 +80,7 @@ public class ArmyParser {
                     Log.d(TAG, name + " " + reader.nextString());
                 } else if (name.equals("cc")) {
                     Log.d(TAG, name + " " + reader.nextString());
-                } else if (name.equals("imp")) {
+                } else if (name.equals("imp")) { // impetuous
                     Log.d(TAG, name + " " + reader.nextString());
                 } else if (name.equals("name")) {
                     Log.d(TAG, name + " " + reader.nextString());
@@ -106,7 +106,7 @@ public class ArmyParser {
                     Log.d(TAG, name + " " + reader.nextString());
                 } else if (name.equals("sharedAva")) { // Caledonian Volunteers
                     Log.d(TAG, name + " " + reader.nextString());
-                } else if (name.equals("functions")) {
+                } else if (name.equals("functions")) { // can be ignored
                     reader.skipValue();
                 } else if (name.equals("altp")) {
                     reader.skipValue();
@@ -154,7 +154,7 @@ public class ArmyParser {
                 Log.d(TAG, name + " " + reader.nextString());
             } else if (name.equals("cc")) {
                 Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("imp")) {
+            } else if (name.equals("imp")) { //impetuous
                 Log.d(TAG, name + " " + reader.nextString());
             } else if (name.equals("name")) {
                 Log.d(TAG, name + " " + reader.nextString());
@@ -226,8 +226,9 @@ public class ArmyParser {
                 parseSubArray(reader);
             } else if (name.equals("profile")) {
                 Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("hiddenalias")) {
-                Log.d(TAG, name + " " + reader.nextString());
+// was used in the deva functionary, but not used in MayaNet
+//            } else if (name.equals("hiddenalias")) {
+//                Log.d(TAG, name + " " + reader.nextString());
             } else {
                 throw new IOException("Unknown tag in parse Child: " + name);
             }
