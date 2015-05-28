@@ -1,0 +1,159 @@
+{
+  "armies": [
+    {
+      "army": "Aleph",
+      "backgroundColor": "#ffffff",
+      "primaryColor": "#000000",
+      "secondaryColor": "#000000"
+    },
+    {
+      "army": "Ariadna",
+      "backgroundColor": "#ffffff",
+      "primaryColor": "#ed1c24",
+      "secondaryColor": "#00aeef"
+    },
+    {
+      "army": "Combined Army",
+      "backgroundColor": "#000000",
+      "primaryColor": "#d8d2f4",
+      "secondaryColor": "#9c95c9"
+    },
+    {
+      "army": "Haqqislam",
+      "backgroundColor": "#ffe153",
+      "primaryColor": "#030000",
+      "secondaryColor": "#85a42f"
+    },
+    {
+      "army": "Nomads",
+      "backgroundColor": "#ed1c24",
+      "primaryColor": "#231f20",
+      "secondaryColor": "#ffffff"
+    },
+    {
+      "army": "Mercenary",
+      "backgroundColor": "#ffb400",
+      "primaryColor": "#6c865f",
+      "secondaryColor": "#000000"
+    },
+    {
+      "army": "PanOceania",
+      "backgroundColor": "#00aeef",
+      "primaryColor": "#000000",
+      "secondaryColor": "#ffffff"
+    },
+    {
+      "army": "Tohaa",
+      "backgroundColor": "#3f3f3f",
+      "primaryColor": "#a9c763",
+      "secondaryColor": "#ffffff"
+    },
+    {
+      "army": "Yu Jing",
+      "backgroundColor": "#a6cd39",
+      "primaryColor": "#000000",
+      "secondaryColor": "#ffffff"
+    }
+  ],
+  "sectorials": [
+    {
+      "army": "Haqqislam",
+      "name": "Qapu Khalqi",
+      "backgroundColor": "#c90200",
+      "primaryColor": "#ffffff",
+      "secondaryColor": "#749d25"
+    },
+    {
+      "army": "Haqqislam",
+      "name": "Hassassin Bahram",
+      "backgroundColor": "#030000",
+      "primaryColor": "#ffe153",
+      "secondaryColor": "#a5cd3c"
+    },
+    {
+      "army": "Combined Army",
+      "name": "Morat Aggression Force",
+      "backgroundColor": "#000000",
+      "primaryColor": "#ffffff",
+      "secondaryColor": "#ed1c24"
+    },
+    {
+      "army": "Combined Army",
+      "name": "Shasvastii Expeditionary Force",
+      "backgroundColor": "#3f387b",
+      "primaryColor": "#f5e348",
+      "secondaryColor": "#f5e348"
+    },
+    {
+      "army": "Ariadna",
+      "name": "Caledonian Highlander Army",
+      "backgroundColor": "#034871",
+      "primaryColor": "#e3001b",
+      "secondaryColor": "#ffffff"
+    },
+    {
+      "army": "Yu Jing",
+      "name": "Imperial Service",
+      "backgroundColor": "#000000",
+      "primaryColor": "#ffec01",
+      "secondaryColor": "#ffec01"
+    },
+    {
+      "army": "Yu Jing",
+      "name": "Japanese Sectorial Army",
+      "backgroundColor": "#fe0000",
+      "primaryColor": "#000000",
+      "secondaryColor": "#ffffff"
+    },
+    {
+      "army": "Nomads",
+      "name": "Bakunin Jurisdictional Commando",
+      "backgroundColor": "#ffffff",
+      "primaryColor": "#000000",
+      "secondaryColor": "#e67817"
+    },
+    {
+      "army": "Nomads",
+      "name": "Corregidor Jurisdictional Command",
+      "backgroundColor": "#e67817",
+      "primaryColor": "#ffffff",
+      "secondaryColor": "#000000"
+    },
+    {
+      "army": "PanOceania",
+      "name": "Shock Army of Acontecimento",
+      "backgroundColor": "#0193de",
+      "primaryColor": "#a0d113",
+      "secondaryColor": "#ffffff",
+      "otherColor" : "#211b71"
+    },
+    {
+      "army": "PanOceania",
+      "name": "Neoterran Capitaline Army",
+      "backgroundColor": "#0193de",
+      "primaryColor": "#e3001b",
+      "secondaryColor": "#ffffff"
+    },
+    {
+      "army": "PanOceania",
+      "name": "Military Orders",
+      "backgroundColor": "#ffffff",
+      "primaryColor": "#000000",
+      "secondaryColor": "#ec2025"
+    },
+    {
+      "army": "Ariadna",
+      "name": "Merovingian Rapid Response Force",
+      "backgroundColor": "#de1211",
+      "primaryColor": "#131562",
+      "secondaryColor": "#ffe401"
+    },
+    {
+      "army": "Aleph",
+      "name": "Steel Phalanx",
+      "backgroundColor": "#000000",
+      "primaryColor": "#ffffff",
+      "secondaryColor": "#ffffff"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "code": "Spitfire",
+    "cost": "61",
+    "codename": "",
+    "swc": "2",
+    "cbcode": [],
+    "spec": [],
+    "bsw": ["Spitfire"],
+    "ccw": [],
+  },
+  {
+    "code": "Lieutenant Spitfire",
+    "cost": "61",
+    "codename": "",
+    "swc": "2",
+    "bsw": ["Spitfire"],
+    "ccw": [],
+    "spec": [
+      "Lieutenant"
+    ]
+  }
+]

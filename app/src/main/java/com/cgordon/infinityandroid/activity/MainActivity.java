@@ -3,14 +3,11 @@ package com.cgordon.infinityandroid.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.JsonReader;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.cgordon.infinityandroid.R;
-
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import com.cgordon.infinityandroid.json.ArmyParser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -43,10 +40,17 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_load) {
-            InputStream inputStream = getResources().openRawResource(R.raw.toha_units);
+            ArmyParser ap = new ArmyParser(this);
 
-            JsonReader jsonReader = new JsonReader(new InputStreamReader(inputStream));
-
+            ap.parse(R.raw.toha_units);
+            ap.parse(R.raw.pano_units);
+            ap.parse(R.raw.yuji_units);
+            ap.parse(R.raw.aria_units);
+            ap.parse(R.raw.haqq_units);
+            ap.parse(R.raw.noma_units);
+            ap.parse(R.raw.comb_units);
+            ap.parse(R.raw.alep_units);
+            ap.parse(R.raw.merc_units);
 
             return true;
         }
