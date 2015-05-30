@@ -4171,5 +4171,138 @@
     "type": "MI",
     "w": "1",
     "wip": "14"
+  },
+  {
+    "mov": "4-2",
+    "army": "PanOceania",
+    "wip": "12",
+    "bts": "-6",
+    "isc": "Neoterra Bolts",
+    "name": "Neoterra Bolts",
+    "bs": "13",
+    "note": "",
+    "cube": "X",
+    "type": "MI",
+    "ph": "11",
+    "cc": "14",
+    "arm": "2",
+    "irr": "",
+    "w": "1",
+    "ava": "3",
+    "bsw": [],
+    "spec": [
+      "Bioimmunity"
+    ],
+    "ccw": [
+      "Knife",
+      "Pistol"
+    ],
+    "childs": [
+      {
+        "code": "Default",
+        "cost": "22",
+        "codename": "Combi Rifle",
+        "swc": "0",
+        "spec": [],
+        "bsw": [
+          "Combi Rifle",
+          "Light Shotgun"
+        ],
+        "ccw": []
+      },
+      {
+        "code": "Boarding Shotgun",
+        "cost": "19",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Boarding Shotgun",
+          "E/M Grenades"
+        ],
+        "ccw": []
+      },
+      {
+        "code": "MULTI Sniper Rifle",
+        "cost": "30",
+        "codename": "",
+        "swc": "1.5",
+        "spec": [],
+        "bsw": [
+          "MULTI Sniper Rifle"
+        ],
+        "ccw": []
+      },
+      {
+        "code": "Missile Launcher",
+        "cost": "37",
+        "codename": "",
+        "swc": "1.5",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Missile Launcher",
+          "Light Shotgun"
+        ],
+        "ccw": []
+      },
+      {
+        "code": "Spitfire",
+        "cost": "25",
+        "codename": "",
+        "swc": "1.5",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Spitfire"
+        ],
+        "ccw": []
+      },
+      {
+        "code": "Hacker",
+        "cost": "31",
+        "codename": "",
+        "swc": "0.5",
+        "spec": [
+          "Hacking Device"
+        ],
+        "bsw": [
+          "Boarding Shotgun",
+          "E/M Grenades"
+        ],
+        "ccw": []
+      },
+      {
+        "code": "Paramedic",
+        "cost": "26",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+          "MediKit"
+        ],
+        "bsw": [
+          "Combi Rifle",
+          "Light Shotgun"
+        ],
+        "ccw": []
+      },
+      {
+        "code": "Lieutenant",
+        "cost": "22",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+          "Lieutenant"
+        ],
+        "bsw": [
+          "Combi Rifle",
+          "Light Shotgun"
+        ],
+        "ccw": []
+      }
+    ]
   }
 ]

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="army_background">#F00</color>
-    <color name="army_card_background">#EEE</color>
+    <color name="army_card_background">#DDD</color>
 
     <color name="colourPrimary">#2196F3</color>
     <color name="colourPrimaryDark">#1976d2</color>
-    <color name="colourAccent">#FFC107</color>
+    <color name="colourAccent">#f4ff81</color>
 
     <color name="pano">#23A1D9</color>
     <color name="yujing">#DA8C31</color>

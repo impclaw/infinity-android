@@ -11,6 +11,17 @@
         <item name="colorPrimaryDark">@color/colourPrimaryDark</item>
         <item name="colorAccent">@color/colourAccent</item>
     </style>
-    <style name="AppTheme.Toolbar" parent="@style/ThemeOverlay.AppCompat.Dark"/>
+
+    <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.Popup" parent="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <style name="AppTheme.CardView" parent="CardView.Light">
+
+
+
+    </style>
+
+
 
 </resources>

@@ -42,15 +42,19 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_load) {
             ArmyParser ap = new ArmyParser(this);
 
-            ap.parse(R.raw.toha_units);
-            ap.parse(R.raw.pano_units);
-            ap.parse(R.raw.yuji_units);
-            ap.parse(R.raw.aria_units);
-            ap.parse(R.raw.haqq_units);
-            ap.parse(R.raw.noma_units);
-            ap.parse(R.raw.comb_units);
-            ap.parse(R.raw.alep_units);
-            ap.parse(R.raw.merc_units);
+            ap.parseArmy(R.raw.toha_units);
+            ap.parseArmy(R.raw.pano_units);
+            ap.parseArmy(R.raw.yuji_units);
+            ap.parseArmy(R.raw.aria_units);
+            ap.parseArmy(R.raw.haqq_units);
+            ap.parseArmy(R.raw.noma_units);
+            ap.parseArmy(R.raw.comb_units);
+            ap.parseArmy(R.raw.alep_units);
+            ap.parseArmy(R.raw.merc_units);
+            ap.parseArmy(R.raw.other_units);
+
+            ap.parseSectorialList(R.raw.sectorials);
+            // weapons
 
             return true;
         }
