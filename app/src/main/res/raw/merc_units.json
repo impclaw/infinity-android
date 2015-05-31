@@ -111,8 +111,7 @@
         "note": ""
       }
     ],
-    "imp": "X",
-    "functions": []
+    "imp": "X"
   },
   {
     "mov": "4-4",
@@ -200,8 +199,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-2",
@@ -306,8 +304,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -367,8 +364,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "6-4",
@@ -416,8 +412,7 @@
         "note": ""
       }
     ],
-    "imp": "X",
-    "functions": []
+    "imp": "X"
   },
   {
     "mov": "4-4",
@@ -480,8 +475,7 @@
         "note": "only against Yu Jing"
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -491,8 +485,8 @@
       "280704-0142"
     ],
     "bts": "0",
-    "isc": "Saito Tōgan",
-    "name": "Saito Tōgan",
+    "isc": "Saito Togan",
+    "name": "Saito Togan",
     "bs": "11",
     "note": "",
     "cube": "X",
@@ -529,8 +523,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "6-4",
@@ -577,8 +570,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "6-4",
@@ -624,8 +616,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -673,8 +664,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -738,8 +728,7 @@
         "note": ""
       }
     ],
-    "imp": "F",
-    "functions": []
+    "imp": "F"
   },
   {
     "mov": "4-4",
@@ -786,8 +775,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "childs": [

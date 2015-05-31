@@ -20,79 +20,7 @@ public class ArmyParser {
         m_context = context;
     }
 
-    public void parseSectorialList (int resourceId) {
-        InputStream inputStream = m_context.getResources().openRawResource(resourceId);
 
-        JsonReader reader = new JsonReader(new InputStreamReader(inputStream));
-
-        try {
-            reader.beginArray();
-
-            while (reader.hasNext()) {
-                parseSectorialArmy(reader);
-            }
-
-            reader.endArray();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-
-    }
-
-
-    private void parseSectorialArmy(JsonReader reader) throws IOException {
-        reader.beginObject();
-
-        while (reader.hasNext()) {
-            String name = reader.nextName();
-
-            if (name.equals("army")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("name")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("abbr")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("units")) {
-                parseSectorialUnits(reader);
-            } else {
-                throw new IOException("Unable to parse tag in parseSectorialArmy: " + name);
-            }
-        }
-        reader.endObject();
-
-    }
-
-    private void parseSectorialUnits(JsonReader reader) throws IOException {
-        reader.beginArray();
-
-        while (reader.hasNext()) {
-            parseSectorialUnit(reader);
-        }
-        
-        reader.endArray();
-    }
-
-    private void parseSectorialUnit(JsonReader reader) throws IOException {
-        reader.beginObject();
-
-        while (reader.hasNext()) {
-            String name = reader.nextName();
-
-            if (name.equals("ava")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("isc")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("linkable")) {
-                Log.d(TAG, name + " " + reader.nextBoolean());
-            } else if (name.equals("army")) { // it's from an army other than the sectorial army
-                Log.d(TAG, name + " " + reader.nextString());
-            } else {
-                throw new IOException("unknown tag in parseSectorialUnit: " + name);
-            }
-        }
-
-        reader.endObject();
-    }
 
     public void parseArmy(int resourceId) {
         InputStream inputStream = m_context.getResources().openRawResource(resourceId);
@@ -174,14 +102,14 @@ public class ArmyParser {
                     Log.d(TAG, name + " " + reader.nextString());
                 } else if (name.equals("profiles")) {
                     parseProfiles(reader);
-                } else if (name.equals("image")) {
-                    Log.d(TAG, name + " " + reader.nextString());
+//                } else if (name.equals("image")) {
+//                    Log.d(TAG, name + " " + reader.nextString());
                 } else if (name.equals("wtype")) {
                     Log.d(TAG, name + " " + reader.nextString());
                 } else if (name.equals("sharedAva")) { // Caledonian Volunteers
                     Log.d(TAG, name + " " + reader.nextString());
-                } else if (name.equals("functions")) { // can be ignored
-                    reader.skipValue();
+//                } else if (name.equals("functions")) { // can be ignored
+//                    reader.skipValue();
                 } else if (name.equals("altp")) {
                     reader.skipValue();
                 } else if (name.equals("notFor")) {
@@ -323,73 +251,7 @@ public class ArmyParser {
     }
 
 
-    public void parseWeapons(int resourceId) {
-        InputStream inputStream = m_context.getResources().openRawResource(resourceId);
 
-        JsonReader reader = new JsonReader(new InputStreamReader(inputStream));
-
-        try {
-            reader.beginArray();
-
-            while (reader.hasNext()) {
-                parseWeapon(reader);
-            }
-
-            reader.endArray();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-
-    }
-
-    private void parseWeapon(JsonReader reader) throws IOException {
-        reader.beginObject();
-
-        while (reader.hasNext()) {
-            String name = reader.nextName();
-
-            if (name.equals("ammo")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("burst")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("cc")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("damage")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("em_vul")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("long_dist")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("long_mod")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("max_dist")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("max_mod")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("medium_dist")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("medium_mod")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("name")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("note")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("short_dist")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("short_mod")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("template")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("uses")) {
-                Log.d(TAG, name + " " + reader.nextString());
-            } else if (name.equals("attr")) { // attribute
-                Log.d(TAG, name + " " + reader.nextString());
-            } else {
-                throw new IOException("unknown tag in praseWeaon: " + name);
-            }
-        }
-        reader.endObject();
-    }
 
 
 }

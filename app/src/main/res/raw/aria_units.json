@@ -141,8 +141,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -276,8 +275,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-2",
@@ -402,8 +400,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -573,8 +570,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -778,8 +774,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -922,8 +917,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -1045,8 +1039,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -1191,8 +1184,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -1315,8 +1307,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -1405,8 +1396,7 @@
         "note": ""
       }
     ],
-    "imp": "X",
-    "functions": []
+    "imp": "X"
   },
   {
     "mov": "4-4",
@@ -1481,8 +1471,7 @@
         "note": ""
       }
     ],
-    "imp": "X",
-    "functions": []
+    "imp": "X"
   },
   {
     "army": "Ariadna",
@@ -1576,8 +1565,7 @@
     ],
     "ccw": [],
     "bsw": [],
-    "spec": [],
-    "functions": []
+    "spec": []
   },
   {
     "mov": "4-4",
@@ -1622,8 +1610,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -1669,8 +1656,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "6-4",
@@ -1718,8 +1704,7 @@
         "note": ""
       }
     ],
-    "imp": "X",
-    "functions": []
+    "imp": "X"
   },
   {
     "mov": "4-4",
@@ -1829,8 +1814,7 @@
         "note": ""
       }
     ],
-    "imp": "F",
-    "functions": []
+    "imp": "F"
   },
   {
     "mov": "4-4",
@@ -1907,8 +1891,7 @@
         "note": ""
       }
     ],
-    "imp": "F",
-    "functions": []
+    "imp": "F"
   },
   {
     "mov": "4-2",
@@ -2001,8 +1984,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "sharedAva": "Ariadna Militia",
@@ -2157,8 +2139,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -2270,8 +2251,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -2348,8 +2328,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -2409,8 +2388,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -2500,8 +2478,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "sharedAva": "Ariadna Militia",
@@ -2659,8 +2636,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-2",
@@ -2731,8 +2707,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "6-4",
@@ -2795,8 +2770,7 @@
         "note": ""
       }
     ],
-    "imp": "F",
-    "functions": []
+    "imp": "F"
   },
   {
     "mov": "4-4",
@@ -2968,8 +2942,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "army": "Ariadna",
@@ -3071,8 +3044,7 @@
     "spec": [],
     "ccw": [],
     "note": "",
-    "ava": "1",
-    "functions": []
+    "ava": "1"
   },
   {
     "childs": [
@@ -3232,7 +3204,6 @@
     "imp": "",
     "name": "Volunteer Intel Isobel McGregor",
     "isc": "Volunteer Intel Isobel McGregor",
-    "image": "Intel Spec-Ops",
     "mov": "4-4",
     "type": "LI",
     "ph": "11",

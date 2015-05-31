@@ -159,8 +159,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -305,8 +304,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-2",
@@ -442,8 +440,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-2",
@@ -528,8 +525,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-2",
@@ -637,8 +633,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-2",
@@ -742,8 +737,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-2",
@@ -850,8 +844,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-2",
@@ -953,8 +946,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "army": "Yu Jing",
@@ -1058,8 +1050,7 @@
     ],
     "cbcode": [
       "280305-0017"
-    ],
-    "functions": []
+    ]
   },
   {
     "mov": "4-4",
@@ -1197,8 +1188,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -1311,8 +1301,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -1440,8 +1429,7 @@
         "note": ""
       }
     ],
-    "imp": "X",
-    "functions": []
+    "imp": "X"
   },
   {
     "mov": "4-4",
@@ -1484,8 +1472,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -1531,8 +1518,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "6-4",
@@ -1542,7 +1528,7 @@
       "280303-0010"
     ],
     "bts": "-3",
-    "isc": "Yáokòng Wèibīng",
+    "isc": "Yáokòng Wèibing",
     "name": "Weibing",
     "bs": "11",
     "note": "",
@@ -1579,8 +1565,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "6-4",
@@ -1642,8 +1627,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "6-4",
@@ -1687,8 +1671,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "6-6",
@@ -1698,7 +1681,7 @@
       "280303-0010"
     ],
     "bts": "-3",
-    "isc": "Yáokòng Chaīyì",
+    "isc": "Yáokòng Chaiyì",
     "name": "Chaiyi",
     "bs": "8",
     "note": "",
@@ -1733,8 +1716,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-2",
@@ -1816,8 +1798,7 @@
       "ccw": []
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -1962,8 +1943,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -2060,8 +2040,7 @@
         "note": "only JSA"
       }
     ],
-    "imp": "F",
-    "functions": []
+    "imp": "F"
   },
   {
     "mov": "4-4",
@@ -2180,8 +2159,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "6-4",
@@ -2191,7 +2169,7 @@
       "280329-0158"
     ],
     "bts": "-3",
-    "isc": "Yáozăo",
+    "isc": "Yáozao",
     "name": "Yaozao",
     "bs": "8",
     "note": "",
@@ -2224,8 +2202,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -2299,8 +2276,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -2360,8 +2336,7 @@
         "note": ""
       }
     ],
-    "imp": "X",
-    "functions": []
+    "imp": "X"
   },
   {
     "mov": "4-4",
@@ -2452,8 +2427,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -2549,8 +2523,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "isc": "Aragoto Senkenbutai",
@@ -2670,8 +2643,7 @@
         "ccw": [],
         "note": "only JSA"
       }
-    ],
-    "functions": []
+    ]
   },
   {
     "mov": "4-4",
@@ -2758,8 +2730,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -2854,8 +2825,7 @@
         "note": ""
       }
     ],
-    "imp": "X",
-    "functions": []
+    "imp": "X"
   },
   {
     "mov": "4-4",
@@ -2933,8 +2903,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "army": "Yu Jing",
@@ -3002,8 +2971,7 @@
         "note": ""
       }
     ],
-    "note": "",
-    "functions": []
+    "note": ""
   },
   {
     "army": "Yu Jing",
@@ -3111,8 +3079,7 @@
         "note": ""
       }
     ],
-    "ava": "1",
-    "functions": []
+    "ava": "1"
   },
   {
     "mov": "4-4",
@@ -3173,8 +3140,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -3236,8 +3202,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "6-4",
@@ -3283,8 +3248,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "6-4",
@@ -3294,7 +3258,7 @@
       "280357-0362"
     ],
     "bts": "-3",
-    "isc": "Yáoxiè Lù Duān",
+    "isc": "Yáoxiè Lù Duan",
     "name": "Lu Duan",
     "bs": "12",
     "note": "",
@@ -3332,8 +3296,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -3396,8 +3359,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -3460,8 +3422,7 @@
         "note": ""
       }
     ],
-    "imp": "F",
-    "functions": []
+    "imp": "F"
   },
   {
     "mov": "4-4",
@@ -3553,8 +3514,7 @@
         "note": ""
       }
     ],
-    "imp": "",
-    "functions": []
+    "imp": ""
   },
   {
     "childs": [
@@ -3585,8 +3545,8 @@
     "bs": "X",
     "cc": "X",
     "imp": "",
-    "name": "Guǐ Fēng",
-    "isc": "Guǐ Fēng Spec-Ops",
+    "name": "Gui Feng",
+    "isc": "Gui Feng Spec-Ops",
     "mov": "X-X",
     "type": "LI",
     "ph": "X",
@@ -3647,9 +3607,8 @@
     "bs": "12",
     "cc": "14",
     "imp": "",
-    "name": "Keisotsu Guǐ Fēng Yuriko Oda",
-    "isc": "Keisotsu Guǐ Fēng Yuriko Oda",
-    "image": "Guǐ Fēng Spec-Ops",
+    "name": "Keisotsu Gui Feng Yuriko Oda",
+    "isc": "Keisotsu Gui Feng Yuriko Oda",
     "mov": "4-4",
     "type": "LI",
     "ph": "11",

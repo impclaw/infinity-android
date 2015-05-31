@@ -8,6 +8,8 @@ import android.view.MenuItem;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.json.ArmyParser;
+import com.cgordon.infinityandroid.json.SectorialParser;
+import com.cgordon.infinityandroid.json.WeaponParser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,8 +55,11 @@ public class MainActivity extends AppCompatActivity {
             ap.parseArmy(R.raw.merc_units);
             ap.parseArmy(R.raw.other_units);
 
-            ap.parseSectorialList(R.raw.sectorials);
-            ap.parseWeapons(R.raw.weapons);
+            SectorialParser sp = new SectorialParser(this);
+            sp.parse(R.raw.sectorials);
+
+            WeaponParser wp = new WeaponParser(this);
+            wp.parse(R.raw.weapons);
 
             return true;
         }
