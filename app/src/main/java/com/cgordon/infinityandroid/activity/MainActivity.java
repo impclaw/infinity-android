@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             ap.parseArmy(R.raw.other_units);
 
             ap.parseSectorialList(R.raw.sectorials);
-            // weapons
+            ap.parseWeapons(R.raw.weapons);
 
             return true;
         }
