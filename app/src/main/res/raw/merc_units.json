@@ -963,7 +963,6 @@
       {
         "name": "Dismounted",
         "mov": "4-4",
-        "ava": " ",
         "bsw": [],
         "ccw": [],
         "s": "2",
@@ -1051,7 +1050,6 @@
       },
       {
         "arm": "1",
-        "ava": "1",
         "bs": "11",
         "bsw": [
           "Combi Rifle",
@@ -1097,7 +1095,6 @@
         "bts": "0",
         "w": "1",
         "type": "LI",
-        "ava": "",
         "bsw": [
           "Light Shotgun"
         ],
@@ -1182,7 +1179,6 @@
                   "s": "2",
                   "hackable": "",
                   "type": "LI",
-                  "ava": "",
                   "bsw": [
                           "Spitfire"
                           ],

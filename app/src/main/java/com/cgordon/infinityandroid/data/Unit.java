@@ -7,35 +7,18 @@ import java.util.ArrayList;
  */
 public class Unit {
 
-    ArrayList<Child> childs;
-    ArrayList<String> bsw;
-    ArrayList<String> ccw;
-    String ava;
-    String irr;
-    String arm;
-    String bts;
-    String army;
-    String note;
-    String cube;
-    String bs;
-    String cc;
-    String imp;
-    String name;
-    String isc;
-    String mov;
-    String type;
-    String ph;
-    String spec;
-    String wounds;
-    String wip;
-    ArrayList<Profile> profiles;
-    String woundType;
-    int sharedAva;
+    public String ava;
+    public String sharedAva; // Other unit that subtracts from this units Ava
+    public ArrayList<Profile> profiles;
+    public ArrayList<Option> options;
+    public String army;
+    public String note;  //used?
+    public String name;
+    public String isc;
+    public String image;
 
     public Unit () {
-        childs = new ArrayList<Child>();
-        bsw = new ArrayList<String>();
-        ccw = new ArrayList<String>();
+        options = new ArrayList<Option>();
         profiles = new ArrayList<Profile>();
 
     }

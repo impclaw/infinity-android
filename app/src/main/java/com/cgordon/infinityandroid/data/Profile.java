@@ -7,29 +7,31 @@ import java.util.ArrayList;
  */
 public class Profile {
 
-    ArrayList<String> bsw;
-    ArrayList<String> ccw;
-    String irr;
-    String arm;
-    String bts;
-    String bs;
-    String cc;
-    String imp;
-    String name;
-    String mov;
-    String ph;
-    ArrayList<String> spec;
-    String wounds;
-    String wip;
-    String type;
-    String cube;
-    int ava;
-    String army;
-    String note;
-    String woundType;
-    String optionSpecific;
-    String isc;
-    String allProfilesMustDie;
+    public ArrayList<String> bsw;
+    public ArrayList<String> ccw;
+    public ArrayList<String> spec;
+
+    public String mov;
+    public String cc;
+    public String bs;
+    public String ph;
+    public String wip;
+    public String arm;
+    public String bts;
+    public String wounds;
+    public String woundType;
+    public String silhouette;
+    public boolean irr;
+    public String imp;
+    public String cube;
+    public String note;
+    public String isc;
+    public String name;
+    public String type;
+    public boolean hackable;
+
+    public String optionSpecific; // this profile is only used with certain options.  Should match up with Option.profile (?)
+    public String allProfilesMustDie; //If there are multiple profiles, victory points aren't awarded until all profiles are dead
 
     public Profile() {
         bsw = new ArrayList<String>();
