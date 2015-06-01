@@ -353,7 +353,7 @@
   "note": "",
   "short_dist": "8",
   "short_mod": "6",
-  "template": "No",
+  "template": "No"
  },
  {
   "ammo": "N",
@@ -1148,7 +1148,7 @@
   "note": "",
   "short_dist": "8",
   "short_mod": "-3",
-  "template": "No",
+  "template": "No"
  },
  {
   "ammo": "FIRE",
@@ -1220,7 +1220,7 @@
   "note": "",
   "short_dist": "8",
   "short_mod": "6",
-  "template": "No",
+  "template": "No"
  },
  {
   "ammo": "DA",
@@ -1748,7 +1748,7 @@
   "note": "",
   "short_dist": "8",
   "short_mod": "3",
-  "template": "No",
+  "template": "No"
  },
  {
   "ammo": "PLASMA",
@@ -1822,7 +1822,7 @@
   "note": "",
   "short_dist": "8",
   "short_mod": "-3",
-  "template": "No",
+  "template": "No"
  },
  {
   "ammo": "N",
@@ -2336,7 +2336,7 @@
   "uses" : "2",
   "short_dist": "8",
   "short_mod": "-3",
-  "template": "No",
+  "template": "No"
  },
  {
   "ammo": "N",

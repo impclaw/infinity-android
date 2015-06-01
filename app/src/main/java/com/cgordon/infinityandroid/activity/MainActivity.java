@@ -23,9 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
     }
 
 
@@ -59,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Other " + up.parse(R.raw.other_units).size());
 
             SectorialParser sp = new SectorialParser(this);
-            sp.parse(R.raw.sectorials);
+            Log.d(TAG, "Sectorials: " + sp.parse(R.raw.sectorials).size());
 
             WeaponParser wp = new WeaponParser(this);
-            wp.parse(R.raw.weapons);
+            Log.d(TAG, "Weapons: " + wp.parse(R.raw.weapons).size());
 
             return true;
         }

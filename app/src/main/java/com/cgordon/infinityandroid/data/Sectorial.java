@@ -5,15 +5,15 @@ import java.util.ArrayList;
 /**
  * Created by cgordon on 6/1/2015.
  */
-public class Army {
+public class Sectorial {
 
     public String army;
     public String name;
     public String abbr;
 
-    public ArrayList<Unit> units;
+    public ArrayList<SectorialUnit> units;
 
-    public Army() {
-        units = new ArrayList<Unit>();
+    public Sectorial() {
+        units = new ArrayList<SectorialUnit>();
     }
 }
