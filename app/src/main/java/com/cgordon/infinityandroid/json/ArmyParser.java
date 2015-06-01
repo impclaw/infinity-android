@@ -102,9 +102,11 @@ public class ArmyParser {
                     Log.d(TAG, name + " " + reader.nextString());
                 } else if (name.equals("profiles")) {
                     parseProfiles(reader);
-//                } else if (name.equals("image")) {
-//                    Log.d(TAG, name + " " + reader.nextString());
+                } else if (name.equals("image")) { // this is the unit image to use if there isn't one specifically; usually a spec-ops model using a base model's logo
+                    Log.d(TAG, name + " " + reader.nextString());
                 } else if (name.equals("wtype")) {
+                    Log.d(TAG, name + " " + reader.nextString());
+                } else if (name.equals("hackable")) {
                     Log.d(TAG, name + " " + reader.nextString());
                 } else if (name.equals("sharedAva")) { // Caledonian Volunteers
                     Log.d(TAG, name + " " + reader.nextString());
@@ -114,6 +116,8 @@ public class ArmyParser {
                     reader.skipValue();
                 } else if (name.equals("notFor")) {
                     reader.skipValue();
+                } else if (name.equals("s")) {
+                    Log.d(TAG, name + " " + reader.nextString());
                 } else {
                     throw new IOException("Unknown tag in parse Unit: " + name);
                 }
@@ -192,6 +196,10 @@ public class ArmyParser {
                 reader.skipValue();
             } else if (name.equals("allProfilesMustDie")) {  // mirage-5
                 Log.d(TAG, name + " " + reader.nextString());
+            } else if (name.equals("s")) {
+                Log.d(TAG, name + " " + reader.nextString());
+            } else if (name.equals("hackable")) {
+                Log.d(TAG, name + " " + reader.nextString());
             } else {
                 throw new IOException("Unknown tag in parse Profile: " + name);
             }
@@ -226,6 +234,13 @@ public class ArmyParser {
                 Log.d(TAG, name + " " + reader.nextString());
             } else if (name.equals("spec")) {
                 parseSubArray(reader);
+            } else if (name.equals("independent")) {
+                reader.beginObject();
+                reader.nextName();
+                reader.nextString(); //cost
+                reader.nextName();
+                reader.nextString(); //swc
+                reader.endObject();
             } else if (name.equals("profile")) {
                 Log.d(TAG, name + " " + reader.nextString());
 // was used in the deva functionary, but not used in MayaNet

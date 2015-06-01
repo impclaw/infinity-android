@@ -44,7 +44,7 @@
    },
    {
     "ava": "5",
-    "isc": "Janissaires",
+    "isc": "Janissaries",
     "linkable": true
    },
    {
@@ -113,6 +113,11 @@
    {
     "ava": "1",
     "isc": "Husam Spec-Ops"
+   },
+   {
+    "ava": "1",
+    "isc": "Warcor",
+    "army" : "Mercenary"
    }
   ]
  },
@@ -127,6 +132,11 @@
    {
     "ava": "4",
     "isc": "Ghulam",
+    "linkable": true
+   },
+   {
+    "ava": "5",
+    "isc": "Hassassin Govads",
     "linkable": true
    },
    {
@@ -169,7 +179,7 @@
     "isc": "Hussein Al-Djabel"
    },
    {
-    "ava": "2",
+    "ava": "1",
     "isc": "Rafiq Remote"
    },
    {
@@ -202,7 +212,13 @@
    },
    {
     "ava": "1",
-    "isc": "Hassassin Husam Yasbir"
+    "isc": "Hassassin Husam Yasbir",
+    "linkable": true
+   },
+   {
+    "ava": "1",
+    "isc": "Warcor",
+    "army" : "Mercenary"
    }
   ]
  },
@@ -218,6 +234,11 @@
    {
     "ava": "3",
     "isc": "Kurgat Reg. of Assault Engineers"
+   },
+   {
+    "ava": "5",
+    "isc": "Rodok",
+    "linkable": true
    },
    {
     "ava": "5",
@@ -280,7 +301,7 @@
    },
    {
     "ava": "2",
-    "isc": "Ikadron"
+    "isc": "Ikadron Batroids"
    },
    {
     "ava": "1",
@@ -312,7 +333,8 @@
    },
    {
     "ava": "1",
-    "isc": "Treitak Anyat"
+    "isc": "Treitak Anyat",
+    "linkable": true
    }
   ]
  },
@@ -336,7 +358,7 @@
    },
    {
     "ava": "5",
-    "isc": "Shasvastii Aswuangs"
+    "isc": "Shasvastii Aswangs"
    },
    {
     "ava": "3",
@@ -403,11 +425,12 @@
    },
    {
     "ava": "2",
-    "isc": "Ikadron"
+    "isc": "Ikadron Batroids"
    },
    {
     "ava": "1",
-    "isc": "Cadmus-Naish Agent Sheskiin"
+    "isc": "Cadmus-Naish Agent Sheskiin",
+    "linkable": true
    },
    {
     "ava": "1",
@@ -419,7 +442,8 @@
    },
    {
     "ava": "1",
-    "isc": "Shasvastii Corax Hasht"
+    "isc": "Shasvastii Corax Hasht",
+    "linkable": true
    }
   ]
  },
@@ -434,13 +458,12 @@
     "linkable": true
    },
    {
-    "ava": "4",
+    "ava": "6",
     "isc": "Highlander Caterans"
    },
    {
     "ava": "5",
-    "isc": "3rd Highlander Greys",
-    "linkable": true
+    "isc": "3rd Highlander Greys"
    },
    {
     "ava": "5",
@@ -452,8 +475,9 @@
     "linkable": true
    },
    {
-    "ava": "3",
-    "isc": "Caledonian Mormaers"
+    "ava": "5",
+    "isc": "Caledonian Mormaers",
+    "linkable": true
    },
    {
     "ava": "4",
@@ -478,7 +502,7 @@
     "isc": "Traktor Mul, Artillery and Support Regiment"
    },
    {
-    "ava": "2",
+    "ava": "3",
     "isc": "112, Emergency Service"
    },
    {
@@ -491,7 +515,8 @@
    },
    {
     "ava": "1",
-    "isc": "William Wallace"
+    "isc": "William Wallace",
+    "linkable": true
    },
    {
     "ava": "1",
@@ -502,10 +527,16 @@
     "ava": "1",
     "isc": "Intel Spec-Ops"
    },
-    {
+   {
     "ava": "1",
-    "isc": "Volunteer Intel Isobel McGregor"
-    }
+    "isc": "Volunteer Intel Isobel McGregor",
+    "linkable": true
+   },
+   {
+    "ava": "1",
+    "isc": "Warcor",
+    "army" : "Mercenary"
+   }
   ]
  },
  {
@@ -518,8 +549,13 @@
     "linkable": true
    },
    {
+    "ava": "5",
+    "isc": "Zhànying Imperial Agents",
+    "linkable": true
+   },
+   {
     "ava": "1",
-    "isc": "Miranda Ashcroft, Authorized Bounty Hunter",
+    "isc": "Miranda Ashcroft",
     "army" : "Mercenary"
    },
    {
@@ -561,7 +597,7 @@
     "linkable": true
    },
    {
-    "ava": "2",
+    "ava": "1",
     "isc": "Dakini Tacbots",
     "army": "Aleph"
    },
@@ -629,6 +665,11 @@
     "ava": "3",
     "isc": "Authorized Bounty Hunters",
     "army": "Mercenary"
+   },
+   {
+    "ava": "1",
+    "isc": "Warcor",
+    "army" : "Mercenary"
    }
   ]
  },
@@ -750,13 +791,19 @@
    },
    {
      "ava": "1",
-     "isc": "Keisotsu Guǐ Fēng Yuriko Oda"
+     "isc": "Keisotsu Guǐ Fēng Yuriko Oda",
+     "linkable": true
+   },
+   {
+    "ava": "1",
+    "isc": "Warcor",
+    "army" : "Mercenary"
    }
   ]
  },
  {
   "army": "Nomads",
-  "name": "Bakunin Jurisdictional Commando",
+  "name": "Bakunin Jurisdictional Command",
   "abbr": "Bakunin",
   "units": [
    {
@@ -772,6 +819,11 @@
    {
     "ava": "3",
     "isc": "Reverend Custodiers",
+    "linkable": true
+   },
+   {
+    "ava": "3",
+    "isc": "Reverend Healers",
     "linkable": true
    },
    {
@@ -792,7 +844,7 @@
    },
    {
     "ava": "T",
-    "isc": "Der Morlock Gruppe"
+    "isc": "Die Morlock Gruppe"
    },
    {
     "ava": "3",
@@ -872,6 +924,11 @@
    {
     "ava": "1",
     "isc": "Vortex Spec-Ops"
+   },
+   {
+    "ava": "1",
+    "isc": "Warcor",
+    "army" : "Mercenary"
    }
   ]
  },
@@ -916,8 +973,17 @@
     "isc": "Gecko"
    },
    {
+    "ava": "3",
+    "isc": "Corregidor Bandits"
+   },
+   {
     "ava": "2",
     "isc": "Moran, Maasai Hunter"
+   },
+   {
+    "ava": "5",
+    "isc": "Corregidor Jaguars",
+    "linkable": true
    },
    {
     "ava": "1",
@@ -925,7 +991,7 @@
    },
    {
     "ava": "1",
-    "isc": "Senor Massacre",
+    "isc": "Señor Massacre",
     "army": "Mercenary"
    },
    {
@@ -982,11 +1048,16 @@
     "ava": "1",
     "isc": "Vortex Spec-Ops"
    },
-    {
+   {
     "ava": "1",
-    "isc": "Alguacil Vortex Lupe Balboa"
-    }
-            
+    "isc": "Alguacil Vortex Lupe Balboa",
+    "linkable": true
+   },
+   {
+    "ava": "1",
+    "isc": "Warcor",
+    "army" : "Mercenary"
+   }
   ]
  },
  {
@@ -1055,7 +1126,7 @@
     "isc": "Clipper Dronbot"
    },
    {
-    "ava": "3",
+    "ava": "2",
     "isc": "Fugazi Dronbot"
    },
    {
@@ -1085,6 +1156,11 @@
    {
     "ava": "1",
     "isc": "Indigo Spec-Ops"
+   },
+   {
+    "ava": "1",
+    "isc": "Warcor",
+    "army" : "Mercenary"
    }
   ]
  },
@@ -1103,6 +1179,11 @@
     "linkable": true
    },
    {
+    "ava": "T",
+    "isc": "Neoterra Bolts",
+    "linkable": true
+   },
+   {
     "ava": "3",
     "isc": "Hexas, Strategic Security Division"
    },
@@ -1116,7 +1197,7 @@
    },
    {
     "ava": "2",
-    "isc": "Armoured Cavalry"
+    "isc": "Squalos"
    },
    {
     "ava": "2",
@@ -1178,7 +1259,18 @@
    },
    {
     "ava": "1",
-    "isc": "Fusilier Indigo Bipanda"
+    "isc": "Fusilier Indigo Bipandra",
+    "linkable": true
+   },
+   {
+    "ava": "2",
+    "isc": "CSU, Corporate Security Unit",
+    "army" : "Mercenary"
+   },
+   {
+    "ava": "1",
+    "isc": "Warcor",
+    "army" : "Mercenary"
    }
   ]
  },
@@ -1227,6 +1319,10 @@
     "ava": "6",
     "isc": "Magister Knights",
     "linkable": true
+   },
+   {
+    "ava": "3",
+    "isc": "Father-Knights"
    },
    {
     "ava": "2",
@@ -1293,13 +1389,21 @@
    },
    {
     "ava": "1",
-    "isc": "Fusilier Indigo Bipanda"
+    "isc": "Fusilier Indigo Bipandra",
+    "linkable": true
    },
    {
     "ava": "1",
-    "isc": "Indigo Brother Konstantinos"
+    "isc": "Indigo Brother Konstantinos",
+    "linkable": true
+   },
+   {
+    "ava": "1",
+    "isc": "Warcor",
+    "army" : "Mercenary"
    }
   ],
+  "functions": [ ]
  },
  {
   "army": "Ariadna",
@@ -1325,7 +1429,7 @@
     "isc": "Zouaves"
    },
    {
-    "ava": "4",
+    "ava": "5",
     "isc": "Moblots",
     "linkable": true
    },
@@ -1362,7 +1466,7 @@
    },
    {
     "ava": "1",
-    "isc": "Margot Berthnier, Mirage-5"
+    "isc": "Margot Berthier, Mirage-5"
    },
    {
     "ava": "1",
@@ -1372,6 +1476,11 @@
     "ava": "1",
     "army" : "Mercenary",
     "isc": "Anaconda"
+   },
+   {
+    "ava": "1",
+    "army" : "Mercenary",
+    "isc": "Warcor"
    }
   ]
  },
@@ -1382,6 +1491,10 @@
    {
     "ava": "4",
     "isc": "Ekdromoi"
+   },
+   {
+    "ava": "4",
+    "isc": "Dactyls"
    },
    {
     "ava": "1",
@@ -1461,8 +1574,7 @@
    },
    {
     "ava": "4",
-    "isc": "Yudbots",
-    "army": "Aleph"
+    "isc": "Yudbots"
    },
    {
     "ava": "2",
@@ -1479,6 +1591,11 @@
    {
     "ava": "1",
     "isc": "Chandra Sergeant Thrasymedes"
+   },
+   {
+    "ava": "1",
+    "isc": "Warcor",
+    "army" : "Mercenary"
    }
   ]
  }

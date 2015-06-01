@@ -38,7 +38,7 @@
              "isc" : "Chandra Spec-Ops",
              "basemodels" :[{
                             "isc":"Thorakitai",
-                            "code":"Combi Rifle"
+                            "code":"Combi"
                             }]
              }],
         "Ariadna":
@@ -63,7 +63,7 @@
                             "code":"Default"
                             },{
                             "isc":"Hassassin Muyibs",
-                            "code":"Panzerfaust"
+                            "code":"Default"
                             },{
                             "isc":"Hafza Unit",
                             "code":"Default"

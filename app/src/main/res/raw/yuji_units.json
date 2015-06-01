@@ -21,6 +21,7 @@
     "arm": "1",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "T",
     "bsw": [],
     "spec": [
@@ -46,9 +47,9 @@
       },
       {
         "code": "HMG",
-        "cost": "18",
+        "cost": "17",
         "codename": "",
-        "swc": "0.5",
+        "swc": "1",
         "cbcode": [],
         "spec": [],
         "bsw": [
@@ -59,7 +60,7 @@
       },
       {
         "code": "Grenadier",
-        "cost": "14",
+        "cost": "13",
         "codename": "",
         "swc": "0.5",
         "cbcode": [],
@@ -72,8 +73,8 @@
         "note": ""
       },
       {
-        "code": "Sniper",
-        "cost": "23",
+        "code": "MULTI Sniper Rifle",
+        "cost": "17",
         "codename": "",
         "swc": "1.5",
         "cbcode": [],
@@ -85,10 +86,10 @@
         "note": ""
       },
       {
-        "code": "Missile",
-        "cost": "25",
+        "code": "Missile Launcher",
+        "cost": "14",
         "codename": "",
-        "swc": "0.5",
+        "swc": "1.5",
         "cbcode": [],
         "spec": [],
         "bsw": [
@@ -99,7 +100,7 @@
       },
       {
         "code": "Hacker",
-        "cost": "21",
+        "cost": "17",
         "codename": "",
         "swc": "0.5",
         "cbcode": [],
@@ -115,7 +116,7 @@
       },
       {
         "code": "Observer",
-        "cost": "12",
+        "cost": "10",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -130,7 +131,7 @@
       },
       {
         "code": "Paramedic",
-        "cost": "12",
+        "cost": "11",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -183,6 +184,7 @@
     "arm": "1",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "T",
     "bsw": [],
     "spec": [],
@@ -206,7 +208,7 @@
       },
       {
         "code": "HMG",
-        "cost": "20",
+        "cost": "19",
         "codename": "",
         "swc": "1",
         "cbcode": [],
@@ -219,7 +221,7 @@
       },
       {
         "code": "Grenadier",
-        "cost": "16",
+        "cost": "15",
         "codename": "",
         "swc": "1",
         "cbcode": [],
@@ -232,8 +234,8 @@
         "note": ""
       },
       {
-        "code": "Sniper",
-        "cost": "25",
+        "code": "MULTI Sniper Rifle",
+        "cost": "19",
         "codename": "",
         "swc": "1.5",
         "cbcode": [],
@@ -245,10 +247,10 @@
         "note": ""
       },
       {
-        "code": "Missile",
-        "cost": "27",
+        "code": "Missile Launcher",
+        "cost": "16",
         "codename": "",
-        "swc": "1",
+        "swc": "1.5",
         "cbcode": [],
         "spec": [],
         "bsw": [
@@ -259,7 +261,7 @@
       },
       {
         "code": "Hacker",
-        "cost": "23",
+        "cost": "19",
         "codename": "",
         "swc": "0.5",
         "cbcode": [],
@@ -275,7 +277,7 @@
       },
       {
         "code": "Paramedic",
-        "cost": "15",
+        "cost": "13",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -289,16 +291,193 @@
         "note": ""
       },
       {
+        "code": "Observer",
+        "cost": "12",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+          "Forward Observer"
+        ],
+        "bsw": [
+          "Combi Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
         "code": "Lieutenant",
         "cost": "11",
         "codename": "",
-        "swc": "1",
+        "swc": "0",
         "cbcode": [],
         "spec": [
           "Lieutenant"
         ],
         "bsw": [
           "Combi Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      }
+    ],
+    "imp": ""
+  },
+  {
+    "mov": "4-4",
+    "army": "Yu Jing",
+    "wip": "13",
+    "cbcode": [
+      "280307-0023",
+      "280309-0025",
+      "280310-0026",
+      "280318-0086"
+    ],
+    "bts": "3",
+    "isc": "Zhànying Imperial Agents",
+    "name": "Zhànying",
+    "bs": "12",
+    "note": "",
+    "cube": "X",
+    "type": "LI",
+    "ph": "10",
+    "cc": "16",
+    "arm": "2",
+    "irr": "",
+    "w": "1",
+    "s": "2",
+    "ava": "2",
+    "bsw": [],
+    "spec": [
+      "Bioimmunity",
+      "Sixth Sense L2"
+    ],
+    "ccw": [
+      "Electric Pulse",
+      "Pistol"
+    ],
+    "childs": [
+      {
+        "code": "Combi",
+        "cost": "26",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+            "Sensor"
+        ],
+        "bsw": [
+          "Breaker Combi Rifle",
+          "Nimbus Grenades"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "HMG",
+        "cost": "30",
+        "codename": "",
+        "swc": "1",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "HMG"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Boarding Shotgun",
+        "cost": "23",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+            "Sensor"
+        ],
+        "bsw": [
+          "Boarding Shotgun",
+          "Nimbus Grenades"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Missile Launcher",
+        "cost": "28",
+        "codename": "",
+        "swc": "1.5",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Missile Launcher",
+          "Nanopulser",
+          "Nimbus Grenades"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Hacker",
+        "cost": "32",
+        "codename": "",
+        "swc": "0.5",
+        "cbcode": [],
+        "spec": [
+            "Hacker",
+            "Hacking Device"
+        ],
+        "bsw": [
+          "Breaker Combi Rifle"
+        ],
+        "ccw": [
+            "D-Charges"
+        ],
+        "note": ""
+      },
+      {
+        "code": "Observer",
+        "cost": "25",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+            "Forward Observer"
+        ],
+        "bsw": [
+          "Breaker Combi Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Lieutenant",
+        "cost": "26",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+            "Sensor",
+            "Lieutenant"
+        ],
+        "bsw": [
+          "Breaker Combi Rifle",
+          "Nimbus Grenades"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "HMG Lieutenant",
+        "cost": "30",
+        "codename": "",
+        "swc": "1",
+        "cbcode": [],
+        "spec": [
+            "Lieutenant"
+        ],
+        "bsw": [
+          "HMG"
         ],
         "ccw": [],
         "note": ""
@@ -326,6 +505,7 @@
     "arm": "2",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "3",
     "bsw": [],
     "spec": [
@@ -347,6 +527,154 @@
         "bsw": [
           "Combi Rifle",
           "Light Flamethrower"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Spitfire",
+        "cost": "32",
+        "codename": "",
+        "swc": "1.5",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Spitfire"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Boarding Shotgun",
+        "cost": "25",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Boarding Shotgun"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "MULTI Sniper Rifle",
+        "cost": "34",
+        "codename": "",
+        "swc": "1.5",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "MULTI Sniper Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Hacker",
+        "cost": "33",
+        "codename": "",
+        "swc": "0.5",
+        "cbcode": [],
+        "spec": [
+          "Hacker",
+          "Assault Hacking Device"
+        ],
+        "bsw": [
+          "Combi Rifle",
+          "Light Flamethrower"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Paramedic",
+        "cost": "29",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+          "MediKit"
+        ],
+        "bsw": [
+          "Combi Rifle",
+          "Light Flamethrower"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Lieutenant",
+        "cost": "27",
+        "codename": "",
+        "swc": "1",
+        "cbcode": [],
+        "spec": [
+          "Lieutenant"
+        ],
+        "bsw": [
+          "Combi Rifle",
+          "Light Flamethrower"
+        ],
+        "ccw": [],
+        "note": ""
+      }
+    ],
+    "imp": ""
+  },
+  {
+    "mov": "4-4",
+    "army": "Yu Jing",
+    "wip": "13",
+    "cbcode": [],
+    "bts": "3",
+    "isc": "Zúyong Invincibles",
+    "name": "Zúyong",
+    "bs": "13",
+    "note": "",
+    "cube": "X",
+    "type": "HI",
+    "hackable": "X",
+    "ph": "12",
+    "cc": "15",
+    "arm": "3",
+    "irr": "",
+    "w": "2",
+    "s": "2",
+    "ava": "5",
+    "bsw": [],
+    "spec": [
+        "Kinematika L1"
+    ],
+    "ccw": [
+      "Knife",
+      "Breaker Pistol (2)"
+    ],
+    "childs": [
+      {
+        "code": "Default",
+        "cost": "27",
+        "codename": "Combi",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Combi Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Tinbot",
+        "cost": "30",
+        "codename": "",
+        "swc": "0.5",
+        "cbcode": [],
+        "spec": [
+            "Tinbot B (Deflector L2)"
+        ],
+        "bsw": [
+          "Combi Rifle"
         ],
         "ccw": [],
         "note": ""
@@ -378,47 +706,73 @@
         "note": ""
       },
       {
-        "code": "Sniper",
-        "cost": "40",
+        "code": "MULTI",
+        "cost": "31",
         "codename": "",
-        "swc": "1.5",
+        "swc": "0",
         "cbcode": [],
         "spec": [],
         "bsw": [
-          "MULTI Sniper Rifle"
+          "MULTI Rifle"
         ],
         "ccw": [],
         "note": ""
       },
       {
-        "code": "Hacker",
+        "code": "Missile Launcher",
+        "cost": "36",
+        "codename": "",
+        "swc": "2",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Missile Launcher",
+          "Light Shotgun"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "AutoMediKit HMG",
         "cost": "39",
         "codename": "",
-        "swc": "0.5",
+        "swc": "2",
         "cbcode": [],
         "spec": [
-          "Hacker",
-          "Hacking Device"
+            "AutoMediKit"
         ],
         "bsw": [
-          "Combi Rifle",
-          "Light Flamethrower"
+          "HMG"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Observer",
+        "cost": "28",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+            "Forward Observer"
+        ],
+        "bsw": [
+          "Combi Rifle"
         ],
         "ccw": [],
         "note": ""
       },
       {
         "code": "Paramedic",
-        "cost": "31",
+        "cost": "29",
         "codename": "",
         "swc": "0",
         "cbcode": [],
         "spec": [
-          "MediKit"
+            "MediKit"
         ],
         "bsw": [
-          "Combi Rifle",
-          "Light Flamethrower"
+          "Combi Rifle"
         ],
         "ccw": [],
         "note": ""
@@ -427,102 +781,32 @@
         "code": "Lieutenant",
         "cost": "27",
         "codename": "",
-        "swc": "1",
-        "cbcode": [],
-        "spec": [
-          "Lieutenant"
-        ],
-        "bsw": [
-          "Combi Rifle",
-          "Light Flamethrower"
-        ],
-        "ccw": [],
-        "note": ""
-      }
-    ],
-    "imp": ""
-  },
-  {
-    "mov": "4-2",
-    "army": "Yu Jing",
-    "wip": "13",
-    "cbcode": [
-      "280302-0009",
-      "280306-0022"
-    ],
-    "bts": "-3",
-    "isc": "Invincibles",
-    "name": "Invincible",
-    "bs": "13",
-    "note": "",
-    "cube": "X",
-    "type": "HI",
-    "ph": "14",
-    "cc": "16",
-    "arm": "4",
-    "irr": "",
-    "w": "2",
-    "ava": "4",
-    "bsw": [],
-    "spec": [],
-    "ccw": [
-      "CCW",
-      "Pistol"
-    ],
-    "childs": [
-      {
-        "code": "Default",
-        "cost": "42",
-        "codename": "MULTI",
         "swc": "0",
         "cbcode": [],
-        "spec": [],
+        "spec": [
+            "Lieutenant"
+        ],
         "bsw": [
-          "MULTI Rifle"
+          "Combi Rifle"
         ],
         "ccw": [],
         "note": ""
       },
       {
-        "code": "HMG",
-        "cost": "43",
+        "code": "HMG Lieutenant",
+        "cost": "39",
         "codename": "",
-        "swc": "2",
+        "swc": "1",
         "cbcode": [],
-        "spec": [],
+        "spec": [
+            "AutoMediKit",
+            "Lieutenant"
+        ],
         "bsw": [
           "HMG"
         ],
         "ccw": [],
         "note": ""
-      },
-      {
-        "code": "Boarding Shotgun",
-        "cost": "34",
-        "codename": "",
-        "swc": "0",
-        "cbcode": [],
-        "spec": [],
-        "bsw": [
-          "Boarding Shotgun"
-        ],
-        "ccw": [],
-        "note": ""
-      },
-      {
-        "code": "Lieutenant",
-        "cost": "42",
-        "codename": "",
-        "swc": "0",
-        "cbcode": [],
-        "spec": [
-          "Lieutenant"
-        ],
-        "bsw": [
-          "MULTI Rifle"
-        ],
-        "ccw": [],
-        "note": ""
       }
     ],
     "imp": ""
@@ -531,31 +815,135 @@
     "mov": "4-2",
     "army": "Yu Jing",
     "wip": "13",
+    "cbcode": [],
+    "bts": "3",
+    "isc": "Yan Huo Invincibles",
+    "name": "Yan Huo",
+    "bs": "14",
+    "note": "",
+    "cube": "X",
+    "type": "HI",
+    "hackable": "X",
+    "ph": "13",
+    "cc": "15",
+    "arm": "5",
+    "irr": "",
+    "w": "2",
+    "s": "5",
+    "ava": "2",
+    "bsw": [],
+    "spec": [],
+    "ccw": [
+      "Knife",
+      "Pistol"
+    ],
+    "childs": [
+      {
+        "code": "MULTI HMG",
+        "cost": "53",
+        "codename": "",
+        "swc": "2",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "MULTI HMG"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "HMC",
+        "cost": "54",
+        "codename": "",
+        "swc": "2",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "HMC"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Missile Launcher",
+        "cost": "52",
+        "codename": "",
+        "swc": "2",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Missile Launcher (2)"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "MULTI HMG Lieutenant",
+        "cost": "53",
+        "codename": "",
+        "swc": "2",
+        "cbcode": [],
+        "spec": [
+            "Lieutenant"
+        ],
+        "bsw": [
+          "MULTI HMG"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "HMC Lieutenant",
+        "cost": "54",
+        "codename": "",
+        "swc": "2",
+        "cbcode": [],
+        "spec": [
+            "Lieutenant"
+        ],
+        "bsw": [
+          "HMC"
+        ],
+        "ccw": [],
+        "note": ""
+      }
+    ],
+    "imp": ""
+  },
+  {
+    "mov": "4-4",
+    "army": "Yu Jing",
+    "wip": "13",
     "cbcode": [
       "280319-0093"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Wu Ming",
     "name": "Wu Ming",
     "bs": "13",
     "note": "",
     "cube": "",
     "type": "HI",
-    "ph": "14",
+    "hackable": "X",
+    "ph": "13",
     "cc": "16",
     "arm": "4",
     "irr": "",
     "w": "2",
-    "ava": "1",
+    "s": "2",
+    "ava": "3",
     "bsw": [],
-    "spec": [],
+    "spec": [
+       "Kinematika L1"
+    ],
     "ccw": [
-      "Pistol"
+      "Pistol",
+      "Knife"
     ],
     "childs": [
       {
         "code": "Default",
-        "cost": "47",
+        "cost": "39",
         "codename": "MULTI",
         "swc": "0",
         "cbcode": [],
@@ -564,14 +952,12 @@
           "MULTI Rifle",
           "Light Grenade Launcher"
         ],
-        "ccw": [
-          "CCW"
-        ],
+        "ccw": [],
         "note": ""
       },
       {
         "code": "HMG",
-        "cost": "43",
+        "cost": "39",
         "codename": "",
         "swc": "2",
         "cbcode": [],
@@ -579,30 +965,70 @@
         "bsw": [
           "HMG"
         ],
-        "ccw": [
-          "CCW"
-        ],
+        "ccw": [],
         "note": ""
       },
       {
-        "code": "Boarding Shotgun",
-        "cost": "36",
+        "code": "Nimbus",
+        "cost": "35",
         "codename": "",
         "swc": "0",
         "cbcode": [],
         "spec": [],
         "bsw": [
-          "Boarding Shotgun",
-          "Grenades"
+          "MULTI Rifle",
+          "Light Nimbus Grenade Launcher"
         ],
-        "ccw": [
-          "CCW"
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Boarding Shotgun",
+        "cost": "33",
+        "codename": "",
+        "swc": "0.5",
+        "cbcode": [],
+        "spec": [
+            "Tinbot B (Deflector L2)"
         ],
+        "bsw": [
+          "Boarding Shotgun"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Panzerfaust",
+        "cost": "29",
+        "codename": "",
+        "swc": "0.5",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Panzerfaust",
+          "Light Shotgun"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Observer",
+        "cost": "31",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+            "Forward Observer"
+        ],
+        "bsw": [
+          "Boarding Shotgun"
+        ],
+        "ccw": [],
         "note": ""
       },
       {
         "code": "Combi",
-        "cost": "36",
+        "cost": "33",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -611,14 +1037,12 @@
           "Combi Rifle",
           "E/Mitter"
         ],
-        "ccw": [
-          "Knife"
-        ],
+        "ccw": [],
         "note": ""
       },
       {
-        "code": "LRL",
-        "cost": "45",
+        "code": "Light Rocket Launcher",
+        "cost": "37",
         "codename": "",
         "swc": "1",
         "cbcode": [],
@@ -627,34 +1051,34 @@
           "Combi Rifle",
           "Light Rocket Launcher"
         ],
-        "ccw": [
-          "Knife"
-        ],
+        "ccw": [],
         "note": ""
       }
     ],
     "imp": ""
   },
   {
-    "mov": "4-2",
+    "mov": "4-4",
     "army": "Yu Jing",
     "wip": "13",
     "cbcode": [
       "280317-0082",
       "280336-0199"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Daofei",
     "name": "Daofei",
     "bs": "13",
     "note": "",
     "cube": "X",
     "type": "HI",
+    "hackable": "X",
     "ph": "14",
     "cc": "16",
     "arm": "4",
     "irr": "",
     "w": "2",
+    "s": "2",
     "ava": "1",
     "bsw": [],
     "spec": [
@@ -668,7 +1092,7 @@
     "childs": [
       {
         "code": "Default",
-        "cost": "60",
+        "cost": "53",
         "codename": "MULTI",
         "swc": "0",
         "cbcode": [],
@@ -681,7 +1105,7 @@
       },
       {
         "code": "HMG",
-        "cost": "61",
+        "cost": "57",
         "codename": "",
         "swc": "2",
         "cbcode": [],
@@ -694,7 +1118,7 @@
       },
       {
         "code": "Boarding Shotgun",
-        "cost": "52",
+        "cost": "48",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -706,14 +1130,27 @@
         "note": ""
       },
       {
+        "code": "Spitfire",
+        "cost": "55",
+        "codename": "",
+        "swc": "2",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Spitfire"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
         "code": "Hacker",
-        "cost": "72",
+        "cost": "59",
         "codename": "",
         "swc": "0.5",
         "cbcode": [],
         "spec": [
           "Hacker",
-          "Hacking Device"
+          "Assault Hacking Device"
         ],
         "bsw": [
           "MULTI Rifle"
@@ -723,9 +1160,9 @@
       },
       {
         "code": "Lieutenant",
-        "cost": "60",
+        "cost": "53",
         "codename": "",
-        "swc": "1",
+        "swc": "0",
         "cbcode": [],
         "spec": [
           "Lieutenant"
@@ -735,12 +1172,27 @@
         ],
         "ccw": [],
         "note": ""
+      },
+      {
+        "code": "Spitfire Lieutenant",
+        "cost": "55",
+        "codename": "",
+        "swc": "1.5",
+        "cbcode": [],
+        "spec": [
+          "Lieutenant"
+        ],
+        "bsw": [
+          "Spitfire"
+        ],
+        "ccw": [],
+        "note": ""
       }
     ],
     "imp": ""
   },
   {
-    "mov": "4-2",
+    "mov": "4-4",
     "army": "Yu Jing",
     "wip": "14",
     "cbcode": [
@@ -748,45 +1200,49 @@
       "280322-0117",
       "280360-0385"
     ],
-    "bts": "-6",
+    "bts": "6",
     "isc": "Hac Tao",
     "name": "Hac Tao",
     "bs": "14",
     "note": "",
     "cube": "X",
     "type": "HI",
+    "hackable": "X",
     "ph": "14",
-    "cc": "16",
+    "cc": "19",
     "arm": "5",
     "irr": "",
     "w": "2",
+    "s": "2",
     "ava": "1",
-    "bsw": [],
+    "bsw": [
+       "Nanopulser"
+    ],
     "spec": [
-      "CH: TO Camouflage"
+      "CH: TO Camouflage",
+      "Kinematika L1"
     ],
     "ccw": [
       "Pistol",
-      "Shock CCW"
+      "DA CCW"
     ],
     "childs": [
       {
         "code": "Default",
-        "cost": "70",
+        "cost": "64",
         "codename": "MULTI",
         "swc": "0",
         "cbcode": [],
         "spec": [],
         "bsw": [
-          "MULTI Rifle",
-          "Light Shotgun"
+          "MULTI Rifle"
         ],
         "ccw": [],
         "note": ""
       },
       {
         "code": "HMG",
-        "cost": "67",
+        "cost": "68",
         "codename": "",
         "swc": "2",
         "cbcode": [],
@@ -798,8 +1254,21 @@
         "note": ""
       },
       {
-        "code": "Missile",
-        "cost": "74",
+        "code": "Boarding Shotgun",
+        "cost": "59",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Boarding Shotgun"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Missile Launcher",
+        "cost": "65",
         "codename": "",
         "swc": "2",
         "cbcode": [],
@@ -812,33 +1281,46 @@
       },
       {
         "code": "Hacker",
-        "cost": "82",
+        "cost": "70",
         "codename": "",
         "swc": "0.5",
         "cbcode": [],
         "spec": [
           "Hacker",
-          "Hacking Device"
+          "Assault Hacking Device"
         ],
         "bsw": [
-          "MULTI Rifle",
-          "Light Shotgun"
+          "MULTI Rifle"
         ],
         "ccw": [],
         "note": ""
       },
       {
-        "code": "Lieutenant",
-        "cost": "70",
+        "code": "Executive Order",
+        "cost": "65",
+        "codename": "",
+        "swc": "0.5",
+        "cbcode": [],
+        "spec": [
+          "Executive Order"
+        ],
+        "bsw": [
+          "MULTI Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "HMG Executive Order",
+        "cost": "69",
         "codename": "",
         "swc": "2",
         "cbcode": [],
         "spec": [
-          "Lieutenant"
+          "Executive Order"
         ],
         "bsw": [
-          "MULTI Rifle",
-          "Light Shotgun"
+          "HMG"
         ],
         "ccw": [],
         "note": ""
@@ -847,29 +1329,33 @@
     "imp": ""
   },
   {
-    "mov": "4-2",
+    "mov": "4-4",
     "army": "Yu Jing",
     "wip": "14",
     "cbcode": [
       "280327-0146",
       "280341-0236"
     ],
-    "bts": "-6",
+    "bts": "6",
     "isc": "Hsien",
     "name": "Hsien",
     "bs": "14",
     "note": "",
     "cube": "X",
     "type": "HI",
+    "hackable": "X",
     "ph": "14",
-    "cc": "16",
+    "cc": "19",
     "arm": "4",
     "irr": "",
     "w": "2",
+    "s": "2",
     "ava": "2",
-    "bsw": [],
+    "bsw": [
+       "Nanopulser"
+    ],
     "spec": [
-      "Martial Arts L2",
+      "Martial Arts L1",
       "Multispectral Visor L2"
     ],
     "ccw": [
@@ -879,11 +1365,26 @@
     "childs": [
       {
         "code": "Default",
-        "cost": "60",
+        "cost": "57",
         "codename": "MULTI",
         "swc": "0",
         "cbcode": [],
         "spec": [],
+        "bsw": [
+          "MULTI Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Tinbot",
+        "cost": "60",
+        "codename": "",
+        "swc": "0.5",
+        "cbcode": [],
+        "spec": [
+            "Tinbot B (Deflector L2)"
+        ],
         "bsw": [
           "MULTI Rifle"
         ],
@@ -917,22 +1418,8 @@
         "note": ""
       },
       {
-        "code": "E/M LGL",
-        "cost": "67",
-        "codename": "",
-        "swc": "2",
-        "cbcode": [],
-        "spec": [],
-        "bsw": [
-          "E/M Light Grenade Launcher",
-          "MULTI Rifle"
-        ],
-        "ccw": [],
-        "note": ""
-      },
-      {
         "code": "Lieutenant",
-        "cost": "60",
+        "cost": "57",
         "codename": "",
         "swc": "-1",
         "cbcode": [],
@@ -941,6 +1428,37 @@
         ],
         "bsw": [
           "MULTI Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Tinbot Lieutenant",
+        "cost": "60",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+          "Lieutenant",
+          "Tinbot B (Deflector L2)"
+        ],
+        "bsw": [
+          "MULTI Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "HMG Lieutenant",
+        "cost": "61",
+        "codename": "",
+        "swc": "2",
+        "cbcode": [],
+        "spec": [
+          "Lieutenant"
+        ],
+        "bsw": [
+          "HMG"
         ],
         "ccw": [],
         "note": ""
@@ -956,19 +1474,23 @@
       {
         "name": "Guijia",
         "wip": "13",
-        "bts": "-6",
+        "bts": "6",
         "mov": "6-4",
         "bs": "14",
         "type": "TAG",
+        "hackable": "X",
         "ph": "17",
         "arm": "8",
         "cc": "19",
         "w": "3",
+        "s": "7",
         "spec": [
-          "ECM"
+          "ECM",
+          "Manned"
         ],
         "bsw": [
-          "MULTI HMG"
+          "MULTI HMG",
+          "Heavy Flamethrower"
         ],
         "ccw": [
           "AP CCW"
@@ -986,10 +1508,12 @@
         "bs": "11",
         "cube": "X",
         "type": "LI",
+        "hackable": "",
         "ph": "10",
         "cc": "14",
         "arm": "0",
         "w": "1",
+        "s": "2",
         "ava": " ",
         "bsw": [],
         "spec": [
@@ -1008,42 +1532,25 @@
     "childs": [
       {
         "code": "Default",
-        "cost": "91",
-        "codename": "",
+        "cost": "88",
+        "codename": "MHMG",
         "swc": "2",
         "cbcode": [],
         "spec": [],
-        "bsw": [
-          "Heavy Flamethrower"
-        ],
-        "ccw": [],
-        "note": ""
-      },
-      {
-        "code": "Grenadier",
-        "cost": "99",
-        "codename": "HGL",
-        "swc": "2",
-        "cbcode": [],
-        "spec": [],
-        "bsw": [
-          "Heavy Grenade Launcher"
-        ],
+        "bsw": [],
         "ccw": [],
         "note": ""
       },
       {
         "code": "Lieutenant",
-        "cost": "91",
-        "codename": "Lt",
+        "cost": "88",
+        "codename": "",
         "swc": "3",
         "cbcode": [],
         "spec": [
           "Lieutenant"
         ],
-        "bsw": [
-          "Heavy Flamethrower"
-        ],
+        "bsw": [],
         "ccw": [],
         "note": ""
       }
@@ -1072,14 +1579,16 @@
     "arm": "1",
     "irr": "",
     "w": "1",
-    "ava": "1",
+    "s": "2",
+    "ava": "2",
     "bsw": [
       "Antipersonnel Mines"
     ],
     "spec": [
       "CH: Camouflage",
       "Infiltration",
-      "Multispectral Visor L1"
+      "Multispectral Visor L1",
+      "Multiterrain"
     ],
     "ccw": [
       "Knife",
@@ -1116,7 +1625,7 @@
       },
       {
         "code": "Boarding Shotgun",
-        "cost": "25",
+        "cost": "24",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -1128,8 +1637,8 @@
         "note": ""
       },
       {
-        "code": "Sniper",
-        "cost": "39",
+        "code": "MULTI Sniper Rifle",
+        "cost": "33",
         "codename": "",
         "swc": "1.5",
         "cbcode": [],
@@ -1142,13 +1651,13 @@
       },
       {
         "code": "Hacker",
-        "cost": "37",
+        "cost": "31",
         "codename": "",
         "swc": "0.5",
         "cbcode": [],
         "spec": [
           "Hacker",
-          "Hacking Device"
+          "Assault Hacking Device"
         ],
         "bsw": [
           "Combi Rifle"
@@ -1157,9 +1666,9 @@
         "note": ""
       },
       {
-        "code": "Observer/Repeater",
-        "cost": "29",
-        "codename": "FO/Repeater",
+        "code": "Observer",
+        "cost": "27",
+        "codename": "",
         "swc": "0",
         "cbcode": [],
         "spec": [
@@ -1193,7 +1702,7 @@
   {
     "mov": "4-4",
     "army": "Yu Jing",
-    "wip": "14",
+    "wip": "13",
     "cbcode": [
       "280308-0024",
       "280314-0053",
@@ -1207,25 +1716,44 @@
     "cube": "X",
     "type": "SK",
     "ph": "12",
-    "cc": "17",
+    "cc": "23",
     "arm": "1",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "2",
     "bsw": [],
     "spec": [
       "CH: TO Camouflage",
       "Infiltration",
-      "Martial Arts L3"
+      "Martial Arts L3",
+      "Kinematika L1",
+      "Multiterrain"
     ],
     "ccw": [
-      "Pistol"
+      "Pistol",
+      "Knife"
     ],
     "childs": [
       {
-        "code": "Default",
-        "cost": "36",
-        "codename": "Combi",
+        "code": "Bow",
+        "cost": "26",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Tactical Bow"
+        ],
+        "ccw": [
+          "DA CCW"
+        ],
+        "note": ""
+      },
+      {
+        "code": "Shock",
+        "cost": "34",
+        "codename": "",
         "swc": "0",
         "cbcode": [],
         "spec": [],
@@ -1239,7 +1767,7 @@
       },
       {
         "code": "AP",
-        "cost": "36",
+        "cost": "34",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -1253,8 +1781,8 @@
         "note": ""
       },
       {
-        "code": "EXP",
-        "cost": "38",
+        "code": "DA",
+        "cost": "35",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -1263,13 +1791,13 @@
           "Combi Rifle"
         ],
         "ccw": [
-          "EXP CCW"
+          "DA CCW"
         ],
         "note": ""
       },
       {
-        "code": "Sniper",
-        "cost": "50",
+        "code": "MULTI Sniper Rifle",
+        "cost": "42",
         "codename": "",
         "swc": "1.5",
         "cbcode": [],
@@ -1284,13 +1812,13 @@
       },
       {
         "code": "Hacker",
-        "cost": "48",
+        "cost": "40",
         "codename": "",
         "swc": "0.5",
         "cbcode": [],
         "spec": [
           "Hacker",
-          "Hacking Device"
+          "Assault Hacking Device"
         ],
         "bsw": [
           "Combi Rifle"
@@ -1318,23 +1846,25 @@
     "cube": "",
     "type": "WB",
     "ph": "13",
-    "cc": "19",
+    "cc": "22",
     "arm": "1",
     "irr": "X",
     "w": "1",
+    "s": "2",
     "ava": "4",
     "bsw": [],
     "spec": [
       "Martial Arts L3",
-      "Religious Troop"
+      "Religious Troop",
+      "Kinematika L1"
     ],
     "ccw": [
       "Pistol"
     ],
     "childs": [
       {
-        "code": "Default",
-        "cost": "14",
+        "code": "Shock",
+        "cost": "11",
         "codename": "Combi",
         "swc": "0",
         "cbcode": [],
@@ -1350,7 +1880,7 @@
       },
       {
         "code": "AP",
-        "cost": "14",
+        "cost": "11",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -1365,8 +1895,8 @@
         "note": ""
       },
       {
-        "code": "EXP",
-        "cost": "16",
+        "code": "DA",
+        "cost": "12",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -1376,12 +1906,12 @@
           "Smoke Grenades"
         ],
         "ccw": [
-          "EXP CCW"
+          "DA CCW"
         ],
         "note": ""
       },
       {
-        "code": "Chain",
+        "code": "Chain Rifle",
         "cost": "5",
         "codename": "",
         "swc": "0",
@@ -1398,7 +1928,7 @@
       },
       {
         "code": "Boarding Shotgun",
-        "cost": "14",
+        "cost": "10",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -1414,7 +1944,7 @@
       },
       {
         "code": "Smoke LGL",
-        "cost": "14",
+        "cost": "11",
         "codename": "",
         "swc": "1",
         "cbcode": [],
@@ -1448,12 +1978,14 @@
     "arm": "1",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "1",
     "bsw": [
       "Combi Rifle"
     ],
     "spec": [
-      "Doctor"
+      "Doctor",
+      "MediKit"
     ],
     "ccw": [
       "Knife",
@@ -1493,6 +2025,7 @@
     "arm": "1",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "1",
     "bsw": [
       "Combi Rifle"
@@ -1527,27 +2060,32 @@
     "cbcode": [
       "280303-0010"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Yáokòng Wèibing",
     "name": "Weibing",
     "bs": "11",
     "note": "",
-    "cube": "R",
+    "cube": "",
     "type": "REM",
-    "ph": "8",
+    "hackable": "X",
+    "ph": "10",
     "cc": "8",
     "arm": "0",
     "irr": "",
     "w": "1",
+    "s": "3",
     "ava": "2",
     "bsw": [
       "Combi Rifle"
     ],
     "spec": [
+      "Deactivator",
       "Forward Observer",
       "G: Remote Presence",
       "Repeater",
-      "Sensor"
+      "Sat-lock",
+      "Sensor",
+      "Sniffer"
     ],
     "ccw": [
       "Electric Pulse"
@@ -1555,7 +2093,7 @@
     "childs": [
       {
         "code": "Default",
-        "cost": "21",
+        "cost": "16",
         "codename": "Combi",
         "swc": "0",
         "cbcode": [],
@@ -1574,18 +2112,20 @@
     "cbcode": [
       "280303-0010"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Yáokòng Hùsòng",
     "name": "Husong",
     "bs": "11",
     "note": "",
-    "cube": "R",
+    "cube": "",
     "type": "REM",
-    "ph": "8",
+    "hackable": "X",
+    "ph": "10",
     "cc": "8",
     "arm": "0",
     "irr": "",
     "w": "1",
+    "s": "3",
     "ava": "2",
     "bsw": [
       "HMG"
@@ -1593,7 +2133,6 @@
     "spec": [
       "360° Visor",
       "G: Remote Presence",
-      "Repeater",
       "Total Reaction"
     ],
     "ccw": [
@@ -1602,27 +2141,12 @@
     "childs": [
       {
         "code": "Default",
-        "cost": "28",
+        "cost": "25",
         "codename": "HMG",
         "swc": "1",
         "cbcode": [],
         "spec": [],
-        "bsw": [
-          "Antipersonnel Mines"
-        ],
-        "ccw": [],
-        "note": ""
-      },
-      {
-        "code": "E/M LGL",
-        "cost": "35",
-        "codename": "",
-        "swc": "1",
-        "cbcode": [],
-        "spec": [],
-        "bsw": [
-          "E/M Light Grenade Launcher"
-        ],
+        "bsw": [],
         "ccw": [],
         "note": ""
       }
@@ -1636,21 +2160,23 @@
     "cbcode": [
       "280303-0010"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Yáokòng Son-bae",
     "name": "Son-Bae",
-    "bs": "11",
+    "bs": "12",
     "note": "",
-    "cube": "R",
+    "cube": "",
     "type": "REM",
-    "ph": "8",
+    "hackable": "X",
+    "ph": "10",
     "cc": "8",
     "arm": "0",
     "irr": "",
     "w": "1",
+    "s": "3",
     "ava": "1",
     "bsw": [
-      "Guided Missile Launcher"
+      "Smart Missile Launcher"
     ],
     "spec": [
       "G: Remote Presence"
@@ -1661,9 +2187,9 @@
     "childs": [
       {
         "code": "Default",
-        "cost": "34",
-        "codename": "GML",
-        "swc": "1",
+        "cost": "18",
+        "codename": "Smart Missile Launcher",
+        "swc": "1.5",
         "cbcode": [],
         "spec": [],
         "bsw": [],
@@ -1680,25 +2206,29 @@
     "cbcode": [
       "280303-0010"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Yáokòng Chaiyì",
     "name": "Chaiyi",
     "bs": "8",
     "note": "",
-    "cube": "R",
+    "cube": "",
     "type": "REM",
-    "ph": "8",
+    "hackable": "X",
+    "ph": "11",
     "cc": "8",
     "arm": "0",
     "irr": "",
     "w": "1",
+    "s": "3",
     "ava": "1",
-    "bsw": [],
+    "bsw": [
+       "Flash Pulse"
+    ],
     "spec": [
       "CH: Mimetism",
       "G: Remote Presence",
-      "Multiterrain",
-      "Repeater"
+      "Repeater",
+      "Sniffer"
     ],
     "ccw": [
       "Electric Pulse"
@@ -1719,83 +2249,99 @@
     "imp": ""
   },
   {
-    "mov": "4-2",
+    "mov": "4-4",
     "army": "Yu Jing",
     "wip": "17",
     "cbcode": [
       "280316-0076"
     ],
-    "bts": "-6",
+    "bts": "6",
     "isc": "Sun Tze",
     "name": "Sun Tze",
-    "bs": "13",
+    "bs": "12",
     "note": "",
     "cube": "X",
     "type": "HI",
-    "ph": "14",
+    "hackable": "X",
+    "ph": "12",
     "cc": "15",
-    "arm": "5",
+    "arm": "4",
     "irr": "",
     "w": "2",
+    "s": "2",
     "ava": "1",
     "bsw": [
-      "MULTI Rifle",
-      "Nanopulser"
+      "Nanopulser (2)",
+      "Flash Pulse"
     ],
     "spec": [
+      "CH: Mimetism",
       "Strategos L3",
       "Total Immunity",
-      "V: No Wound Incapacitation",
-      "Personality"
+      "V: No Wound Incapacitation"
     ],
     "ccw": [
       "Pistol",
-      "Shock CCW"
+      "Knife"
     ],
     "childs": [
       {
-        "code": "Default",
-        "cost": "73",
-        "codename": "MULTI",
+        "code": "Boarding Shotgun",
+        "cost": "55",
+        "codename": "",
         "swc": "0",
         "cbcode": [],
         "spec": [],
-        "bsw": [],
+        "bsw": [
+            "Boarding Shotgun"
+        ],
         "ccw": [],
         "note": ""
       },
       {
-        "code": "Lieutenant",
-        "cost": "73",
+        "code": "MULTI",
+        "cost": "60",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+            "MULTI Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Boarding Shotgun Lieutenant",
+        "cost": "60",
         "codename": "",
         "swc": "0",
         "cbcode": [],
         "spec": [
-          "Lieutenant"
+            "Lieutenant",
+            "Advanced Command"
         ],
-        "bsw": [],
+        "bsw": [
+            "Boarding Shotgun"
+        ],
         "ccw": [],
         "note": ""
       },
       {
-      "code": "Board Shotgun",
-      "cost": "65",
-      "codename": "",
-      "swc": "0",
-      "spec": [],
-      "bsw": ["Boarding Shotgun"],
-      "ccw": []
-      },
-      {
-      "code": "BS Lieutenant",
-      "cost": "65",
-      "codename": "",
-      "swc": "0",
-      "spec": [
-               "Lieutenant"
-               ],
-      "bsw": ["Boarding Shotgun"],
-      "ccw": []
+        "code": "MULTI Lieutenant",
+        "cost": "65",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+            "Lieutenant",
+            "Advanced Command"
+        ],
+        "bsw": [
+            "MULTI Rifle"
+        ],
+        "ccw": [],
+        "note": ""
       }
     ],
     "imp": ""
@@ -1809,7 +2355,7 @@
       "280343-0245",
       "280361-0396"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Celestial Guard",
     "name": "Celestial Guard",
     "bs": "11",
@@ -1821,6 +2367,7 @@
     "arm": "1",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "2",
     "bsw": [],
     "spec": [],
@@ -1844,7 +2391,7 @@
       },
       {
         "code": "Boarding Shotgun",
-        "cost": "13",
+        "cost": "12",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -1857,7 +2404,7 @@
       },
       {
         "code": "Grenadier",
-        "cost": "18",
+        "cost": "17",
         "codename": "",
         "swc": "1",
         "cbcode": [],
@@ -1871,7 +2418,7 @@
       },
       {
         "code": "Spitfire",
-        "cost": "20",
+        "cost": "19",
         "codename": "",
         "swc": "1",
         "cbcode": [],
@@ -1883,8 +2430,8 @@
         "note": ""
       },
       {
-        "code": "Sniper",
-        "cost": "27",
+        "code": "MULTI Sniper Rifle",
+        "cost": "21",
         "codename": "",
         "swc": "1.5",
         "cbcode": [],
@@ -1913,7 +2460,7 @@
       },
       {
         "code": "Hacker",
-        "cost": "25",
+        "cost": "21",
         "codename": "",
         "swc": "0.5",
         "cbcode": [],
@@ -1953,25 +2500,28 @@
       "280326-0145",
       "280328-0152"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Domaru Butai",
     "name": "Domaru",
     "bs": "12",
     "note": "",
     "cube": "X",
     "type": "HI",
+    "hackable": "X",
     "ph": "14",
-    "cc": "19",
+    "cc": "23",
     "arm": "3",
     "irr": "",
     "w": "2",
-    "ava": "1",
+    "s": "2",
+    "ava": "2",
     "bsw": [
       "E/M Grenades"
     ],
     "spec": [
       "Berserk",
-      "Martial Arts L2"
+      "Martial Arts L3",
+      "Kinematika L1"
     ],
     "ccw": [
       "Pistol"
@@ -1979,8 +2529,8 @@
     "childs": [
       {
         "code": "Default",
-        "cost": "27",
-        "codename": "Chain",
+        "cost": "25",
+        "codename": "E/M CCW",
         "swc": "0",
         "cbcode": [],
         "spec": [],
@@ -1993,8 +2543,8 @@
         "note": ""
       },
       {
-        "code": "EXP CCW",
-        "cost": "29",
+        "code": "DA CCW",
+        "cost": "26",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -2003,13 +2553,13 @@
           "Chain Rifle"
         ],
         "ccw": [
-          "EXP CCW"
+          "DA CCW"
         ],
         "note": ""
       },
       {
         "code": "Boarding Shotgun",
-        "cost": "36",
+        "cost": "33",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -2024,7 +2574,7 @@
       },
       {
         "code": "Lieutenant",
-        "cost": "27",
+        "cost": "25",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -2049,21 +2599,25 @@
     "cbcode": [
       "280342-0244"
     ],
-    "bts": "-6",
+    "bts": "6",
     "isc": "Shang Ji",
     "name": "Shang Ji",
     "bs": "13",
     "note": "",
     "cube": "X",
     "type": "HI",
+    "hackable": "X",
     "ph": "14",
-    "cc": "16",
+    "cc": "18",
     "arm": "4",
     "irr": "",
     "w": "2",
+    "s": "2",
     "ava": "3",
     "bsw": [],
-    "spec": [],
+    "spec": [
+        "Kinematika L1"
+    ],
     "ccw": [
       "Pistol",
       "Shock CCW"
@@ -2071,7 +2625,7 @@
     "childs": [
       {
         "code": "Default",
-        "cost": "42",
+        "cost": "37",
         "codename": "Combi",
         "swc": "0",
         "cbcode": [],
@@ -2085,7 +2639,7 @@
       },
       {
         "code": "MULTI",
-        "cost": "49",
+        "cost": "40",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -2098,7 +2652,7 @@
       },
       {
         "code": "Spitfire",
-        "cost": "47",
+        "cost": "42",
         "codename": "",
         "swc": "2",
         "cbcode": [],
@@ -2111,7 +2665,7 @@
       },
       {
         "code": "Hacker",
-        "cost": "54",
+        "cost": "45",
         "codename": "",
         "swc": "0.5",
         "cbcode": [],
@@ -2128,7 +2682,7 @@
       },
       {
         "code": "Paramedic",
-        "cost": "46",
+        "cost": "39",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -2144,7 +2698,7 @@
       },
       {
         "code": "Lieutenant",
-        "cost": "42",
+        "cost": "37",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -2168,18 +2722,20 @@
     "cbcode": [
       "280329-0158"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Yáozao",
     "name": "Yaozao",
     "bs": "8",
     "note": "",
-    "cube": "R",
+    "cube": "",
     "type": "REM",
-    "ph": "8",
+    "hackable": "X",
+    "ph": "10",
     "cc": "8",
     "arm": "0",
     "irr": "",
     "w": "1",
+    "s": "1",
     "ava": "2",
     "bsw": [],
     "spec": [
@@ -2193,7 +2749,7 @@
       {
         "code": "Default",
         "cost": "3",
-        "codename": "",
+        "codename": "Servant",
         "swc": "0",
         "cbcode": [],
         "spec": [],
@@ -2211,18 +2767,20 @@
     "cbcode": [
       "280354-0339"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Yáopú Pangguling",
     "name": "Pangguling",
     "bs": "11",
     "note": "",
-    "cube": "R",
+    "cube": "",
     "type": "REM",
-    "ph": "8",
+    "hackable": "X",
+    "ph": "10",
     "cc": "8",
     "arm": "2",
     "irr": "",
     "w": "1",
+    "s": "4",
     "ava": "2",
     "bsw": [],
     "spec": [
@@ -2297,11 +2855,12 @@
     "arm": "0",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "4",
     "bsw": [],
     "spec": [
       "Biolocator",
-      "Explode",
+      "Explode L1",
       "V: Dogged"
     ],
     "ccw": [
@@ -2312,7 +2871,7 @@
       {
         "code": "Default",
         "cost": "5",
-        "codename": "Chain",
+        "codename": "Chain Rifle",
         "swc": "0",
         "cbcode": [],
         "spec": [],
@@ -2325,7 +2884,7 @@
       {
         "code": "Boarding Shotgun",
         "cost": "11",
-        "codename": "BS",
+        "codename": "",
         "swc": "0",
         "cbcode": [],
         "spec": [],
@@ -2353,11 +2912,12 @@
     "note": "",
     "cube": "X",
     "type": "LI",
-    "ph": "11",
+    "ph": "10",
     "cc": "14",
     "arm": "1",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "2",
     "bsw": [],
     "spec": [
@@ -2372,7 +2932,7 @@
     "childs": [
       {
         "code": "CoC Boarding Shotgun",
-        "cost": "24",
+        "cost": "23",
         "codename": "BSCC",
         "swc": "0",
         "cbcode": [],
@@ -2402,8 +2962,8 @@
       },
       {
         "code": "Boarding Shotgun",
-        "cost": "17",
-        "codename": "BS",
+        "cost": "16",
+        "codename": "",
         "swc": "0",
         "cbcode": [],
         "spec": [],
@@ -2436,7 +2996,7 @@
     "cbcode": [
       "280345-0258"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Imperial Agent, Pheasant Rank",
     "name": "Imperial Agent",
     "bs": "12",
@@ -2444,14 +3004,15 @@
     "cube": "X",
     "type": "LI",
     "ph": "11",
-    "cc": "17",
+    "cc": "20",
     "arm": "2",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "1",
     "bsw": [],
     "spec": [
-      "Martial Arts L3"
+      "Martial Arts L1"
     ],
     "ccw": [
       "Pistol",
@@ -2460,7 +3021,7 @@
     "childs": [
       {
         "code": "Hacker",
-        "cost": "43",
+        "cost": "34",
         "codename": "",
         "swc": "0.5",
         "cbcode": [],
@@ -2475,13 +3036,13 @@
         "note": ""
       },
       {
-        "code": "Sniper",
-        "cost": "48",
+        "code": "MULTI Sniper Rifle",
+        "cost": "37",
         "codename": "",
         "swc": "1.5",
         "cbcode": [],
         "spec": [
-          "X Visor"
+          "Multispectral Visor L1"
         ],
         "bsw": [
           "MULTI Sniper Rifle"
@@ -2490,8 +3051,8 @@
         "note": ""
       },
       {
-        "code": "Shotgun",
-        "cost": "41",
+        "code": "Boarding Shotgun",
+        "cost": "35",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -2507,7 +3068,7 @@
       },
       {
         "code": "Default",
-        "cost": "43",
+        "cost": "38",
         "codename": "Combi",
         "swc": "0",
         "cbcode": [],
@@ -2539,10 +3100,11 @@
         "bs": "12",
         "note": "",
         "cube": "X",
-        "type": "MI",
+        "type": "LI",
         "ph": "11",
         "arm": "2",
         "w": "1",
+        "s": "4",
         "irr": "",
         "ccw": [
           "Pistol",
@@ -2551,14 +3113,19 @@
         "spec": [
           "CH: Mimetism",
           "Motorcycle",
-          "V: Courage"
+          "V: Courage",
+          "Kinematika L2"
         ],
-        "imp": "X"
+        "imp": "I"
       },
       {
         "name": "Dismounted",
-        "spec": [],
-        "mov": "4-2"
+        "spec": [
+            "CH: Mimetism",
+            "V: Courage"
+        ],
+        "mov": "4-4",
+        "s": "2"
       }
     ],
     "spec": [],
@@ -2572,7 +3139,7 @@
     "childs": [
       {
         "code": "Default",
-        "cost": "25",
+        "cost": "24",
         "codename": "Combi",
         "swc": "0",
         "cbcode": [],
@@ -2586,7 +3153,7 @@
       },
       {
         "code": "Boarding Shotgun",
-        "cost": "21",
+        "cost": "19",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -2599,9 +3166,9 @@
       },
       {
         "code": "Spitfire",
-        "cost": "29",
+        "cost": "26",
         "codename": "",
-        "swc": "1.5",
+        "swc": "1",
         "cbcode": [],
         "spec": [],
         "bsw": [
@@ -2612,13 +3179,13 @@
       },
       {
         "code": "Hacker",
-        "cost": "37",
+        "cost": "30",
         "codename": "",
         "swc": "0.5",
         "cbcode": [],
         "spec": [
           "Hacker",
-          "Hacking Device"
+          "Assault Hacking Device"
         ],
         "bsw": [
           "Combi Rifle",
@@ -2629,9 +3196,9 @@
       },
       {
         "code": "Lieutenant",
-        "cost": "25",
+        "cost": "24",
         "codename": "",
-        "swc": "0.5",
+        "swc": "0",
         "cbcode": [],
         "spec": [
           "Lieutenant"
@@ -2652,37 +3219,43 @@
     "cbcode": [
       "280352-0325"
     ],
-    "bts": "-3",
+    "bts": "6",
     "isc": "Imperial Agents, Crane Rank",
     "name": "Imperial Agent",
     "bs": "13",
     "note": "",
     "cube": "X",
     "type": "HI",
+    "hackable": "X",
     "ph": "13",
-    "cc": "17",
-    "arm": "3",
+    "cc": "22",
+    "arm": "4",
     "irr": "",
     "w": "2",
-    "ava": "1",
-    "bsw": [],
+    "s": "2",
+    "ava": "2",
+    "bsw": [
+       "Nanopulser (2)"
+    ],
     "spec": [
       "Martial Arts L3",
-      "X Visor"
+      "Kinematika L2"
     ],
     "ccw": [
       "Pistol",
-      "Monofilament CCW"
+      "DA CCW"
     ],
     "childs": [
       {
         "code": "Lieutenant",
-        "cost": "61",
+        "cost": "53",
         "codename": "",
         "swc": "0",
         "cbcode": [],
         "spec": [
-          "Lieutenant"
+          "Lieutenant",
+          "Sensor",
+          "X Visor"
         ],
         "bsw": [
           "MULTI Rifle"
@@ -2691,12 +3264,30 @@
         "note": ""
       },
       {
-        "code": "Spitfire",
-        "cost": "60",
+        "code": "Spitfire Lieutenant",
+        "cost": "55",
         "codename": "",
         "swc": "2",
         "cbcode": [],
-        "spec": [],
+        "spec": [
+          "Lieutenant",
+          "X Visor"
+        ],
+        "bsw": [
+          "Spitfire"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Spitfire",
+        "cost": "55",
+        "codename": "",
+        "swc": "2",
+        "cbcode": [],
+        "spec": [
+            "X Visor"
+        ],
         "bsw": [
           "Spitfire"
         ],
@@ -2705,11 +3296,14 @@
       },
       {
         "code": "Boarding Shotgun",
-        "cost": "53",
-        "codename": "BS",
+        "cost": "48",
+        "codename": "",
         "swc": "0",
         "cbcode": [],
-        "spec": [],
+        "spec": [
+            "Sensor",
+            "X Visor"
+        ],
         "bsw": [
           "Boarding Shotgun"
         ],
@@ -2718,11 +3312,30 @@
       },
       {
         "code": "Default",
-        "cost": "61",
+        "cost": "53",
         "codename": "MULTI",
         "swc": "0",
         "cbcode": [],
-        "spec": [],
+        "spec": [
+           "Sensor",
+           "X Visor"
+        ],
+        "bsw": [
+          "MULTI Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Hacker",
+        "cost": "51",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+           "Hacker",
+           "Assault Hacking Device"
+        ],
         "bsw": [
           "MULTI Rifle"
         ],
@@ -2740,30 +3353,33 @@
       "280349-0292",
       "280350-0297"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Haramaki Zensenbutai",
     "name": "Haramaki",
     "bs": "13",
     "note": "",
     "cube": "X",
     "type": "HI",
+    "hackable": "X",
     "ph": "14",
-    "cc": "19",
+    "cc": "23",
     "arm": "3",
     "irr": "",
     "w": "2",
-    "ava": "1",
+    "s": "2",
+    "ava": "2",
     "bsw": [],
     "spec": [
-      "Martial Arts L3"
+      "Martial Arts L3",
+      "Kinematika L1"
     ],
     "ccw": [
       "Pistol"
     ],
     "childs": [
       {
-        "code": "Missile",
-        "cost": "47",
+        "code": "Missile Launcher",
+        "cost": "33",
         "codename": "ML",
         "swc": "1.5",
         "cbcode": [],
@@ -2778,7 +3394,7 @@
       },
       {
         "code": "Combi",
-        "cost": "33",
+        "cost": "30",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -2794,7 +3410,7 @@
       },
       {
         "code": "DA CCW",
-        "cost": "28",
+        "cost": "23",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -2810,7 +3426,7 @@
       },
       {
         "code": "Default",
-        "cost": "28",
+        "cost": "22",
         "codename": "AP CCW",
         "swc": "0",
         "cbcode": [],
@@ -2834,27 +3450,29 @@
     "cbcode": [
       "280331-0168"
     ],
-    "bts": "-6",
+    "bts": "6",
     "isc": "Karakuri Special Project",
     "name": "Karakuri",
     "wtype": "str",
-    "bs": "12",
+    "bs": "13",
     "note": "",
-    "cube": "R",
+    "cube": "",
     "type": "HI",
+    "hackable": "X",
     "ph": "11",
     "cc": "10",
     "arm": "3",
     "irr": "",
     "w": "2",
-    "ava": "1",
+    "s": "2",
+    "ava": "2",
     "bsw": [
       "Chain Rifle",
       "D.E.P."
     ],
     "spec": [
       "G: Remote Presence",
-      "Explode",
+      "Explode L1",
       "Total Immunity",
       "Forward Observer"
     ],
@@ -2865,7 +3483,7 @@
     "childs": [
       {
         "code": "Heavy Shotgun",
-        "cost": "42",
+        "cost": "35",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -2878,7 +3496,7 @@
       },
       {
         "code": "Mk12",
-        "cost": "43",
+        "cost": "40",
         "codename": "",
         "swc": "0",
         "cbcode": [],
@@ -2891,7 +3509,7 @@
       },
       {
         "code": "Default",
-        "cost": "39",
+        "cost": "35",
         "codename": "Combi",
         "swc": "0",
         "cbcode": [],
@@ -2917,18 +3535,27 @@
         "cc": "16",
         "bs": "13",
         "wip": "13",
-        "bts": "-6",
+        "bts": "6",
         "wtype": "str",
-        "cube": "R",
+        "cube": "",
         "ph": "14",
         "arm": "4",
         "w": "2",
+        "s": "5",
         "spec": [],
         "irr": "",
         "imp": "",
-        "bsw": [],
-        "ccw": [],
-        "type": "HI"
+        "bsw": [
+          "Spitfire",
+          "Light Flamethrower",
+          "Panzerfaust"
+        ],
+        "ccw": [
+          "Pistol",
+          "CCW"
+        ],
+        "type": "HI",
+        "hackable": "X"
       },
       {
         "name": "High Mobility Form",
@@ -2939,7 +3566,8 @@
         "ccw": [],
         "spec": [
           "Climbing Plus"
-        ]
+        ],
+        "s": "4"
       }
     ],
     "cbcode": [
@@ -2949,20 +3577,13 @@
       "Mechanical Transmutation",
       "G: Remote Presence"
     ],
-    "bsw": [
-      "Spitfire",
-      "Light Flamethrower",
-      "Panzerfaust"
-    ],
-    "ccw": [
-      "Pistol",
-      "CCW"
-    ],
+    "bsw": [],
+    "ccw": [],
     "childs": [
       {
         "code": "Default",
-        "cost": "56",
-        "codename": "",
+        "cost": "55",
+        "codename": "Spitfire",
         "swc": "2",
         "cbcode": [],
         "spec": [],
@@ -2982,16 +3603,18 @@
         "name": "O-Yoroi",
         "cube": "X",
         "bs": "14",
-        "bts": "-6",
+        "bts": "6",
         "cc": "19",
         "wip": "13",
         "mov": "6-4",
         "type": "TAG",
+        "hackable": "X",
         "note": "",
         "imp": "",
         "ph": "17",
         "arm": "7",
         "w": "3",
+        "s": "7",
         "irr": "",
         "bsw": [
           "HMG",
@@ -3000,7 +3623,8 @@
         ],
         "spec": [
           "ECM",
-          "V: Courage"
+          "V: Courage",
+          "Manned"
         ],
         "ccw": [
           "EXP CCW"
@@ -3014,10 +3638,12 @@
         "bs": "11",
         "cube": "X",
         "type": "LI",
+        "hackable": "",
         "ph": "10",
         "cc": "14",
         "arm": "0",
         "w": "1",
+        "s": "2",
         "ava": " ",
         "bsw": [],
         "spec": [
@@ -3030,7 +3656,7 @@
       },
       {
         "arm": "0",
-        "name": "Crazy Koala",
+        "name": "CrazyKoala",
         "type": " ",
         "mov": "6-4 ",
         "w": "1 ",
@@ -3040,11 +3666,13 @@
         "wip": " ",
         "bts": "0",
         "ava": " ",
+        "s": "1",
         "spec": [
           "Super-Jump"
         ],
         "bsw": [],
-        "ccw": []
+        "ccw": [],
+        "hackable": ""
       }
     ],
     "cbcode": [
@@ -3056,7 +3684,7 @@
     "childs": [
       {
         "code": "Lieutenant",
-        "cost": "85",
+        "cost": "81",
         "codename": "",
         "swc": "3",
         "cbcode": [],
@@ -3069,8 +3697,8 @@
       },
       {
         "code": "Default",
-        "cost": "85",
-        "codename": "",
+        "cost": "81",
+        "codename": "HMG",
         "swc": "2",
         "cbcode": [],
         "spec": [],
@@ -3096,10 +3724,11 @@
     "cube": "X",
     "type": "SK",
     "ph": "12",
-    "cc": "19",
+    "cc": "24",
     "arm": "1",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "1",
     "bsw": [
       "Boarding Shotgun",
@@ -3108,7 +3737,9 @@
     "spec": [
       "CH: TO Camouflage",
       "Martial Arts L4",
-      "Superior Infiltration"
+      "Superior Infiltration",
+      "Multiterrain",
+      "Kinematika L2"
     ],
     "ccw": [
       "Pistol",
@@ -3117,7 +3748,7 @@
     "childs": [
       {
         "code": "Lieutenant",
-        "cost": "44",
+        "cost": "41",
         "codename": "",
         "swc": "1",
         "cbcode": [],
@@ -3130,8 +3761,8 @@
       },
       {
         "code": "Default",
-        "cost": "44",
-        "codename": "",
+        "cost": "41",
+        "codename": "Boarding Shotgun",
         "swc": "0",
         "cbcode": [],
         "spec": [],
@@ -3161,7 +3792,8 @@
     "arm": "1",
     "irr": "",
     "w": "1",
-    "ava": "1",
+    "s": "2",
+    "ava": "2",
     "bsw": [
       "Combi Rifle"
     ],
@@ -3195,7 +3827,8 @@
         "swc": "0",
         "cbcode": [],
         "spec": [
-          "Doctor"
+          "Doctor",
+          "MediKit"
         ],
         "bsw": [],
         "ccw": [],
@@ -3211,18 +3844,20 @@
     "cbcode": [
       "280357-0362"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Yáoxiè Rui Shi",
     "name": "Rui Shi",
     "bs": "12",
     "note": "",
-    "cube": "R",
+    "cube": "",
     "type": "REM",
-    "ph": "8",
+    "hackable": "X",
+    "ph": "10",
     "cc": "8",
     "arm": "0",
     "irr": "",
     "w": "1",
+    "s": "4",
     "ava": "1",
     "bsw": [
       "Spitfire"
@@ -3238,8 +3873,8 @@
     "childs": [
       {
         "code": "Default",
-        "cost": "25",
-        "codename": "",
+        "cost": "21",
+        "codename": "Spitfire",
         "swc": "1",
         "cbcode": [],
         "spec": [],
@@ -3257,18 +3892,20 @@
     "cbcode": [
       "280357-0362"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Yáoxiè Lù Duan",
     "name": "Lu Duan",
     "bs": "12",
     "note": "",
-    "cube": "R",
+    "cube": "",
     "type": "REM",
-    "ph": "8",
+    "hackable": "X",
+    "ph": "10",
     "cc": "8",
     "arm": "0",
     "irr": "",
     "w": "1",
+    "s": "4",
     "ava": "1",
     "bsw": [
       "Mk12",
@@ -3286,8 +3923,8 @@
     "childs": [
       {
         "code": "Default",
-        "cost": "25",
-        "codename": "",
+        "cost": "22",
+        "codename": "Mk12",
         "swc": "0",
         "cbcode": [],
         "spec": [],
@@ -3305,7 +3942,7 @@
     "cbcode": [
       "280348-0284"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Oniwaban Shinobu Kitsune",
     "name": "Shinobu",
     "bs": "11",
@@ -3313,10 +3950,11 @@
     "cube": "X",
     "type": "SK",
     "ph": "13",
-    "cc": "20",
+    "cc": "25",
     "arm": "1",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "1",
     "bsw": [
       "Combi Rifle",
@@ -3325,9 +3963,10 @@
     ],
     "spec": [
       "CH: TO Camouflage",
+      "Kinematika L2",
       "Martial Arts L5",
       "Superior Infiltration",
-      "Personality"
+      "Multiterrain"
     ],
     "ccw": [
       "Pistol",
@@ -3336,7 +3975,7 @@
     "childs": [
       {
         "code": "Lieutenant",
-        "cost": "50",
+        "cost": "47",
         "codename": "",
         "swc": "1",
         "cbcode": [],
@@ -3349,8 +3988,8 @@
       },
       {
         "code": "Default",
-        "cost": "50",
-        "codename": "",
+        "cost": "47",
+        "codename": "Combi",
         "swc": "0.5",
         "cbcode": [],
         "spec": [],
@@ -3368,18 +4007,20 @@
     "cbcode": [
       "280363-0412"
     ],
-    "bts": "-3",
+    "bts": "3",
     "isc": "Domaru Takeshi \"Neko\" Oyama",
     "name": "Oyama",
     "bs": "12",
     "note": "",
     "cube": "X",
     "type": "HI",
+    "hackable": "X",
     "ph": "14",
-    "cc": "19",
+    "cc": "24",
     "arm": "3",
     "irr": "",
     "w": "2",
+    "s": "2",
     "ava": "1",
     "bsw": [
       "Chain Rifle",
@@ -3387,9 +4028,9 @@
     ],
     "spec": [
       "Berserk",
-      "CC with 2 Weapons",
-      "Martial Arts L2",
-      "Personality"
+      "Dual Wield",
+      "Martial Arts L3",
+      "Kinematika L2"
     ],
     "ccw": [
       "Pistol",
@@ -3413,7 +4054,7 @@
       {
         "code": "Default",
         "cost": "34",
-        "codename": "",
+        "codename": "Chain Rifle",
         "swc": "0",
         "cbcode": [],
         "spec": [],
@@ -3443,14 +4084,14 @@
     "arm": "2",
     "irr": "",
     "w": "1",
+    "s": "2",
     "ava": "1",
     "bsw": [],
     "spec": [
       "Total Immunity",
       "Strategos L3",
       "V: No Wound Incapacitation",
-      "X-2 Visor",
-      "Personality"
+      "X-2 Visor"
     ],
     "ccw": [
       "Pistol",
@@ -3458,13 +4099,14 @@
     ],
     "childs": [
       {
-        "code": "Sniper Lieutenant",
-        "cost": "56",
+        "code": "MULTI Sniper Rifle Lieutenant",
+        "cost": "54",
         "codename": "",
         "swc": "1.5",
         "cbcode": [],
         "spec": [
-          "Lieutenant"
+          "Lieutenant",
+          "Advanced Command"
         ],
         "bsw": [
           "MULTI Sniper Rifle"
@@ -3473,8 +4115,8 @@
         "note": ""
       },
       {
-        "code": "Sniper",
-        "cost": "56",
+        "code": "MULTI Sniper Rifle",
+        "cost": "49",
         "codename": "",
         "swc": "1.5",
         "cbcode": [],
@@ -3492,7 +4134,8 @@
         "swc": "0",
         "cbcode": [],
         "spec": [
-          "Lieutenant"
+          "Lieutenant",
+          "Advanced Command"
         ],
         "bsw": [
           "MULTI Rifle"
@@ -3502,7 +4145,7 @@
       },
       {
         "code": "Default",
-        "cost": "50",
+        "cost": "45",
         "codename": "MULTI",
         "swc": "0",
         "cbcode": [],
@@ -3525,7 +4168,7 @@
         "code": "Default",
         "note": "",
         "ccw": [],
-        "codename": "",
+        "codename": "Spec-Ops",
         "cost": "0",
         "spec": []
       }
@@ -3577,10 +4220,10 @@
         ],
         "swc": "0",
         "cbcode": [],
-        "code": "Default",
+        "code": "Panzerfaust",
         "note": "",
         "ccw": [],
-        "codename": "Panzerfaust",
+        "codename": "",
         "cost": "24",
         "spec": []
       }
@@ -3600,7 +4243,7 @@
     "cbcode": [
       "280156-0366"
     ],
-    "bts": "-3",
+    "bts": "3",
     "army": "Yu Jing",
     "note": "",
     "cube": "",
@@ -3609,6 +4252,7 @@
     "imp": "",
     "name": "Keisotsu Gui Feng Yuriko Oda",
     "isc": "Keisotsu Gui Feng Yuriko Oda",
+    "image": "Gui Feng Spec-Ops",
     "mov": "4-4",
     "type": "LI",
     "ph": "11",
@@ -3619,6 +4263,7 @@
       "V: Courage"
     ],
     "w": "1",
+    "s": "2",
     "wip": "13"
   },
   {
@@ -3627,7 +4272,7 @@
     "ava": "2",
     "bs": "12",
     "bsw": [],
-    "bts": "-6",
+    "bts": "6",
     "cbcode": [
       "280362-0401"
     ],
@@ -3660,9 +4305,9 @@
         ],
         "cbcode": [],
         "ccw": [],
-        "code": "BS",
+        "code": "Boarding Shotgun",
         "codename": "",
-        "cost": "29",
+        "cost": "28",
         "note": "",
         "spec": [
           "X Visor"
@@ -3675,9 +4320,9 @@
         ],
         "cbcode": [],
         "ccw": [],
-        "code": "Sniper",
+        "code": "MULTI Sniper Rifle",
         "codename": "",
-        "cost": "36",
+        "cost": "30",
         "note": "",
         "spec": [],
         "swc": "1.5"
@@ -3697,6 +4342,7 @@
     ],
     "type": "LI",
     "w": "1",
+    "s": "2",
     "wip": "14"
   },
   {
@@ -3705,7 +4351,7 @@
     "ava": "2",
     "bs": "12",
     "bsw": [],
-    "bts": "-3",
+    "bts": "3",
     "cbcode": [],
     "cc": "14",
     "ccw": [
@@ -3720,8 +4366,8 @@
         "cbcode": [],
         "ccw": [],
         "code": "Default",
-        "codename": "Sniper",
-        "cost": "33",
+        "codename": "MULTI Sniper Rifle",
+        "cost": "27",
         "note": "",
         "spec": [],
         "swc": "1.5"
@@ -3732,9 +4378,9 @@
         ],
         "cbcode": [],
         "ccw": [],
-        "code": "HRL",
+        "code": "Heavy Rocket Launcher",
         "codename": "",
-        "cost": "31",
+        "cost": "19",
         "note": "",
         "spec": [
           "X Visor"
@@ -3749,7 +4395,7 @@
         "ccw": [],
         "code": "Spitfire",
         "codename": "",
-        "cost": "28",
+        "cost": "27",
         "note": "",
         "spec": [
           "X Visor"
@@ -3770,6 +4416,7 @@
     ],
     "type": "MI",
     "w": "1",
+    "s": "2",
     "wip": "13"
   },
   {
@@ -3784,11 +4431,12 @@
         "bts": "0",
         "cc": "16",
         "cube": "X",
-        "imp": "X",
+        "imp": "I",
         "irr": "",
         "ph": "12",
-        "type": "MI",
+        "type": "LI",
         "w": "1",
+        "s": "4",
         "wip": "14",
         "note": "",
         "ccw": [
@@ -3803,16 +4451,20 @@
           "Motorcycle",
           "CH: Mimetism",
           "V: Courage",
-          "Personality"
+          "Kinematika L2"
         ]
       },
       {
         "name": "Dismounted",
-        "mov": "4-2",
+        "mov": "4-4",
         "ava": " ",
         "bsw": [],
         "ccw": [],
-        "spec": []
+        "spec": [
+            "CH: Mimetism",
+            "V: Courage"
+        ],
+        "s": "2"
       }
     ],
     "ava": "1",
@@ -3827,8 +4479,8 @@
         ],
         "ccw": [],
         "code": "Default",
-        "codename": "",
-        "cost": "28",
+        "codename": "Combi",
+        "cost": "27",
         "note": "",
         "spec": [],
         "swc": "0"
@@ -3839,7 +4491,7 @@
         "ccw": [],
         "code": "Lieutenant",
         "codename": "",
-        "cost": "28",
+        "cost": "27",
         "note": "",
         "spec": [
           "Lieutenant"
