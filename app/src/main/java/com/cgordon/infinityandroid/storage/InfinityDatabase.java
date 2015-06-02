@@ -10,14 +10,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class InfinityDatabase extends SQLiteOpenHelper {
 
      private static final String DATABASE_NAME = "infinity.db";
-     private static final int DATABASE_VERSION = 3;
+     private static final int DATABASE_VERSION = 4;
 
     public static final String TABLE_WEAPONS = "weapons";
     public static final String TABLE_UNITS = "units";
     public static final String TABLE_OPTIONS = "options";
     public static final String TABLE_PROFILES = "profiles";
 
-    // Units columns
+    // ===== UNITS COLUMNS =====
     public static final String COLUMN_AVA = "ava";
     public static final String COLUMN_SHARED_AVA = "sharedAva";
     public static final String COLUMN_ARMY = "army";
@@ -26,7 +26,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     // ISC
     public static final String COLUMN_IMAGE = "image";
 
-    // profiles columns
+    // ===== PROFILES COLUMNS =====
     // Unit ID
     public static final String COLUMN_MOV = "mov";
     //COLUMN_CC
@@ -52,7 +52,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_OPTION_SPECIFIC = "optionSpecific";
     public static final String COLUMN_ALL_DIE = "allProfilesMustDie";
 
-    // options columns
+    // ===== OPTIONS COLUMNS =====
     // COLUMN_Unit ID
     // COLUMN_Name
     public static final String COLUMN_CODE = "code"; // a short name to identify this child
@@ -60,10 +60,12 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_CODENAME = "codename"; // not sure where this is used...
     public static final String COLUMN_COST = "cost";
     public static final String COLUMN_SWC = "swc";
+    // COLUMN_BSW
+    // COLUMN_CCW
     // COLUMN_Spec
     public static final String COLUMN_PROFILE = "profile"; // This option requires an additional profile (0-based index)
 
-    // Weapons columns
+    // ===== WEAPONS COLUMNS =====
     public static final String COLUMN_AMMO = "ammo";
     public static final String COLUMN_BURST = "burst";
     // COLUMN_CC
@@ -86,14 +88,14 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_ALT_PROFILE = "alt_profile";
     public static final String COLUMN_MODE = "mode";
 
-    // general columns
+    // ===== GENERAL COLUMNS =====
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NOTE = "note";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_ISC = "isc";
-    public static final String COLUMN_BSW = "bsw";
-    public static final String COLUMN_CCW = "ccw";
-    public static final String COLUMN_SPEC = "spec";
+    public static final String COLUMN_BSW = "bsw";  // this is comma separated list
+    public static final String COLUMN_CCW = "ccw"; // this is comma separated list
+    public static final String COLUMN_SPEC = "spec"; // this is comma separated list
     public static final String COLUMN_UNIT_ID = "unit_id";
     public static final String COLUMN_CC = "cc";
 
@@ -121,6 +123,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         COLUMN_BSW + " text, " +
         COLUMN_CCW + " text, " +
         COLUMN_SPEC + " text " +
+        COLUMN_PROFILE + " integer " +
         ");";
 
     private static final String CREATE_TABLE_PROFILES = "create table " + TABLE_PROFILES + " ( " +
@@ -146,7 +149,9 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         COLUMN_HACKABLE  + " text, " +
         COLUMN_BSW  + " text, " +
         COLUMN_CCW + " text, " +
-        COLUMN_SPEC  + " text " +
+        COLUMN_SPEC  + " text, " +
+        COLUMN_OPTION_SPECIFIC  + " text, " +
+        COLUMN_ALL_DIE   + " text " +
         ");";
 
     private static final String CREATE_TABLE_WEAPONS = "create table " + TABLE_WEAPONS + " (" +
