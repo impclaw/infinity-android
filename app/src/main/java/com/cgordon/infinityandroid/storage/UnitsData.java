@@ -152,7 +152,10 @@ public class UnitsData {
             // read profiles
             ArrayList<Profile> profiles = getProfiles(unit.dbId);
             unit.profiles = profiles;
+
             // read options
+            ArrayList<Option> options = getOptions(unit.dbId);
+            unit.options = options;
 
             units.add(unit);
 
@@ -160,6 +163,47 @@ public class UnitsData {
         }
 
         return units;
+
+    }
+
+    private ArrayList<Option> getOptions(long unitId) {
+        Cursor cursor = m_database.query(InfinityDatabase.TABLE_OPTIONS, optionsColumns, InfinityDatabase.COLUMN_UNIT_ID + "=" + unitId, null, null, null, null, null);
+
+        cursor.moveToFirst();
+
+        ArrayList<Option> options = new ArrayList<Option>();
+
+        while (!cursor.isAfterLast()) {
+            Option option = cursorToOption(cursor);
+
+            //Log.d(TAG, "Unit ISC: " + unit.isc);
+
+            options.add(option);
+
+            cursor.moveToNext();
+        }
+
+        return options;    
+    }
+
+    private Option cursorToOption(Cursor cursor) {
+        Option option = new Option();
+
+        // 0 - COLUMN_ID + " integer primary key, " +
+        // 1 - COLUMN_UNIT_ID + " integer, " +
+
+        option.name = cursor.getString(2);
+        option.code = cursor.getString(3);
+        option.note = cursor.getString(4);
+        option.codename = cursor.getString(5);
+        option.cost = cursor.getInt(6);
+        option.swc = cursor.getDouble(7);
+        option.bsw = Arrays.asList(cursor.getString(8).split(","));
+        option.ccw = Arrays.asList(cursor.getString(9).split(","));
+        option.spec = Arrays.asList(cursor.getString(10).split(","));
+        option.profile = cursor.getInt(11);
+
+        return option;
 
     }
 
