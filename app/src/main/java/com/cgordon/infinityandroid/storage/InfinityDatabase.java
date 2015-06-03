@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class InfinityDatabase extends SQLiteOpenHelper {
 
      private static final String DATABASE_NAME = "infinity.db";
-     private static final int DATABASE_VERSION = 4;
+     private static final int DATABASE_VERSION = 7;
 
     public static final String TABLE_WEAPONS = "weapons";
     public static final String TABLE_UNITS = "units";
@@ -102,8 +102,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
 
     private static final String CREATE_TABLE_UNITS = "create table " + TABLE_UNITS + " ( " +
         COLUMN_ID + " integer primary key, " +
-        COLUMN_AVA  + " integer, " +
-        COLUMN_SHARED_AVA + " integer, " +
+        COLUMN_AVA  + " text, " +
+        COLUMN_SHARED_AVA + " text, " +
         COLUMN_ARMY + " text, " +
         COLUMN_NOTE + " text, " +
         COLUMN_NAME + " text, " +
@@ -122,7 +122,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         COLUMN_SWC + " real, " +
         COLUMN_BSW + " text, " +
         COLUMN_CCW + " text, " +
-        COLUMN_SPEC + " text " +
+        COLUMN_SPEC + " text, " +
         COLUMN_PROFILE + " integer " +
         ");";
 
@@ -139,14 +139,14 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         COLUMN_WOUNDS  + " text, " +
         COLUMN_WOUNDS_TYPE  + " text, " +
         COLUMN_SILHOUETTE  + " text, " +
-        COLUMN_IRR  + " text, " +
+        COLUMN_IRR  + " integer, " + // boolean
         COLUMN_IMP  + " text, " +
         COLUMN_CUBE  + " text, " +
         COLUMN_NOTE + " text, " +
         COLUMN_ISC + " text, " +
         COLUMN_NAME + " text, " +
         COLUMN_TYPE  + " text, " +
-        COLUMN_HACKABLE  + " text, " +
+        COLUMN_HACKABLE  + " integer, " + // boolean
         COLUMN_BSW  + " text, " +
         COLUMN_CCW + " text, " +
         COLUMN_SPEC  + " text, " +

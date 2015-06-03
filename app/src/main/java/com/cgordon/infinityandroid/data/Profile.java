@@ -1,15 +1,16 @@
 package com.cgordon.infinityandroid.data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by cgordon on 5/30/2015.
  */
 public class Profile {
 
-    public ArrayList<String> bsw;
-    public ArrayList<String> ccw;
-    public ArrayList<String> spec;
+    public List<String> bsw;
+    public List<String> ccw;
+    public List<String> spec;
 
     public String mov;
     public String cc;

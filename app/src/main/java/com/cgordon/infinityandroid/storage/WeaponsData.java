@@ -52,6 +52,10 @@ public class WeaponsData {
         m_database = m_dbHelper.getWritableDatabase();
     }
 
+    public void close() {
+        m_database.close();
+    }
+
     public void writeWeapons(ArrayList<Weapon> weapons) {
         Iterator<Weapon> weapon_it = weapons.iterator();
         while (weapon_it.hasNext()) {

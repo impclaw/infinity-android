@@ -7,8 +7,9 @@ import java.util.ArrayList;
  */
 public class Unit {
 
-    public String ava;
-    public String sharedAva; // Other unit that subtracts from this units Ava
+    public long dbId;
+    public String ava;  // sometimes this can be 'T', so can't be an int
+    public String sharedAva; // Name of other unit that subtracts from this units Ava
     public ArrayList<Profile> profiles;
     public ArrayList<Option> options;
     public String army;

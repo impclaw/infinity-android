@@ -8,9 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
 import com.cgordon.infinityandroid.json.UnitParser;
 import com.cgordon.infinityandroid.json.WeaponParser;
+import com.cgordon.infinityandroid.storage.UnitsData;
 import com.cgordon.infinityandroid.storage.WeaponsData;
 
 import java.util.ArrayList;
@@ -46,8 +48,16 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_load) {
             UnitParser up = new UnitParser(this);
-//
-//            Log.d(TAG, "Tohaa " + up.parse(R.raw.toha_units).size());
+
+            UnitsData ud = new UnitsData(this);
+            ud.open();
+//            ud.writeUnits(up.parse(R.raw.toha_units));
+            ArrayList<Unit> units = ud.getUnits("Tohaa");
+
+            Log.d(TAG, units.toString());
+
+            ud.close();
+
 //            Log.d(TAG, "PanO " + up.parse(R.raw.pano_units).size());
 //            Log.d(TAG, "YuJing " + up.parse(R.raw.yuji_units).size());
 //            Log.d(TAG, "Ariadna " + up.parse(R.raw.aria_units).size());
@@ -61,14 +71,16 @@ public class MainActivity extends AppCompatActivity {
 //            SectorialParser sp = new SectorialParser(this);
 //            Log.d(TAG, "Sectorials: " + sp.parse(R.raw.sectorials).size());
 
+
+
             WeaponParser wp = new WeaponParser(this);
             ArrayList<Weapon> weapons =  wp.parse(R.raw.weapons);
             Log.d(TAG, "Weapons: " + weapons.size());
 
             WeaponsData wt = new WeaponsData(this);
             wt.open();
-            wt.writeWeapons(weapons);
-
+           // wt.writeWeapons(weapons);
+            wt.close();
 
 
             return true;
