@@ -5,6 +5,8 @@ package com.cgordon.infinityandroid.data;
  */
 public class SectorialUnit {
 
+    public long dbId;
+    public long sectorialId;
     public String ava;
     public String isc;
     public boolean linkable;

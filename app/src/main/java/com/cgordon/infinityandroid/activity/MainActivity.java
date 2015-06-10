@@ -8,10 +8,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.data.Sectorial;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
+import com.cgordon.infinityandroid.json.SectorialParser;
 import com.cgordon.infinityandroid.json.UnitParser;
 import com.cgordon.infinityandroid.json.WeaponParser;
+import com.cgordon.infinityandroid.storage.SectorialData;
 import com.cgordon.infinityandroid.storage.UnitsData;
 import com.cgordon.infinityandroid.storage.WeaponsData;
 
@@ -67,9 +70,15 @@ public class MainActivity extends AppCompatActivity {
 //            Log.d(TAG, "Aleph " + up.parse(R.raw.alep_units).size());
 //            Log.d(TAG, "merc " + up.parse(R.raw.merc_units).size());
 //            Log.d(TAG, "Other " + up.parse(R.raw.other_units).size());
-//
-//            SectorialParser sp = new SectorialParser(this);
-//            Log.d(TAG, "Sectorials: " + sp.parse(R.raw.sectorials).size());
+
+            SectorialParser sp = new SectorialParser(this);
+            ArrayList<Sectorial> sectorials = sp.parse(R.raw.sectorials);
+            SectorialData sd = new SectorialData(this);
+            sd.open();
+            sd.writeSectorial(sectorials);
+//            ArrayList<Sectorial> h_sectorial = sd.getSectorials("Haqqislam");
+//            Log.d(TAG, h_sectorial.toString());
+
 
 
 

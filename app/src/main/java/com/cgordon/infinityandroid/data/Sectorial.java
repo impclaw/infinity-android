@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class Sectorial {
 
+    public long dbId;
     public String army;
     public String name;
     public String abbr;
