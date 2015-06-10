@@ -60,6 +60,10 @@ public class SectorialData {
         m_dbHelper = new InfinityDatabase(context);
     }
 
+    public SectorialData(SQLiteDatabase db) {
+        m_database = db;
+    }
+
     public void open() {
         m_database = m_dbHelper.getWritableDatabase();
     }
@@ -97,9 +101,17 @@ public class SectorialData {
         }
     }
 
-    public ArrayList<Sectorial> getSectorials(String army) {
-        Cursor cursor = m_database.query(InfinityDatabase.TABLE_SECTORIAL, sectorialColumns, InfinityDatabase.COLUMN_ARMY + "='" + army + "'", null, null, null, null, null);
+    public ArrayList<Sectorial> getAllSectorials() {
+        return processSectorial(m_database.query(InfinityDatabase.TABLE_SECTORIAL, sectorialColumns, null, null, null, null, null, null));
 
+    }
+
+    public ArrayList<Sectorial> getSectorials(String army) {
+        return processSectorial(m_database.query(InfinityDatabase.TABLE_SECTORIAL, sectorialColumns, InfinityDatabase.COLUMN_ARMY + "='" + army + "'", null, null, null, null, null));
+    }
+
+    ArrayList<Sectorial> processSectorial(Cursor cursor)
+    {
         cursor.moveToFirst();
 
         ArrayList<Sectorial> sectorials = new ArrayList<Sectorial>();
@@ -121,7 +133,6 @@ public class SectorialData {
         return sectorials;
 
     }
-
     private ArrayList<SectorialUnit> getSectorialUnits(long sectorialId) {
         Cursor cursor = m_database.query(InfinityDatabase.TABLE_SECTORIAL_UNITS, sectorialUnitColumns, InfinityDatabase.COLUMN_SECTORIAL_ID + "=" + sectorialId, null, null, null, null, null);
 

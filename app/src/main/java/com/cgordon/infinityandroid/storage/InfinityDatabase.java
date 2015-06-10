@@ -3,6 +3,17 @@ package com.cgordon.infinityandroid.storage;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.data.Sectorial;
+import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.data.Weapon;
+import com.cgordon.infinityandroid.json.SectorialParser;
+import com.cgordon.infinityandroid.json.UnitParser;
+import com.cgordon.infinityandroid.json.WeaponParser;
+
+import java.util.ArrayList;
 
 /**
  * Created by cgordon on 6/1/2015.
@@ -212,19 +223,47 @@ public class InfinityDatabase extends SQLiteOpenHelper {
             COLUMN_ARMY + " text " +
             ");";
 
+    private Context m_context;
+
+    private final static String TAG = InfinityDatabase.class.getSimpleName();
+
      public InfinityDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+         m_context = context;
      }
 
      @Override
      public void onCreate(SQLiteDatabase db) {
-         db.execSQL(CREATE_TABLE_WEAPONS);
-         db.execSQL(CREATE_TABLE_UNITS);
-         db.execSQL(CREATE_TABLE_OPTIONS);
-         db.execSQL(CREATE_TABLE_PROFILES);
-         db.execSQL(CREATE_TABLE_SECTORIAL);
-         db.execSQL(CREATE_TABLE_SECTORIAL_UNITS);
+        db.execSQL(CREATE_TABLE_WEAPONS);
+        db.execSQL(CREATE_TABLE_UNITS);
+        db.execSQL(CREATE_TABLE_OPTIONS);
+        db.execSQL(CREATE_TABLE_PROFILES);
+        db.execSQL(CREATE_TABLE_SECTORIAL);
+        db.execSQL(CREATE_TABLE_SECTORIAL_UNITS);
 
+        // Load units
+        UnitParser unitParser = new UnitParser(m_context);
+        UnitsData unitsData = new UnitsData(db);
+        unitsData.writeUnits(unitParser.parse(R.raw.pano_units));
+        unitsData.writeUnits(unitParser.parse(R.raw.yuji_units));
+        unitsData.writeUnits(unitParser.parse(R.raw.aria_units));
+        unitsData.writeUnits(unitParser.parse(R.raw.noma_units));
+        unitsData.writeUnits(unitParser.parse(R.raw.haqq_units));
+        unitsData.writeUnits(unitParser.parse(R.raw.comb_units));
+        unitsData.writeUnits(unitParser.parse(R.raw.alep_units));
+        unitsData.writeUnits(unitParser.parse(R.raw.toha_units));
+        unitsData.writeUnits(unitParser.parse(R.raw.merc_units));
+        unitsData.writeUnits(unitParser.parse(R.raw.other_units));
+
+        // Load sectorial data
+        SectorialParser sectorialParser = new SectorialParser(m_context);
+        SectorialData sectorialData = new SectorialData(db);
+        sectorialData.writeSectorial(sectorialParser.parse(R.raw.sectorials));
+
+        // Load weapon data
+        WeaponParser weaponParser = new WeaponParser(m_context);
+        WeaponsData weaponsData = new WeaponsData(db);
+        weaponsData.writeWeapons(weaponParser.parse(R.raw.weapons));
      }
 
      @Override

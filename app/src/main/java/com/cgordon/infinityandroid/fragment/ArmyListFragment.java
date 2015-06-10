@@ -43,7 +43,7 @@ public class ArmyListFragment extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(), columns);
         recyclerView.setLayoutManager(layoutManager);
-        RecyclerView.Adapter adapter = new ArmyAdapter();
+        RecyclerView.Adapter adapter = new ArmyAdapter(getActivity());
         recyclerView.setAdapter(adapter);
 
 

@@ -86,6 +86,11 @@ public class UnitsData {
         m_dbHelper = new InfinityDatabase(context);
     }
 
+    // Necessary for creating the database during onCreate.  Otherwise the database is locked.
+    public UnitsData(SQLiteDatabase db) {
+        m_database = db;
+    }
+
     public void open() {
         m_database = m_dbHelper.getWritableDatabase();
     }

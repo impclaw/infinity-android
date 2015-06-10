@@ -15,38 +15,50 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.data.Sectorial;
+import com.cgordon.infinityandroid.storage.SectorialData;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by cgordon on 5/25/2015.
  */
 public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
 
+    private final static String TAG = ArmyAdapter.class.getSimpleName();
+
+    ArrayList<Sectorial> m_sectorials;
+    Context m_context;
+
     public int[][] m_data = {
             {R.string.pano_main, R.drawable.pano_main, R.color.pano},
-            {R.string.pano_acontecimento, R.drawable.pano_acontecimento, R.color.pano},
-            {R.string.pano_military_orders, R.drawable.pano_military_orders, R.color.pano},
-            {R.string.pano_neoterra, R.drawable.pano_neoterra, R.color.pano},
             {R.string.yujing_main, R.drawable.yujing_main, R.color.yujing},
-            {R.string.yujing_iss, R.drawable.yujing_iss, R.color.yujing},
-            {R.string.yujing_jsa, R.drawable.yujing_jsa, R.color.yujing},
             {R.string.ariadna_main, R.drawable.ariadna_main, R.color.ariadna},
-            {R.string.ariadna_caledonian, R.drawable.ariadna_caledonian, R.color.ariadna},
-            {R.string.ariadna_merovingian, R.drawable.ariadna_merovingian, R.color.ariadna},
-            {R.string.ariadna_usariadna, R.drawable.ariadna_usariadna, R.color.ariadna},
             {R.string.haqqislam_main, R.drawable.haqqislam_main, R.color.haqqislam},
-            {R.string.haqqislam_hassassin, R.drawable.haqqislam_hassassin, R.color.haqqislam},
-            {R.string.haqqislam_qapu_khalqi, R.drawable.haqqislam_qapu_khalqi, R.color.haqqislam},
             {R.string.nomads_main, R.drawable.nomads_main, R.color.nomads},
-            {R.string.nomads_bakunin, R.drawable.nomads_bakunin, R.color.nomads},
-            {R.string.nomads_corregidor, R.drawable.nomads_corregidor, R.color.nomads},
             {R.string.ca_main, R.drawable.ca_main, R.color.ca},
-            {R.string.ca_morat, R.drawable.ca_morat, R.color.ca},
-            {R.string.ca_shasvastii, R.drawable.ca_shasvastii, R.color.ca},
             {R.string.aleph_main, R.drawable.aleph_main, R.color.aleph},
-            {R.string.aleph_ass, R.drawable.aleph_ass, R.color.aleph},
             {R.string.tohaa_main, R.drawable.tohaa_main, R.color.tohaa},
             {R.string.merc_main, R.drawable.merc_main, R.color.mercs}
     };
+
+    public ArmyAdapter(Context context) {
+        Log.d(TAG, "ArmyAdapter Constructor");
+
+        m_context = context;
+
+        SectorialData sectorialData = new SectorialData(m_context);
+        Date start = new Date();
+        sectorialData.open();
+        m_sectorials = sectorialData.getAllSectorials();
+        if (m_sectorials == null) {
+            Log.e(TAG, "No sectorials!  Very bad");
+        }
+        sectorialData.close();
+        Date end = new Date();
+        Log.d(TAG, "ArmyAdapter load data time: " + (end.getTime() - start.getTime()) + " ms");
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -57,14 +69,18 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.m_textView.setText(m_data[position][0]);
-        holder.m_imageView.setImageResource(m_data[position][1]);
-        //holder.m_imageView.setBackgroundResource(m_data[position][2]);
-        //holder.m_imageView.setBackgroundResource(R.color.army_card_background);
+        if (position < m_data.length) {
+            holder.m_textView.setText(m_data[position][0]);
+            holder.m_imageView.setImageResource(m_data[position][1]);
+        } else {
+            holder.m_textView.setText(m_sectorials.get(position-m_data.length).name);
+            holder.m_imageView.setImageResource(R.drawable.pano_main);
+        }
+
         holder.m_cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Toast.makeText(m_context, holder.m_textView.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(m_context, holder.m_textView.getText().toString(), Toast.LENGTH_SHORT).show();
 
 //                ((Activity) v.getContext()).findViewById(R.id.toolbar).setBackgroundResource(m_data[position][2]);
             }
@@ -74,7 +90,7 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return m_data.length;
+        return m_data.length + m_sectorials.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

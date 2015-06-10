@@ -48,6 +48,10 @@ public class WeaponsData {
         m_dbHelper = new InfinityDatabase(context);
     }
 
+    public WeaponsData(SQLiteDatabase db) {
+        m_database = db;
+    }
+
     public void open() {
         m_database = m_dbHelper.getWritableDatabase();
     }
