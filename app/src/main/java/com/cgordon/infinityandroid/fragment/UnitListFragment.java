@@ -1,5 +1,6 @@
 package com.cgordon.infinityandroid.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,12 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.adapter.BrowsePagerAdapter;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 
 /**
  * Created by cgordon on 6/10/2015.
  */
-public class UnitListFragment extends Fragment {
+public class UnitListFragment extends Fragment implements UnitListAdapter.OnUnitSelectedListener {
+
+    private UnitSelectedListener m_listener;
 
     @Nullable
     @Override
@@ -27,9 +31,35 @@ public class UnitListFragment extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        RecyclerView.Adapter adapter = new UnitListAdapter();
+        UnitListAdapter adapter = new UnitListAdapter();
+        adapter.setOnUnitSelectedListener(this);
+
         recyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (activity instanceof UnitSelectedListener) {
+            m_listener = (UnitSelectedListener) activity;
+        }
+    }
+
+    @Override
+    public void unitSelected(long dbId) {
+        if (m_listener != null) {
+            m_listener.unitSelected(dbId);
+        }
+    }
+
+    public interface UnitSelectedListener {
+
+        /**
+         * Returns the database id of the unit in the units table
+         * @param dbId id of the element, -1 if not known
+         */
+        public void unitSelected(long dbId);
     }
 }

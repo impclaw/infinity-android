@@ -28,7 +28,6 @@
     <string name="yujing_main">Yu Jing</string>
     <string name="action_settings">Settings</string>
     <string name="action_load">Load</string>
-    <string name="title_activity_browse">BrowseActivity</string>
+    <string name="title_activity_browse">Units</string>
 
-    <string name="hello_world">Hello world!</string>
 </resources>

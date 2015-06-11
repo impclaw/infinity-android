@@ -13,7 +13,7 @@ import com.cgordon.infinityandroid.fragment.UnitListFragment;
 /**
  * Created by cgordon on 6/10/2015.
  */
-public class BrowsePagerAdapter extends FragmentPagerAdapter {
+public class BrowsePagerAdapter extends FragmentPagerAdapter  {
 
     public static final String TAG = BrowsePagerAdapter.class.getSimpleName();
 
@@ -39,4 +39,7 @@ public class BrowsePagerAdapter extends FragmentPagerAdapter {
         return fragment;
     }
 
+    public void unitSelected(long id) {
+        m_unitFragment.setId(id);
+    }
 }

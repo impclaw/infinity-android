@@ -16,5 +16,6 @@
     <color name="aleph">#A9A2B6</color>
     <color name="tohaa">#020507</color>
     <color name="mercs">#7C8768</color>
+    <color name="list_divider">#efefef</color>
 
 </resources>

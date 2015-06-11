@@ -1,8 +1,10 @@
 package com.cgordon.infinityandroid.activity;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -12,29 +14,30 @@ import android.view.View;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.BrowsePagerAdapter;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
+import com.cgordon.infinityandroid.fragment.UnitFragment;
+import com.cgordon.infinityandroid.fragment.UnitListFragment;
 
-public class BrowseActivity extends ActionBarActivity {
+public class BrowseActivity extends AppCompatActivity implements UnitListFragment.UnitSelectedListener {
 
     private static final String TAG = BrowseActivity.class.getSimpleName();
+
+    private ViewPager m_viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
 
+        String army = getIntent().getStringExtra(MainActivity.ARMY);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPager.setAdapter(new BrowsePagerAdapter(getSupportFragmentManager()));
-        viewPager.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, v.toString());
-            }
-        });
+        m_viewPager = (ViewPager) findViewById(R.id.pager);
+        m_viewPager.setAdapter(new BrowsePagerAdapter(getSupportFragmentManager()));
+
     }
 
 
@@ -58,5 +61,17 @@ public class BrowseActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void unitSelected(long dbId) {
+        Log.d(TAG, "Received listener id: " + dbId);
+
+        Fragment unit = (Fragment) m_viewPager.getAdapter().instantiateItem(m_viewPager, 1);
+        if (unit instanceof UnitFragment) {
+            ((UnitFragment) unit).setId(dbId);
+        }
+
+
     }
 }

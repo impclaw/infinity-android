@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.BrowseActivity;
+import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.data.Sectorial;
 import com.cgordon.infinityandroid.storage.SectorialData;
 
@@ -75,7 +76,7 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
             holder.m_textView.setText(m_data[position][0]);
             holder.m_imageView.setImageResource(m_data[position][1]);
         } else {
-            Sectorial sectorial =m_sectorials.get(position-m_data.length);
+            Sectorial sectorial = m_sectorials.get(position-m_data.length);
             String name;
             if (sectorial.abbr != null) {
                 name = sectorial.abbr;
@@ -90,6 +91,7 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(m_context, BrowseActivity.class);
+                i.putExtra(MainActivity.ARMY, holder.m_textView.getText().toString());
                 m_context.startActivity(i);
 
                 //Toast.makeText(m_context, holder.m_textView.getText().toString(), Toast.LENGTH_SHORT).show();

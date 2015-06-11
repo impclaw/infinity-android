@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Profile;
+import com.cgordon.infinityandroid.data.Sectorial;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
 
@@ -18,6 +19,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by cgordon on 6/1/2015.
@@ -113,7 +115,7 @@ public class UnitsData {
                 return;
             }
 
-            ArrayList<Profile> profiles = unit.profiles;
+            List<Profile> profiles = unit.profiles;
             Iterator profileIt = profiles.iterator();
             while (profileIt.hasNext()) {
                 Profile profile = (Profile) profileIt.next();
@@ -126,7 +128,7 @@ public class UnitsData {
             
             }
 
-            ArrayList<Option> options = unit.options;
+            List<Option> options = unit.options;
             Iterator optionIt = options.iterator();
             while (optionIt.hasNext()) {
                 Option option = (Option) optionIt.next();
@@ -142,7 +144,13 @@ public class UnitsData {
 
     }
 
-    public ArrayList<Unit> getUnits(String army) {
+    public List<Unit> getSectorialUnits(Sectorial sectorial) {
+        ArrayList<Unit> units = new ArrayList<>();
+
+        return units;
+    }
+
+    public List<Unit> getArmyUnits(String army) {
         Cursor cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns, InfinityDatabase.COLUMN_ARMY + "='" + army + "'", null, null, null, null, null);
 
         cursor.moveToFirst();
@@ -153,11 +161,11 @@ public class UnitsData {
             Unit unit = cursorToUnit(cursor);
 
             // read profiles
-            ArrayList<Profile> profiles = getProfiles(unit.dbId);
+            List<Profile> profiles = getProfiles(unit.dbId);
             unit.profiles = profiles;
 
             // read options
-            ArrayList<Option> options = getOptions(unit.dbId);
+            List<Option> options = getOptions(unit.dbId);
             unit.options = options;
 
             units.add(unit);
@@ -169,7 +177,7 @@ public class UnitsData {
 
     }
 
-    private ArrayList<Option> getOptions(long unitId) {
+    private List<Option> getOptions(long unitId) {
         Cursor cursor = m_database.query(InfinityDatabase.TABLE_OPTIONS, optionsColumns, InfinityDatabase.COLUMN_UNIT_ID + "=" + unitId, null, null, null, null, null);
 
         cursor.moveToFirst();
@@ -208,7 +216,7 @@ public class UnitsData {
 
     }
 
-    private ArrayList<Profile> getProfiles(long unitId) {
+    private List<Profile> getProfiles(long unitId) {
         Cursor cursor = m_database.query(InfinityDatabase.TABLE_PROFILES, profileColumns, InfinityDatabase.COLUMN_UNIT_ID + "=" + unitId, null, null, null, null, null);
 
         cursor.moveToFirst();

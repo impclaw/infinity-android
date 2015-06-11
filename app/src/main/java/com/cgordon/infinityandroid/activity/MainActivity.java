@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.cgordon.infinityandroid.R;
@@ -23,6 +22,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    public static final String ARMY = "army";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,47 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_load) {
-            UnitParser up = new UnitParser(this);
-
-            UnitsData ud = new UnitsData(this);
-            ud.open();
-//            ud.writeUnits(up.parse(R.raw.toha_units));
-            ArrayList<Unit> units = ud.getUnits("Tohaa");
-
-            Log.d(TAG, units.toString());
-
-            ud.close();
-
-//            Log.d(TAG, "PanO " + up.parse(R.raw.pano_units).size());
-//            Log.d(TAG, "YuJing " + up.parse(R.raw.yuji_units).size());
-//            Log.d(TAG, "Ariadna " + up.parse(R.raw.aria_units).size());
-//            Log.d(TAG, "Haqqislam " + up.parse(R.raw.haqq_units).size());
-//            Log.d(TAG, "Nomads " + up.parse(R.raw.noma_units).size());
-//            Log.d(TAG, "CA " + up.parse(R.raw.comb_units).size());
-//            Log.d(TAG, "Aleph " + up.parse(R.raw.alep_units).size());
-//            Log.d(TAG, "merc " + up.parse(R.raw.merc_units).size());
-//            Log.d(TAG, "Other " + up.parse(R.raw.other_units).size());
-
-            SectorialParser sp = new SectorialParser(this);
-            ArrayList<Sectorial> sectorials = sp.parse(R.raw.sectorials);
-            SectorialData sd = new SectorialData(this);
-            sd.open();
-            sd.writeSectorial(sectorials);
-//            ArrayList<Sectorial> h_sectorial = sd.getSectorials("Haqqislam");
-//            Log.d(TAG, h_sectorial.toString());
-
-
-
-
-            WeaponParser wp = new WeaponParser(this);
-            ArrayList<Weapon> weapons =  wp.parse(R.raw.weapons);
-            Log.d(TAG, "Weapons: " + weapons.size());
-
-            WeaponsData wt = new WeaponsData(this);
-            wt.open();
-           // wt.writeWeapons(weapons);
-            wt.close();
-
 
             return true;
         }
