@@ -39,7 +39,4 @@ public class BrowsePagerAdapter extends FragmentPagerAdapter  {
         return fragment;
     }
 
-    public void unitSelected(long id) {
-        m_unitFragment.setId(id);
-    }
 }
