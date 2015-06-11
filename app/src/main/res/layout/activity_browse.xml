@@ -6,18 +6,17 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.cgordon.infinityandroid.activity.MainActivity"
-    android:orientation="vertical"
-    >
+    tools:context="com.cgordon.infinityandroid.activity.BrowseActivity"
+    android:orientation="vertical">
+
 
 
     <include layout="@layout/toolbar" />
 
-    <fragment
-        android:name="com.cgordon.infinityandroid.fragment.ArmyListFragment"
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_recycler_view" />
-
+        android:id="@+id/pager"
+        />
 
 </LinearLayout>

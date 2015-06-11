@@ -152,8 +152,6 @@ public class UnitsData {
         while (!cursor.isAfterLast()) {
             Unit unit = cursorToUnit(cursor);
 
-            Log.d(TAG, "Unit ISC: " + unit.isc);
-
             // read profiles
             ArrayList<Profile> profiles = getProfiles(unit.dbId);
             unit.profiles = profiles;
@@ -180,8 +178,6 @@ public class UnitsData {
 
         while (!cursor.isAfterLast()) {
             Option option = cursorToOption(cursor);
-
-            //Log.d(TAG, "Unit ISC: " + unit.isc);
 
             options.add(option);
 
@@ -221,8 +217,6 @@ public class UnitsData {
 
         while (!cursor.isAfterLast()) {
             Profile profile = cursorToProfile(cursor);
-
-            //Log.d(TAG, "Unit ISC: " + unit.isc);
 
             profiles.add(profile);
 

@@ -6,9 +6,7 @@
     android:layout_width="match_parent"
     android:minHeight="?attr/actionBarSize"
     android:background="@color/colourPrimary"
-    app:theme="@style/AppTheme.Toolbar"
-    app:popupTheme="@style/AppTheme.Popup"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme.Toolbar"
+    android:popupTheme="@style/AppTheme.Popup"
     android:elevation="4dp"/>
-    <!--android:background="@color/colourPrimary"-->
 

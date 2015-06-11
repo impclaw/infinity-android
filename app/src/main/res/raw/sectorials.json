@@ -225,6 +225,7 @@
  {
   "army": "Combined Army",
   "name": "Morat Aggression Force",
+  "abbr": "Morat Aggro Force",
   "units": [
    {
     "ava": "T",

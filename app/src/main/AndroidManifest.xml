@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.BrowseActivity"
+            android:label="@string/title_activity_browse"
+            android:parentActivityName=".activity.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cgordon.infinityandroid.activity.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

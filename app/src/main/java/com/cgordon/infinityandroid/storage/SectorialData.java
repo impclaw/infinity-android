@@ -119,8 +119,6 @@ public class SectorialData {
         while (!cursor.isAfterLast()) {
             Sectorial sectorial = cursorToSectorial(cursor);
 
-            Log.d(TAG, "Sectorial ISC: " + sectorial.name);
-
             // read sectorialUnits
             ArrayList<SectorialUnit> sectorialUnits = getSectorialUnits(sectorial.dbId);
             sectorial.units = sectorialUnits;
@@ -196,7 +194,6 @@ public class SectorialData {
         //v.put(InfinityDatabase.COLUMN_AMMO, w.ammo);
 
         v.put(InfinityDatabase.COLUMN_ARMY, sectorial.army);
-        Log.d(TAG, "ARMY: " + sectorial.army);
         v.put(InfinityDatabase.COLUMN_NAME, sectorial.name);
         v.put(InfinityDatabase.COLUMN_ABBREVIATION, sectorial.abbr);
 

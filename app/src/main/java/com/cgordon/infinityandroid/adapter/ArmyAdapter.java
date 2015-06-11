@@ -2,6 +2,7 @@ package com.cgordon.infinityandroid.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.activity.BrowseActivity;
 import com.cgordon.infinityandroid.data.Sectorial;
 import com.cgordon.infinityandroid.storage.SectorialData;
 
@@ -73,14 +75,24 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
             holder.m_textView.setText(m_data[position][0]);
             holder.m_imageView.setImageResource(m_data[position][1]);
         } else {
-            holder.m_textView.setText(m_sectorials.get(position-m_data.length).name);
+            Sectorial sectorial =m_sectorials.get(position-m_data.length);
+            String name;
+            if (sectorial.abbr != null) {
+                name = sectorial.abbr;
+            } else {
+                name = sectorial.name;
+            }
+            holder.m_textView.setText(name);
             holder.m_imageView.setImageResource(R.drawable.pano_main);
         }
 
         holder.m_cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(m_context, holder.m_textView.getText().toString(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(m_context, BrowseActivity.class);
+                m_context.startActivity(i);
+
+                //Toast.makeText(m_context, holder.m_textView.getText().toString(), Toast.LENGTH_SHORT).show();
 
 //                ((Activity) v.getContext()).findViewById(R.id.toolbar).setBackgroundResource(m_data[position][2]);
             }
