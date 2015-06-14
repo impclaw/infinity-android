@@ -1,5 +1,6 @@
 package com.cgordon.infinityandroid.adapter;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -7,6 +8,7 @@ import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 import android.view.View;
 
+import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 
@@ -17,8 +19,11 @@ public class BrowsePagerAdapter extends FragmentPagerAdapter  {
 
     public static final String TAG = BrowsePagerAdapter.class.getSimpleName();
 
-    public BrowsePagerAdapter(FragmentManager fm) {
+    String m_army;
+
+    public BrowsePagerAdapter(FragmentManager fm, String army) {
         super(fm);
+        m_army = army;
     }
 
     @Override
@@ -31,6 +36,9 @@ public class BrowsePagerAdapter extends FragmentPagerAdapter  {
         Fragment fragment = null;
         if (position == 0) {
             fragment = new UnitListFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString(MainActivity.ARMY, m_army);
+            fragment.setArguments(bundle);
         } else if (position == 1) {
             fragment  = new UnitFragment();
         } else {

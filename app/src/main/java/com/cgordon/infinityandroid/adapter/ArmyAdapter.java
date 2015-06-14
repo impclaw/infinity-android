@@ -1,12 +1,10 @@
 package com.cgordon.infinityandroid.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.res.Resources;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +16,11 @@ import android.widget.Toast;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.BrowseActivity;
 import com.cgordon.infinityandroid.activity.MainActivity;
-import com.cgordon.infinityandroid.data.Sectorial;
-import com.cgordon.infinityandroid.storage.SectorialData;
+import com.cgordon.infinityandroid.data.Army;
+import com.cgordon.infinityandroid.storage.ArmyData;
 
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by cgordon on 5/25/2015.
@@ -31,34 +29,36 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
 
     private final static String TAG = ArmyAdapter.class.getSimpleName();
 
-    ArrayList<Sectorial> m_sectorials;
+    List<Army> m_armies;
     Context m_context;
-
-    public int[][] m_data = {
-            {R.string.pano_main, R.drawable.pano_main, R.color.pano},
-            {R.string.yujing_main, R.drawable.yujing_main, R.color.yujing},
-            {R.string.ariadna_main, R.drawable.ariadna_main, R.color.ariadna},
-            {R.string.haqqislam_main, R.drawable.haqqislam_main, R.color.haqqislam},
-            {R.string.nomads_main, R.drawable.nomads_main, R.color.nomads},
-            {R.string.ca_main, R.drawable.ca_main, R.color.ca},
-            {R.string.aleph_main, R.drawable.aleph_main, R.color.aleph},
-            {R.string.tohaa_main, R.drawable.tohaa_main, R.color.tohaa},
-            {R.string.merc_main, R.drawable.merc_main, R.color.mercs}
-    };
+    Resources m_resources;
+//
+//    public int[][] m_data = {
+//            {R.string.pano_main, R.drawable.pano_main, R.color.pano},
+//            {R.string.yujing_main, R.drawable.yujing_main, R.color.yujing},
+//            {R.string.ariadna_main, R.drawable.ariadna_main, R.color.ariadna},
+//            {R.string.haqqislam_main, R.drawable.haqqislam_main, R.color.haqqislam},
+//            {R.string.nomads_main, R.drawable.nomads_main, R.color.nomads},
+//            {R.string.ca_main, R.drawable.ca_main, R.color.ca},
+//            {R.string.aleph_main, R.drawable.aleph_main, R.color.aleph},
+//            {R.string.tohaa_main, R.drawable.tohaa_main, R.color.tohaa},
+//            {R.string.merc_main, R.drawable.merc_main, R.color.mercs}
+//    };
 
     public ArmyAdapter(Context context) {
         Log.d(TAG, "ArmyAdapter Constructor");
 
         m_context = context;
+        m_resources = m_context.getResources();
 
-        SectorialData sectorialData = new SectorialData(m_context);
+        ArmyData armyData = new ArmyData(m_context);
         Date start = new Date();
-        sectorialData.open();
-        m_sectorials = sectorialData.getAllSectorials();
-        if (m_sectorials == null) {
+        armyData.open();
+        m_armies = armyData.getArmyList();
+        if (m_armies == null) {
             Log.e(TAG, "No sectorials!  Very bad");
         }
-        sectorialData.close();
+        armyData.close();
         Date end = new Date();
         Log.d(TAG, "ArmyAdapter load data time: " + (end.getTime() - start.getTime()) + " ms");
     }
@@ -72,29 +72,36 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        if (position < m_data.length) {
-            holder.m_textView.setText(m_data[position][0]);
-            holder.m_imageView.setImageResource(m_data[position][1]);
+
+        Army army = m_armies.get(position);
+        final String name;
+        if (army.abbr != null) {
+            name = army.abbr;
         } else {
-            Sectorial sectorial = m_sectorials.get(position-m_data.length);
-            String name;
-            if (sectorial.abbr != null) {
-                name = sectorial.abbr;
-            } else {
-                name = sectorial.name;
-            }
-            holder.m_textView.setText(name);
-            holder.m_imageView.setImageResource(R.drawable.pano_main);
+            name = army.name;
         }
+        holder.m_textView.setText(name);
+
+        String resourceName = army.faction;
+        if (!army.faction.equals(army.name)) {
+            resourceName += "_" + army.name;
+        }
+        resourceName += "_48";
+
+        resourceName = resourceName.toLowerCase().replace(" ", "_");
+        Log.d(TAG, resourceName + " " + m_context.getPackageName());
+
+        int resourceId = m_resources.getIdentifier(resourceName, "drawable", m_context.getPackageName());
+            holder.m_imageView.setImageResource(resourceId);
 
         holder.m_cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(m_context, BrowseActivity.class);
-                i.putExtra(MainActivity.ARMY, holder.m_textView.getText().toString());
+                i.putExtra(MainActivity.ARMY, name);
                 m_context.startActivity(i);
 
-                //Toast.makeText(m_context, holder.m_textView.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(m_context, holder.m_textView.getText().toString(), Toast.LENGTH_SHORT).show();
 
 //                ((Activity) v.getContext()).findViewById(R.id.toolbar).setBackgroundResource(m_data[position][2]);
             }
@@ -104,7 +111,7 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return m_data.length + m_sectorials.size();
+        return m_armies.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

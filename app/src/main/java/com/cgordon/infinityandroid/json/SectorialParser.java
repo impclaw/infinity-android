@@ -2,10 +2,9 @@ package com.cgordon.infinityandroid.json;
 
 import android.content.Context;
 import android.util.JsonReader;
-import android.util.Log;
 
-import com.cgordon.infinityandroid.data.Sectorial;
-import com.cgordon.infinityandroid.data.SectorialUnit;
+import com.cgordon.infinityandroid.data.Army;
+import com.cgordon.infinityandroid.data.ArmyUnit;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,10 +24,10 @@ public class SectorialParser {
         m_context = context;
     }
 
-    public ArrayList<Sectorial> parse (int resourceId) {
+    public ArrayList<Army> parse (int resourceId) {
         InputStream inputStream = m_context.getResources().openRawResource(resourceId);
 
-        ArrayList<Sectorial> sectorials = new ArrayList<Sectorial>();
+        ArrayList<Army> sectorials = new ArrayList<Army>();
 
         JsonReader reader = new JsonReader(new InputStreamReader(inputStream));
 
@@ -46,16 +45,16 @@ public class SectorialParser {
 
         return sectorials;
     }
-    private Sectorial parseSectorialArmy(JsonReader reader) throws IOException {
+    private Army parseSectorialArmy(JsonReader reader) throws IOException {
         reader.beginObject();
 
-        Sectorial sectorial = new Sectorial();
+        Army sectorial = new Army();
 
         while (reader.hasNext()) {
             String name = reader.nextName();
 
             if (name.equals("army")) {
-                sectorial.army = reader.nextString();
+                sectorial.faction = reader.nextString();
             } else if (name.equals("name")) {
                 sectorial.name = reader.nextString();
             } else if (name.equals("abbr")) {
@@ -71,10 +70,10 @@ public class SectorialParser {
         return sectorial;
     }
 
-    private ArrayList<SectorialUnit> parseSectorialUnits(JsonReader reader) throws IOException {
+    private ArrayList<ArmyUnit> parseSectorialUnits(JsonReader reader) throws IOException {
         reader.beginArray();
 
-        ArrayList<SectorialUnit> units = new ArrayList<SectorialUnit>();
+        ArrayList<ArmyUnit> units = new ArrayList<ArmyUnit>();
 
         while (reader.hasNext()) {
             units.add(parseSectorialUnit(reader));
@@ -86,10 +85,10 @@ public class SectorialParser {
 
     }
 
-    private SectorialUnit parseSectorialUnit(JsonReader reader) throws IOException {
+    private ArmyUnit parseSectorialUnit(JsonReader reader) throws IOException {
         reader.beginObject();
 
-        SectorialUnit unit = new SectorialUnit();
+        ArmyUnit unit = new ArmyUnit();
 
         while (reader.hasNext()) {
             String name = reader.nextName();
@@ -100,7 +99,7 @@ public class SectorialParser {
                 unit.isc = reader.nextString();
             } else if (name.equals("linkable")) {
                 unit.linkable = reader.nextBoolean();
-            } else if (name.equals("army")) { // it's from an army other than the sectorial army
+            } else if (name.equals("army")) { // it's from an faction other than the sectorial faction
                 unit.army = reader.nextString();
             } else {
                 throw new IOException("unknown tag in parseSectorialUnit: " + name);

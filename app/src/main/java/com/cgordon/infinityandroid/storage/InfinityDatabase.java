@@ -3,17 +3,11 @@ package com.cgordon.infinityandroid.storage;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.data.Sectorial;
-import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.data.Weapon;
 import com.cgordon.infinityandroid.json.SectorialParser;
 import com.cgordon.infinityandroid.json.UnitParser;
 import com.cgordon.infinityandroid.json.WeaponParser;
-
-import java.util.ArrayList;
 
 /**
  * Created by cgordon on 6/1/2015.
@@ -21,19 +15,19 @@ import java.util.ArrayList;
 public class InfinityDatabase extends SQLiteOpenHelper {
 
      private static final String DATABASE_NAME = "infinity.db";
-     private static final int DATABASE_VERSION = 9;
+     private static final int DATABASE_VERSION = 10;
 
     public static final String TABLE_WEAPONS = "weapons";
     public static final String TABLE_UNITS = "units";
     public static final String TABLE_OPTIONS = "options";
     public static final String TABLE_PROFILES = "profiles";
-    public static final String TABLE_SECTORIAL = "sectorial";
-    public static final String TABLE_SECTORIAL_UNITS = "sectorial_units";
+    public static final String TABLE_ARMY = "army";
+    public static final String TABLE_ARMY_UNITS = "army_units";
 
     // ===== UNITS COLUMNS =====
     public static final String COLUMN_AVA = "ava";
     public static final String COLUMN_SHARED_AVA = "sharedAva";
-    public static final String COLUMN_ARMY = "army";
+    public static final String COLUMN_FACTION = "faction";
     // COLUMN_NOTE
     // COLUMN_NAME
     // COLUMN_ISC
@@ -112,26 +106,26 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_UNIT_ID = "unit_id";
     public static final String COLUMN_CC = "cc";
 
-    // ===== Sectorial Data =====
+    // ===== ARMY Data =====
     // COLUMN_ID
-    // COLUMN_ARMY
+    // COLUMN_FACTION
     // COLUMN_NAME
     public static final String COLUMN_ABBREVIATION = "abbr";
 
-    // ===== SECTORIAL UNITS DATA =====
+    // ===== ARMY UNITS DATA =====
     // COLUMN_ID
-    public static final String COLUMN_SECTORIAL_ID = "sectorial_id";
+    public static final String COLUMN_ARMY_ID = "army_id";
     // COLUMN_AVA
     // COLUMN_ISC
     public static final String COLUMN_LINKABLE = "linkable";
-    // COLUMN_ARMY
+    // COLUMN_FACTION
 
 
     private static final String CREATE_TABLE_UNITS = "create table " + TABLE_UNITS + " ( " +
         COLUMN_ID + " integer primary key, " +
         COLUMN_AVA  + " text, " +
         COLUMN_SHARED_AVA + " text, " +
-        COLUMN_ARMY + " text, " +
+        COLUMN_FACTION + " text, " +
         COLUMN_NOTE + " text, " +
         COLUMN_NAME + " text, " +
         COLUMN_ISC + " text, " +
@@ -207,20 +201,20 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         ");";
 
 
-    private static final String CREATE_TABLE_SECTORIAL = "create table " + TABLE_SECTORIAL + " ( " +
+    private static final String CREATE_TABLE_ARMY = "create table " + TABLE_ARMY + " ( " +
             COLUMN_ID + " integer primary key, " +
-            COLUMN_ARMY + " text, " +
+            COLUMN_FACTION + " text, " +
             COLUMN_NAME + " text, " +
             COLUMN_ABBREVIATION + " text " +
             ");";
 
-    private static final String CREATE_TABLE_SECTORIAL_UNITS = "create table " + TABLE_SECTORIAL_UNITS + " ( " +
+    private static final String CREATE_TABLE_ARMY_UNITS = "create table " + TABLE_ARMY_UNITS + " ( " +
             COLUMN_ID + " integer primary key, " +
-            COLUMN_SECTORIAL_ID + " integer, " +
+            COLUMN_ARMY_ID + " integer, " +
             COLUMN_AVA + " text, " +
             COLUMN_ISC + " text, " +
             COLUMN_LINKABLE + " integer, " + // boolean
-            COLUMN_ARMY + " text " +
+            COLUMN_FACTION + " text " +
             ");";
 
     private Context m_context;
@@ -238,8 +232,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_UNITS);
         db.execSQL(CREATE_TABLE_OPTIONS);
         db.execSQL(CREATE_TABLE_PROFILES);
-        db.execSQL(CREATE_TABLE_SECTORIAL);
-        db.execSQL(CREATE_TABLE_SECTORIAL_UNITS);
+        db.execSQL(CREATE_TABLE_ARMY);
+        db.execSQL(CREATE_TABLE_ARMY_UNITS);
 
         // Load units
         UnitParser unitParser = new UnitParser(m_context);
@@ -257,8 +251,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
 
         // Load sectorial data
         SectorialParser sectorialParser = new SectorialParser(m_context);
-        SectorialData sectorialData = new SectorialData(db);
-        sectorialData.writeSectorial(sectorialParser.parse(R.raw.sectorials));
+        ArmyData armyData = new ArmyData(db);
+        armyData.writeArmy(sectorialParser.parse(R.raw.sectorials));
 
         // Load weapon data
         WeaponParser weaponParser = new WeaponParser(m_context);
@@ -272,8 +266,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
          db.execSQL("DROP TABLE IF EXISTS " + TABLE_UNITS);
          db.execSQL("DROP TABLE IF EXISTS " + TABLE_OPTIONS);
          db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
-         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SECTORIAL);
-         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SECTORIAL_UNITS);
+         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY);
+         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_UNITS);
 
          onCreate(db);
      }

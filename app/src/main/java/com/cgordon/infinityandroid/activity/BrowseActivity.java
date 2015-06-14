@@ -34,9 +34,10 @@ public class BrowseActivity extends AppCompatActivity implements UnitListFragmen
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setTitle(army);
 
         m_viewPager = (ViewPager) findViewById(R.id.pager);
-        m_viewPager.setAdapter(new BrowsePagerAdapter(getSupportFragmentManager()));
+        m_viewPager.setAdapter(new BrowsePagerAdapter(getSupportFragmentManager(), army));
 
     }
 
@@ -71,7 +72,5 @@ public class BrowseActivity extends AppCompatActivity implements UnitListFragmen
         if (unit instanceof UnitFragment) {
             ((UnitFragment) unit).setId(dbId);
         }
-
-
     }
 }

@@ -1,5 +1,41 @@
 [
  {
+  "army": "PanOceania",
+  "name": "PanOceania"
+ },
+ {
+  "army": "Yu Jing",
+  "name": "Yu Jing"
+ },
+ {
+  "army": "Ariadna",
+  "name": "Ariadna"
+ },
+ {
+  "army": "Haqqislam",
+  "name": "Haqqislam"
+ },
+ {
+  "army": "Nomads",
+  "name": "Nomads"
+ },
+ {
+  "army": "Combined Army",
+  "name": "Combined Army"
+ },
+ {
+  "army": "Aleph",
+  "name": "Aleph"
+ },
+ {
+  "army": "Tohaa",
+  "name": "Tohaa"
+ },
+ {
+  "army": "Mercs",
+  "name": "Mercs"
+ },
+ {
   "army": "Haqqislam",
   "name": "Qapu Khalqi",
   "units": [
@@ -804,7 +840,7 @@
  },
  {
   "army": "Nomads",
-  "name": "Bakunin Jurisdictional Command",
+  "name": "Jurisdictional Command of Bakunin",
   "abbr": "Bakunin",
   "units": [
    {
@@ -935,7 +971,7 @@
  },
  {
   "army": "Nomads",
-  "name": "Corregidor Jurisdictional Command",
+  "name": "Jurisdictional Command of Corregidor",
   "abbr": "Corregidor",
   "units": [
    {

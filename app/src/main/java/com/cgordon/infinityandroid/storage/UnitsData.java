@@ -9,13 +9,8 @@ import android.util.Log;
 
 import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Profile;
-import com.cgordon.infinityandroid.data.Sectorial;
 import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.data.Weapon;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -34,7 +29,7 @@ public class UnitsData {
             InfinityDatabase.COLUMN_ID,
             InfinityDatabase.COLUMN_AVA,
             InfinityDatabase.COLUMN_SHARED_AVA, 
-            InfinityDatabase.COLUMN_ARMY, 
+            InfinityDatabase.COLUMN_FACTION,
             InfinityDatabase.COLUMN_NOTE, 
             InfinityDatabase.COLUMN_NAME, 
             InfinityDatabase.COLUMN_ISC, 
@@ -144,14 +139,8 @@ public class UnitsData {
 
     }
 
-    public List<Unit> getSectorialUnits(Sectorial sectorial) {
-        ArrayList<Unit> units = new ArrayList<>();
-
-        return units;
-    }
-
     public List<Unit> getArmyUnits(String army) {
-        Cursor cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns, InfinityDatabase.COLUMN_ARMY + "='" + army + "'", null, null, null, null, null);
+        Cursor cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns, InfinityDatabase.COLUMN_FACTION + "='" + army + "'", null, null, null, null, null);
 
         cursor.moveToFirst();
 
@@ -342,7 +331,7 @@ public class UnitsData {
 
         v.put(InfinityDatabase.COLUMN_AVA, unit.ava);
         v.put(InfinityDatabase.COLUMN_SHARED_AVA, unit.sharedAva);
-        v.put(InfinityDatabase.COLUMN_ARMY, unit.army);
+        v.put(InfinityDatabase.COLUMN_FACTION, unit.army);
         v.put(InfinityDatabase.COLUMN_NOTE, unit.note);
         v.put(InfinityDatabase.COLUMN_NAME, unit.name);
         v.put(InfinityDatabase.COLUMN_ISC, unit.isc);

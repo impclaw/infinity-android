@@ -3,21 +3,9 @@ package com.cgordon.infinityandroid.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.data.Sectorial;
-import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.data.Weapon;
-import com.cgordon.infinityandroid.json.SectorialParser;
-import com.cgordon.infinityandroid.json.UnitParser;
-import com.cgordon.infinityandroid.json.WeaponParser;
-import com.cgordon.infinityandroid.storage.SectorialData;
-import com.cgordon.infinityandroid.storage.UnitsData;
-import com.cgordon.infinityandroid.storage.WeaponsData;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -39,6 +39,7 @@
                 android:id="@+id/text_view"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
+                android:paddingBottom="8dp"
                 />
 
         </LinearLayout>
