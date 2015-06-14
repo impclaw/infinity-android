@@ -1,6 +1,5 @@
 package com.cgordon.infinityandroid.fragment;
 
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.adapter.ArmyAdapter;
 
 /**

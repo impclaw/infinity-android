@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.MainActivity;
-import com.cgordon.infinityandroid.adapter.BrowsePagerAdapter;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.storage.UnitsData;
