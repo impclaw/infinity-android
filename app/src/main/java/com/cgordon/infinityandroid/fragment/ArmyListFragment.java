@@ -1,7 +1,9 @@
 package com.cgordon.infinityandroid.fragment;
 
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.adapter.ArmyAdapter;
 
 /**
@@ -18,12 +21,17 @@ import com.cgordon.infinityandroid.adapter.ArmyAdapter;
  */
 public class ArmyListFragment extends Fragment {
 
+    private final static String BUNDLE_RECYCLER_LAYOUT = "bundle_recycler_layout";
+    private static Parcelable m_scrollState = null;
+
+    private RecyclerView m_recyclerView;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
+        m_recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        m_recyclerView.setHasFixedSize(true);
 
 //        Display display = getActivity().getWindowManager().getDefaultDisplay();
 //        DisplayMetrics outMetrics = new DisplayMetrics();
@@ -42,13 +50,24 @@ public class ArmyListFragment extends Fragment {
         }
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(), columns);
-        recyclerView.setLayoutManager(layoutManager);
+        m_recyclerView.setLayoutManager(layoutManager);
         RecyclerView.Adapter adapter = new ArmyAdapter(getActivity());
-        recyclerView.setAdapter(adapter);
-
-
-
+        m_recyclerView.setAdapter(adapter);
 
         return view;
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        m_scrollState = m_recyclerView.getLayoutManager().onSaveInstanceState();
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        m_recyclerView.getLayoutManager().onRestoreInstanceState(m_scrollState);
+    }
+
 }
