@@ -1,5 +1,7 @@
 package com.cgordon.infinityandroid.adapter;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,13 +21,17 @@ import java.util.List;
 public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewHolder> {
 
     private static final String TAG = UnitListAdapter.class.getSimpleName();
+    private final Resources m_resources;
+    private final Context m_context;
 
     private UnitListFragment.OnUnitSelectedListener m_listener;
 
     List<Unit> m_units;
 
-    public UnitListAdapter(List<Unit> units ) {
+    public UnitListAdapter(Context context, List<Unit> units ) {
         m_units = units;
+        m_context = context;
+        m_resources = context.getResources();
     }
 
     @Override
@@ -39,7 +45,19 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.m_textView.setText(m_units.get(position).isc);
         holder.dbID = m_units.get(position).dbId;
-        holder.m_imageView.setImageResource(R.drawable.panoceania_48);
+
+        String resourceName = m_units.get(position).name;
+        resourceName += "_48";
+
+        resourceName = resourceName.toLowerCase().replace(" ", "_");
+
+        int resourceId = m_resources.getIdentifier(resourceName, "drawable", m_context.getPackageName());
+        holder.m_imageView.setImageResource(resourceId);
+
+
+
+        holder.m_imageView.setImageResource(R.drawable.tohaa_sakiel_regiment_24);
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

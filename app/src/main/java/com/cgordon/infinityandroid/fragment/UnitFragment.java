@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 
@@ -27,6 +28,9 @@ public class UnitFragment extends Fragment {
 
     public void setId(long id) {
         Log.d(TAG, "UnitFragment setId: " + id);
+        Toast.makeText(getActivity(), "UnitFragment setId: " + id, Toast.LENGTH_SHORT).show();
+
+
     }
 
 }

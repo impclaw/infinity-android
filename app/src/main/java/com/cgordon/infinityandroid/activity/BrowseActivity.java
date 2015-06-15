@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.BrowsePagerAdapter;
 import com.cgordon.infinityandroid.data.Army;
+import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 
 public class BrowseActivity extends AppCompatActivity
@@ -74,9 +75,9 @@ public class BrowseActivity extends AppCompatActivity
         Log.d(TAG, "Received listener id: " + dbId);
 
         Fragment unit = (Fragment) m_viewPager.getAdapter().instantiateItem(m_viewPager, 1);
-//        if (unit instanceof UnitFragment) {
-//            ((UnitFragment) unit).setId(dbId);
-//        }
+        if (unit instanceof UnitFragment) {
+            ((UnitFragment) unit).setId(dbId);
+        }
     }
 
     @Override

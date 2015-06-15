@@ -44,7 +44,7 @@ public class UnitListFragment extends Fragment {
         List<Unit> units = unitsData.getUnits(m_army);
         unitsData.close();
 
-        m_adapter = new UnitListAdapter(units);
+        m_adapter = new UnitListAdapter(getActivity(), units);
         m_recyclerView.setAdapter(m_adapter);
 
 

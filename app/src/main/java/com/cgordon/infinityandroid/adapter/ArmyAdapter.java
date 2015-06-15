@@ -101,8 +101,6 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
                 i.putExtra(MainActivity.ABBR, army.abbr);
                 m_context.startActivity(i);
 
-                Toast.makeText(m_context, holder.m_textView.getText().toString(), Toast.LENGTH_SHORT).show();
-
 //                ((Activity) v.getContext()).findViewById(R.id.toolbar).setBackgroundResource(m_data[position][2]);
             }
         });
