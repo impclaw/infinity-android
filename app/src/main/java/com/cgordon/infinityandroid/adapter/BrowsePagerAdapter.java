@@ -17,11 +17,8 @@ public class BrowsePagerAdapter extends FragmentPagerAdapter  {
 
     public static final String TAG = BrowsePagerAdapter.class.getSimpleName();
 
-    String m_army;
-
-    public BrowsePagerAdapter(FragmentManager fm, String army) {
+    public BrowsePagerAdapter(FragmentManager fm) {
         super(fm);
-        m_army = army;
     }
 
     @Override
@@ -34,9 +31,6 @@ public class BrowsePagerAdapter extends FragmentPagerAdapter  {
         Fragment fragment = null;
         if (position == 0) {
             fragment = new UnitListFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString(MainActivity.ARMY, m_army);
-            fragment.setArguments(bundle);
         } else if (position == 1) {
             fragment  = new UnitFragment();
         } else {

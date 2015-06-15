@@ -20,10 +20,13 @@ public class UnitFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        Log.d(TAG, getActivity().toString());
         return inflater.inflate(R.layout.fragment_unit, container, false);
     }
 
     public void setId(long id) {
         Log.d(TAG, "UnitFragment setId: " + id);
     }
+
 }

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.fragment.UnitListFragment;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
 
     private static final String TAG = UnitListAdapter.class.getSimpleName();
 
-    private OnUnitSelectedListener m_listener;
+    private UnitListFragment.OnUnitSelectedListener m_listener;
 
     List<Unit> m_units;
 
@@ -39,15 +40,16 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
         holder.m_textView.setText(m_units.get(position).isc);
         holder.dbID = m_units.get(position).dbId;
         holder.m_imageView.setImageResource(R.drawable.panoceania_48);
-//
-//        holder.m_cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (m_listener != null) {
-//                    m_listener.unitSelected(holder.dbID);
-//                }
-//            }
-//        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (m_listener != null) {
+                    m_listener.unitSelected(holder.dbID);
+                }
+            }
+        });
+
     }
 
     @Override
@@ -55,19 +57,14 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
         return m_units.size();
     }
 
-    public void setOnUnitSelectedListener(OnUnitSelectedListener onUnitSelectedListener) {
+    public void setOnUnitSelectedListener(UnitListFragment.OnUnitSelectedListener onUnitSelectedListener) {
         m_listener = onUnitSelectedListener;
-    }
-
-    public static interface OnUnitSelectedListener {
-        public void unitSelected(long dbId);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView m_textView;
         public ImageView m_imageView;
-        //public CardView m_cardView;
 
         public long dbID;
 
@@ -76,7 +73,8 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
             super(itemView);
             m_imageView = (ImageView) itemView.findViewById(R.id.image_view);
             m_textView = (TextView) itemView.findViewById(R.id.text_view);
-            //m_cardView = (CardView) itemView.findViewById(R.id.card_view);
         }
+
+
     }
 }

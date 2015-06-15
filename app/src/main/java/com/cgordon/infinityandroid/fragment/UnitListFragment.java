@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
+import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.storage.UnitsData;
 
@@ -21,57 +22,59 @@ import java.util.List;
 /**
  * Created by cgordon on 6/10/2015.
  */
-public class UnitListFragment extends Fragment implements UnitListAdapter.OnUnitSelectedListener {
+public class UnitListFragment extends Fragment {
 
-    private UnitSelectedListener m_listener;
+    UnitListAdapter m_adapter;
+    RecyclerView m_recyclerView;
+    Army m_army;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
-        String army = getArguments().getString(MainActivity.ARMY);
-
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
+        m_recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        m_recyclerView.setHasFixedSize(true);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
+        m_recyclerView.setLayoutManager(layoutManager);
 
         UnitsData unitsData = new UnitsData(getActivity());
         unitsData.open();
-        List<Unit> units = unitsData.getArmyUnits(army);
+        List<Unit> units = unitsData.getUnits(m_army);
         unitsData.close();
 
-        UnitListAdapter adapter = new UnitListAdapter(units);
-        adapter.setOnUnitSelectedListener(this);
+        m_adapter = new UnitListAdapter(units);
+        m_recyclerView.setAdapter(m_adapter);
 
-        recyclerView.setAdapter(adapter);
+
+        if (getActivity() instanceof OnUnitSelectedListener) {
+            m_adapter.setOnUnitSelectedListener( (OnUnitSelectedListener) getActivity() );
+        }
 
         return view;
     }
 
+    public interface ArmyProvider {
+        public Army getArmy();
+    }
+
+    public interface OnUnitSelectedListener {
+        public void unitSelected(long dbId);
+    }
+
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        if (activity instanceof UnitSelectedListener) {
-            m_listener = (UnitSelectedListener) activity;
+
+        if (activity instanceof ArmyProvider) {
+            ArmyProvider provider = (ArmyProvider) activity;
+            m_army = provider.getArmy();
         }
     }
 
-    @Override
-    public void unitSelected(long dbId) {
-        if (m_listener != null) {
-            m_listener.unitSelected(dbId);
-        }
-    }
 
-    public interface UnitSelectedListener {
 
-        /**
-         * Returns the database id of the unit in the units table
-         * @param dbId id of the element, -1 if not known
-         */
-        public void unitSelected(long dbId);
-    }
+
 }

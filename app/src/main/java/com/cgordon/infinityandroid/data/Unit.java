@@ -13,11 +13,12 @@ public class Unit {
     public String sharedAva; // Name of other unit that subtracts from this units Ava
     public List<Profile> profiles;
     public List<Option> options;
-    public String army;
+    public String faction;
     public String note;  //used?
     public String name;
     public String isc;
     public String image;
+    public boolean linkable = false;
 
     public Unit () {
         options = new ArrayList<Option>();

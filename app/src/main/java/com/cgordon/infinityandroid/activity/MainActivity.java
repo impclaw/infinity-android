@@ -11,7 +11,10 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
+    public static final String FACTION = "faction";
     public static final String ARMY = "army";
+    public static final String ID = "id";
+    public static final String ABBR = "abbr";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

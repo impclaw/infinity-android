@@ -46,8 +46,6 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
 //    };
 
     public ArmyAdapter(Context context) {
-        Log.d(TAG, "ArmyAdapter Constructor");
-
         m_context = context;
         m_resources = m_context.getResources();
 
@@ -73,8 +71,8 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        Army army = m_armies.get(position);
-        final String name;
+        final Army army = m_armies.get(position);
+        String name;
         if (army.abbr != null) {
             name = army.abbr;
         } else {
@@ -89,7 +87,6 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
         resourceName += "_48";
 
         resourceName = resourceName.toLowerCase().replace(" ", "_");
-        Log.d(TAG, resourceName + " " + m_context.getPackageName());
 
         int resourceId = m_resources.getIdentifier(resourceName, "drawable", m_context.getPackageName());
             holder.m_imageView.setImageResource(resourceId);
@@ -98,7 +95,10 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(m_context, BrowseActivity.class);
-                i.putExtra(MainActivity.ARMY, name);
+                i.putExtra(MainActivity.ARMY, army.name);
+                i.putExtra(MainActivity.FACTION, army.faction);
+                i.putExtra(MainActivity.ID, army.dbId);
+                i.putExtra(MainActivity.ABBR, army.abbr);
                 m_context.startActivity(i);
 
                 Toast.makeText(m_context, holder.m_textView.getText().toString(), Toast.LENGTH_SHORT).show();

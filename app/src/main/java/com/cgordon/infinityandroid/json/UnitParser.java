@@ -86,8 +86,8 @@ public class UnitParser {
                 reader.skipValue();
             } else if (name.equals("bts")) {
                 profile.bts = reader.nextString();
-            } else if (name.equals("faction")) {
-                unit.army = reader.nextString();
+            } else if (name.equals("army")) {
+                unit.faction = reader.nextString();
             } else if (name.equals("note")) {
                 unit.note = reader.nextString();
             } else if (name.equals("cube")) {

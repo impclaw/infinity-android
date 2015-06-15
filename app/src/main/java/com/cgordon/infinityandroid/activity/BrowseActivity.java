@@ -10,30 +10,39 @@ import android.view.MenuItem;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.BrowsePagerAdapter;
-import com.cgordon.infinityandroid.fragment.UnitFragment;
+import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 
-public class BrowseActivity extends AppCompatActivity implements UnitListFragment.UnitSelectedListener {
+public class BrowseActivity extends AppCompatActivity
+        implements
+            UnitListFragment.OnUnitSelectedListener,
+            UnitListFragment.ArmyProvider
 
+{
     private static final String TAG = BrowseActivity.class.getSimpleName();
 
     private ViewPager m_viewPager;
+    private Army m_army;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
 
-        String army = getIntent().getStringExtra(MainActivity.ARMY);
+        m_army = new Army();
+        m_army.name = getIntent().getStringExtra(MainActivity.ARMY);
+        m_army.faction = getIntent().getStringExtra(MainActivity.FACTION);
+        m_army.dbId = getIntent().getLongExtra(MainActivity.ID, -1);
+        m_army.abbr = getIntent().getStringExtra(MainActivity.ABBR);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle(army);
+        getSupportActionBar().setTitle(m_army.name);
 
         m_viewPager = (ViewPager) findViewById(R.id.pager);
-        m_viewPager.setAdapter(new BrowsePagerAdapter(getSupportFragmentManager(), army));
+        m_viewPager.setAdapter(new BrowsePagerAdapter(getSupportFragmentManager()));
 
     }
 
@@ -65,8 +74,14 @@ public class BrowseActivity extends AppCompatActivity implements UnitListFragmen
         Log.d(TAG, "Received listener id: " + dbId);
 
         Fragment unit = (Fragment) m_viewPager.getAdapter().instantiateItem(m_viewPager, 1);
-        if (unit instanceof UnitFragment) {
-            ((UnitFragment) unit).setId(dbId);
-        }
+//        if (unit instanceof UnitFragment) {
+//            ((UnitFragment) unit).setId(dbId);
+//        }
     }
+
+    @Override
+    public Army getArmy() {
+        return m_army;
+    }
+
 }

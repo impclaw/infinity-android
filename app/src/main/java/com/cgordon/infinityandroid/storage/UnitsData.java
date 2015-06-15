@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Profile;
 import com.cgordon.infinityandroid.data.Unit;
@@ -139,8 +140,9 @@ public class UnitsData {
 
     }
 
-    public List<Unit> getArmyUnits(String army) {
-        Cursor cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns, InfinityDatabase.COLUMN_FACTION + "='" + army + "'", null, null, null, null, null);
+    private List<Unit> getArmyUnits(Army army) {
+        Cursor cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
+                InfinityDatabase.COLUMN_FACTION + "='" + army.name + "'", null, null, null, null, null);
 
         cursor.moveToFirst();
 
@@ -163,6 +165,28 @@ public class UnitsData {
         }
 
         return units;
+
+    }
+
+    private List<Unit> getSectorialUnits(Army army) {
+        ArrayList<Unit> units = new ArrayList<Unit>();
+        return units;
+    }
+
+    public List<Unit> getUnits(Army army) {
+        if (army == null) {
+            return null;
+        }
+
+        // there are two cases for an army.  Either it's the base force, where they need all the
+        // units or it's a sectorial where they need a specific subset
+
+        // full faction
+        if (army.name.equals(army.faction)) {
+            return getArmyUnits(army);
+        } else {
+            return getSectorialUnits(army);
+        }
 
     }
 
@@ -263,7 +287,7 @@ public class UnitsData {
         unit.dbId = cursor.getLong(0);
         unit.ava = cursor.getString(1);
         unit.sharedAva = cursor.getString(2);
-        unit.army = cursor.getString(3);
+        unit.faction = cursor.getString(3);
         unit.note = cursor.getString(4);
         unit.name = cursor.getString(5);
         unit.isc = cursor.getString(6);
@@ -331,7 +355,7 @@ public class UnitsData {
 
         v.put(InfinityDatabase.COLUMN_AVA, unit.ava);
         v.put(InfinityDatabase.COLUMN_SHARED_AVA, unit.sharedAva);
-        v.put(InfinityDatabase.COLUMN_FACTION, unit.army);
+        v.put(InfinityDatabase.COLUMN_FACTION, unit.faction);
         v.put(InfinityDatabase.COLUMN_NOTE, unit.note);
         v.put(InfinityDatabase.COLUMN_NAME, unit.name);
         v.put(InfinityDatabase.COLUMN_ISC, unit.isc);

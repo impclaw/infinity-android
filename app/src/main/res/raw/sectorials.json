@@ -32,8 +32,9 @@
   "name": "Tohaa"
  },
  {
-  "army": "Mercs",
-  "name": "Mercs"
+  "army": "Mercenary",
+  "name": "Mercenary",
+  "abbr": "Mercs"
  },
  {
   "army": "Haqqislam",

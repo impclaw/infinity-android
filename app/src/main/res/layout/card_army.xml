@@ -40,6 +40,8 @@
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:paddingBottom="8dp"
+                android:maxLines="2"
+                android:minLines="2"
                 />
 
         </LinearLayout>
