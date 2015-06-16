@@ -3,6 +3,7 @@ package com.cgordon.infinityandroid.adapter;
 import android.content.Context;
 import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,21 +44,31 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.m_textView.setText(m_units.get(position).isc);
-        holder.dbID = m_units.get(position).dbId;
+        Unit unit = m_units.get(position);
 
-        String resourceName = m_units.get(position).name;
-        resourceName += "_48";
+        holder.m_textView.setText(unit.isc);
+        holder.dbID = unit.dbId;
 
-        resourceName = resourceName.toLowerCase().replace(" ", "_");
+        String resourceName;
+        if (unit.image == null) {
+            resourceName = unit.faction + "_" + unit.isc;
+        } else {
+            resourceName = unit.faction + "_" + unit.image;
+        }
+
+        resourceName += "_24";
+
+        resourceName = prepareDrawableResource(resourceName);
 
         int resourceId = m_resources.getIdentifier(resourceName, "drawable", m_context.getPackageName());
+
+        if (resourceId == 0) {
+            Log.e(TAG, "Missing file: " + resourceName);
+            String factionResource = prepareDrawableResource(unit.faction + "_24");
+            resourceId = m_resources.getIdentifier(factionResource, "drawable", m_context.getPackageName());
+        }
+
         holder.m_imageView.setImageResource(resourceId);
-
-
-
-        holder.m_imageView.setImageResource(R.drawable.tohaa_sakiel_regiment_24);
-
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +79,10 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
             }
         });
 
+    }
+
+    private String prepareDrawableResource(String resourceName) {
+        return resourceName.toLowerCase().replace(" ", "_").replace("-", "_").replace(",", "");
     }
 
     @Override
