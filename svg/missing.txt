@@ -1,0 +1,3 @@
+06-16 17:12:54.397    2004-2004/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: yu_jing_yáozao_24
+06-16 17:12:54.646    2004-2004/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: yu_jing_tiger_soldiers_24
+

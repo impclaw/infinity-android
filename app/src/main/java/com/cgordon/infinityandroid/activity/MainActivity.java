@@ -5,10 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.data.Army;
+import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.storage.UnitsData;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,6 +64,20 @@ public class MainActivity extends AppCompatActivity {
             builder.create().show();
 
             return true;
+        } else if (id == R.id.action_test) {
+            UnitsData unitsData = new UnitsData(this);
+            unitsData.open();
+
+            Army army = new Army();
+            army.faction = "Yu Jing";
+            army.name = "Japanese Sectorial Army";
+            army.dbId = 16;
+
+            List<Unit> units = unitsData.getUnits(army);
+
+            Log.d(TAG, "Read units count: " + units.size());
+
+            unitsData.close();
         }
 
         return super.onOptionsItemSelected(item);

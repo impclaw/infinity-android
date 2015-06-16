@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -170,7 +171,72 @@ public class UnitsData {
 
     private List<Unit> getSectorialUnits(Army army) {
         ArrayList<Unit> units = new ArrayList<Unit>();
+
+        // SELECT Name, Day FROM Customers AS C JOIN Reservations AS R ON C.CustomerId=R.CustomerId;
+//
+//        Cursor cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
+//                InfinityDatabase.COLUMN_FACTION + "='" + army.name + "'", null, null, null, null, null);
+
+
+        //"SELECT * FROM table_a a INNER JOIN table_b b ON a.id=b.other_id WHERE b.property_id=?";
+
+        /*
+        select * from TABLE_ARMY_UNITS where COLUMN_ARMY_ID = army.dbid as units
+         */
+
+        Cursor cursor;
+        cursor = m_database.rawQuery("SELECT " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ISC + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
+                + " where " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
+                , null);
+        Log.e(TAG, "army units isc count: "+cursor.getCount());
+        printCursor(cursor);
+
+//
+//        cursor = m_database.rawQuery("SELECT " + InfinityDatabase.TABLE_UNITS+"."+InfinityDatabase.COLUMN_ISC + " FROM " + InfinityDatabase.TABLE_UNITS, null);
+//        Log.e(TAG, "units isc count: "+cursor.getCount());
+
+        cursor = m_database.rawQuery("SELECT * FROM " + InfinityDatabase.TABLE_ARMY_UNITS
+                        + " INNER JOIN " + InfinityDatabase.TABLE_UNITS
+                        + " ON " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ISC + " like " + InfinityDatabase.TABLE_UNITS+"."+InfinityDatabase.COLUMN_ISC
+                        + " where " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
+                ,
+//                new String[]{
+//                        InfinityDatabase.TABLE_ARMY_UNITS,
+//                        InfinityDatabase.TABLE_UNITS,
+//                        InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
+//                }
+                null
+    );
+        Log.e(TAG, "join units: "+cursor.getCount());
+        printCursor(cursor);
+
+
+
+//        SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
+//        builder.setTables(InfinityDatabase.TABLE_ARMY_UNITS + " INNER JOIN " + InfinityDatabase.TABLE_UNITS
+//                + " where " +InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ISC + " like " +InfinityDatabase.TABLE_UNITS+"."+InfinityDatabase.COLUMN_ISC);
+//        Cursor cursor = builder.query(m_database, null, null, null, null, null, null);
+
+
         return units;
+    }
+
+    private void printCursor(Cursor cursor) {
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            String[] columns = cursor.getColumnNames();
+
+            StringBuffer sb = new StringBuffer();
+
+            for (int i = 0; i < columns.length; i++) {
+                sb.append(columns[i] + ": " + cursor.getString(i) + " ");
+            }
+            Log.d(TAG, "ISC: " + sb.toString());
+
+            cursor.moveToNext();
+
+        }
+
     }
 
     public List<Unit> getUnits(Army army) {

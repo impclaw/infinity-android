@@ -406,78 +406,13 @@
   {
     "mov": "4-4",
     "army": "Mercenary",
-    "wip": "14",
-    "cbcode": [
-      "280333-0184",
-      "280340-0226"
-    ],
-    "bts": "0",
-    "isc": "Kempeitai",
-    "name": "Kempei",
-    "bs": "12",
-    "note": "",
-    "cube": "X",
-    "type": "LI",
-    "ph": "10",
-    "cc": "14",
-    "arm": "1",
-    "irr": "",
-    "w": "1",
-    "s": "2",
-    "ava": "1",
-    "bsw": [],
-    "spec": [
-      "Sixth Sense L1",
-      "V: Courage",
-      "Basic Impersonation: Yu Jing"
-    ],
-    "ccw": [
-      "D-Charges",
-      "Pistol",
-      "CCW",
-      "Electric Pulse",
-      "Knife"
-    ],
-    "childs": [
-      {
-        "code": "Boarding Shotgun",
-        "cost": "18",
-        "codename": "Boarding Shotgun",
-        "swc": "0",
-        "cbcode": [],
-        "spec": [],
-        "bsw": [
-          "Boarding Shotgun"
-        ],
-        "ccw": [],
-        "note": "only against Yu Jing"
-      },
-      {
-        "code": "Default",
-        "cost": "19",
-        "codename": "Combi",
-        "swc": "0",
-        "cbcode": [],
-        "spec": [],
-        "bsw": [
-          "Combi Rifle"
-        ],
-        "ccw": [],
-        "note": "only against Yu Jing"
-      }
-    ],
-    "imp": ""
-  },
-  {
-    "mov": "4-4",
-    "army": "Mercenary",
     "wip": "13",
     "cbcode": [
       "280704-0142"
     ],
     "bts": "0",
-    "isc": "Saito Togan",
-    "name": "Saito Togan",
+    "isc": "Saito Tōgan",
+    "name": "Saito Tōgan",
     "bs": "11",
     "note": "",
     "cube": "X",
