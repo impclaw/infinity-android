@@ -1,3 +1,20 @@
+Yu Jing
 06-16 17:12:54.397    2004-2004/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: yu_jing_yáozao_24
 06-16 17:12:54.646    2004-2004/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: yu_jing_tiger_soldiers_24
 
+Ariadna
+06-17 01:41:44.057  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_s.a.s._24
+06-17 01:41:44.089  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_45th_highlanders_24
+06-17 01:41:44.137  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_112_emergency_service_24
+06-17 01:41:44.154  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_2nd_irregular_cameronians_reg._24
+06-17 01:41:44.157  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_3rd_highlander_greys_24
+06-17 01:41:44.187  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_caledonian_mormaers_24
+06-17 01:41:44.237  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_highlander_caterans_24
+06-17 01:41:44.271  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_traktor_mul_artillery_and_support_regiment_24
+06-17 01:41:44.304  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_van_zant_24
+06-17 01:41:44.321  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_volunteer_intel_isobel_mcgregor_24
+06-17 01:41:44.337  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_uxia_mcneill_24
+06-17 01:41:44.354  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_brigadier_jacques_bruant_24
+06-17 01:41:44.371  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_scot_(2nd_battalion)_24
+06-17 01:41:44.387  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_scot_(1st_battalion)_24
+06-17 01:41:44.454  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_intel_spec_ops_24

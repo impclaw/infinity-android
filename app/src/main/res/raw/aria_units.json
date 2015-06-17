@@ -9,8 +9,8 @@
       "280109-0031"
     ],
     "bts": "0",
-    "isc": "Line Kazak",
-    "name": "Line Kazak",
+    "isc": "Line Kazaks",
+    "name": "Line Kazaks",
     "bs": "11",
     "note": "",
     "cube": "",
@@ -542,8 +542,8 @@
       "280119-0106"
     ],
     "bts": "0",
-    "isc": "TankHunters",
-    "name": "TankHunter",
+    "isc": "TankHunters Regiment",
+    "name": "TankHunters",
     "bs": "12",
     "note": "",
     "cube": "",
@@ -1181,8 +1181,8 @@
       "280124-0141"
     ],
     "bts": "0",
-    "isc": "Foxtrot",
-    "name": "Foxtrot",
+    "isc": "Foxtrot Rangers",
+    "name": "Foxtrot Rangers",
     "bs": "11",
     "note": "",
     "cube": "",
@@ -1794,9 +1794,8 @@
   },
   {
     "army": "Ariadna",
-    "isc": "Assault Pack Controller",
+    "isc": "Antipode Assault Pack",
     "name": "Assault Pack",
-    "image": "Assault Pack",
     "profiles": [
       {
         "name": "Controller",
@@ -2738,7 +2737,7 @@
     ],
     "bts": "0",
     "isc": "Loup-Garous",
-    "name": "Loup-Garou",
+    "name": "Loup-Garous",
     "bs": "12",
     "note": "",
     "cube": "",
@@ -2831,7 +2830,8 @@
     ],
     "bts": "0",
     "isc": "Métros",
-    "name": "Métro",
+    "name": "Métros",
+    "image": "Metros",
     "bs": "10",
     "note": "",
     "cube": "",
@@ -3761,8 +3761,9 @@
       "280109-0031"
     ],
     "bts": "0",
-    "isc": "Briscard",
-    "name": "Briscard",
+    "isc": "Briscards, 8éme Régiment d'Infanterie de Montagne",
+    "name": "Briscards",
+    "image": "Briscards",
     "bs": "12",
     "note": "",
     "cube": "",
@@ -3859,6 +3860,7 @@
     "army": "Ariadna",
     "isc": "Margot Berthier, Mirage-5",
     "name": "Margot",
+    "image": "Equipe Mirage 5",
     "profiles": [
       {
         "isc": "Margot Berthier, Mirage-5",
