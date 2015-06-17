@@ -3,9 +3,9 @@
     <color name="army_background">#F00</color>
     <color name="army_card_background">#DDD</color>
 
-    <color name="colourPrimary">#2196F3</color>
-    <color name="colourPrimaryDark">#1976d2</color>
-    <color name="colourAccent">#f4ff81</color>
+    <color name="colourPrimary">#e0e0e0</color>
+    <color name="colourPrimaryDark">#616161</color>
+    <color name="colourAccent">#F062CD</color>
 
     <color name="pano">#23A1D9</color>
     <color name="yujing">#DA8C31</color>
