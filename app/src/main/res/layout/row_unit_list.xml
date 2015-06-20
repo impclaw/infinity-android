@@ -5,14 +5,15 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:clickable="true"
-    android:background="?android:attr/selectableItemBackground">
+    android:background="?android:attr/selectableItemBackground"
+    android:padding="8dp">
 
         <ImageView
             android:id="@+id/image_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:padding="16dp" />
+            />
 
         <TextView
             android:id="@+id/text_view"
@@ -23,7 +24,8 @@
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:text="Chaksa"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            />
 
 
 </LinearLayout>

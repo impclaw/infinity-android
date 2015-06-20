@@ -358,6 +358,7 @@
     "bts": "3",
     "isc": "Naffatûn",
     "name": "Naffatun",
+    "image": "Naffatun",
     "bs": "11",
     "note": "",
     "cube": "X",
@@ -432,7 +433,7 @@
       "280426-0149"
     ],
     "bts": "0",
-    "isc": "Halqa",
+    "isc": "Halqa Mechanized Infantry",
     "name": "Halqa",
     "bs": "11",
     "note": "",
@@ -715,7 +716,7 @@
       "280447-0301"
     ],
     "bts": "0",
-    "isc": "Djanbazan",
+    "isc": "Djanbazan Tactical Group",
     "name": "Djanbazan",
     "bs": "12",
     "note": "",
@@ -1058,7 +1059,7 @@
       "280421-0124"
     ],
     "bts": "3",
-    "isc": "Ahl Fassed",
+    "isc": "Ahl Fassed Regiment",
     "name": "Fassed",
     "bs": "13",
     "note": "",
@@ -1546,7 +1547,7 @@
   },
   {
     "army": "Haqqislam",
-    "isc": "Kum",
+    "isc": "Kum Motorized Troops",
     "name": "Kum",
     "profiles": [
       {
@@ -1650,8 +1651,9 @@
       "280417-0099"
     ],
     "bts": "0",
-    "isc": "Muttawi'ah",
+    "isc": "Ghazi Muttawi'ah",
     "name": "Muttawi'ah",
+    "image": "Ghazi Muttawiah",
     "bs": "11",
     "note": "",
     "cube": "",
@@ -2196,8 +2198,9 @@
       "280452-0330"
     ],
     "bts": "0",
-    "isc": "Al Hawwa' Unit",
+    "isc": "Al Hawwa'",
     "name": "Hawwa'",
+    "image": "Al Hawwa",
     "bs": "11",
     "note": "",
     "cube": "X",
@@ -2478,8 +2481,8 @@
       "280435-0201"
     ],
     "bts": "0",
-    "isc": "Bashi Bazouk",
-    "name": "Bashi Bazouk",
+    "isc": "Bashi Bazouks",
+    "name": "Bashi Bazouks",
     "bs": "11",
     "note": "",
     "cube": "",
@@ -3346,7 +3349,7 @@
     "bs": "X",
     "cc": "X",
     "imp": "",
-    "name": "Husam",
+    "name": "Husam Spec-Ops",
     "isc": "Husam Spec-Ops",
     "mov": "X-X",
     "type": "LI",

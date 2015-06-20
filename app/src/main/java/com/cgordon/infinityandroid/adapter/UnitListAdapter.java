@@ -1,7 +1,9 @@
 package com.cgordon.infinityandroid.adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,8 +24,11 @@ import java.util.List;
 public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewHolder> {
 
     private static final String TAG = UnitListAdapter.class.getSimpleName();
+
     private final Resources m_resources;
     private final Context m_context;
+
+    private boolean m_showAsList;
 
     private UnitListFragment.OnUnitSelectedListener m_listener;
 
@@ -37,7 +42,17 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_unit_list, parent, false);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(m_context);
+        if (prefs.contains(UnitListFragment.ListAsListKey)) {
+            m_showAsList = prefs.getBoolean(UnitListFragment.ListAsListKey, false);
+        }
+        View v;
+        if (m_showAsList) {
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_unit_list, parent, false);
+        } else {
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_army, parent, false);
+        }
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
@@ -46,8 +61,19 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         Unit unit = m_units.get(position);
 
-        holder.m_textView.setText(unit.isc);
+        if (m_showAsList) {
+            holder.m_textView.setText(unit.isc);
+        } else  {
+            holder.m_textView.setText(unit.name);
+        }
         holder.dbID = unit.dbId;
+
+        final String imageSize;
+        if (m_showAsList) {
+            imageSize = "_24";
+        } else {
+            imageSize = "_48";
+        }
 
         String resourceName;
         if (unit.image == null) {
@@ -56,7 +82,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
             resourceName = unit.faction + "_" + unit.image;
         }
 
-        resourceName += "_24";
+        resourceName += imageSize;
 
         resourceName = prepareDrawableResource(resourceName);
 
@@ -64,7 +90,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
 
         if (resourceId == 0) {
             Log.e(TAG, "Missing file: " + resourceName);
-            String factionResource = prepareDrawableResource(unit.faction + "_24");
+            String factionResource = prepareDrawableResource(unit.faction + imageSize);
             resourceId = m_resources.getIdentifier(factionResource, "drawable", m_context.getPackageName());
         }
 

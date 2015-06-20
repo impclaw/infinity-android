@@ -1,6 +1,7 @@
 package com.cgordon.infinityandroid.activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -64,20 +65,10 @@ public class MainActivity extends AppCompatActivity {
             builder.create().show();
 
             return true;
-        } else if (id == R.id.action_test) {
-            UnitsData unitsData = new UnitsData(this);
-            unitsData.open();
-
-            Army army = new Army();
-            army.faction = "Yu Jing";
-            army.name = "Japanese Sectorial Army";
-            army.dbId = 16;
-
-            List<Unit> units = unitsData.getUnits(army);
-
-            Log.d(TAG, "Read units count: " + units.size());
-
-            unitsData.close();
+        } else if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

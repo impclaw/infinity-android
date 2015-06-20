@@ -141,9 +141,7 @@ public class UnitsData {
 
     }
 
-    private List<Unit> getArmyUnits(Army army) {
-        Cursor cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
-                InfinityDatabase.COLUMN_FACTION + "='" + army.name + "'", null, null, null, null, null);
+    private List<Unit> getArmyUnits(Cursor cursor) {
 
         cursor.moveToFirst();
 
@@ -160,7 +158,7 @@ public class UnitsData {
             List<Option> options = getOptions(unit.dbId);
             unit.options = options;
 
-            units.add(unit);
+                units.add(unit);
 
             cursor.moveToNext();
         }
@@ -195,7 +193,19 @@ public class UnitsData {
 //        cursor = m_database.rawQuery("SELECT " + InfinityDatabase.TABLE_UNITS+"."+InfinityDatabase.COLUMN_ISC + " FROM " + InfinityDatabase.TABLE_UNITS, null);
 //        Log.e(TAG, "units isc count: "+cursor.getCount());
 
-        cursor = m_database.rawQuery("SELECT * FROM " + InfinityDatabase.TABLE_ARMY_UNITS
+        cursor = m_database.rawQuery("SELECT " +
+
+                        InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ID + ", " +
+                        InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_AVA+ ", " +
+                        InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_SHARED_AVA + ", " +
+                        InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_FACTION+ ", " +
+                        InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_NOTE+ ", " +
+                        InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_NAME+ ", " +
+                        InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ISC + ", " +
+                        InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_IMAGE + ", " +
+                        InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_LINKABLE
+
+                        + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
                         + " INNER JOIN " + InfinityDatabase.TABLE_UNITS
                         + " ON " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ISC + " like " + InfinityDatabase.TABLE_UNITS+"."+InfinityDatabase.COLUMN_ISC
                         + " where " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
@@ -218,7 +228,7 @@ public class UnitsData {
 //        Cursor cursor = builder.query(m_database, null, null, null, null, null, null);
 
 
-        return units;
+        return getArmyUnits(cursor);
     }
 
     private void printCursor(Cursor cursor) {
@@ -249,9 +259,41 @@ public class UnitsData {
 
         // full faction
         if (army.name.equals(army.faction)) {
-            return getArmyUnits(army);
+            Cursor cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
+                    InfinityDatabase.COLUMN_FACTION + "='" + army.name + "'", null, null, null, null, null);
+
+            return getArmyUnits(cursor);
         } else {
-            return getSectorialUnits(army);
+
+            Cursor cursor = m_database.rawQuery("SELECT " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ISC + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
+                    + " where " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
+                    , null);
+            Log.e(TAG, "army units isc count: "+cursor.getCount());
+            printCursor(cursor);
+
+            cursor = m_database.rawQuery("SELECT " +
+
+                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ID + ", " +
+                            InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_AVA+ ", " +
+                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_SHARED_AVA + ", " +
+                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_FACTION+ ", " +
+                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_NOTE+ ", " +
+                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_NAME+ ", " +
+                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ISC + ", " +
+                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_IMAGE + ", " +
+                            InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_LINKABLE
+
+                            + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
+                            + " INNER JOIN " + InfinityDatabase.TABLE_UNITS
+                            + " ON " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ISC + " like " + InfinityDatabase.TABLE_UNITS+"."+InfinityDatabase.COLUMN_ISC
+                            + " where " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
+                    ,
+                    null
+            );
+
+            Log.e(TAG, "join units: "+cursor.getCount());
+            printCursor(cursor);
+            return getArmyUnits(cursor);
         }
 
     }
@@ -358,6 +400,9 @@ public class UnitsData {
         unit.name = cursor.getString(5);
         unit.isc = cursor.getString(6);
         unit.image = cursor.getString(7);
+        if (cursor.getColumnNames().length > 8) {
+            unit.linkable = (cursor.getInt(8) != 0);
+        }
 
         return unit;
     }

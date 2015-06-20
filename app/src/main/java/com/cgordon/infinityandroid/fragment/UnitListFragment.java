@@ -1,9 +1,12 @@
 package com.cgordon.infinityandroid.fragment;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -24,9 +27,14 @@ import java.util.List;
  */
 public class UnitListFragment extends Fragment {
 
+    public static final String ListAsListKey = "list_as_list";
+
+
     UnitListAdapter m_adapter;
     RecyclerView m_recyclerView;
     Army m_army;
+
+    boolean m_showAsList;
 
     @Nullable
     @Override
@@ -36,7 +44,17 @@ public class UnitListFragment extends Fragment {
         m_recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         m_recyclerView.setHasFixedSize(true);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        if (prefs.contains(UnitListFragment.ListAsListKey)) {
+            m_showAsList = prefs.getBoolean(UnitListFragment.ListAsListKey, false);
+        }
+
+        RecyclerView.LayoutManager layoutManager;
+        if (m_showAsList) {
+            layoutManager = new LinearLayoutManager(getActivity());
+        } else {
+            layoutManager = new GridLayoutManager(getActivity(), 3);
+        }
         m_recyclerView.setLayoutManager(layoutManager);
 
         UnitsData unitsData = new UnitsData(getActivity());
