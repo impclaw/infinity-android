@@ -328,9 +328,22 @@ public class UnitsData {
         option.codename = cursor.getString(5);
         option.cost = cursor.getInt(6);
         option.swc = cursor.getDouble(7);
-        option.bsw = Arrays.asList(cursor.getString(8).split(","));
-        option.ccw = Arrays.asList(cursor.getString(9).split(","));
-        option.spec = Arrays.asList(cursor.getString(10).split(","));
+
+        String temp = cursor.getString(8);
+        if (!temp.isEmpty()) {
+            option.bsw = Arrays.asList(temp.split(","));
+        }
+
+        temp = cursor.getString(9);
+        if (!temp.isEmpty()) {
+            option.ccw = Arrays.asList(temp.split(","));
+        }
+
+        temp = cursor.getString(10);
+        if (!temp.isEmpty()) {
+            option.spec = Arrays.asList(temp.split(","));
+        }
+
         option.profile = cursor.getInt(11);
 
         return option;
@@ -380,9 +393,22 @@ public class UnitsData {
         profile.name = cursor.getString(17);
         profile.type = cursor.getString(18);
         profile.hackable = (cursor.getInt(19) != 0);
-        profile.bsw = Arrays.asList(cursor.getString(20).split(","));
-        profile.ccw = Arrays.asList(cursor.getString(21).split(","));
-        profile.spec = Arrays.asList(cursor.getString(22).split(","));
+
+        String temp = cursor.getString(20);
+        if (!temp.isEmpty()) {
+            profile.bsw = Arrays.asList(temp.split(","));
+        }
+
+        temp = cursor.getString(21);
+        if (!temp.isEmpty()) {
+            profile.ccw = Arrays.asList(temp.split(","));
+        }
+
+        temp = cursor.getString(22);
+        if (!temp.isEmpty()) {
+            profile.spec = Arrays.asList(temp.split(","));
+        }
+
         profile.optionSpecific = cursor.getString(23);
         profile.allProfilesMustDie = cursor.getString(24);
 

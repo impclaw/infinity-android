@@ -78,7 +78,7 @@ public class UnitListFragment extends Fragment {
     }
 
     public interface OnUnitSelectedListener {
-        public void unitSelected(long dbId);
+        public void unitSelected(Unit unit);
     }
 
 

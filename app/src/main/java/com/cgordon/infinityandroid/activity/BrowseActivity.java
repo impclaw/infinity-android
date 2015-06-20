@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.BrowsePagerAdapter;
 import com.cgordon.infinityandroid.data.Army;
+import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 
@@ -71,12 +72,13 @@ public class BrowseActivity extends AppCompatActivity
     }
 
     @Override
-    public void unitSelected(long dbId) {
-        Log.d(TAG, "Received listener id: " + dbId);
+    public void unitSelected(Unit unit) {
+        Log.d(TAG, "Received listener id: " + unit.dbId);
 
-        Fragment unit = (Fragment) m_viewPager.getAdapter().instantiateItem(m_viewPager, 1);
-        if (unit instanceof UnitFragment) {
-            ((UnitFragment) unit).setId(dbId);
+        Fragment unitFragment = (Fragment) m_viewPager.getAdapter().instantiateItem(m_viewPager, 1);
+        if (unitFragment instanceof UnitFragment) {
+            ((UnitFragment) unitFragment).setUnit(unit);
+            m_viewPager.setCurrentItem(1);
         }
     }
 

@@ -1,9 +1,11 @@
 package com.cgordon.infinityandroid.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.activity.BrowseActivity;
+import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 
@@ -59,13 +63,13 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        Unit unit = m_units.get(position);
+        final Unit unit = m_units.get(position);
 
-        if (m_showAsList) {
+//        if (m_showAsList) {
             holder.m_textView.setText(unit.isc);
-        } else  {
-            holder.m_textView.setText(unit.name);
-        }
+//        } else  {
+//            holder.m_textView.setText(unit.name);
+//        }
         holder.dbID = unit.dbId;
 
         final String imageSize;
@@ -96,14 +100,28 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
 
         holder.m_imageView.setImageResource(resourceId);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (m_listener != null) {
-                    m_listener.unitSelected(holder.dbID);
+        if (m_showAsList) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (m_listener != null) {
+                        m_listener.unitSelected(unit);
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            holder.m_cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (m_listener != null) {
+                        m_listener.unitSelected(unit);
+
+                    }
+
+                }
+            });
+        }
+
 
     }
 
@@ -125,6 +143,8 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
         public TextView m_textView;
         public ImageView m_imageView;
 
+        public CardView m_cardView;
+
         public long dbID;
 
         public ViewHolder(View itemView)
@@ -132,6 +152,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
             super(itemView);
             m_imageView = (ImageView) itemView.findViewById(R.id.image_view);
             m_textView = (TextView) itemView.findViewById(R.id.text_view);
+            m_cardView = (CardView) itemView.findViewById(R.id.card_view);
         }
 
 
