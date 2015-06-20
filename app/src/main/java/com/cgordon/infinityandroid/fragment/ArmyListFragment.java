@@ -42,12 +42,8 @@ public class ArmyListFragment extends Fragment {
 //
 //        int columns = (int) Math.floor( dpWidth / 96);
 
-        int columns = 3;  //portrait version
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            columns = 5;
-        }
-
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(), columns);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(),
+                getActivity().getResources().getInteger(R.integer.card_column_count));
         m_recyclerView.setLayoutManager(layoutManager);
         RecyclerView.Adapter adapter = new ArmyAdapter(getActivity());
         m_recyclerView.setAdapter(adapter);

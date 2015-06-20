@@ -1,8 +1,10 @@
 package com.cgordon.infinityandroid.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -63,11 +65,15 @@ public class BrowseActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == android.R.id.home) {
+            if (m_viewPager.getCurrentItem() == 1) {
+                m_viewPager.setCurrentItem(0);
+            } else {
+                BrowseActivity.super.onBackPressed();
+            }
+
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

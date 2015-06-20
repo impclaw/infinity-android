@@ -29,7 +29,6 @@ public class UnitListFragment extends Fragment {
 
     public static final String ListAsListKey = "list_as_list";
 
-
     UnitListAdapter m_adapter;
     RecyclerView m_recyclerView;
     Army m_army;
@@ -39,6 +38,7 @@ public class UnitListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
         m_recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
@@ -53,9 +53,14 @@ public class UnitListFragment extends Fragment {
         if (m_showAsList) {
             layoutManager = new LinearLayoutManager(getActivity());
         } else {
-            layoutManager = new GridLayoutManager(getActivity(), 3);
+            layoutManager = new GridLayoutManager(getActivity(),
+                    getActivity().getResources().getInteger(R.integer.card_column_count));
         }
         m_recyclerView.setLayoutManager(layoutManager);
+
+        if (savedInstanceState != null) {
+            m_army = savedInstanceState.getParcelable(MainActivity.ARMY);
+        }
 
         UnitsData unitsData = new UnitsData(getActivity());
         unitsData.open();
@@ -81,6 +86,11 @@ public class UnitListFragment extends Fragment {
         public void unitSelected(Unit unit);
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(MainActivity.ARMY, m_army);
+    }
 
     @Override
     public void onAttach(Activity activity) {
