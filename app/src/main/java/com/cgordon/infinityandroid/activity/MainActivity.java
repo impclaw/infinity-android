@@ -6,18 +6,14 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.Army;
-import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.storage.UnitsData;
+import com.cgordon.infinityandroid.fragment.ArmyListFragment;
 
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ArmyListFragment.ArmyListListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -25,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String ARMY = "army";
     public static final String ID = "id";
     public static final String ABBR = "abbr";
+    public static final String UNIT = "unit";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,5 +69,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onArmyClicked(Army army) {
+        Intent i = new Intent(this, UnitListActivity.class);
+        i.putExtra(MainActivity.ARMY, army);
+        startActivity(i);
     }
 }

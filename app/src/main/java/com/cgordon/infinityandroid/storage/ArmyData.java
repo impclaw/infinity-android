@@ -92,12 +92,7 @@ public class ArmyData {
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            Army army = new Army();
-
-            army.dbId = cursor.getLong(0);
-            army.faction = cursor.getString(1);
-            army.name = cursor.getString(2);
-            army.abbr = cursor.getString(3);
+            Army army = cursorToArmy(cursor);
 
             armyList.add(army);
 
@@ -175,6 +170,27 @@ public class ArmyData {
 
         return m_database.insert(InfinityDatabase.TABLE_ARMY, null, v);
 
+    }
+
+    public Army getArmy(long dbId) {
+        Cursor cursor = m_database.query(InfinityDatabase.TABLE_ARMY, armyColumns, InfinityDatabase.COLUMN_ID + "=" + dbId, null, null, null, null, null);
+
+        cursor.moveToFirst();
+
+        return cursorToArmy(cursor);
+
+    }
+
+    private Army cursorToArmy(Cursor cursor) {
+
+        Army army = new Army();
+
+        army.dbId = cursor.getLong(0);
+        army.faction = cursor.getString(1);
+        army.name = cursor.getString(2);
+        army.abbr = cursor.getString(3);
+
+        return army;
     }
 
 }

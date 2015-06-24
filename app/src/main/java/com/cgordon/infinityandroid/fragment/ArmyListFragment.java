@@ -1,6 +1,5 @@
 package com.cgordon.infinityandroid.fragment;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -13,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.ArmyAdapter;
+import com.cgordon.infinityandroid.data.Army;
 
 /**
  * Created by cgordon on 5/24/2015.
@@ -30,17 +30,6 @@ public class ArmyListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
         m_recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         m_recyclerView.setHasFixedSize(true);
-
-//        Display display = getActivity().getWindowManager().getDefaultDisplay();
-//        DisplayMetrics outMetrics = new DisplayMetrics();
-//        display.getMetrics(outMetrics);
-//
-//        float density  = getResources().getDisplayMetrics().density;
-//        float dpWidth  = outMetrics.widthPixels / density;
-//
-//        dpWidth--;
-//
-//        int columns = (int) Math.floor( dpWidth / 96);
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(),
                 getActivity().getResources().getInteger(R.integer.card_column_count));
@@ -62,6 +51,11 @@ public class ArmyListFragment extends Fragment {
     public void onResume() {
         super.onResume();
         m_recyclerView.getLayoutManager().onRestoreInstanceState(m_scrollState);
+    }
+
+    public interface ArmyListListener {
+
+        public void onArmyClicked(Army army);
     }
 
 }

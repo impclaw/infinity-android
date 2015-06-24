@@ -1,11 +1,11 @@
 package com.cgordon.infinityandroid.fragment;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -28,18 +28,25 @@ import java.util.List;
 public class UnitListFragment extends Fragment {
 
     public static final String ListAsListKey = "list_as_list";
+    private static final String TAG = UnitListFragment.class.getSimpleName();
 
     UnitListAdapter m_adapter;
     RecyclerView m_recyclerView;
     Army m_army;
 
     boolean m_showAsList;
+    private UnitSelectedListener m_unitSelectedListener;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
+
+        FragmentActivity activity = getActivity();
+        if (activity instanceof ArmyProvider) {
+            m_army = ((ArmyProvider) activity).getArmy();
+        }
 
         m_recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         m_recyclerView.setHasFixedSize(true);
@@ -71,18 +78,18 @@ public class UnitListFragment extends Fragment {
         m_recyclerView.setAdapter(m_adapter);
 
 
-        if (getActivity() instanceof OnUnitSelectedListener) {
-            m_adapter.setOnUnitSelectedListener( (OnUnitSelectedListener) getActivity() );
-        }
-
         return view;
+    }
+
+    public void setOnUnitSelectedListener(UnitSelectedListener unitSelectedListener) {
+        m_unitSelectedListener = unitSelectedListener;
     }
 
     public interface ArmyProvider {
         public Army getArmy();
     }
 
-    public interface OnUnitSelectedListener {
+    public interface UnitSelectedListener {
         public void unitSelected(Unit unit);
     }
 
@@ -91,18 +98,5 @@ public class UnitListFragment extends Fragment {
         super.onSaveInstanceState(outState);
         outState.putParcelable(MainActivity.ARMY, m_army);
     }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-
-        if (activity instanceof ArmyProvider) {
-            ArmyProvider provider = (ArmyProvider) activity;
-            m_army = provider.getArmy();
-        }
-    }
-
-
-
 
 }

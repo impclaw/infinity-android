@@ -1,7 +1,6 @@
 package com.cgordon.infinityandroid.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -11,12 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.activity.BrowseActivity;
-import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.data.Army;
+import com.cgordon.infinityandroid.fragment.ArmyListFragment;
 import com.cgordon.infinityandroid.storage.ArmyData;
 
 import java.util.Date;
@@ -29,25 +26,19 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
 
     private final static String TAG = ArmyAdapter.class.getSimpleName();
 
+    ArmyListFragment.ArmyListListener m_listener;
+
     List<Army> m_armies;
     Context m_context;
     Resources m_resources;
-//
-//    public int[][] m_data = {
-//            {R.string.pano_main, R.drawable.pano_main, R.color.pano},
-//            {R.string.yujing_main, R.drawable.yujing_main, R.color.yujing},
-//            {R.string.ariadna_main, R.drawable.ariadna_main, R.color.ariadna},
-//            {R.string.haqqislam_main, R.drawable.haqqislam_main, R.color.haqqislam},
-//            {R.string.nomads_main, R.drawable.nomads_main, R.color.nomads},
-//            {R.string.ca_main, R.drawable.ca_main, R.color.ca},
-//            {R.string.aleph_main, R.drawable.aleph_main, R.color.aleph},
-//            {R.string.tohaa_main, R.drawable.tohaa_main, R.color.tohaa},
-//            {R.string.merc_main, R.drawable.merc_main, R.color.mercs}
-//    };
 
     public ArmyAdapter(Context context) {
         m_context = context;
         m_resources = m_context.getResources();
+
+        if (m_context instanceof ArmyListFragment.ArmyListListener) {
+            m_listener = (ArmyListFragment.ArmyListListener) m_context;
+        }
 
         ArmyData armyData = new ArmyData(m_context);
         Date start = new Date();
@@ -94,14 +85,10 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
         holder.m_cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(m_context, BrowseActivity.class);
-                i.putExtra(MainActivity.ARMY, army.name);
-                i.putExtra(MainActivity.FACTION, army.faction);
-                i.putExtra(MainActivity.ID, army.dbId);
-                i.putExtra(MainActivity.ABBR, army.abbr);
-                m_context.startActivity(i);
 
-//                ((Activity) v.getContext()).findViewById(R.id.toolbar).setBackgroundResource(m_data[position][2]);
+                if (m_listener != null) {
+                    m_listener.onArmyClicked(army);
+                }
             }
         });
     }

@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.Unit;
@@ -36,7 +35,6 @@ public class UnitFragment extends Fragment {
 
     public void setUnit(Unit unit) {
         Log.d(TAG, "UnitFragment setId: " + unit.dbId);
-        //Toast.makeText(getActivity(), "UnitFragment: " + unit.isc, Toast.LENGTH_SHORT).show();
         m_textView.setText(unit.toString());
 
     }

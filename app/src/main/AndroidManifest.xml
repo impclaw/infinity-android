@@ -17,12 +17,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.BrowseActivity"
+            android:name=".activity.UnitListActivity"
             android:label="@string/title_activity_browse"
             android:parentActivityName=".activity.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cgordon.infinityandroid.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activity.UnitActivity"
+            android:label="@string/title_activity_browse"
+            android:parentActivityName=".activity.UnitListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cgordon.infinityandroid.activity.UnitListActivity" />
         </activity>
         <activity
             android:name=".activity.SettingsActivity"

@@ -1,7 +1,6 @@
 package com.cgordon.infinityandroid.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
@@ -15,8 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.activity.BrowseActivity;
-import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 
@@ -34,7 +31,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
 
     private boolean m_showAsList;
 
-    private UnitListFragment.OnUnitSelectedListener m_listener;
+    private UnitListFragment.UnitSelectedListener m_listener;
 
     List<Unit> m_units;
 
@@ -42,6 +39,11 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
         m_units = units;
         m_context = context;
         m_resources = context.getResources();
+
+        if (context instanceof UnitListFragment.UnitSelectedListener) {
+            m_listener = (UnitListFragment.UnitSelectedListener) context;
+        }
+
     }
 
     @Override
@@ -65,11 +67,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final Unit unit = m_units.get(position);
 
-//        if (m_showAsList) {
-            holder.m_textView.setText(unit.isc);
-//        } else  {
-//            holder.m_textView.setText(unit.name);
-//        }
+        holder.m_textView.setText(unit.isc);
         holder.dbID = unit.dbId;
 
         final String imageSize;
@@ -132,10 +130,6 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
     @Override
     public int getItemCount() {
         return m_units.size();
-    }
-
-    public void setOnUnitSelectedListener(UnitListFragment.OnUnitSelectedListener onUnitSelectedListener) {
-        m_listener = onUnitSelectedListener;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
