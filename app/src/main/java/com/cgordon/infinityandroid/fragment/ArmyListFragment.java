@@ -19,7 +19,6 @@ import com.cgordon.infinityandroid.data.Army;
  */
 public class ArmyListFragment extends Fragment {
 
-    private final static String BUNDLE_RECYCLER_LAYOUT = "bundle_recycler_layout";
     private static Parcelable m_scrollState = null;
 
     private RecyclerView m_recyclerView;

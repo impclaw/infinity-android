@@ -33,5 +33,7 @@
     <string name="ListAsListTitle">Units as List</string>
     <string name="ListAsListSummary">Instead of a card view, put the units in a list.</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="AlphaUnitListTitle">Alphabetical Unit List</string>
+    <string name="AlphaUnitListSummary">Show the units in alphabetical order instead of LI, MI, HI, etc.</string>
 
 </resources>

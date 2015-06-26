@@ -3,6 +3,7 @@ package com.cgordon.infinityandroid.activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -14,6 +15,10 @@ import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.fragment.ArmyListFragment;
 
 public class MainActivity extends AppCompatActivity implements ArmyListFragment.ArmyListListener {
+
+    // this is a big hack, but I don't want to put any more time into figuring out the Fragment
+    // lifecycle
+    public static Parcelable unitListScrollState = null;
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -30,8 +35,6 @@ public class MainActivity extends AppCompatActivity implements ArmyListFragment.
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
     }
 
     @Override
@@ -73,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements ArmyListFragment.
 
     @Override
     public void onArmyClicked(Army army) {
+        unitListScrollState = null;
         Intent i = new Intent(this, UnitListActivity.class);
         i.putExtra(MainActivity.ARMY, army);
         startActivity(i);

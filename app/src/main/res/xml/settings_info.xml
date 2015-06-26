@@ -7,4 +7,10 @@
         android:summary="@string/ListAsListSummary"
         android:defaultValue="false" />
 
+    <CheckBoxPreference
+        android:key="alpha_unit_list"
+        android:title="@string/AlphaUnitListTitle"
+        android:summary="@string/AlphaUnitListSummary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>

@@ -6,22 +6,22 @@
     </style>
 
     <!-- Base application theme. -->
-    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.Base" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/colourPrimary</item>
         <item name="colorPrimaryDark">@color/colourPrimaryDark</item>
         <item name="colorAccent">@color/colourAccent</item>
     </style>
 
     <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:textColorPrimary">@color/colourAccent</item>
+        <!--<item name="android:textColorPrimary">@color/colourAccent</item>-->
     </style>
 
-    <style name="AppTheme.Popup" parent="@style/ThemeOverlay.AppCompat.Light">
-        <item name="android:background">@color/colourAccent</item>
-        <item name="android:textColor">@color/colourPrimary</item>
+    <style name="AppTheme.Popup" parent="@style/ThemeOverlay.AppCompat.Dark">
+        <!--<item name="android:background">@color/colourAccent</item>-->
+        <!--<item name="android:textColor">@color/colourPrimary</item>-->
     </style>
 
-    <style name="AppTheme.CardView" parent="CardView.Light">
+    <style name="AppTheme.CardView" parent="CardView.Dark">
 
 
 

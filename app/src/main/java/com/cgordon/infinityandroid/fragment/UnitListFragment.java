@@ -1,7 +1,9 @@
 package com.cgordon.infinityandroid.fragment;
 
+import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +11,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +23,8 @@ import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.storage.UnitsData;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -28,6 +33,8 @@ import java.util.List;
 public class UnitListFragment extends Fragment {
 
     public static final String ListAsListKey = "list_as_list";
+    public static final String AlphaUnitListKey = "alpha_unit_list";
+
     private static final String TAG = UnitListFragment.class.getSimpleName();
 
     UnitListAdapter m_adapter;
@@ -65,6 +72,7 @@ public class UnitListFragment extends Fragment {
         }
         m_recyclerView.setLayoutManager(layoutManager);
 
+        // changed orientation
         if (savedInstanceState != null) {
             m_army = savedInstanceState.getParcelable(MainActivity.ARMY);
         }
@@ -74,29 +82,49 @@ public class UnitListFragment extends Fragment {
         List<Unit> units = unitsData.getUnits(m_army);
         unitsData.close();
 
+        boolean alphaList = false;
+        if (prefs.contains(UnitListFragment.AlphaUnitListKey)) {
+            alphaList = prefs.getBoolean(UnitListFragment.AlphaUnitListKey, false);
+        }
+        if (!alphaList) {
+            if (units != null) {
+                Collections.sort(units);
+            }
+        }
+
         m_adapter = new UnitListAdapter(getActivity(), units);
         m_recyclerView.setAdapter(m_adapter);
 
-
         return view;
-    }
-
-    public void setOnUnitSelectedListener(UnitSelectedListener unitSelectedListener) {
-        m_unitSelectedListener = unitSelectedListener;
     }
 
     public interface ArmyProvider {
         public Army getArmy();
     }
 
+
     public interface UnitSelectedListener {
         public void unitSelected(Unit unit);
     }
 
+    // For screen orientation change
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable(MainActivity.ARMY, m_army);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MainActivity.unitListScrollState = m_recyclerView.getLayoutManager().onSaveInstanceState();
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        m_recyclerView.getLayoutManager().onRestoreInstanceState(MainActivity.unitListScrollState);
     }
 
 }

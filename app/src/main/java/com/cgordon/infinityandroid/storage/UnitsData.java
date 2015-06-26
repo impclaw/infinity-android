@@ -195,7 +195,7 @@ public class UnitsData {
         // full faction
         if (army.name.equals(army.faction)) {
             Cursor cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
-                    InfinityDatabase.COLUMN_FACTION + "='" + army.name + "'", null, null, null, null, null);
+                    InfinityDatabase.COLUMN_FACTION + "='" + army.name + "'", null, null, null, InfinityDatabase.COLUMN_ISC, null);
 
             return getArmyUnits(cursor);
         } else {
@@ -222,6 +222,7 @@ public class UnitsData {
                             + " INNER JOIN " + InfinityDatabase.TABLE_UNITS
                             + " ON " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ISC + " like " + InfinityDatabase.TABLE_UNITS+"."+InfinityDatabase.COLUMN_ISC
                             + " where " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
+                            + " order by " + InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ISC
                     ,
                     null
             );

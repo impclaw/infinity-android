@@ -46,10 +46,11 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(m_army.name);
 
-        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.unit_list);
-        if (fragment instanceof UnitListFragment) {
-            ((UnitListFragment) fragment).setOnUnitSelectedListener(this);
-        }
+//        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.unit_list);
+//        fragment.setRetainInstance(true);
+//        if (fragment instanceof UnitListFragment) {
+//            ((UnitListFragment) fragment).setOnUnitSelectedListener(this);
+//        }
 
     }
 
