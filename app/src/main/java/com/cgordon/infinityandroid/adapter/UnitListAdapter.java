@@ -57,7 +57,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
         if (m_showAsList) {
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_unit_list, parent, false);
         } else {
-            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_army, parent, false);
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_unit, parent, false);
         }
         ViewHolder vh = new ViewHolder(v);
         return vh;
