@@ -18,3 +18,25 @@ Ariadna
 06-17 01:41:44.371  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_scot_(2nd_battalion)_24
 06-17 01:41:44.387  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_scot_(1st_battalion)_24
 06-17 01:41:44.454  21028-21028/com.cgordon.infinityandroid E/UnitListAdapter? Missing file: ariadna_intel_spec_ops_24
+
+Haqqislam
+06-26 19:58:47.177    Missing file: haqqislam_daylami_infantry_48
+06-26 19:58:47.194    Missing file: haqqislam_ghulam_48
+06-26 19:58:47.198    Missing file: haqqislam_hafza_unit_48
+06-26 19:58:47.216    Missing file: haqqislam_hassassin_govads_48
+06-26 19:58:47.222    Missing file: haqqislam_husam_spec_ops_48
+06-26 19:58:47.234    Missing file: haqqislam_husam_spec_ops_48
+06-26 19:58:48.467    Missing file: haqqislam_najjarun_engineer_48
+06-26 19:58:48.512    Missing file: haqqislam_tarik_mansuri_48
+06-26 19:58:48.517    Missing file: haqqislam_zhayedan_intervention_troops_48
+06-26 19:58:48.627    Missing file: haqqislam_special_deterrence_group_azrail_48
+06-26 19:58:48.660    Missing file: haqqislam_kameel_remotes_48
+06-26 19:58:48.706    Missing file: haqqislam_nasmat_remotes_48
+06-26 19:58:48.809    Missing file: haqqislam_hunzakuts_48
+06-26 19:58:48.811    Missing file: haqqislam_hussein_al_djabel_48
+06-26 19:58:48.856    Missing file: haqqislam_murabids_tuareg_48
+06-26 19:58:48.857    Missing file: haqqislam_kasym_beg_48
+06-26 19:58:48.858    Missing file: haqqislam_kasym_beg_48
+06-26 19:58:48.928    Missing file: haqqislam_zamira_nazarova_48
+06-26 19:58:48.929    Missing file: haqqislam_zuleyka_nazarova_48
+
