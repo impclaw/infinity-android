@@ -7,6 +7,7 @@
     <color name="colourPrimaryDark">#0288d1</color>
     <color name="colourAccent">#18ffff</color>
     <color name="cardBackground">#e0e0e0</color>
+    <color name="listDivider">@color/primary_dark_material_light</color>
 
     <color name="pano">#23A1D9</color>
     <color name="yujing">#DA8C31</color>
@@ -17,6 +18,5 @@
     <color name="aleph">#A9A2B6</color>
     <color name="tohaa">#020507</color>
     <color name="mercs">#7C8768</color>
-    <color name="list_divider">#efefef</color>
 
 </resources>

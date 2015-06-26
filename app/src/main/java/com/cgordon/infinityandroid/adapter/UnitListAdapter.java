@@ -70,6 +70,10 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
         holder.m_textView.setText(unit.isc);
         holder.dbID = unit.dbId;
 
+        if (holder.m_type != null) {
+            holder.m_type.setText(unit.profiles.get(0).type);
+        }
+
         final String imageSize;
         if (m_showAsList) {
             imageSize = "_24";
@@ -136,6 +140,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
 
         public TextView m_textView;
         public ImageView m_imageView;
+        public TextView m_type;
 
         public CardView m_cardView;
 
@@ -146,6 +151,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
             super(itemView);
             m_imageView = (ImageView) itemView.findViewById(R.id.image_view);
             m_textView = (TextView) itemView.findViewById(R.id.text_view);
+            m_type = (TextView) itemView.findViewById(R.id.type);
             m_cardView = (CardView) itemView.findViewById(R.id.card_view);
         }
 

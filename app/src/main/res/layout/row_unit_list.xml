@@ -3,10 +3,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:clickable="true"
-    android:background="?android:attr/selectableItemBackground"
-    android:padding="8dp">
+    >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="8dp">
 
         <ImageView
             android:id="@+id/image_view"
@@ -17,7 +23,8 @@
 
         <TextView
             android:id="@+id/text_view"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:maxLines="1"
@@ -27,6 +34,20 @@
             android:textAlignment="center"
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:id="@+id/type"
+            android:text="HI"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/listDivider"/>
 
 </LinearLayout>
 
