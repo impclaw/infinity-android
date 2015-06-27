@@ -599,7 +599,7 @@
     "cc": "12",
     "imp": "",
     "name": "Diplomatic Delegate",
-    "isc": "Tohaa Diplomatic Delegates",
+    "isc": "Diplomatic Delegates",
     "mov": "4-4",
     "type": "LI",
     "ph": "10",
@@ -610,7 +610,7 @@
   },
   {
     "army": "Tohaa",
-    "isc": "Gao-Rael",
+    "isc": "Gao-Rael Unit",
     "name": "Gao-Rael",
     "profiles": [
       {
@@ -748,7 +748,7 @@
   },
   {
     "army": "Tohaa",
-    "isc": "Gao-Tarsos",
+    "isc": "Gao-Tarsos Unit",
     "name": "Gao-Tarsos",
     "profiles": [
       {
@@ -862,7 +862,7 @@
   },
   {
     "army": "Tohaa",
-    "isc": "Gorgos",
+    "isc": "Gorgos Squad",
     "name": "Gorgos",
     "profiles": [
       {
@@ -1050,7 +1050,7 @@
     "cube": "X",
     "imp": "X",
     "irr": "",
-    "isc": "Makaul",
+    "isc": "Makaul Troops",
     "mov": "4-4",
     "name": "Makaul",
     "note": "",
@@ -1100,7 +1100,7 @@
     "cube": "X",
     "imp": "",
     "irr": "",
-    "isc": "Kumotail",
+    "isc": "Kumotail Bioengineers",
     "mov": "4-4",
     "name": "Kumotail",
     "note": "",
@@ -1242,6 +1242,7 @@
     "army": "Tohaa",
     "isc": "Neema Saatar",
     "name": "Neema",
+    "image": "Ectros Regiment",
     "profiles": [
       {
         "cc": "21",
