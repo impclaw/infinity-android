@@ -179,6 +179,7 @@
       {
         "cube": "X",
         "bs": "12",
+        "ava": " ",
         "irr": " ",
         "arm": "0",
         "mov": "4-4",
@@ -352,6 +353,7 @@
         "cube": "X",
         "bs": "12",
         "note": " ",
+        "ava": " ",
         "irr": " ",
         "arm": "0",
         "bts": "0",
@@ -643,6 +645,7 @@
         "cube": "X",
         "bs": "12",
         "note": " ",
+        "ava": " ",
         "irr": " ",
         "arm": "0",
         "bts": "0",
@@ -783,6 +786,7 @@
         "arm": "0",
         "w": "1",
         "s": "2",
+        "ava": " ",
         "bsw": [],
         "ccw": [],
         "spec": []
@@ -941,6 +945,7 @@
         "bts": "0",
         "w": "1",
         "s": "2",
+        "ava": " ",
         "bsw": [
           "Spitfire",
           "Nanopulser"
@@ -1286,6 +1291,7 @@
         "w": "1",
         "s": "2",
         "hackable": "",
+        "ava": " ",
         "bsw": [],
         "ccw": [],
         "spec": [
@@ -1470,6 +1476,7 @@
         "bts": "0",
         "w": "1",
         "s": "2",
+        "ava": " ",
         "bsw": [],
         "ccw": [],
         "spec": [
@@ -1556,6 +1563,7 @@
         "bts": "0",
         "w": "1",
         "s": "2",
+        "ava": " ",
         "bsw": [],
         "ccw": [],
         "spec": ["V: Courage"]
@@ -1714,6 +1722,7 @@
         "bts": "0",
         "w": "1",
         "s": "2",
+        "ava": " ",
         "bsw": [],
         "ccw": [],
         "spec": []
@@ -1874,5 +1883,165 @@
     "ccw": [],
     "bsw": [],
     "spec": []
+  },
+  {
+    "ccw": [
+      "Pistol",
+      "Electric Pulse"
+    ],
+    "bsw": [
+      "Flash Pulse"
+    ],
+    "ava": "2",
+    "irr": "",
+    "arm": "1",
+    "bts": "3",
+    "army": "Tohaa",
+    "note": "",
+    "cube": "X",
+    "bs": "11",
+    "cc": "14",
+    "imp": "",
+    "name": "Kaeltar",
+    "isc": "Kaeltar Specialists",
+    "mov": "4-4",
+    "type": "LI",
+    "ph": "11",
+    "spec": [
+      "Corahtar Discipline L1"
+    ],
+    "w": "1",
+    "s": "2",
+    "wip": "14",
+    "childs": [
+      {
+        "bsw": [
+          "Light Shotgun"
+        ],
+        "swc": "0.5",
+        "cbcode": [],
+        "code": "Default",
+        "note": "",
+        "ccw": [],
+        "codename": "SymbioMate Shotgun",
+        "cost": "21",
+        "spec": [
+          "Chain of Command",
+          "SymbioMate (2)"
+        ]
+      },
+      {
+        "bsw": [
+          "Combi Rifle"
+        ],
+        "swc": "0.5",
+        "cbcode": [],
+        "code": "SymbioMate Combi",
+        "note": "",
+        "ccw": [],
+        "codename": "",
+        "cost": "26",
+        "spec": [
+          "Chain of Command",
+          "SymbioMate (2)"
+        ]
+      },
+      {
+        "bsw": [
+          "Light Shotgun"
+        ],
+        "swc": "0",
+        "cbcode": [],
+        "code": "SymbioBomb Shotgun",
+        "note": "",
+        "ccw": [],
+        "codename": "",
+        "cost": "15",
+        "spec": [
+          "SymbioBomb (2)"
+        ]
+      },
+      {
+        "bsw": [
+          "Combi Rifle"
+        ],
+        "swc": "0",
+        "cbcode": [],
+        "code": "SymbioBomb Combi",
+        "note": "",
+        "ccw": [],
+        "codename": "",
+        "cost": "20",
+        "spec": [
+          "SymbioBomb (2)"
+        ]
+      }
+    ]
+  },
+  {
+    "ccw": [
+      "Pistol"
+    ],
+    "bsw": [
+      "Flash Grenades"
+    ],
+    "ava": "2",
+    "irr": "",
+    "arm": "0",
+    "bts": "3",
+    "army": "Tohaa",
+    "note": "",
+    "cube": "X",
+    "bs": "11",
+    "cc": "20",
+    "imp": "F",
+    "name": "Igao",
+    "isc": "Igao Unit",
+    "mov": "4-4",
+    "type": "SK",
+    "ph": "13",
+    "spec": [
+      "Martial Arts L3",
+      "CH: Camouflage",
+      "Multiterrain",
+      "Infiltration",
+      "Kinematika L1"
+    ],
+    "w": "1",
+    "s": "2",
+    "wip": "13",
+    "childs": [
+      {
+        "bsw": [
+          "Boarding Shotgun"
+        ],
+        "swc": "0",
+        "cbcode": [],
+        "code": "Default",
+        "note": "",
+        "ccw": [
+          "AP CCW"
+        ],
+        "codename": "Boarding Shotgun",
+        "cost": "25",
+        "spec": []
+      },
+      {
+        "bsw": [
+          "Combi Rifle",
+          "Nanopulser"
+        ],
+        "swc": "0",
+        "cbcode": [],
+        "code": "Combi",
+        "note": "",
+        "ccw": [
+          "DA CCW"
+        ],
+        "codename": "",
+        "cost": "26",
+        "spec": []
+      }
+    ]
   }
 ]

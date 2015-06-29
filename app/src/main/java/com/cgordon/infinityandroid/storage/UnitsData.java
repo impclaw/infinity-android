@@ -77,7 +77,8 @@ public class UnitsData {
         InfinityDatabase.COLUMN_CCW,
         InfinityDatabase.COLUMN_SPEC ,
         InfinityDatabase.COLUMN_OPTION_SPECIFIC ,
-        InfinityDatabase.COLUMN_ALL_DIE
+        InfinityDatabase.COLUMN_ALL_DIE,
+        InfinityDatabase.COLUMN_AVA
     };
 
     public UnitsData(Context context) {
@@ -347,6 +348,7 @@ public class UnitsData {
 
         profile.optionSpecific = cursor.getString(23);
         profile.allProfilesMustDie = cursor.getString(24);
+        profile.ava = cursor.getString(25);
 
         return profile;
     }
@@ -416,6 +418,7 @@ public class UnitsData {
         v.put(InfinityDatabase.COLUMN_SPEC , TextUtils.join(",", profile.spec));
         v.put(InfinityDatabase.COLUMN_OPTION_SPECIFIC, profile.optionSpecific);
         v.put(InfinityDatabase.COLUMN_ALL_DIE, profile.allProfilesMustDie);
+        v.put(InfinityDatabase.COLUMN_AVA, profile.ava);
 
         return m_database.insert(InfinityDatabase.TABLE_PROFILES, null, v);
 

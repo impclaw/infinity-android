@@ -15,7 +15,7 @@ import com.cgordon.infinityandroid.json.WeaponParser;
 public class InfinityDatabase extends SQLiteOpenHelper {
 
      private static final String DATABASE_NAME = "infinity.db";
-     private static final int DATABASE_VERSION = 10;
+     private static final int DATABASE_VERSION = 11;
 
     public static final String TABLE_WEAPONS = "weapons";
     public static final String TABLE_UNITS = "units";
@@ -58,6 +58,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     // COLUMN_SPEC
     public static final String COLUMN_OPTION_SPECIFIC = "optionSpecific";
     public static final String COLUMN_ALL_DIE = "allProfilesMustDie";
+    // COLUMN_AVA
 
     // ===== OPTIONS COLUMNS =====
     // COLUMN_Unit ID
@@ -172,7 +173,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         COLUMN_CCW + " text, " +
         COLUMN_SPEC  + " text, " +
         COLUMN_OPTION_SPECIFIC  + " text, " +
-        COLUMN_ALL_DIE   + " text " +
+        COLUMN_ALL_DIE   + " text, " +
+        COLUMN_AVA  + " text " +
         ");";
 
     private static final String CREATE_TABLE_WEAPONS = "create table " + TABLE_WEAPONS + " (" +

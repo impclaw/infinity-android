@@ -122,6 +122,8 @@ public class UnitParser {
                 profile.woundType = reader.nextString();
             } else if (name.equals("hackable")) {
                 profile.hackable = reader.nextString().equals("X");
+            } else if (name.equals("ava")) {
+                profile.ava = reader.nextString();
             } else if (name.equals("sharedAva")) { // Caledonian Volunteers
                 unit.sharedAva = reader.nextString();
             } else if (name.equals("notFor")) { // possibly YuanYuan aren't allowed in yuJing, but shouldn't this be tracked elsewhere?
@@ -222,6 +224,8 @@ public class UnitParser {
                 profile.silhouette = reader.nextString();
             } else if (name.equals("hackable")) {
                 profile.hackable = reader.nextString().equals("X");
+            } else if (name.equals("ava")) {
+                profile.ava = reader.nextString();
             } else {
                 throw new IOException("Unknown tag in parse Profile: " + name);
             }

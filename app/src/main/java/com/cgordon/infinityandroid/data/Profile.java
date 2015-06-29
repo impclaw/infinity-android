@@ -33,6 +33,7 @@ public class Profile {
     public String name;
     public String type;
     public boolean hackable;
+    public String ava;
 
     public String optionSpecific; // this profile is only used with certain options.  Should match up with Option.profile (?)
     public String allProfilesMustDie; //If there are multiple profiles, victory points aren't awarded until all profiles are dead
@@ -58,6 +59,7 @@ public class Profile {
         if (isc != null) {
             sb.append("ISC: ").append(isc).append("\t");
         }
+        sb.append("AVA: ").append(ava).append("\t");
         sb.append("Type: ").append(type).append("\n\t");
 
         sb.append("MOV\tCC\tBS\tPH\tWIP\tARM\tBTS\tW\tS\t\n\t");
