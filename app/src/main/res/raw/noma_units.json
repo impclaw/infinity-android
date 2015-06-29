@@ -1117,6 +1117,7 @@
         "irr": "",
         "w": "1",
         "s": "2",
+        "ava": " ",
         "bsw": [],
         "spec": [
           "Pilot"
@@ -1212,6 +1213,7 @@
         "irr": "",
         "w": "1",
         "s": "2",
+        "ava": " ",
         "bsw": [],
         "spec": [
           "Pilot"
@@ -2350,8 +2352,8 @@
         "mov": "6-4",
         "wip": "13",
         "bts": "3",
-        "isc": "?-Well",
-        "name": "?-Well",
+        "isc": "Π-Well",
+        "name": "Π-Well",
         "bs": "11",
         "note": "",
         "cube": "R",
@@ -2503,6 +2505,7 @@
         "w": "2",
         "s": "2",
         "hackable": "X",
+        "ava": " ",
         "spec": [],
         "ccw": [
           "Knife",
@@ -2580,6 +2583,7 @@
         "ph": " ",
         "wip": " ",
         "bts": "0",
+        "ava": " ",
         "s": "1",
         "spec": [
           "Super-Jump"
@@ -2829,6 +2833,7 @@
         "ph": " ",
         "wip": " ",
         "bts": "0",
+        "ava": " ",
         "s": "1",
         "spec": [
           "Super-Jump"
@@ -3247,7 +3252,14 @@
         "arm": "1",
         "imp": "",
         "cube": "X",
-        "wip": "13"
+        "wip": "13",
+        "bsw": [
+          "Combi Rifle"
+        ],
+        "ccw": [
+          "Knife",
+          "Pistol"
+        ]
       },
       {
         "mov": "6-4",
@@ -3283,17 +3295,12 @@
         }
       }
     ],
-    "bsw": [
-      "Combi Rifle"
-    ],
+    "bsw": [],
     "spec": [
       "AD: Airborne Infiltration / Zero-G",
       "Climbing Plus"
     ],
-    "ccw": [
-      "Knife",
-      "Pistol"
-    ],
+    "ccw": [],
     "cbcode": [
       "280525-0159",
       "280535-0211"
@@ -3534,7 +3541,7 @@
       "280546-0293"
     ],
     "bts": "0",
-    "isc": "Bakunin Überfallkommando",
+    "isc": "Bakunin Überfallkommando : Chimera",
     "image": "Bakunin Uberfallkommando",
     "name": "Chimera",
     "wtype": "str",
@@ -3749,6 +3756,7 @@
         "w": "1",
         "s": "1",
         "hackable": "X",
+        "ava": "1",
         "bsw": [],
         "spec": [
           "CH: Mimetism",
@@ -4168,6 +4176,7 @@
     "profiles": [
       {
         "mov": "4-4",
+        "ava": "2",
         "arm": "5",
         "ph": "15",
         "bs": "13",
@@ -4205,6 +4214,7 @@
         "irr": "",
         "w": "1",
         "s": "2",
+        "ava": " ",
         "bsw": [],
         "spec": [
           "Pilot",
