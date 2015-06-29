@@ -357,7 +357,7 @@
     ],
     "bts": "3",
     "isc": "Naffatûn",
-    "name": "Naffatun",
+    "name": "Naffatûn",
     "image": "Naffatun",
     "bs": "11",
     "note": "",
@@ -1185,6 +1185,7 @@
         "irr": "",
         "w": "1",
         "s": "2",
+        "ava": " ",
         "bsw": [],
         "spec": [
           "Pilot"
@@ -1579,6 +1580,7 @@
       {
         "name": "Dismounted",
         "mov": "4-4",
+        "ava": "",
         "s": "2",
         "spec": []
       }
@@ -1653,7 +1655,6 @@
     "bts": "0",
     "isc": "Ghazi Muttawi'ah",
     "name": "Muttawi'ah",
-    "image": "Ghazi Muttawiah",
     "bs": "11",
     "note": "",
     "cube": "",
@@ -2073,6 +2074,7 @@
         "irr": "X",
         "w": "1",
         "s": "4",
+        "ava": "1",
         "bsw": [
           "Chain Rifle",
           "Panzerfaust",
@@ -2092,6 +2094,7 @@
         "name": "Dismounted",
         "mov": "4-4",
         "s": "2",
+        "ava": "",
         "spec": [],
         "bsw": [],
         "ccw": []
@@ -2142,6 +2145,7 @@
         "irr": "",
         "w": "1",
         "s": "4",
+        "ava": "1",
         "bsw": [
           "Chain Rifle",
           "Panzerfaust",
@@ -2161,6 +2165,7 @@
         "name": "Dismounted",
         "mov": "4-4",
         "s": "2",
+        "ava": "",
         "spec": [],
         "bsw": [],
         "ccw": []
@@ -2199,9 +2204,8 @@
       "280452-0330"
     ],
     "bts": "0",
-    "isc": "Al Hawwa'",
+    "isc": "Al Hawwa' Unit",
     "name": "Hawwa'",
-    "image": "Al Hawwa",
     "bs": "11",
     "note": "",
     "cube": "X",
@@ -2423,7 +2427,6 @@
     "bts": "3",
     "isc": "Special Deterrance Group Azra'il",
     "name": "Azra'il",
-    "image": "Special Deterrence Group Azrail",
     "bs": "13",
     "note": "",
     "cube": "X",
@@ -2484,7 +2487,7 @@
     ],
     "bts": "0",
     "isc": "Bashi Bazouks",
-    "name": "Bashi Bazouks",
+    "name": "Bashi Bazouk",
     "bs": "11",
     "note": "",
     "cube": "",
@@ -3351,7 +3354,7 @@
     "bs": "X",
     "cc": "X",
     "imp": "",
-    "name": "Husam Spec-Ops",
+    "name": "Husam",
     "isc": "Husam Spec-Ops",
     "mov": "X-X",
     "type": "LI",
@@ -4143,6 +4146,7 @@
       {
         "name": "Dismounted",
         "mov": "4-4",
+        "ava": "",
         "s": "2",
         "spec": []
       }
@@ -4206,6 +4210,7 @@
       {
         "name": "Dismounted",
         "mov": "4-4",
+        "ava": "",
         "s": "2",
         "spec": []
       }
