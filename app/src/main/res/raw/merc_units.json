@@ -379,7 +379,8 @@
     "s": "2",
     "ava": "1",
     "bsw": [
-      "Combi Rifle"
+      "Combi Rifle",
+      "Flash Pulse"
     ],
     "spec": [
       "MediKit",
@@ -609,6 +610,7 @@
       {
         "name": "Dismounted",
         "mov": "4-4",
+        "ava": " ",
         "bsw": [],
         "ccw": [],
         "s": "2",
@@ -696,6 +698,7 @@
       },
       {
         "arm": "1",
+        "ava": "1",
         "bs": "11",
         "bsw": [
           "Combi Rifle",
@@ -741,6 +744,7 @@
         "bts": "0",
         "w": "1",
         "type": "LI",
+        "ava": "",
         "bsw": [
           "Light Shotgun"
         ],
@@ -825,6 +829,7 @@
                   "s": "2",
                   "hackable": "",
                   "type": "LI",
+                  "ava": "",
                   "bsw": [
                           "Spitfire"
                           ],
@@ -1139,7 +1144,7 @@
     ],
     "imp": ""
   },
-{
+  {
     "mov": "4-4",
     "army": "Mercenary",
     "wip": "13",
@@ -1194,5 +1199,99 @@
       }
     ],
     "imp": ""
+  },
+  {
+    "army": "Mercenary",
+    "isc": "Armand 'Le Muet'",
+    "name": "Armand",
+    "profiles": [
+      {
+        "name": "Armand",
+        "mov": "4-2",
+        "w": "1",
+        "s": "2",
+        "type": "MI",
+        "ph": "12",
+        "arm": "2",
+        "cc": "18",
+        "bts": "0",
+        "bs": "13",
+        "wip": "13",
+        "cube": "X",
+        "imp": "",
+        "ccw": [],
+        "bsw": [],
+        "spec": [
+          "Symbiont Armour",
+          "ODD: Optical Disruptor",
+          "Forward Deployment L1"
+        ],
+        "irr": ""
+      },
+      {
+        "cube": "X",
+        "bs": "13",
+        "note": " ",
+        "ava": " ",
+        "irr": " ",
+        "arm": "0",
+        "bts": "0",
+        "cbcode": [],
+        "mov": "4-4",
+        "cc": "18",
+        "name": "Inactive Armour",
+        "imp": "",
+        "type": "LI",
+        "ph": "12",
+        "spec": [],
+        "w": "1",
+        "s": "2",
+        "wip": "13",
+        "bsw": [],
+        "ccw": []
+      }
+    ],
+    "ava": "1",
+    "note": "",
+    "spec": [],
+    "bsw": [
+      "MULTI Sniper Rifle",
+      "Nanopulser"
+    ],
+    "ccw": [
+      "Breaker Pistol (2)",
+      "Shock CCW",
+      "Knife"
+    ],
+    "childs": [
+      {
+        "bsw": [
+          "Antipersonnel Mines"
+        ],
+        "cbcode": [],
+        "ccw": [],
+        "code": "Default",
+        "codename": "Minelayer",
+        "cost": "42",
+        "note": "",
+        "spec": [
+          "Minelayer"
+        ],
+        "swc": "1.5"
+      },
+      {
+        "bsw": [],
+        "cbcode": [],
+        "ccw": [],
+        "code": "MSV 1",
+        "codename": "",
+        "cost": "45",
+        "note": "",
+        "spec": [
+          "Multispectral Visor L1"
+        ],
+        "swc": "1.5"
+      }
+    ]
   }
 ]
