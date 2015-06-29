@@ -40,3 +40,6 @@ Haqqislam
 06-26 19:58:48.928    Missing file: haqqislam_zamira_nazarova_48
 06-26 19:58:48.929    Missing file: haqqislam_zuleyka_nazarova_48
 
+Mercenary
+06-29 17:58:52.089  Missing file: mercenary_father_lucien_sforza_48
+06-29 17:58:54.306  Missing file: mercenary_mcmurrough_48

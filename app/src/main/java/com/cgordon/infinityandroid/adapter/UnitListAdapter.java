@@ -67,8 +67,12 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         final Unit unit = m_units.get(position);
 
-        holder.m_textView.setText(unit.isc);
         holder.dbID = unit.dbId;
+        if (m_showAsList) {
+            holder.m_textView.setText(unit.isc);
+        } else {
+            holder.m_textView.setText(unit.name);
+        }
 
         if (holder.m_type != null) {
             holder.m_type.setText(unit.profiles.get(0).type);

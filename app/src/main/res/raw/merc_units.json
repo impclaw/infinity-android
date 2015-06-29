@@ -114,95 +114,6 @@
     "imp": "X"
   },
   {
-    "mov": "4-4",
-    "army": "Mercenary",
-    "wip": "12",
-    "cbcode": [
-      "280428-0161",
-      "280435-0201"
-    ],
-    "bts": "0",
-    "isc": "Bashi Bazouk",
-    "name": "Bashi Bazouk",
-    "bs": "11",
-    "note": "",
-    "cube": "",
-    "type": "LI",
-    "ph": "10",
-    "cc": "15",
-    "arm": "2",
-    "irr": "X",
-    "w": "1",
-    "s": "2",
-    "ava": "2",
-    "bsw": [],
-    "spec": [
-      "AD: Parachutist / Zero-G",
-      "Holoprojector L2"
-    ],
-    "ccw": [
-      "Knife",
-      "Pistol"
-    ],
-    "childs": [
-      {
-        "code": "Default",
-        "cost": "15",
-        "codename": "Rifle",
-        "swc": "0",
-        "cbcode": [],
-        "spec": [],
-        "bsw": [
-          "Rifle",
-          "Light Shotgun"
-        ],
-        "ccw": [],
-        "note": ""
-      },
-      {
-        "code": "Boarding Shotgun",
-        "cost": "14",
-        "codename": "",
-        "swc": "0",
-        "cbcode": [],
-        "spec": [],
-        "bsw": [
-          "Boarding Shotgun"
-        ],
-        "ccw": [],
-        "note": ""
-      },
-      {
-        "code": "AP Rifle",
-        "cost": "15",
-        "codename": "",
-        "swc": "0",
-        "cbcode": [],
-        "spec": [],
-        "bsw": [
-          "AP Rifle"
-        ],
-        "ccw": [],
-        "note": ""
-      },
-      {
-        "code": "E/Mauler",
-        "cost": "16",
-        "codename": "",
-        "swc": "0",
-        "cbcode": [],
-        "spec": [],
-        "bsw": [
-          "Combi Rifle",
-          "E/Mauler"
-        ],
-        "ccw": [],
-        "note": ""
-      }
-    ],
-    "imp": ""
-  },
-  {
     "mov": "4-2",
     "army": "Mercenary",
     "wip": "13",
@@ -211,7 +122,7 @@
     ],
     "bts": "0",
     "isc": "Druze Shock Teams",
-    "name": "Shock",
+    "name": "Druze",
     "bs": "12",
     "note": "",
     "cube": "X",
@@ -352,6 +263,7 @@
     "bts": "0",
     "isc": "Saito Tōgan",
     "name": "Saito Tōgan",
+    "image": "Saito Togan",
     "bs": "11",
     "note": "",
     "cube": "X",
@@ -402,8 +314,8 @@
       "280702-0110"
     ],
     "bts": "3",
-    "isc": "Miyamoto Mushashi",
-    "name": "Miyamoto Mushashi",
+    "isc": "Miyamoto Musashi",
+    "name": "Miyamoto Musashi",
     "bs": "9",
     "note": "",
     "cube": "X",
@@ -552,6 +464,7 @@
     "bts": "0",
     "isc": "Señor Massacre",
     "name": "Señor Massacre",
+    "image": "Senor Massacre",
     "bs": "12",
     "note": "",
     "cube": "X",
@@ -746,7 +659,7 @@
   },
   {
     "army": "Mercenary",
-    "isc": "Scarface",
+    "isc": "Scarface Turner",
     "name": "Scarface",
     "profiles": [
       {
@@ -865,7 +778,7 @@
   },
      {
      "army": "Mercenary",
-     "isc": "Anaconda",
+     "isc": "Anaconda Mercenary Tag Squadron",
      "name": "Anaconda",
      "profiles": [
                   {
@@ -986,7 +899,7 @@
     "cube": "X",
     "imp": "",
     "irr": "X",
-    "isc": "Warcor",
+    "isc": "Warcors",
     "mov": "4-4",
     "name": "Warcor",
     "note": "",

@@ -3,8 +3,8 @@
     <color name="army_background">#F00</color>
     <color name="army_card_background">#DDD</color>
 
-    <color name="colourPrimary">#03a9f4</color>
-    <color name="colourPrimaryDark">#0288d1</color>
+    <color name="colourPrimary">#E2001A</color>
+    <color name="colourPrimaryDark">#B12024</color>
     <color name="colourAccent">#18ffff</color>
     <color name="cardBackground">#e0e0e0</color>
     <color name="listDivider">@color/primary_dark_material_light</color>
@@ -18,5 +18,7 @@
     <color name="aleph">#A9A2B6</color>
     <color name="tohaa">#020507</color>
     <color name="mercs">#7C8768</color>
+
+    E2001A
 
 </resources>
