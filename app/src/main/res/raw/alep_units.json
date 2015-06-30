@@ -2732,7 +2732,11 @@
       {
         "name": "Dismounted",
         "mov": "4-4",
-        "spec": [],
+        "spec": [
+          "i-Khol L2",
+          "ODD: Optical Disruptor",
+          "V: No Wound Incapacitation"
+        ],
         "bsw": [],
         "ccw": [],
         "s": "2"
@@ -2808,7 +2812,7 @@
     "s": "2",
     "wip": "14"
   },
-{
+  {
     "mov": "4-4",
     "army": "Aleph",
     "wip": "13",
@@ -2889,5 +2893,179 @@
       }
     ],
     "imp": ""
+  },
+  {
+    "army": "Aleph",
+    "isc": "Scylla",
+    "name": "Scylla",
+    "profiles": [
+      {
+        "mov": "4-4",
+        "bs": "12",
+        "cube": "2",
+        "type": "LI",
+        "cc": "17",
+        "arm": "2",
+        "imp": "",
+        "w": "1",
+        "s": "2",
+        "spec": [],
+        "irr": "",
+        "ccw": [
+          "Pistol",
+          "E/M CCW"
+        ],
+        "bsw": [
+          "Boarding Shotgun",
+          "Nanopulser"
+        ],
+        "ph": "12",
+        "bts": "3",
+        "wip": "13"
+      },
+      {
+        "mov": "6-4",
+        "wip": "11",
+        "bts": "3",
+        "isc": "Devabot",
+        "name": "Devabot",
+        "bs": "10",
+        "note": "",
+        "cube": "R",
+        "type": "REM",
+        "hackable": "X",
+        "optionSpecific": "X",
+        "ph": "10",
+        "cc": "8",
+        "arm": "0",
+        "irr": "",
+        "w": "1",
+        "s": "2",
+        "imp": "",
+        "bsw": [
+          "Heavy Flamethrower"
+        ],
+        "spec": [
+          "G: Synchronized",
+          "Repeater"
+        ],
+        "ccw": [
+          "Electric Pulse"
+        ],
+         "independent" : {
+             "cost" : "7",
+             "swc" : "0"
+         }
+      },
+      {
+        "mov": "6-4",
+        "wip": "11",
+        "bts": "3",
+        "isc": "Devabot",
+        "name": "Devabot",
+        "bs": "10",
+        "note": "",
+        "cube": "R",
+        "type": "REM",
+        "hackable": "X",
+        "ph": "10",
+        "cc": "8",
+        "arm": "0",
+        "irr": "",
+        "w": "1",
+        "s": "2",
+        "imp": "",
+        "bsw": [
+          "Heavy Flamethrower"
+        ],
+        "spec": [
+          "G: Synchronized",
+          "Repeater"
+        ],
+        "ccw": [
+          "Electric Pulse"
+        ],
+         "independent" : {
+             "cost" : "7",
+             "swc" : "0"
+         }
+      }
+    ],
+    "spec": [],
+    "ccw": [],
+    "bsw": [],
+    "ava": "1",
+    "childs": [
+      {
+        "code": "Default",
+        "cost": "32",
+        "codename": "HD, 1 Devabot",
+        "swc": "0.5",
+        "cbcode": [],
+        "spec": [
+          "Hacker",
+          "Hacking Device"
+        ],
+        "bsw": [],
+        "ccw": [],
+        "independent" : {
+            "cost" : "25",
+            "swc" : "0.5"
+        }
+      },
+      {
+        "code": "HD, 2 Devabots",
+        "cost": "36",
+        "codename": "",
+        "swc": "0.5",
+        "cbcode": [],
+        "profile": "1",
+        "spec": [
+          "Hacker",
+          "Hacking Device"
+        ],
+        "bsw": [],
+        "ccw": [],
+        "independent" : {
+            "cost" : "22",
+            "swc" : "0.5"
+        }
+      },
+      {
+        "code": "AHD, 1 Devabot",
+        "cost": "30",
+        "codename": "",
+        "swc": "0.5",
+        "cbcode": [],
+        "spec": [
+          "Hacker",
+          "Assault Hacking Device"
+        ],
+        "bsw": [],
+        "ccw": [],
+        "independent" : {
+            "cost" : "23",
+            "swc" : "0.5"
+        }
+      },
+      {
+        "code": "AHD, 2 Devabots",
+        "cost": "34",
+        "codename": "",
+        "swc": "0.5",
+        "cbcode": [],
+        "profile": "1",
+        "spec": [
+          "Hacker",
+          "Assault Hacking Device"
+        ],
+        "bsw": [],
+        "ccw": [],
+        "independent" : {
+            "cost" : "20",
+            "swc" : "0.5"
+        }
+      }
+    ]
   }
 ]
