@@ -12,8 +12,16 @@ import android.util.Log;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.data.Weapon;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.storage.ArmyData;
+import com.cgordon.infinityandroid.storage.WeaponsData;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by cgordon on 6/24/2015.
@@ -22,6 +30,7 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
 
     private static final String TAG = UnitListActivity.class.getSimpleName();
     private static Army m_army;
+    private Map<String,Weapon> m_weapons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +44,11 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
         if (m_army == null) {
             onResume();
         }
+
+        WeaponsData weaponsData = new WeaponsData(this);
+        weaponsData.open();
+        m_weapons = weaponsData.getWeapons();
+        weaponsData.close();
 
         Log.d(TAG, m_army.toString());
 
@@ -82,10 +96,49 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
     @Override
     public void unitSelected(Unit unit) {
         Log.d(TAG, unit.toString());
-        Intent i = new Intent(this, UnitActivity.class);
-        i.putExtra(MainActivity.UNIT, unit.toString());
-        startActivity(i);
+        Intent intent = new Intent(this, UnitActivity.class);
 
+        StringBuffer sb = new StringBuffer();
+        sb.append(unit.toString()).append("\n");
 
+        HashSet<String> bsw = new HashSet<>();
+        HashSet<String> ccw = new HashSet<>();
+
+        for (int i = 0; i < unit.profiles.size(); i++ ) {
+            bsw.addAll(unit.profiles.get(i).bsw);
+            ccw.addAll(unit.profiles.get(i).ccw);
+        }
+
+        for (int i = 0; i < unit.options.size(); i++ ) {
+            bsw.addAll(unit.options.get(i).bsw);
+            ccw.addAll(unit.options.get(i).ccw);
+        }
+
+        sb.append("BS Weapons\n");
+        sb.append(weaponsToString(bsw));
+
+        sb.append("\nCC Weapons\n");
+        sb.append(weaponsToString(ccw));
+
+        intent.putExtra(MainActivity.UNIT, sb.toString());
+        startActivity(intent);
+
+    }
+
+    private String weaponsToString(Set<String> weapons) {
+        StringBuffer sb = new StringBuffer();
+        Iterator it = weapons.iterator();
+        while (it.hasNext()) {
+            String name = (String) it.next();
+            Weapon weapon = m_weapons.get(name);
+            sb.append(weapon.toString()).append("\n");
+
+            // check the alt_profile rabbit hole
+            while (weapon.alt_profile != null) {
+                weapon = m_weapons.get(weapon.alt_profile);
+                sb.append(weapon.toString()).append("\n");
+            }
+        }
+        return sb.toString();
     }
 }

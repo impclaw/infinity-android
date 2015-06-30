@@ -2,13 +2,19 @@ package com.cgordon.infinityandroid.storage;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.cgordon.infinityandroid.data.Army;
+import com.cgordon.infinityandroid.data.ArmyUnit;
 import com.cgordon.infinityandroid.data.Weapon;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by cgordon on 6/1/2015.
@@ -94,6 +100,55 @@ public class WeaponsData {
 
         }
 
+    }
+     public Map<String,Weapon> getWeapons() {
+
+         Cursor cursor = m_database.query(InfinityDatabase.TABLE_WEAPONS, allColumns, null, null,
+                 null, null, null, null);
+
+         cursor.moveToFirst();
+
+         Map<String,Weapon> weapons = new HashMap<>();
+
+         while (!cursor.isAfterLast()) {
+             Weapon weapon = cursorToWeapon(cursor);
+
+             weapons.put(weapon.name, weapon);
+
+             cursor.moveToNext();
+         }
+
+         return weapons;
+
+     }
+
+    private Weapon cursorToWeapon(Cursor cursor) {
+        Weapon weapon = new Weapon();
+
+        //InfinityDatabase.COLUMN_ID,
+        weapon.ammo = cursor.getString(1);
+        weapon.burst = cursor.getString(2);
+        weapon.cc = cursor.getString(3);
+        weapon.damage = cursor.getString(4);
+        weapon.em_vul = cursor.getString(5);
+        weapon.long_dist = cursor.getString(6);
+        weapon.long_mod = cursor.getString(7);
+        weapon.max_dist = cursor.getString(8);
+        weapon.max_mod = cursor.getString(9);
+        weapon.medium_dist = cursor.getString(10);
+        weapon.medium_mod = cursor.getString(11);
+        weapon.name = cursor.getString(12);
+        weapon.note = cursor.getString(13);
+        weapon.short_dist = cursor.getString(14);
+        weapon.short_mod = cursor.getString(15);
+        weapon.template = cursor.getString(16);
+        weapon.uses = cursor.getString(17);
+        weapon.attr = cursor.getString(18);
+        weapon.suppressive = cursor.getString(19);
+        weapon.alt_profile = cursor.getString(20);
+        weapon.mode = cursor.getString(21);
+
+        return weapon;
     }
 
 }

@@ -60,8 +60,6 @@ public class WeaponParser {
                 weapon.cc = reader.nextString();
             } else if (name.equals("damage")) {
                 weapon.damage = reader.nextString();
-            } else if (name.equals("em_vul")) {
-                weapon.em_vul = reader.nextString();
             } else if (name.equals("long_dist")) {
                 weapon.long_dist = reader.nextString();
             } else if (name.equals("long_mod")) {
