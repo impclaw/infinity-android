@@ -59,9 +59,9 @@ public class Unit implements Comparable<Unit> {
             sb.append(profiles.get(i).toString()).append("\n\n");
         }
 
-        sb.append("Options:").append("\n\n");
+        sb.append("Options:").append("\n");
         for (int i = 0; i < options.size(); i++) {
-            sb.append(name).append(options.get(i).toString()).append("\n");
+            sb.append("- ").append(name).append(options.get(i).toString()).append("\n");
         }
         sb.append("\n");
 

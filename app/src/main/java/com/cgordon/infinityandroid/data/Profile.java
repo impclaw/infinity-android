@@ -59,7 +59,9 @@ public class Profile {
         if (isc != null) {
             sb.append("ISC: ").append(isc).append("\t");
         }
-        sb.append("AVA: ").append(ava).append("\t");
+        if (ava != null ) {
+            sb.append("AVA: ").append(ava).append("\t");
+        }
         sb.append("Type: ").append(type).append("\n\t");
 
         sb.append("MOV\tCC\tBS\tPH\tWIP\tARM\tBTS\tW\tS\t\n\t");
