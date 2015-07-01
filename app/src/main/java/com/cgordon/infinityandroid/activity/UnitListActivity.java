@@ -130,7 +130,15 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
         Iterator it = weapons.iterator();
         while (it.hasNext()) {
             String name = (String) it.next();
+
+            // sometimes a weapon is listed twice.  The easiest way to record this is to look for it
+            // and remove the text so that the actual weapon can be found in the weapons list.
+            name = name.replace("(2)", "").trim();
+
             Weapon weapon = m_weapons.get(name);
+            if (weapon == null) {
+                Log.d(TAG, "Weapon: " +name + " not found");
+            }
             sb.append(weapon.toString()).append("\n");
 
             // check the alt_profile rabbit hole
