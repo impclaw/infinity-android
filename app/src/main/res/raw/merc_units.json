@@ -114,6 +114,95 @@
     "imp": "X"
   },
   {
+    "mov": "4-4",
+    "army": "Mercenary",
+    "wip": "12",
+    "cbcode": [
+      "280428-0161",
+      "280435-0201"
+    ],
+    "bts": "0",
+    "isc": "Bashi Bazouks",
+    "name": "Bashi Bazouk",
+    "bs": "11",
+    "note": "",
+    "cube": "",
+    "type": "LI",
+    "ph": "10",
+    "cc": "15",
+    "arm": "2",
+    "irr": "X",
+    "w": "1",
+    "s": "2",
+    "ava": "2",
+    "bsw": [],
+    "spec": [
+      "AD: Parachutist / Zero-G",
+      "Holoprojector L2"
+    ],
+    "ccw": [
+      "Knife",
+      "Pistol"
+    ],
+    "childs": [
+      {
+        "code": "Default",
+        "cost": "15",
+        "codename": "Rifle",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Rifle",
+          "Light Shotgun"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Boarding Shotgun",
+        "cost": "14",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Boarding Shotgun"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "AP Rifle",
+        "cost": "15",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "AP Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "E/Mauler",
+        "cost": "16",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Combi Rifle",
+          "E/Mauler"
+        ],
+        "ccw": [],
+        "note": ""
+      }
+    ],
+    "imp": ""
+  },
+  {
     "mov": "4-2",
     "army": "Mercenary",
     "wip": "13",
@@ -204,6 +293,67 @@
     "imp": ""
   },
   {
+    "mov": "4-4",
+    "army": "Mercenary",
+    "wip": "12",
+    "cbcode": [
+      "280144-0282"
+    ],
+    "bts": "0",
+    "isc": "Highlander Caterans",
+    "name": "Cateran",
+    "bs": "12",
+    "note": "",
+    "cube": "",
+    "type": "LI",
+    "ph": "13",
+    "cc": "19",
+    "arm": "0",
+    "irr": "I",
+    "w": "1",
+    "s": "2",
+    "ava": "1",
+    "bsw": [],
+    "spec": [
+      "CH: Limited Camouflage",
+      "CH: Mimetism",
+      "Climbing Plus"
+    ],
+    "ccw": [
+      "AP CCW",
+      "Pistol"
+    ],
+    "childs": [
+      {
+        "code": "T2 Sniper Rifle",
+        "cost": "21",
+        "codename": "",
+        "swc": "1",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "T2 Sniper Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Default",
+        "cost": "20",
+        "codename": "Sniper Rifle",
+        "swc": "0.5",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Sniper Rifle"
+        ],
+        "ccw": [],
+        "note": ""
+      }
+    ],
+    "imp": ""
+  },
+  {
     "mov": "6-4",
     "army": "Mercenary",
     "wip": "14",
@@ -252,6 +402,71 @@
       }
     ],
     "imp": "X"
+  },
+  {
+    "mov": "4-4",
+    "army": "Mercenary",
+    "wip": "14",
+    "cbcode": [
+      "280333-0184",
+      "280340-0226"
+    ],
+    "bts": "0",
+    "isc": "Kempeitai",
+    "name": "Kempei",
+    "bs": "12",
+    "note": "",
+    "cube": "X",
+    "type": "LI",
+    "ph": "10",
+    "cc": "14",
+    "arm": "1",
+    "irr": "",
+    "w": "1",
+    "s": "2",
+    "ava": "1",
+    "bsw": [],
+    "spec": [
+      "Sixth Sense L1",
+      "V: Courage",
+      "Basic Impersonation: Yu Jing"
+    ],
+    "ccw": [
+      "D-Charges",
+      "Pistol",
+      "CCW",
+      "Electric Pulse",
+      "Knife"
+    ],
+    "childs": [
+      {
+        "code": "Boarding Shotgun",
+        "cost": "18",
+        "codename": "Boarding Shotgun",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Boarding Shotgun"
+        ],
+        "ccw": [],
+        "note": "only against Yu Jing"
+      },
+      {
+        "code": "Default",
+        "cost": "19",
+        "codename": "Combi",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Combi Rifle"
+        ],
+        "ccw": [],
+        "note": "only against Yu Jing"
+      }
+    ],
+    "imp": ""
   },
   {
     "mov": "4-4",
@@ -569,6 +784,147 @@
       }
     ],
     "imp": ""
+  },
+  {
+    "childs": [
+      {
+        "bsw": [
+          "Combi Rifle",
+          "Adhesive Launcher"
+        ],
+        "swc": "0",
+        "cbcode": [],
+        "code": "ADHL",
+        "note": "",
+        "ccw": [
+          "D-Charges"
+        ],
+        "codename": "",
+        "cost": "23",
+        "spec": []
+      },
+      {
+        "bsw": [
+          "Combi Rifle",
+          "Blitzen"
+        ],
+        "swc": "0",
+        "cbcode": [],
+        "code": "Default",
+        "note": "",
+        "ccw": [],
+        "codename": "Blitzen",
+        "cost": "23",
+        "spec": []
+      },
+      {
+        "bsw": [
+          "MULTI Sniper Rifle"
+        ],
+        "swc": "1.5",
+        "cbcode": [],
+        "code": "MULTI Sniper Rifle",
+        "note": "",
+        "ccw": [],
+        "codename": "",
+        "cost": "30",
+        "spec": []
+      },
+      {
+        "bsw": [
+          "Spitfire"
+        ],
+        "swc": "1",
+        "cbcode": [],
+        "code": "Spitfire",
+        "note": "",
+        "ccw": [],
+        "codename": "",
+        "cost": "28",
+        "spec": []
+      },
+      {
+        "bsw": [
+          "Combi Rifle",
+          "Adhesive Launcher"
+        ],
+        "swc": "0",
+        "cbcode": [],
+        "code": "Engineer ADHL",
+        "note": "",
+        "ccw": [
+          "D-Charges"
+        ],
+        "codename": "",
+        "cost": "27",
+        "spec": [
+          "Engineer"
+        ]
+      },
+      {
+        "bsw": [
+          "Combi Rifle",
+          "Blitzen"
+        ],
+        "swc": "0",
+        "cbcode": [],
+        "code": "Engineer Blitzen",
+        "note": "",
+        "ccw": [],
+        "codename": "",
+        "cost": "27",
+        "spec": [
+          "Engineer"
+        ]
+      },
+      {
+        "bsw": [
+          "Combi Rifle",
+          "Blitzen"
+        ],
+        "swc": "0",
+        "cbcode": [],
+        "code": "Doctor",
+        "note": "",
+        "ccw": [],
+        "codename": "",
+        "cost": "27",
+        "spec": [
+          "Doctor",
+          "MediKit"
+        ]
+      }
+    ],
+    "ccw": [
+      "Pistol",
+      "Knife"
+    ],
+    "bsw": [],
+    "ava": "3",
+    "irr": "",
+    "arm": "2",
+    "cbcode": [
+      "280457-0375"
+    ],
+    "bts": "6",
+    "army": "Mercenary",
+    "note": "",
+    "cube": "",
+    "bs": "12",
+    "cc": "13",
+    "imp": "",
+    "name": "Kaplan",
+    "isc": "KTS, Kaplan Tactical Services",
+    "mov": "4-4",
+    "type": "LI",
+    "ph": "11",
+    "spec": [
+      "CH: Mimetism",
+      "V: Courage"
+    ],
+    "w": "1",
+    "s": "2",
+    "wip": "14"
   },
   {
     "army": "Mercenary",
