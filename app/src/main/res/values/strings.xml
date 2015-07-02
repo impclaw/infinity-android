@@ -35,5 +35,7 @@
     <string name="title_activity_settings">Settings</string>
     <string name="AlphaUnitListTitle">Alphabetical Unit List</string>
     <string name="AlphaUnitListSummary">Show the units in alphabetical order instead of LI, MI, HI, etc.</string>
+    <string name="ShowMercsTitle">Show Mercenaries</string>
+    <string name="ShowMercsSummary">Display mercenaries as part of the main Armies. Appropriate mercenaries will always show in Sectorials.</string>
 
 </resources>

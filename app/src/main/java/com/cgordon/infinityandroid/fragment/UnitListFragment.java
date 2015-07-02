@@ -20,6 +20,8 @@ import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Army;
+import com.cgordon.infinityandroid.data.ComparatorName;
+import com.cgordon.infinityandroid.data.ComparatorType;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.storage.UnitsData;
 
@@ -41,7 +43,6 @@ public class UnitListFragment extends Fragment {
     RecyclerView m_recyclerView;
     Army m_army;
 
-    boolean m_showAsList;
     private UnitSelectedListener m_unitSelectedListener;
 
     @Nullable
@@ -59,12 +60,14 @@ public class UnitListFragment extends Fragment {
         m_recyclerView.setHasFixedSize(true);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
+        boolean showAsList = false;
         if (prefs.contains(UnitListFragment.ListAsListKey)) {
-            m_showAsList = prefs.getBoolean(UnitListFragment.ListAsListKey, false);
+            showAsList = prefs.getBoolean(UnitListFragment.ListAsListKey, false);
         }
 
         RecyclerView.LayoutManager layoutManager;
-        if (m_showAsList) {
+        if (showAsList) {
             layoutManager = new LinearLayoutManager(getActivity());
         } else {
             layoutManager = new GridLayoutManager(getActivity(),
@@ -86,9 +89,12 @@ public class UnitListFragment extends Fragment {
         if (prefs.contains(UnitListFragment.AlphaUnitListKey)) {
             alphaList = prefs.getBoolean(UnitListFragment.AlphaUnitListKey, false);
         }
-        if (!alphaList) {
-            if (units != null) {
-                Collections.sort(units);
+
+        if (units != null) {
+            if (alphaList) {
+                Collections.sort(units, new ComparatorName(showAsList));
+            } else {
+                Collections.sort(units, new ComparatorType(showAsList));
             }
         }
 

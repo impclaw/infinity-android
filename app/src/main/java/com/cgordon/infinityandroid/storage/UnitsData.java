@@ -2,8 +2,10 @@ package com.cgordon.infinityandroid.storage;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -81,8 +83,14 @@ public class UnitsData {
         InfinityDatabase.COLUMN_AVA
     };
 
+    public static final String ShowMercenariesListKey = "show_mercs";
+
+    private SharedPreferences m_prefs;
+
     public UnitsData(Context context) {
         m_dbHelper = new InfinityDatabase(context);
+        m_prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
     }
 
     // Necessary for creating the database during onCreate.  Otherwise the database is locked.
@@ -148,17 +156,10 @@ public class UnitsData {
         ArrayList<Unit> units = new ArrayList<Unit>();
 
         while (!cursor.isAfterLast()) {
+
             Unit unit = cursorToUnit(cursor);
 
-            // read profiles
-            List<Profile> profiles = getProfiles(unit.dbId);
-            unit.profiles = profiles;
-
-            // read options
-            List<Option> options = getOptions(unit.dbId);
-            unit.options = options;
-
-                units.add(unit);
+            units.add(unit);
 
             cursor.moveToNext();
         }
@@ -166,6 +167,9 @@ public class UnitsData {
         return units;
 
     }
+
+
+
 
     private void printCursor(Cursor cursor) {
         cursor.moveToFirst();
@@ -198,11 +202,48 @@ public class UnitsData {
             Cursor cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
                     InfinityDatabase.COLUMN_FACTION + "='" + army.name + "'", null, null, null, InfinityDatabase.COLUMN_ISC, null);
 
-            return getArmyUnits(cursor);
+            List<Unit> units = getArmyUnits(cursor);
+
+            boolean showMercs = false;
+            if (m_prefs.contains(ShowMercenariesListKey)) {
+                showMercs = m_prefs.getBoolean(ShowMercenariesListKey, false);
+            }
+
+            if (showMercs) {
+
+                // go get the list of mercenaries for the main factions.  Not allowed for aliens (and
+                // mercenaries)
+                if ((!army.name.equals("Combined Army"))
+                        && (!army.name.equals("Tohaa"))
+                        && (!army.name.equals("Mercenary"))) {
+
+                    cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
+                            InfinityDatabase.COLUMN_FACTION + "='Mercenary'", null, null, null, InfinityDatabase.COLUMN_ISC, null);
+
+
+                    cursor.moveToFirst();
+                    while (!cursor.isAfterLast()) {
+
+                        Unit unit = cursorToUnit(cursor);
+
+                        // don't re-add units in the case where there is both a faction and merc
+                        // version of the same unit.
+                        if (!units.contains(unit)) {
+                            units.add(unit);
+                        }
+
+                        cursor.moveToNext();
+                    }
+
+
+                }
+            }
+
+            return units;
         } else {
 
-            Cursor cursor = m_database.rawQuery("SELECT " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ISC + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
-                    + " where " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
+            Cursor cursor = m_database.rawQuery("SELECT " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ISC + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
+                    + " where " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
                     , null);
             Log.e(TAG, "army units isc count: "+cursor.getCount());
             printCursor(cursor);
@@ -367,6 +408,14 @@ public class UnitsData {
         if (cursor.getColumnNames().length > 8) {
             unit.linkable = (cursor.getInt(8) != 0);
         }
+
+        // read profiles
+        List<Profile> profiles = getProfiles(unit.dbId);
+        unit.profiles = profiles;
+
+        // read options
+        List<Option> options = getOptions(unit.dbId);
+        unit.options = options;
 
         return unit;
     }

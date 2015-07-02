@@ -13,4 +13,10 @@
         android:summary="@string/AlphaUnitListSummary"
         android:defaultValue="false" />
 
+    <CheckBoxPreference
+        android:key="show_mercs"
+        android:title="@string/ShowMercsTitle"
+        android:summary="@string/ShowMercsSummary"
+        android:defaultValue="true" />
+
 </PreferenceScreen>

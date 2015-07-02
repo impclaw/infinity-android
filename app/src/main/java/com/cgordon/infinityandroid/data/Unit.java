@@ -7,20 +7,7 @@ import java.util.List;
 /**
  * Created by cgordon on 5/31/2015.
  */
-public class Unit implements Comparable<Unit> {
-
-    // These are listed in reverse order to aid the compareTo function below.  A higher index  means
-    // that it will be listed before a lower index.  ie. IndexOf("LI") == 6 and IndexOf("MI") == 5
-    // so 6-5 == 1 (positive number, therefore greater than the passed in one)
-    private static final String[] m_typeOrder = {
-            "LI",
-            "MI",
-            "HI",
-            "TAG",
-            "REM",
-            "SK",
-            "WB",
-    };
+public class Unit {
 
     public long dbId;
     public String ava;  // sometimes this can be 'T', so can't be an int
@@ -34,12 +21,10 @@ public class Unit implements Comparable<Unit> {
     public String image;
     public boolean linkable = false;
 
-    private List<String> m_typeOrderList;
 
     public Unit () {
         options = new ArrayList<Option>();
         profiles = new ArrayList<Profile>();
-        m_typeOrderList = Arrays.asList(m_typeOrder);
     }
 
     @Override
@@ -72,12 +57,14 @@ public class Unit implements Comparable<Unit> {
     }
 
     @Override
-    public int compareTo(Unit another) {
+    public boolean equals(Object o) {
 
-        if (profiles.get(0).type.equals(another.profiles.get(0))) {
-            return isc.compareTo(another.isc);
-        } else {
-                return m_typeOrderList.indexOf(profiles.get(0).type) - m_typeOrderList.indexOf(another.profiles.get(0).type);
+        // determine equality based on ISC name.  This is used ofr indexOf operations on a list.
+        if (o instanceof Unit) {
+            return isc.equals(((Unit) o).isc);
+        }
+        else {
+            return super.equals(o);
         }
     }
 }
