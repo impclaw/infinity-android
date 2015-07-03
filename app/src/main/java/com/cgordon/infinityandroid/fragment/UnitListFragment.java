@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.MainActivity;
+import com.cgordon.infinityandroid.adapter.ArmyAdapter;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.ComparatorName;
@@ -110,7 +111,7 @@ public class UnitListFragment extends Fragment {
 
 
     public interface UnitSelectedListener {
-        public void unitSelected(Unit unit);
+        public void unitSelected(Unit unit, final UnitListAdapter.ViewHolder viewHolder);
     }
 
     // For screen orientation change

@@ -1,15 +1,20 @@
 package com.cgordon.infinityandroid.activity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
@@ -26,7 +31,11 @@ import java.util.Set;
 /**
  * Created by cgordon on 6/24/2015.
  */
-public class UnitListActivity extends AppCompatActivity implements UnitListFragment.ArmyProvider, UnitListFragment.UnitSelectedListener {
+public class UnitListActivity extends AppCompatActivity implements UnitListFragment.ArmyProvider,
+        UnitListFragment.UnitSelectedListener {
+
+    public static final String EXTRA_IMAGE = "DetailActivity:image";
+
 
     private static final String TAG = UnitListActivity.class.getSimpleName();
     private static Army m_army;
@@ -59,6 +68,8 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(m_army.name);
+
+
 
 //        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.unit_list);
 //        fragment.setRetainInstance(true);
@@ -94,7 +105,7 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
     }
 
     @Override
-    public void unitSelected(Unit unit) {
+    public void unitSelected(Unit unit, UnitListAdapter.ViewHolder viewHolder) {
         Log.d(TAG, unit.toString());
         Intent intent = new Intent(this, UnitActivity.class);
 
@@ -120,8 +131,12 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
         sb.append("\nCC Weapons\n");
         sb.append(weaponsToString(ccw));
 
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
+                viewHolder.m_imageView, EXTRA_IMAGE);
+
         intent.putExtra(MainActivity.UNIT, sb.toString());
-        startActivity(intent);
+        ActivityCompat.startActivity(this, intent, options.toBundle());
+        //startActivity(intent);
 
     }
 
@@ -149,4 +164,5 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
         }
         return sb.toString();
     }
+
 }

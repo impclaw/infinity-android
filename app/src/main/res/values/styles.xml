@@ -10,6 +10,7 @@
         <item name="colorPrimary">@color/colourPrimary</item>
         <item name="colorPrimaryDark">@color/colourPrimaryDark</item>
         <item name="colorAccent">@color/colourAccent</item>
+        
     </style>
 
     <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">

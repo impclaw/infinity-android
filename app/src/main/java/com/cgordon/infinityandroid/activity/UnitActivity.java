@@ -1,9 +1,11 @@
 package com.cgordon.infinityandroid.activity;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
@@ -24,6 +26,9 @@ public class UnitActivity extends AppCompatActivity {
         Log.d(TAG, m_unit.toString());
 
         setContentView(R.layout.activity_unit);
+
+        ImageView image = (ImageView) findViewById(R.id.image_view);
+        ViewCompat.setTransitionName(image, UnitListActivity.EXTRA_IMAGE);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

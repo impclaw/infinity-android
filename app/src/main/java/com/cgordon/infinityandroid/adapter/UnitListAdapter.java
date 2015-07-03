@@ -111,7 +111,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
                 @Override
                 public void onClick(View v) {
                     if (m_listener != null) {
-                        m_listener.unitSelected(unit);
+                        m_listener.unitSelected(unit, holder);
                     }
                 }
             });
@@ -120,7 +120,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
                 @Override
                 public void onClick(View v) {
                     if (m_listener != null) {
-                        m_listener.unitSelected(unit);
+                        m_listener.unitSelected(unit, holder);
 
                     }
 
