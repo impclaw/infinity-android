@@ -18,7 +18,8 @@
                 android:id="@+id/image_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/panoceania_48" />
+                android:src="@drawable/panoceania_48"
+                android:padding="16dp"/>
 
             <TextView
                 android:id="@id/text_view"

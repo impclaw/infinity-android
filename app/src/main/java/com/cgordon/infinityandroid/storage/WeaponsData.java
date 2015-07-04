@@ -103,23 +103,30 @@ public class WeaponsData {
     }
      public Map<String,Weapon> getWeapons() {
 
-         Cursor cursor = m_database.query(InfinityDatabase.TABLE_WEAPONS, allColumns, null, null,
-                 null, null, null, null);
+         Cursor cursor = null;
+         try {
+             cursor = m_database.query(InfinityDatabase.TABLE_WEAPONS, allColumns, null, null,
+                     null, null, null, null);
 
-         cursor.moveToFirst();
+             cursor.moveToFirst();
 
-         Map<String,Weapon> weapons = new HashMap<>();
+             Map<String, Weapon> weapons = new HashMap<>();
 
-         while (!cursor.isAfterLast()) {
-             Weapon weapon = cursorToWeapon(cursor);
+             while (!cursor.isAfterLast()) {
+                 Weapon weapon = cursorToWeapon(cursor);
 
-             weapons.put(weapon.name, weapon);
+                 weapons.put(weapon.name, weapon);
 
-             cursor.moveToNext();
+                 cursor.moveToNext();
+             }
+
+             return weapons;
+
+         } finally {
+             if (cursor != null) {
+                 cursor.close();
+             }
          }
-
-         return weapons;
-
      }
 
     private Weapon cursorToWeapon(Cursor cursor) {

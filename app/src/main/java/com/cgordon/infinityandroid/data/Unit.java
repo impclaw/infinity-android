@@ -1,5 +1,8 @@
 package com.cgordon.infinityandroid.data;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,13 +10,13 @@ import java.util.List;
 /**
  * Created by cgordon on 5/31/2015.
  */
-public class Unit {
+public class Unit implements Parcelable {
 
     public long dbId;
     public String ava;  // sometimes this can be 'T', so can't be an int
     public String sharedAva; // Name of other unit that subtracts from this units Ava
-    public List<Profile> profiles;
-    public List<Option> options;
+    public ArrayList<Profile> profiles;
+    public ArrayList<Option> options;
     public String faction;
     public String note;  //used?
     public String name;
@@ -25,6 +28,35 @@ public class Unit {
     public Unit () {
         options = new ArrayList<Option>();
         profiles = new ArrayList<Profile>();
+    }
+
+    public Unit(Parcel parcel) {
+        dbId = parcel.readLong();
+        ava = parcel.readString();
+        sharedAva = parcel.readString();
+        profiles = parcel.readArrayList(Profile.class.getClassLoader());
+        options = parcel.readArrayList(Option.class.getClassLoader());
+        faction = parcel.readString();
+        note = parcel.readString();
+        name = parcel.readString();
+        isc = parcel.readString();
+        image = parcel.readString();
+        linkable = parcel.readByte() != 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(dbId);
+        dest.writeString(ava);
+        dest.writeString(sharedAva);
+        dest.writeList(profiles);
+        dest.writeList(options);
+        dest.writeString(faction);
+        dest.writeString(note);
+        dest.writeString(name);
+        dest.writeString(isc);
+        dest.writeString(image);
+        dest.writeByte((byte) (linkable ? 1 : 0));
     }
 
     @Override
@@ -67,4 +99,21 @@ public class Unit {
             return super.equals(o);
         }
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Parcelable.Creator<Unit> CREATOR
+            = new Parcelable.Creator<Unit>() {
+        public Unit createFromParcel(Parcel in) {
+            return new Unit(in);
+        }
+
+        public Unit[] newArray(int size) {
+            return new Unit[size];
+        }
+    };
+
 }

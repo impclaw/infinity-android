@@ -131,7 +131,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
 
     }
 
-    private String prepareDrawableResource(String resourceName) {
+    public static String prepareDrawableResource(String resourceName) {
         return resourceName.toLowerCase().replace(" ", "_").replace("-", "_").replace(",", "")
                 .replace(":", "").replace(".", "").replace("'","");
     }

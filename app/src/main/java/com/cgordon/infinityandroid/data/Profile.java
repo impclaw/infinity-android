@@ -1,5 +1,7 @@
 package com.cgordon.infinityandroid.data;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.text.TextUtils;
 
 import java.util.ArrayList;
@@ -8,11 +10,11 @@ import java.util.List;
 /**
  * Created by cgordon on 5/30/2015.
  */
-public class Profile {
+public class Profile implements Parcelable {
 
-    public List<String> bsw;
-    public List<String> ccw;
-    public List<String> spec;
+    public ArrayList<String> bsw;
+    public ArrayList<String> ccw;
+    public ArrayList<String> spec;
 
     public String mov;
     public String cc;
@@ -42,6 +44,70 @@ public class Profile {
         bsw = new ArrayList<String>();
         ccw = new ArrayList<String>();
         spec = new ArrayList<String>();
+    }
+
+    public Profile(Parcel parcel) {
+        bsw = parcel.readArrayList(String.class.getClassLoader());
+        ccw = parcel.readArrayList(String.class.getClassLoader());
+        spec = parcel.readArrayList(String.class.getClassLoader());
+
+        mov = parcel.readString();
+        cc = parcel.readString();
+        bs = parcel.readString();
+        ph = parcel.readString();
+        wip = parcel.readString();
+        arm = parcel.readString();
+        bts = parcel.readString();
+        wounds = parcel.readString();
+        woundType = parcel.readString();
+        silhouette = parcel.readString();
+
+        irr = parcel.readByte() != 0;
+        imp = parcel.readString();
+        cube = parcel.readString();
+        note = parcel.readString();
+        isc = parcel.readString();
+        name = parcel.readString();
+        type = parcel.readString();
+        hackable = parcel.readByte() != 0;
+        ava = parcel.readString();
+
+        optionSpecific = parcel.readString();
+        allProfilesMustDie = parcel.readString();
+
+    }
+
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeList(bsw);
+        dest.writeList(ccw);
+        dest.writeList(spec);
+
+        dest.writeString(mov);
+        dest.writeString(cc);
+        dest.writeString(bs);
+        dest.writeString(ph);
+        dest.writeString(wip);
+        dest.writeString(arm);
+        dest.writeString(bts);
+        dest.writeString(wounds);
+        dest.writeString(woundType);
+        dest.writeString(silhouette);
+
+        dest.writeByte((byte)(irr ? 1 : 0));
+        dest.writeString(imp);
+        dest.writeString(cube);
+        dest.writeString(note);
+        dest.writeString(isc);
+        dest.writeString(name);
+        dest.writeString(type);
+        dest.writeByte((byte)(hackable ? 1 : 0));
+        dest.writeString(ava);
+
+        dest.writeString(optionSpecific);
+        dest.writeString(allProfilesMustDie);
+
     }
 
     @Override
@@ -90,4 +156,21 @@ public class Profile {
         }
         return sb.toString();
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Parcelable.Creator<Profile> CREATOR
+            = new Parcelable.Creator<Profile>() {
+        public Profile createFromParcel(Parcel in) {
+            return new Profile(in);
+        }
+
+        public Profile[] newArray(int size) {
+            return new Profile[size];
+        }
+    };
+
 }

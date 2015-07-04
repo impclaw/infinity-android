@@ -86,38 +86,54 @@ public class ArmyData {
     }
 
     public List<Army> getArmyList() {
-        Cursor cursor = m_database.query(InfinityDatabase.TABLE_ARMY, armyColumns, null, null, null, null, null, null);
+        Cursor cursor = null;
+        try {
+            cursor = m_database.query(InfinityDatabase.TABLE_ARMY, armyColumns, null, null, null, null, null, null);
 
-        ArrayList<Army> armyList = new ArrayList<>();
+            ArrayList<Army> armyList = new ArrayList<>();
 
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            Army army = cursorToArmy(cursor);
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                Army army = cursorToArmy(cursor);
 
-            armyList.add(army);
+                armyList.add(army);
 
-            cursor.moveToNext();
+                cursor.moveToNext();
+            }
+
+            return armyList;
+
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
 
-        return armyList;
     }
 
     private ArrayList<ArmyUnit> getArmyUnits(long sectorialId) {
-        Cursor cursor = m_database.query(InfinityDatabase.TABLE_ARMY_UNITS, armyUnitColumns, InfinityDatabase.COLUMN_ARMY_ID + "=" + sectorialId, null, null, null, null, null);
+        Cursor cursor = null;
+        try {
+            cursor = m_database.query(InfinityDatabase.TABLE_ARMY_UNITS, armyUnitColumns, InfinityDatabase.COLUMN_ARMY_ID + "=" + sectorialId, null, null, null, null, null);
 
-        cursor.moveToFirst();
+            cursor.moveToFirst();
 
-        ArrayList<ArmyUnit> armyUnits = new ArrayList<>();
+            ArrayList<ArmyUnit> armyUnits = new ArrayList<>();
 
-        while (!cursor.isAfterLast()) {
-            ArmyUnit armyUnit = cursorToSectorialUnit(cursor);
+            while (!cursor.isAfterLast()) {
+                ArmyUnit armyUnit = cursorToSectorialUnit(cursor);
 
-            armyUnits.add(armyUnit);
+                armyUnits.add(armyUnit);
 
-            cursor.moveToNext();
+                cursor.moveToNext();
+            }
+
+            return armyUnits;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
-
-        return armyUnits;
 
     }
 
@@ -173,11 +189,19 @@ public class ArmyData {
     }
 
     public Army getArmy(long dbId) {
-        Cursor cursor = m_database.query(InfinityDatabase.TABLE_ARMY, armyColumns, InfinityDatabase.COLUMN_ID + "=" + dbId, null, null, null, null, null);
+        Cursor cursor = null;
+        try {
+            cursor = m_database.query(InfinityDatabase.TABLE_ARMY, armyColumns, InfinityDatabase.COLUMN_ID + "=" + dbId, null, null, null, null, null);
 
-        cursor.moveToFirst();
+            cursor.moveToFirst();
 
-        return cursorToArmy(cursor);
+            Army army = cursorToArmy(cursor);
+            return army;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
 
     }
 

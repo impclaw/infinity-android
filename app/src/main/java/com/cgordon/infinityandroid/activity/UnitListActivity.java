@@ -8,6 +8,7 @@ import android.os.PersistableBundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -34,7 +35,8 @@ import java.util.Set;
 public class UnitListActivity extends AppCompatActivity implements UnitListFragment.ArmyProvider,
         UnitListFragment.UnitSelectedListener {
 
-    public static final String EXTRA_IMAGE = "DetailActivity:image";
+    public static final String TRANSITION_IMAGE = "Transition:image";
+    public static final String TRANSITION_UNIT_NAME = "Transition:unit_name";
 
 
     private static final String TAG = UnitListActivity.class.getSimpleName();
@@ -132,10 +134,12 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
         sb.append(weaponsToString(ccw));
 
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
-                viewHolder.m_imageView, EXTRA_IMAGE);
+                viewHolder.m_imageView, TRANSITION_IMAGE);
 
-        intent.putExtra(MainActivity.UNIT, sb.toString());
+
+        intent.putExtra(MainActivity.UNIT, unit);
         ActivityCompat.startActivity(this, intent, options.toBundle());
+
         //startActivity(intent);
 
     }

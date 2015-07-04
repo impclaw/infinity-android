@@ -194,104 +194,122 @@ public class UnitsData {
             return null;
         }
 
-        // there are two cases for an army.  Either it's the base force, where they need all the
-        // units or it's a sectorial where they need a specific subset
+        Cursor cursor = null;
 
-        // full faction
-        if (army.name.equals(army.faction)) {
-            Cursor cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
-                    InfinityDatabase.COLUMN_FACTION + "='" + army.name + "'", null, null, null, InfinityDatabase.COLUMN_ISC, null);
+        try {
+            // there are two cases for an army.  Either it's the base force, where they need all the
+            // units or it's a sectorial where they need a specific subset
 
-            List<Unit> units = getArmyUnits(cursor);
+            // full faction
+            if (army.name.equals(army.faction)) {
+                cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
+                        InfinityDatabase.COLUMN_FACTION + "='" + army.name + "'", null, null, null, InfinityDatabase.COLUMN_ISC, null);
 
-            boolean showMercs = false;
-            if (m_prefs.contains(ShowMercenariesListKey)) {
-                showMercs = m_prefs.getBoolean(ShowMercenariesListKey, false);
-            }
+                List<Unit> units = getArmyUnits(cursor);
 
-            if (showMercs) {
+                boolean showMercs = false;
+                if (m_prefs.contains(ShowMercenariesListKey)) {
+                    showMercs = m_prefs.getBoolean(ShowMercenariesListKey, false);
+                }
 
-                // go get the list of mercenaries for the main factions.  Not allowed for aliens (and
-                // mercenaries)
-                if ((!army.name.equals("Combined Army"))
-                        && (!army.name.equals("Tohaa"))
-                        && (!army.name.equals("Mercenary"))) {
+                if (showMercs) {
 
-                    cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
-                            InfinityDatabase.COLUMN_FACTION + "='Mercenary'", null, null, null, InfinityDatabase.COLUMN_ISC, null);
+                    // go get the list of mercenaries for the main factions.  Not allowed for aliens (and
+                    // mercenaries)
+                    if ((!army.name.equals("Combined Army"))
+                            && (!army.name.equals("Tohaa"))
+                            && (!army.name.equals("Mercenary"))) {
+
+                        cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
+                                InfinityDatabase.COLUMN_FACTION + "='Mercenary'", null, null, null, InfinityDatabase.COLUMN_ISC, null);
 
 
-                    cursor.moveToFirst();
-                    while (!cursor.isAfterLast()) {
+                        cursor.moveToFirst();
+                        while (!cursor.isAfterLast()) {
 
-                        Unit unit = cursorToUnit(cursor);
+                            Unit unit = cursorToUnit(cursor);
 
-                        // don't re-add units in the case where there is both a faction and merc
-                        // version of the same unit.
-                        if (!units.contains(unit)) {
-                            units.add(unit);
+                            // don't re-add units in the case where there is both a faction and merc
+                            // version of the same unit.
+                            if (!units.contains(unit)) {
+                                units.add(unit);
+                            }
+
+                            cursor.moveToNext();
                         }
 
-                        cursor.moveToNext();
+
                     }
-
-
                 }
+                return units;
+            } else {
+
+//            cursor = m_database.rawQuery("SELECT " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ISC + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
+//                    + " where " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
+//                    , null);
+//            Log.e(TAG, "army units isc count: "+cursor.getCount());
+//            printCursor(cursor);
+//            cursor.close();
+
+                cursor = m_database.rawQuery("SELECT " +
+
+                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ID + ", " +
+                                InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_AVA + ", " +
+                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_SHARED_AVA + ", " +
+                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_FACTION + ", " +
+                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_NOTE + ", " +
+                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_NAME + ", " +
+                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ISC + ", " +
+                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_IMAGE + ", " +
+                                InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_LINKABLE
+
+                                + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
+                                + " INNER JOIN " + InfinityDatabase.TABLE_UNITS
+                                + " ON " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ISC + " like " + InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ISC
+                                + " where " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
+                                + " order by " + InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ISC
+                        ,
+                        null
+                );
+
+                Log.e(TAG, "join units: " + cursor.getCount());
+                printCursor(cursor);
+                List<Unit> armyUnits = getArmyUnits(cursor);
+                return armyUnits;
             }
-
-            return units;
-        } else {
-
-            Cursor cursor = m_database.rawQuery("SELECT " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ISC + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
-                    + " where " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
-                    , null);
-            Log.e(TAG, "army units isc count: "+cursor.getCount());
-            printCursor(cursor);
-
-            cursor = m_database.rawQuery("SELECT " +
-
-                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ID + ", " +
-                            InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_AVA+ ", " +
-                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_SHARED_AVA + ", " +
-                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_FACTION+ ", " +
-                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_NOTE+ ", " +
-                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_NAME+ ", " +
-                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ISC + ", " +
-                            InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_IMAGE + ", " +
-                            InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_LINKABLE
-
-                            + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
-                            + " INNER JOIN " + InfinityDatabase.TABLE_UNITS
-                            + " ON " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ISC + " like " + InfinityDatabase.TABLE_UNITS+"."+InfinityDatabase.COLUMN_ISC
-                            + " where " + InfinityDatabase.TABLE_ARMY_UNITS+"."+InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
-                            + " order by " + InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ISC
-                    ,
-                    null
-            );
-
-            Log.e(TAG, "join units: "+cursor.getCount());
-            printCursor(cursor);
-            return getArmyUnits(cursor);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
 
     }
 
-    private List<Option> getOptions(long unitId) {
-        Cursor cursor = m_database.query(InfinityDatabase.TABLE_OPTIONS, optionsColumns, InfinityDatabase.COLUMN_UNIT_ID + "=" + unitId, null, null, null, null, null);
+    private ArrayList<Option> getOptions(long unitId) {
+        Cursor cursor = null;
+        try {
+            cursor = m_database.query(InfinityDatabase.TABLE_OPTIONS, optionsColumns, InfinityDatabase.COLUMN_UNIT_ID + "=" + unitId, null, null, null, null, null);
 
-        cursor.moveToFirst();
 
-        ArrayList<Option> options = new ArrayList<Option>();
+            cursor.moveToFirst();
 
-        while (!cursor.isAfterLast()) {
-            Option option = cursorToOption(cursor);
+            ArrayList<Option> options = new ArrayList<Option>();
 
-            options.add(option);
+            while (!cursor.isAfterLast()) {
+                Option option = cursorToOption(cursor);
 
-            cursor.moveToNext();
+                options.add(option);
+
+                cursor.moveToNext();
+            }
+
+            return options;
+
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
-
-        return options;    
     }
 
     private Option cursorToOption(Cursor cursor) {
@@ -328,23 +346,29 @@ public class UnitsData {
 
     }
 
-    private List<Profile> getProfiles(long unitId) {
-        Cursor cursor = m_database.query(InfinityDatabase.TABLE_PROFILES, profileColumns, InfinityDatabase.COLUMN_UNIT_ID + "=" + unitId, null, null, null, null, null);
+    private ArrayList<Profile> getProfiles(long unitId) {
+        Cursor cursor = null;
+        try {
+            cursor = m_database.query(InfinityDatabase.TABLE_PROFILES, profileColumns, InfinityDatabase.COLUMN_UNIT_ID + "=" + unitId, null, null, null, null, null);
 
-        cursor.moveToFirst();
+            cursor.moveToFirst();
 
-        ArrayList<Profile> profiles = new ArrayList<Profile>();
+            ArrayList<Profile> profiles = new ArrayList<Profile>();
 
-        while (!cursor.isAfterLast()) {
-            Profile profile = cursorToProfile(cursor);
+            while (!cursor.isAfterLast()) {
+                Profile profile = cursorToProfile(cursor);
 
-            profiles.add(profile);
+                profiles.add(profile);
 
-            cursor.moveToNext();
+                cursor.moveToNext();
+            }
+
+            return profiles;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
         }
-
-        return profiles;
-
     }
 
     private Profile cursorToProfile(Cursor cursor) {
@@ -374,17 +398,17 @@ public class UnitsData {
 
         String temp = cursor.getString(20);
         if (!temp.isEmpty()) {
-            profile.bsw = Arrays.asList(temp.split(","));
+            profile.bsw = new ArrayList<String>(Arrays.asList(temp.split(",")));
         }
 
         temp = cursor.getString(21);
         if (!temp.isEmpty()) {
-            profile.ccw = Arrays.asList(temp.split(","));
+            profile.ccw = new ArrayList<String>(Arrays.asList(temp.split(",")));
         }
 
         temp = cursor.getString(22);
         if (!temp.isEmpty()) {
-            profile.spec = Arrays.asList(temp.split(","));
+            profile.spec = new ArrayList<String>(Arrays.asList(temp.split(",")));
         }
 
         profile.optionSpecific = cursor.getString(23);
@@ -410,11 +434,11 @@ public class UnitsData {
         }
 
         // read profiles
-        List<Profile> profiles = getProfiles(unit.dbId);
+        ArrayList<Profile> profiles = getProfiles(unit.dbId);
         unit.profiles = profiles;
 
         // read options
-        List<Option> options = getOptions(unit.dbId);
+        ArrayList<Option> options = getOptions(unit.dbId);
         unit.options = options;
 
         return unit;
