@@ -1998,8 +1998,7 @@
   "note": "Anti-materiel",
   "short_dist": "8",
   "short_mod": "6",
-  "template": "No",
-  "alt_profile": ""
+  "template": "No"
  },
  {
   "ammo": "T2",
