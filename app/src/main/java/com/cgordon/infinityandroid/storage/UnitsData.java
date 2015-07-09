@@ -206,10 +206,11 @@ public class UnitsData {
                         InfinityDatabase.COLUMN_FACTION + "='" + army.name + "'", null, null, null, InfinityDatabase.COLUMN_ISC, null);
 
                 List<Unit> units = getArmyUnits(cursor);
+                cursor.close();
 
-                boolean showMercs = false;
+                boolean showMercs = true;
                 if (m_prefs.contains(ShowMercenariesListKey)) {
-                    showMercs = m_prefs.getBoolean(ShowMercenariesListKey, false);
+                    showMercs = m_prefs.getBoolean(ShowMercenariesListKey, true);
                 }
 
                 if (showMercs) {
@@ -237,6 +238,21 @@ public class UnitsData {
 
                             cursor.moveToNext();
                         }
+                        cursor.close();
+
+                    } else if ((army.name.equals("Combined Army"))
+                                || (army.name.equals("Tohaa"))) {
+                        // we need to add armand 'le muet' to the list.  He's a special case
+                        cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
+                                InfinityDatabase.COLUMN_NAME + "='Armand'", null, null, null,
+                                InfinityDatabase.COLUMN_ISC, null);
+                        cursor.moveToFirst();
+                        Unit unit = cursorToUnit(cursor);
+                        if (!units.contains(unit)) {
+                            units.add(unit);
+                        }
+                        cursor.close();
+
 
 
                     }
@@ -275,6 +291,7 @@ public class UnitsData {
                 Log.e(TAG, "join units: " + cursor.getCount());
                 printCursor(cursor);
                 List<Unit> armyUnits = getArmyUnits(cursor);
+                cursor.close();
                 return armyUnits;
             }
         } finally {

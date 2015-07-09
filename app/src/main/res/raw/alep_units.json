@@ -2895,6 +2895,221 @@
     "imp": ""
   },
   {
+    "arm": "2",
+    "army": "Aleph",
+    "ava": "1",
+    "bs": "14",
+    "bsw": [
+      "Nanopulser"
+    ],
+    "bts": "6",
+    "cc": "18",
+    "cube": "2",
+    "imp": "",
+    "irr": "",
+    "isc": "Teucer",
+    "mov": "4-2",
+    "name": "Teucer",
+    "note": "",
+    "ph": "11",
+    "spec": [
+      "V: No Wound Incapacitation",
+      "Marksmanship LX"
+    ],
+    "type": "MI",
+    "w": "1",
+    "s": "2",
+    "wip": "14",
+    "image": "Agema Marksman",
+    "ccw": [
+      "Pistol",
+      "CCW"
+    ],
+    "childs": [
+      {
+        "bsw": [
+          "Feuerbach"
+        ],
+        "cbcode": [],
+        "ccw": [],
+        "code": "Default",
+        "codename": "Feuerbach X-Visor",
+        "cost": "38",
+        "note": "",
+        "spec": [
+          "X Visor"
+        ],
+        "swc": "1.5"
+      },
+      {
+        "bsw": [
+          "Feuerbach"
+        ],
+        "cbcode": [],
+        "ccw": [],
+        "code": "Feuerbach MSV 2",
+        "codename": "",
+        "cost": "41",
+        "note": "",
+        "spec": [
+          "Multispectral Visor L2"
+        ],
+        "swc": "2"
+      },
+      {
+        "bsw": [
+          "K1 Sniper Rifle"
+        ],
+        "cbcode": [],
+        "ccw": [],
+        "code": "K1 Sniper",
+        "codename": "",
+        "cost": "42",
+        "note": "",
+        "spec": [
+          "Multispectral Visor L2"
+        ],
+        "swc": "1.5"
+      }
+    ],
+    "imp": ""
+  },
+  {
+    "army": "Aleph",
+    "isc": "Drakios",
+    "name": "Drakios",
+    "profiles": [
+      {
+        "mov": "4-4",
+        "bs": "12",
+        "cube": "2",
+        "type": "LI",
+        "cc": "20",
+        "arm": "2",
+        "imp": "",
+        "w": "1",
+        "s": "2",
+        "spec": [
+          "V: No Wound Incapacitation",
+          "Martial Arts L2"
+        ],
+        "irr": "",
+        "ccw": [
+          "Pistol",
+          "AP CCW"
+        ],
+        "bsw": [
+          "Combi Rifle",
+          "Heavy Flamethrower",
+          "Blitzen"
+        ],
+        "ph": "13",
+        "bts": "0",
+        "wip": "13"
+      },
+      {
+        "mov": "6-4",
+        "wip": "11",
+        "bts": "3",
+        "isc": "Devabot",
+        "name": "Devabot",
+        "bs": "10",
+        "note": "",
+        "cube": "R",
+        "type": "REM",
+        "hackable": "X",
+        "optionSpecific": "X",
+        "ph": "10",
+        "cc": "8",
+        "arm": "0",
+        "irr": "",
+        "w": "1",
+        "s": "2",
+        "imp": "",
+        "bsw": [
+          "Heavy Flamethrower"
+        ],
+        "spec": [
+          "G: Synchronized"
+        ],
+        "ccw": [
+          "Electric Pulse"
+        ],
+         "independent" : {
+             "cost" : "4",
+             "swc" : "0"
+         }
+      },
+      {
+        "mov": "6-4",
+        "wip": "11",
+        "bts": "3",
+        "isc": "Devabot",
+        "name": "Devabot",
+        "bs": "10",
+        "note": "",
+        "cube": "R",
+        "type": "REM",
+        "hackable": "X",
+        "ph": "10",
+        "cc": "8",
+        "arm": "0",
+        "irr": "",
+        "w": "1",
+        "s": "2",
+        "imp": "",
+        "bsw": [
+          "Heavy Flamethrower"
+        ],
+        "spec": [
+          "G: Synchronized"
+        ],
+        "ccw": [
+          "Electric Pulse"
+        ],
+         "independent" : {
+             "cost" : "4",
+             "swc" : "0"
+         }
+      }
+    ],
+    "spec": [],
+    "ccw": [],
+    "bsw": [],
+    "ava": "1",
+    "childs": [
+      {
+        "code": "Default",
+        "cost": "34",
+        "codename": "1 Devabot",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [],
+        "ccw": [],
+        "independent" : {
+            "cost" : "30",
+            "swc" : "0"
+        }
+      },
+      {
+        "code": "2 Devabots",
+        "cost": "37",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "profile": "1",
+        "spec": [],
+        "bsw": [],
+        "ccw": [],
+        "independent" : {
+            "cost" : "29",
+            "swc" : "0"
+        }
+      }
+    ]
+  },
+  {
     "army": "Aleph",
     "isc": "Scylla",
     "name": "Scylla",

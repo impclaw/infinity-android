@@ -78,32 +78,14 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
             holder.m_type.setText(unit.profiles.get(0).type);
         }
 
-        final String imageSize;
+        final int imageSize;
         if (m_showAsList) {
-            imageSize = "_24";
+            imageSize = 24;
         } else {
-            imageSize = "_48";
+            imageSize = 48;
         }
 
-        String resourceName;
-        if (unit.image == null) {
-            resourceName = unit.faction + "_" + unit.isc;
-        } else {
-            resourceName = unit.faction + "_" + unit.image;
-        }
-
-        resourceName += imageSize;
-
-        resourceName = prepareDrawableResource(resourceName);
-
-        int resourceId = m_resources.getIdentifier(resourceName, "drawable", m_context.getPackageName());
-
-        if (resourceId == 0) {
-            Log.e(TAG, "Missing file: " + resourceName);
-            String factionResource = prepareDrawableResource(unit.faction + imageSize);
-            resourceId = m_resources.getIdentifier(factionResource, "drawable", m_context.getPackageName());
-        }
-
+        int resourceId = getDrawableResource(unit, m_context, imageSize);
         holder.m_imageView.setImageResource(resourceId);
 
         if (m_showAsList) {
@@ -129,6 +111,30 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
         }
 
 
+    }
+
+    public static int getDrawableResource(Unit unit, Context context, int size) {
+        String imageSize = "_" + Integer.toString(size);
+
+        String resourceName;
+        if (unit.image == null) {
+            resourceName = unit.faction + "_" + unit.isc;
+        } else {
+            resourceName = unit.faction + "_" + unit.image;
+        }
+
+        resourceName += imageSize;
+
+        resourceName = UnitListAdapter.prepareDrawableResource(resourceName);
+
+        int resourceId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
+
+        if (resourceId == 0) {
+            String factionResource = UnitListAdapter.prepareDrawableResource(unit.faction + imageSize);
+            resourceId = context.getResources().getIdentifier(factionResource, "drawable", context.getPackageName());
+        }
+
+        return resourceId;
     }
 
     public static String prepareDrawableResource(String resourceName) {
