@@ -31,18 +31,10 @@ public class UnitFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_unit, container, false);
 
 
-//        ProfileFragment profileFragment2 = new ProfileFragment ();
-
         // In case this activity was started with special instructions from an
         // Intent, pass the Intent's extras to the fragment as arguments
         //profileFragment.setArguments(getIntent().getExtras());
 
-        // Add the fragment to the 'fragment_container' FrameLayout
-
-
-//        m_textView = (TextView) profileFragment.getView().findViewById(R.id.text_view);
-//
-//        m_textView.setTypeface(Typeface.MONOSPACE);
         return v;
     }
 
@@ -50,12 +42,15 @@ public class UnitFragment extends Fragment {
         Log.d(TAG, "UnitFragment setId: " + unit.dbId);
         m_unit = unit;
 
+
+
         ProfileFragment profileFragment = new ProfileFragment();
         Bundle bundle = new Bundle();
-        bundle.putParcelable(MainActivity.UNIT, m_unit);
+        bundle.putParcelable(MainActivity.PROFILE, m_unit.profiles.get(0));
         profileFragment.setArguments(bundle);
 
         getActivity().getSupportFragmentManager().beginTransaction()
+
                 .add(R.id.fragment_container, profileFragment)
                         //.add(R.id.fragment_container, profileFragment2)
                 .commit();

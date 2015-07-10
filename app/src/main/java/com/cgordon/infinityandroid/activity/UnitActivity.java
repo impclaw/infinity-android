@@ -62,10 +62,21 @@ public class UnitActivity extends AppCompatActivity {
 //        ViewCompat.setTransitionName(image, UnitListActivity.TRANSITION_IMAGE);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(m_unit.isc);
+
+
         //getSupportActionBar().setIcon(R.drawable.panoceania_24);
 
 //        ViewCompat.setTransitionName(toolbar, UnitListActivity.TRANSITION_UNIT_NAME);

@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements ArmyListFragment.
     public static final String ID = "id";
     public static final String ABBR = "abbr";
     public static final String UNIT = "unit";
+    public static final String PROFILE = "profile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

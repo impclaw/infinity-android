@@ -78,6 +78,7 @@ public class UnitParser {
                 profile.ccw.addAll(parseSubArray(reader));
             } else if (name.equals("ava")) {
                 unit.ava = reader.nextString();
+                profile.ava = unit.ava;
             } else if (name.equals("irr")) {
                 profile.irr = reader.nextString().equals("X");
             } else if (name.equals("arm")) {
@@ -90,6 +91,7 @@ public class UnitParser {
                 unit.faction = reader.nextString();
             } else if (name.equals("note")) {
                 unit.note = reader.nextString();
+                profile.note = unit.note;
             } else if (name.equals("cube")) {
                 profile.cube = reader.nextString();
             } else if (name.equals("bs")) {
@@ -102,6 +104,7 @@ public class UnitParser {
                 unit.name = reader.nextString();
             } else if (name.equals("isc")) {
                 unit.isc = reader.nextString();
+                profile.isc = unit.isc;
             } else if (name.equals("mov")) {
                 profile.mov = reader.nextString();
             } else if (name.equals("type")) {
