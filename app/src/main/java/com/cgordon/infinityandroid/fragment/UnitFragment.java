@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,18 +43,21 @@ public class UnitFragment extends Fragment {
         Log.d(TAG, "UnitFragment setId: " + unit.dbId);
         m_unit = unit;
 
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
+        for (int i = 0; i < m_unit.profiles.size(); i++) {
 
-        ProfileFragment profileFragment = new ProfileFragment();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(MainActivity.PROFILE, m_unit.profiles.get(0));
-        profileFragment.setArguments(bundle);
+            ProfileFragment profileFragment = new ProfileFragment();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(MainActivity.UNIT, m_unit);
+            bundle.putInt(MainActivity.PROFILE, i);
+            profileFragment.setArguments(bundle);
 
-        getActivity().getSupportFragmentManager().beginTransaction()
+            transaction.add(R.id.fragment_container, profileFragment);
 
-                .add(R.id.fragment_container, profileFragment)
-                        //.add(R.id.fragment_container, profileFragment2)
-                .commit();
+        }
+
+        transaction.commit();
 
 
     }

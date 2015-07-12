@@ -36,7 +36,9 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         Bundle arguments = getArguments();
-        Profile profile = arguments.getParcelable(MainActivity.PROFILE);
+        Unit unit = arguments.getParcelable(MainActivity.UNIT);
+        int profileId = arguments.getInt(MainActivity.PROFILE);
+        Profile profile = unit.profiles.get(profileId);
 
         TextView stat = (TextView) view.findViewById(R.id.mov);
         stat.setText(profile.mov);
@@ -66,10 +68,18 @@ public class ProfileFragment extends Fragment {
         stat.setText(profile.silhouette);
 
         stat = (TextView) view.findViewById(R.id.ava);
-        stat.setText(profile.ava);
+        if ((profile.ava != null) && (!profile.ava.isEmpty())) {
+            stat.setText(profile.ava);
+        } else {
+            stat.setText(unit.ava);
+        }
 
         TextView isc = (TextView) view.findViewById(R.id.isc);
-        isc.setText(profile.isc);
+        String iscText = profile.name;
+        if ((iscText == null) || (iscText.isEmpty())) {
+            iscText = unit.isc;
+        }
+        isc.setText(iscText);
 
         TextView type = (TextView) view.findViewById(R.id.type);
         type.setText(profile.type);
@@ -82,6 +92,7 @@ public class ProfileFragment extends Fragment {
         }
 
         TextView spec = (TextView) view.findViewById(R.id.spec);
+        // TODO: Get the expanded list of special options.
         spec.setText(TextUtils.join(", ", profile.spec));
 
         ImageView irr = (ImageView) view.findViewById(R.id.irr);
@@ -92,20 +103,23 @@ public class ProfileFragment extends Fragment {
         }
 
         ImageView imp = (ImageView) view.findViewById(R.id.imp);
-        if (profile.imp.equals("F")) {
-            imp.setImageResource(R.drawable.frenzy);
-        } else if (profile.imp.equals("X")) {
-            imp.setImageResource(R.drawable.extreme_impetuous);
-        } else if (profile.imp.equals("I")) {
-            imp.setImageResource(R.drawable.impetuous);
+        if (profile.imp != null) {
+            if (profile.imp.equals("F")) {
+                imp.setImageResource(R.drawable.frenzy);
+            } else if (profile.imp.equals("X")) {
+                imp.setImageResource(R.drawable.extreme_impetuous);
+            } else if (profile.imp.equals("I")) {
+                imp.setImageResource(R.drawable.impetuous);
+            }
         }
 
         ImageView cube = (ImageView) view.findViewById(R.id.cube);
-        if (profile.cube.equals("X")) {
-            cube.setImageResource(R.drawable.cube);
-        }
-        else if (profile.cube.equals("2")) {
-            cube.setImageResource(R.drawable.cube2);
+        if (profile.cube != null) {
+            if (profile.cube.equals("X")) {
+                cube.setImageResource(R.drawable.cube);
+            } else if (profile.cube.equals("2")) {
+                cube.setImageResource(R.drawable.cube2);
+            }
         }
 
         if (profile.hackable) {
@@ -125,11 +139,13 @@ public class ProfileFragment extends Fragment {
          */
 
         ImageView imageView = (ImageView) view.findViewById(R.id.image_view);
-//        int resourceId = UnitListAdapter.getDrawableResource(m_unit, getActivity(), 24);
-//        imageView.setImageResource(resourceId);
+        int resourceId = UnitListAdapter.getDrawableResource(unit, getActivity(), 24);
+        imageView.setImageResource(resourceId);
 
-        ViewCompat.setTransitionName(imageView, UnitListActivity.TRANSITION_IMAGE);
-
+        if (profileId == 0) {
+            ViewCompat.setTransitionName(imageView, UnitListActivity.TRANSITION_IMAGE);
+//            ViewCompat.setTransitionName(isc, UnitListActivity.TRANSITION_UNIT_NAME);
+        }
 
 
         return view;

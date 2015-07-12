@@ -8,10 +8,12 @@ import android.os.PersistableBundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NavUtils;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.cgordon.infinityandroid.R;
@@ -88,6 +90,16 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
         SharedPreferences p = getSharedPreferences(MainActivity.UNIT, MODE_PRIVATE);
@@ -140,8 +152,9 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
         sb.append(weaponsToString(ccw));
 
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
-                viewHolder.m_imageView, TRANSITION_IMAGE);
-
+                new Pair<View, String>(viewHolder.m_imageView, TRANSITION_IMAGE)
+        //        ,new Pair<View, String>(viewHolder.m_textView, TRANSITION_UNIT_NAME)
+        );
 
         intent.putExtra(MainActivity.UNIT, unit);
         ActivityCompat.startActivity(this, intent, options.toBundle());

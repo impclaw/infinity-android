@@ -899,6 +899,31 @@
         ]
       },
       {
+        "name": "Inactive Armour",
+        "type": "LI",
+        "hackable": "",
+        "mov": "4-4",
+        "wip": "13",
+        "ph": "11",
+        "bs": "12",
+        "cc": "15",
+        "arm": "0",
+        "bts": "0",
+        "ava": "1",
+        "cube": "X",
+        "w": "1",
+        "s": "2",
+        "ava": "-",
+        "bsw": [
+          "Spitfire",
+          "Nanopulser"
+        ],
+        "ccw": [
+          "Viral CCW"
+        ],
+        "spec": []
+      },
+      {
         "arm": "0",
         "bs": "11",
         "bsw": [
@@ -932,28 +957,6 @@
             "swc" : "0"
         }
 
-      },
-      {
-        "name": "Inactive Armour",
-        "type": "LI",
-        "hackable": "",
-        "mov": "4-4",
-        "ph": "11",
-        "bs": "12",
-        "cc": "15",
-        "arm": "0",
-        "bts": "0",
-        "w": "1",
-        "s": "2",
-        "ava": " ",
-        "bsw": [
-          "Spitfire",
-          "Nanopulser"
-        ],
-        "ccw": [
-          "Viral CCW"
-        ],
-        "spec": []
       }
     ],
     "note": "",
