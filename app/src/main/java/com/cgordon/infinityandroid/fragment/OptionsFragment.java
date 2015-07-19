@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.MainActivity;
+import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Unit;
 
 import java.util.List;
@@ -28,71 +29,50 @@ public class OptionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_options, container, false);
 
-        TableLayout table = (TableLayout) view.findViewById(R.id.table);
-
         Bundle arguments = getArguments();
         Unit unit = arguments.getParcelable(MainActivity.UNIT);
+        int index = arguments.getInt(MainActivity.INDEX);
 
-        TableRow tr = new TableRow(getActivity());
-        tr.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
-//
-//        TextView columnName = new TextView(getActivity());
-//        columnName.setTypeface(null, Typeface.BOLD);
-//        columnName.setText("Name");
-//        tr.addView(columnName);
-//
-//        columnName = new TextView(getActivity());
-//        columnName.setText("BS Weapons");
-//        tr.addView(columnName);
-//
-//        columnName = new TextView(getActivity());
-//        columnName.setText("CC Weapons");
-//        tr.addView(columnName);
-//
-//        columnName = new TextView(getActivity());
-//        columnName.setTypeface(null, Typeface.BOLD);
-//        columnName.setText("SWC");
-//        tr.addView(columnName);
-//
-//        columnName = new TextView(getActivity());
-//        columnName.setText("C");
-//        tr.addView(columnName);
-//
-//        table.addView(tr);
+        Option option = unit.options.get(index);
 
+        TextView name = (TextView) view.findViewById(R.id.name);
+        name.setText(option.code);
 
-        for (int i = 0; i < unit.options.size(); i++) {
+        TextView swc = (TextView) view.findViewById(R.id.swc);
+        swc.setText("SWC: " + Double.toString(option.swc));
 
-            tr = new TableRow(getActivity());
-            tr.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+        TextView cost = (TextView) view.findViewById(R.id.cost);
+        cost.setText("C: " + Integer.toString(option.cost));
 
-            TextView name = new TextView(getActivity());
-            name.setTextAppearance(getActivity(), R.style.AppTheme_Stats);
-            name.setText(unit.options.get(i).code);
-            tr.addView(name);
+        TextView bsw = (TextView) view.findViewById(R.id.bsw);
+        if (option.bsw != null && option.bsw.size() > 0) {
+            bsw.setText("BSW: " + TextUtils.join(", ", option.bsw));
+        } else {
+            bsw.setVisibility(View.GONE);
+        }
 
-            TextView bsWeapons= new TextView(getActivity());
-            bsWeapons.setTextAppearance(getActivity(), R.style.AppTheme_Stats);
-            bsWeapons.setText(TextUtils.join(", ", unit.options.get(i).bsw));
-            tr.addView(bsWeapons);
+        TextView ccw = (TextView) view.findViewById(R.id.ccw);
+        if (option.ccw != null && option.ccw.size() > 0) {
+            ccw.setText(TextUtils.join(", ", option.ccw));
+        } else {
+               ccw.setVisibility(View.GONE);
+        }
 
-            TextView ccWeapons = new TextView(getActivity());
-            ccWeapons.setTextAppearance(getActivity(), R.style.AppTheme_Stats);
-            ccWeapons.setText(TextUtils.join(", ", unit.options.get(i).ccw));
-            tr.addView(ccWeapons);
+        if (option.profile != 0) {
+            option.spec.add(unit.profiles.get(option.profile).name);
+        }
+        TextView spec = (TextView) view.findViewById(R.id.spec);
+        if (option.spec != null && option.spec.size() > 0) {
+            spec.setText("Spec: " + TextUtils.join(", ", option.spec));
+        } else {
+            spec.setVisibility(View.GONE);
+        }
 
-            TextView swc = new TextView(getActivity());
-            swc.setTextAppearance(getActivity(), R.style.AppTheme_Stats);
-            swc.setText(Double.toString(unit.options.get(i).swc));
-            tr.addView(swc);
-
-            TextView cost = new TextView(getActivity());
-            cost.setTextAppearance(getActivity(), R.style.AppTheme_Stats);
-            cost.setText(Integer.toString(unit.options.get(i).cost));
-            tr.addView(cost);
-
-            table.addView(tr);
-
+        TextView note = (TextView) view.findViewById(R.id.note);
+        if (option.note != null && !option.note.isEmpty()) {
+            note.setText("Note: " + option.note);
+        } else {
+            note.setVisibility(View.GONE);
         }
 
         return view;

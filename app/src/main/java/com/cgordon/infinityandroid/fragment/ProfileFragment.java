@@ -1,14 +1,10 @@
 package com.cgordon.infinityandroid.fragment;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +14,9 @@ import android.widget.TextView;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.activity.UnitListActivity;
-import com.cgordon.infinityandroid.adapter.ArmyAdapter;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Profile;
 import com.cgordon.infinityandroid.data.Unit;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by cgordon on 7/4/2015.
@@ -37,7 +30,7 @@ public class ProfileFragment extends Fragment {
 
         Bundle arguments = getArguments();
         Unit unit = arguments.getParcelable(MainActivity.UNIT);
-        int profileId = arguments.getInt(MainActivity.PROFILE);
+        int profileId = arguments.getInt(MainActivity.INDEX);
         Profile profile = unit.profiles.get(profileId);
 
         TextView stat = (TextView) view.findViewById(R.id.mov);
