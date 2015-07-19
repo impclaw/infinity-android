@@ -93,7 +93,27 @@ public class ProfileFragment extends Fragment {
 
         TextView spec = (TextView) view.findViewById(R.id.spec);
         // TODO: Get the expanded list of special options.
-        spec.setText(TextUtils.join(", ", profile.spec));
+        if ((profile.spec == null) || (profile.spec.isEmpty())) {
+            spec.setVisibility(View.GONE);
+        } else {
+            spec.setText("Spec: " + TextUtils.join(", ", profile.spec));
+        }
+
+        TextView bsw = (TextView) view.findViewById(R.id.bsw);
+        if ((profile.bsw == null) || (profile.bsw.size() == 0))
+        {
+            bsw.setVisibility(View.GONE);
+        } else {
+            bsw.setText("BS Weapons: " + TextUtils.join(", ", profile.bsw));
+        }
+
+        TextView ccw = (TextView) view.findViewById(R.id.ccw);
+        if ((profile.ccw == null) || (profile.ccw.size() == 0))
+        {
+            ccw.setVisibility(View.GONE);
+        } else {
+            ccw.setText("CC Weapons: " + TextUtils.join(", ", profile.ccw));
+        }
 
         ImageView irr = (ImageView) view.findViewById(R.id.irr);
         if (profile.irr) {

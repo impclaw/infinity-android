@@ -161,17 +161,34 @@
                 android:text="ODD, Camo, Kinematika 2" />
 
             <TextView
-                android:id="@+id/note"
+                android:id="@+id/bsw"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/spec"
                 android:layout_alignParentLeft="true"
                 android:paddingTop="8dp"
                 android:padding="4dp"
+                android:text="Gun 1" />
+
+            <TextView
+                android:id="@+id/ccw"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bsw"
+                android:layout_alignParentLeft="true"
+                android:paddingTop="8dp"
+                android:padding="4dp"
+                android:text="Knife" />
+
+            <TextView
+                android:id="@+id/note"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ccw"
+                android:layout_alignParentLeft="true"
+                android:paddingTop="8dp"
+                android:padding="4dp"
                 android:text="Note: This is a test" />
-
-            public String note;
-
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

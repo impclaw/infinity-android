@@ -57,6 +57,12 @@ public class UnitFragment extends Fragment {
 
         }
 
+        OptionsFragment optionsFragment = new OptionsFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(MainActivity.UNIT, m_unit);
+        optionsFragment.setArguments(bundle);
+        transaction.add(R.id.fragment_container, optionsFragment);
+
         transaction.commit();
 
 
