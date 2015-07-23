@@ -3,6 +3,7 @@ package com.cgordon.infinityandroid.json;
 import android.content.Context;
 import android.util.JsonReader;
 import android.util.JsonToken;
+import android.util.Log;
 
 import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Profile;
@@ -148,6 +149,8 @@ public class UnitParser {
         // a unit-level profile...
         if (unit.profiles.size() == 0) {
             unit.profiles.add(profile);
+        } else if (profile.bsw.size() > 0) {
+            Log.d(TAG, "Missed some data!");
         }
         return unit;
     }

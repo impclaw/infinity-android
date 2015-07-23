@@ -1610,10 +1610,6 @@
     "ava": "1",
     "note": "",
     "spec": [],
-    "bsw": [
-      "MULTI Sniper Rifle",
-      "Nanopulser"
-    ],
     "ccw": [
       "Breaker Pistol (2)",
       "Shock CCW",
@@ -1622,6 +1618,8 @@
     "childs": [
       {
         "bsw": [
+          "MULTI Sniper Rifle",
+          "Nanopulser",
           "Antipersonnel Mines"
         ],
         "cbcode": [],
@@ -1636,7 +1634,10 @@
         "swc": "1.5"
       },
       {
-        "bsw": [],
+        "bsw": [
+          "MULTI Sniper Rifle",
+          "Nanopulser"
+        ],
         "cbcode": [],
         "ccw": [],
         "code": "MSV 1",

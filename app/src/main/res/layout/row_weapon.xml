@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_dark_background">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/background_material_dark"/>
+
+    <TextView
+        style="@style/AppTheme.Weapons"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AP HMG"
+        android:textStyle="bold" />
+
+    <TextView
+        style="@style/AppTheme.Weapons"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/burst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B: 4" />
+
+    <TextView
+        style="@style/AppTheme.Weapons"
+        android:layout_below="@id/burst"
+        android:layout_alignParentRight="true"
+        android:id="@+id/damage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dmg: 15" />
+
+
+    <TextView
+        style="@style/AppTheme.Weapons"
+        android:layout_below="@id/damage"
+        android:layout_alignParentRight="true"
+        android:id="@+id/ammo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ammo: AP" />
+
+
+
+
+    <TextView
+        style="@style/AppTheme.Weapons"
+        android:layout_below="@id/burst"
+        android:id="@+id/suppressive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suppressive: Yes" />
+
+    <TextView
+        style="@style/AppTheme.Weapons"
+        android:layout_below="@id/burst"
+        android:layout_toRightOf="@+id/suppressive"
+        android:id="@+id/cc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CC: No" />
+
+
+
+    <TextView
+        style="@style/AppTheme.Weapons"
+        android:layout_below="@id/suppressive"
+        android:id="@+id/ranges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0-8: -3, 8-16: 0, 16-32: +3, 32-48: -3" />
+
+    <TextView
+        style="@style/AppTheme.Weapons"
+        android:layout_below="@id/ranges"
+        android:id="@+id/note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Note:" />
+
+</RelativeLayout>

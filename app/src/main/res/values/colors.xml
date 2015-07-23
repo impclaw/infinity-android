@@ -19,6 +19,11 @@
     <color name="tohaa">#020507</color>
     <color name="mercs">#7C8768</color>
 
-    E2001A
+    <color name="range_minus_6">#D2232B</color>
+    <color name="range_minus_3">#FEBF23</color>
+    <color name="range_minuc_0">#00ADEE</color>
+    <color name="range_plus_3">#3DAE48</color>
+    <color name="range_plus_6">#3DAE48</color>
+    <color name="range_no">#231F20</color>
 
 </resources>
