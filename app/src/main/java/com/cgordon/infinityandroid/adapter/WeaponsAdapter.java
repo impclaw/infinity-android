@@ -91,9 +91,9 @@ public class WeaponsAdapter extends ArrayAdapter<String> {
 
         TextView suppressive = (TextView) row.findViewById(R.id.suppressive);
         if (weaponData.suppressive == null || weaponData.suppressive.isEmpty()) {
-            suppressive.setText("Suppressive: No");
+            suppressive.setText("Suppressive: No, ");
         } else {
-            suppressive.setText("Suppressive: " + weaponData.suppressive);
+            suppressive.setText("Suppressive: " + weaponData.suppressive + ", ");
         }
 
         TextView cc = (TextView) row.findViewById(R.id.cc);
@@ -116,7 +116,7 @@ public class WeaponsAdapter extends ArrayAdapter<String> {
         }
         if (!weaponData.max_dist.equals("--")) {
             sb.append(", ").append(weaponData.long_dist).append("-").append(weaponData.max_dist);
-            sb.append(": ").append(weaponData.max_mod).append(", ");
+            sb.append(": ").append(weaponData.max_mod);
         }
         ranges.setText(sb.toString());
 

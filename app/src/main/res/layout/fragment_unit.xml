@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:text="Weapons"
                 android:textStyle="bold"
+                android:gravity="center_horizontal"
                 android:padding="4dp"/>
 
             <LinearLayout
