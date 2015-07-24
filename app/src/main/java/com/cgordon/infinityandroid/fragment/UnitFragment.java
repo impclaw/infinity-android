@@ -33,6 +33,8 @@ public class UnitFragment extends Fragment {
 
     private final static String TAG = UnitFragment.class.getSimpleName();
 
+    private final static String FORWARD_OBSERVER = "Forward Observer";
+
     Unit m_unit;
 
     List<Fragment> m_fragments;
@@ -73,7 +75,6 @@ public class UnitFragment extends Fragment {
 
         m_unit = unit;
 
-
         for (int i = 0; i < m_unit.profiles.size(); i++) {
 
             ProfileFragment profileFragment = new ProfileFragment();
@@ -107,11 +108,17 @@ public class UnitFragment extends Fragment {
         ArrayList<String> bsw = new ArrayList<>();
         ArrayList<String> ccw = new ArrayList<>();
 
+        boolean forwardObserver = false;
+        boolean impersonation = false;
+
         Iterator it = unit.profiles.iterator();
         while (it.hasNext()) {
             Profile profile = (Profile) it.next();
             bsw.addAll(profile.bsw);
             ccw.addAll(profile.ccw);
+            if (profile.spec.indexOf(FORWARD_OBSERVER) != -1) {
+                forwardObserver = true;
+            }
         }
 
         it = unit.options.iterator();
@@ -119,7 +126,17 @@ public class UnitFragment extends Fragment {
             Option option = (Option) it.next();
             bsw.addAll(option.bsw);
             ccw.addAll(option.ccw);
+            if (option.spec.indexOf(FORWARD_OBSERVER) != -1) {
+                forwardObserver = true;
+            }
         }
+
+        if (forwardObserver) {
+            bsw.add(FORWARD_OBSERVER);
+            bsw.add("Flash Pulse");
+        }
+
+
 
         // remove duplicates
         Set<String> hs = new HashSet<>();

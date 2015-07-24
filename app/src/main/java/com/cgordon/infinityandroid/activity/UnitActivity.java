@@ -34,12 +34,13 @@ public class UnitActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_unit);
 
-        Fragment unit = getSupportFragmentManager().findFragmentById(R.id.unit);
-        if (unit instanceof UnitFragment) {
-            m_unitFragment = (UnitFragment) unit;
-            m_unitFragment.setUnit(m_unit);
+        if (savedInstanceState == null) {
+            Fragment unit = getSupportFragmentManager().findFragmentById(R.id.unit);
+            if (unit instanceof UnitFragment) {
+                m_unitFragment = (UnitFragment) unit;
+                m_unitFragment.setUnit(m_unit);
+            }
         }
-
         ImageView image = (ImageView) findViewById(R.id.image_view);
 
         String imageSize = "_48";

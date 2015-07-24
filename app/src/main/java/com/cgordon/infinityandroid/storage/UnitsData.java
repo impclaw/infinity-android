@@ -19,12 +19,33 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Created by cgordon on 6/1/2015.
- */
 public class UnitsData {
 
     private final static String TAG = UnitsData.class.getSimpleName();
+
+    private final static String IMPERSONATION_PLUS = "Impersonation Plus";
+    private final static String IMPERSONATION_BASIC = "Basic Impersonation";
+    private final static String CH_CAMOUFLAGE = "CH: Camouflage";
+    private final static String CH_TO_CAMOUFLAGE = "CH: TO Camouflage";
+    private final static String CH_AMBUSH_CAMOUFLAGE = "CH: Ambush Camouflage";
+    private final static String REGENERATION = "Regeneration";
+    private final static String ENGINEER = "Engineer";
+    private final static String AKBAR_DOCTOR = "Akbar Doctor";
+    private final static String G_MNEMONICA = "G: Mnemonica";
+    private final static String G_REMOTE_PRESENCE = "G: Remote Presence";
+    private final static String VETERAN_L2 = "Veteran L2";
+
+    private final static String SURPRISE_ATTACK = "Surprise Attack";
+    private final static String SURPRISE_SHOT_L1 = "Surprise Shot L1";
+    private final static String STEALTH = "Stealth";
+    private final static String SHOCK_IMMUNITY = "Shock Immunity";
+    private final static String DEACTIVATOR = "Deactivator";
+    private final static String DOCTOR_PLUS = "Doctor Plus";
+    private final static String VALOR_COURAGE = "Valor: Courage";
+
+    private final static String SIXTH_SENSE_L2 = "Sixth Sense L2";
+    private final static String V_NO_WOUND_INCAP = "V: No Wound Incapacitation";
+
 
     private SQLiteDatabase m_database;
     private InfinityDatabase m_dbHelper;
@@ -108,12 +129,8 @@ public class UnitsData {
 
     public void writeUnits(ArrayList<Unit> units) {
 
-        Iterator it = units.iterator();
-
-        while (it.hasNext()) {
-            Unit unit = (Unit)it.next();
-
-            long unitId = writeUnit(unit) ;
+        for (Unit unit : units) {
+            long unitId = writeUnit(unit);
 
             if (unitId == -1) {
                 Log.d(TAG, "Failed insert");
@@ -121,30 +138,24 @@ public class UnitsData {
             }
 
             List<Profile> profiles = unit.profiles;
-            Iterator profileIt = profiles.iterator();
-            while (profileIt.hasNext()) {
-                Profile profile = (Profile) profileIt.next();
-            
+            for (Profile profile : profiles) {
                 long profileId = writeProfile(profile, unitId);
                 if (profileId == -1) {
                     Log.d(TAG, "Failed to write profile");
                     return;
                 }
-            
+
             }
 
             List<Option> options = unit.options;
-            Iterator optionIt = options.iterator();
-            while (optionIt.hasNext()) {
-                Option option = (Option) optionIt.next();
-                
+            for (Option option : options) {
                 long optionId = writeOption(option, unitId);
                 if (optionId == -1) {
                     Log.d(TAG, "failed to write option");
                     return;
                 }
             }
-            
+
         }
 
     }
@@ -153,7 +164,7 @@ public class UnitsData {
 
         cursor.moveToFirst();
 
-        ArrayList<Unit> units = new ArrayList<Unit>();
+        ArrayList<Unit> units = new ArrayList<>();
 
         while (!cursor.isAfterLast()) {
 
@@ -176,10 +187,10 @@ public class UnitsData {
         while (!cursor.isAfterLast()) {
             String[] columns = cursor.getColumnNames();
 
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
 
             for (int i = 0; i < columns.length; i++) {
-                sb.append(columns[i] + ": " + cursor.getString(i) + " ");
+                sb.append(columns[i]).append(": ").append(cursor.getString(i)).append(" ");
             }
             Log.d(TAG, "ISC: " + sb.toString());
 
@@ -310,7 +321,7 @@ public class UnitsData {
 
             cursor.moveToFirst();
 
-            ArrayList<Option> options = new ArrayList<Option>();
+            ArrayList<Option> options = new ArrayList<>();
 
             while (!cursor.isAfterLast()) {
                 Option option = cursorToOption(cursor);
@@ -344,18 +355,20 @@ public class UnitsData {
 
         String temp = cursor.getString(8);
         if (!temp.isEmpty()) {
-            option.bsw = Arrays.asList(temp.split(","));
+            option.bsw = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
         temp = cursor.getString(9);
         if (!temp.isEmpty()) {
-            option.ccw = Arrays.asList(temp.split(","));
+            option.ccw = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
         temp = cursor.getString(10);
         if (!temp.isEmpty()) {
-            option.spec = Arrays.asList(temp.split(","));
+            option.spec = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
+
+        expandSpec(option.spec);
 
         option.profile = cursor.getInt(11);
 
@@ -370,7 +383,7 @@ public class UnitsData {
 
             cursor.moveToFirst();
 
-            ArrayList<Profile> profiles = new ArrayList<Profile>();
+            ArrayList<Profile> profiles = new ArrayList<>();
 
             while (!cursor.isAfterLast()) {
                 Profile profile = cursorToProfile(cursor);
@@ -415,24 +428,69 @@ public class UnitsData {
 
         String temp = cursor.getString(20);
         if (!temp.isEmpty()) {
-            profile.bsw = new ArrayList<String>(Arrays.asList(temp.split(",")));
+            profile.bsw = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
         temp = cursor.getString(21);
         if (!temp.isEmpty()) {
-            profile.ccw = new ArrayList<String>(Arrays.asList(temp.split(",")));
+            profile.ccw = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
         temp = cursor.getString(22);
         if (!temp.isEmpty()) {
-            profile.spec = new ArrayList<String>(Arrays.asList(temp.split(",")));
+            profile.spec = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
+
+        expandSpec(profile.spec);
 
         profile.optionSpecific = cursor.getString(23);
         profile.allProfilesMustDie = cursor.getString(24);
         profile.ava = cursor.getString(25);
 
         return profile;
+    }
+
+    private void expandSpec(ArrayList<String> spec) {
+//        private final static String IMPERSONATION_PLUS = "Impersonation Plus";
+//        private final static String IMPERSONATION_BASIC = "Basic Impersonation";
+//        private final static String CH_CAMOFLAGE = "CH: Camoflage";
+//        private final static String CH_TO_CAMOFLAGE = "CH: TO Camoflage";
+//        private final static String CH_AMBUSH_CAMOFLAGE = "CH: Ambush Camoflage";
+//        private final static String REGENERATION = "Regeneration";
+
+        if (spec.contains(IMPERSONATION_BASIC)
+                || spec.contains(IMPERSONATION_PLUS)
+                || spec.contains(CH_AMBUSH_CAMOUFLAGE)
+                || spec.contains(CH_CAMOUFLAGE)
+                || spec.contains(CH_TO_CAMOUFLAGE)) {
+            spec.add(SURPRISE_ATTACK);
+            spec.add(SURPRISE_SHOT_L1);
+            spec.add(STEALTH);
+        }
+
+        if (spec.contains(REGENERATION)) {
+            spec.add(SHOCK_IMMUNITY);
+        }
+
+        if (spec.contains(ENGINEER)) {
+            spec.add(DEACTIVATOR);
+        }
+
+        if (spec.contains(G_MNEMONICA) || spec.contains(G_REMOTE_PRESENCE)) {
+            spec.add(VALOR_COURAGE);
+        }
+
+        if (spec.contains(AKBAR_DOCTOR)) {
+            spec.add(DOCTOR_PLUS);
+            Log.d(TAG, "spec: " + spec.toString());
+        }
+
+        if (spec.contains(VETERAN_L2)) {
+            spec.add(SIXTH_SENSE_L2);
+            spec.add(V_NO_WOUND_INCAP);
+        }
+
+
     }
 
     private Unit cursorToUnit(Cursor cursor) {
@@ -451,12 +509,10 @@ public class UnitsData {
         }
 
         // read profiles
-        ArrayList<Profile> profiles = getProfiles(unit.dbId);
-        unit.profiles = profiles;
+        unit.profiles = getProfiles(unit.dbId);
 
         // read options
-        ArrayList<Option> options = getOptions(unit.dbId);
-        unit.options = options;
+        unit.options = getOptions(unit.dbId);
 
         return unit;
     }
