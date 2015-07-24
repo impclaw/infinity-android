@@ -620,9 +620,9 @@
         "cbcode": [],
         "spec": [],
         "bsw": [
-            "Rifle",
-            "Light Shotgun",
-            "Grenades"
+          "Rifle",
+          "Light Shotgun",
+          "Grenades"
         ],
         "ccw": [],
         "note": ""
@@ -635,8 +635,8 @@
         "cbcode": [],
         "spec": [],
         "bsw": [
-            "Boarding Shotgun",
-            "Panzerfaust"
+          "Boarding Shotgun",
+          "Panzerfaust"
         ],
         "ccw": [],
         "note": ""
@@ -649,7 +649,7 @@
         "cbcode": [],
         "spec": [],
         "bsw": [
-            "Spitfire"
+          "Spitfire"
         ],
         "ccw": [],
         "note": ""
@@ -661,12 +661,12 @@
         "swc": "0",
         "cbcode": [],
         "spec": [
-            "Doctor Plus",
-            "MediKit"
+          "Doctor Plus",
+          "MediKit"
         ],
         "bsw": [
-            "Boarding Shotgun",
-            "Grenades"
+          "Boarding Shotgun",
+          "Grenades"
         ],
         "ccw": [],
         "note": ""
@@ -681,8 +681,8 @@
           "Lieutenant"
         ],
         "bsw": [
-            "Rifle",
-            "Light Shotgun"
+          "Rifle",
+          "Light Shotgun"
         ],
         "ccw": [],
         "note": ""
@@ -697,7 +697,7 @@
           "Lieutenant"
         ],
         "bsw": [
-            "Spitfire"
+          "Spitfire"
         ],
         "ccw": [],
         "note": ""
@@ -980,7 +980,7 @@
         "swc": "0.5",
         "cbcode": [],
         "spec": [
-            "Tinbot A (Deflector L1)"
+          "Tinbot A (Deflector L1)"
         ],
         "bsw": [
           "AP Rifle",
@@ -1221,7 +1221,7 @@
         "spec": [],
         "bsw": [],
         "ccw": [
-            "Heavy Pistol (2)"
+          "Heavy Pistol (2)"
         ],
         "note": ""
       },
@@ -1232,7 +1232,7 @@
         "swc": "2",
         "cbcode": [],
         "spec": [
-            "360° Visor"
+          "360° Visor"
         ],
         "bsw": [
           "Heavy Flamethrower"
@@ -1287,7 +1287,7 @@
         "swc": "0.5",
         "cbcode": [],
         "spec": [
-            "Deployable Repeater"
+          "Deployable Repeater"
         ],
         "bsw": [
           "Rifle",
@@ -1586,7 +1586,7 @@
       }
     ],
     "spec": [
-        "V: Dogged"
+      "V: Dogged"
     ],
     "bsw": [],
     "note": "",
@@ -1926,7 +1926,7 @@
     "s": "3",
     "ava": "1",
     "bsw": [
-        "Flash Pulse"
+      "Flash Pulse"
     ],
     "spec": [
       "G: Remote Presence",
@@ -1999,8 +1999,8 @@
         "cbcode": [],
         "spec": [],
         "bsw": [
-            "AP Rifle",
-            "Light Shotgun"
+          "AP Rifle",
+          "Light Shotgun"
         ],
         "ccw": [],
         "note": ""
@@ -2013,7 +2013,7 @@
         "cbcode": [],
         "spec": [],
         "bsw": [
-            "Spitfire"
+          "Spitfire"
         ],
         "ccw": [],
         "note": ""
@@ -2025,11 +2025,11 @@
         "swc": "-1",
         "cbcode": [],
         "spec": [
-            "Lieutenant"
+          "Lieutenant"
         ],
         "bsw": [
-            "AP Rifle",
-            "Light Shotgun"
+          "AP Rifle",
+          "Light Shotgun"
         ],
         "ccw": [],
         "note": ""
@@ -2041,10 +2041,10 @@
         "swc": "2",
         "cbcode": [],
         "spec": [
-            "Lieutenant"
+          "Lieutenant"
         ],
         "bsw": [
-            "Spitfire"
+          "Spitfire"
         ],
         "ccw": [],
         "note": ""
@@ -2106,7 +2106,7 @@
     "ccw": [],
     "bsw": [],
     "spec": [
-        "V: Dogged"
+      "V: Dogged"
     ],
     "childs": [
       {
@@ -2177,7 +2177,7 @@
     "ccw": [],
     "bsw": [],
     "spec": [
-        "V: Dogged"
+      "V: Dogged"
     ],
     "childs": [
       {
@@ -2453,7 +2453,7 @@
         "swc": "2",
         "cbcode": [],
         "spec": [
-            "X Visor"
+          "X Visor"
         ],
         "bsw": [
           "Feuerbach"
@@ -2853,7 +2853,7 @@
           "Panzerfaust"
         ],
         "ccw": [
-            "D-Charges"
+          "D-Charges"
         ],
         "note": ""
       },
@@ -2879,7 +2879,7 @@
         "swc": "1.5",
         "cbcode": [],
         "spec": [
-            "Lieutenant"
+          "Lieutenant"
         ],
         "bsw": [
           "Rifle",
@@ -3861,9 +3861,9 @@
     "ava": "3",
     "bsw": [],
     "spec": [
-        "Multispectral Visor L1",
-        "Religious Troop",
-        "Veteran L1"
+      "Multispectral Visor L1",
+      "Religious Troop",
+      "Veteran L1"
     ],
     "ccw": [
       "Knife",
@@ -3993,8 +3993,8 @@
     "ava": "3",
     "bsw": [],
     "spec": [
-        "AutoMediKit",
-        "Veteran L1"
+      "AutoMediKit",
+      "Veteran L1"
     ],
     "ccw": [
       "Knife",
@@ -4008,7 +4008,7 @@
         "swc": "0",
         "cbcode": [],
         "spec": [
-            "Marksmanship L2"
+          "Marksmanship L2"
         ],
         "bsw": [
           "Breaker Rifle",
@@ -4037,7 +4037,7 @@
         "swc": "0.5",
         "cbcode": [],
         "spec": [
-            "Marksmanship L2"
+          "Marksmanship L2"
         ],
         "bsw": [
           "Sniper Rifle"
@@ -4082,8 +4082,8 @@
         "swc": "0",
         "cbcode": [],
         "spec": [
-            "Marksmanship L2",
-            "Lieutenant"
+          "Marksmanship L2",
+          "Lieutenant"
         ],
         "bsw": [
           "Breaker Rifle",
@@ -4099,7 +4099,7 @@
         "swc": "1.5",
         "cbcode": [],
         "spec": [
-            "Lieutenant"
+          "Lieutenant"
         ],
         "bsw": [
           "HMG"
@@ -4152,7 +4152,7 @@
       }
     ],
     "spec": [
-        "V: Dogged"
+      "V: Dogged"
     ],
     "bsw": [],
     "note": "",
@@ -4216,7 +4216,7 @@
       }
     ],
     "spec": [
-        "V: Dogged"
+      "V: Dogged"
     ],
     "bsw": [],
     "note": "",

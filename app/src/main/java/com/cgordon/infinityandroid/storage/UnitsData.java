@@ -16,7 +16,6 @@ import com.cgordon.infinityandroid.data.Unit;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 public class UnitsData {
@@ -52,56 +51,56 @@ public class UnitsData {
     private final String[] unitColumns = {
             InfinityDatabase.COLUMN_ID,
             InfinityDatabase.COLUMN_AVA,
-            InfinityDatabase.COLUMN_SHARED_AVA, 
+            InfinityDatabase.COLUMN_SHARED_AVA,
             InfinityDatabase.COLUMN_FACTION,
-            InfinityDatabase.COLUMN_NOTE, 
-            InfinityDatabase.COLUMN_NAME, 
-            InfinityDatabase.COLUMN_ISC, 
-            InfinityDatabase.COLUMN_IMAGE 
+            InfinityDatabase.COLUMN_NOTE,
+            InfinityDatabase.COLUMN_NAME,
+            InfinityDatabase.COLUMN_ISC,
+            InfinityDatabase.COLUMN_IMAGE
     };
 
     private final String[] optionsColumns = {
-        InfinityDatabase.COLUMN_ID,
-        InfinityDatabase.COLUMN_UNIT_ID,
-        InfinityDatabase.COLUMN_NAME,
-        InfinityDatabase.COLUMN_CODE,
-        InfinityDatabase.COLUMN_NOTE ,
-        InfinityDatabase.COLUMN_CODENAME ,
-        InfinityDatabase.COLUMN_COST,
-        InfinityDatabase.COLUMN_SWC,
-        InfinityDatabase.COLUMN_BSW ,
-        InfinityDatabase.COLUMN_CCW ,
-        InfinityDatabase.COLUMN_SPEC,
-        InfinityDatabase.COLUMN_PROFILE
+            InfinityDatabase.COLUMN_ID,
+            InfinityDatabase.COLUMN_UNIT_ID,
+            InfinityDatabase.COLUMN_NAME,
+            InfinityDatabase.COLUMN_CODE,
+            InfinityDatabase.COLUMN_NOTE,
+            InfinityDatabase.COLUMN_CODENAME,
+            InfinityDatabase.COLUMN_COST,
+            InfinityDatabase.COLUMN_SWC,
+            InfinityDatabase.COLUMN_BSW,
+            InfinityDatabase.COLUMN_CCW,
+            InfinityDatabase.COLUMN_SPEC,
+            InfinityDatabase.COLUMN_PROFILE
     };
 
     private final String[] profileColumns = {
-        InfinityDatabase.COLUMN_ID ,
-        InfinityDatabase.COLUMN_UNIT_ID ,
-        InfinityDatabase.COLUMN_MOV,
-        InfinityDatabase.COLUMN_CC,
-        InfinityDatabase.COLUMN_BS ,
-        InfinityDatabase.COLUMN_PH ,
-        InfinityDatabase.COLUMN_WIP ,
-        InfinityDatabase.COLUMN_ARM ,
-        InfinityDatabase.COLUMN_BTS ,
-        InfinityDatabase.COLUMN_WOUNDS ,
-        InfinityDatabase.COLUMN_WOUNDS_TYPE ,
-        InfinityDatabase.COLUMN_SILHOUETTE ,
-        InfinityDatabase.COLUMN_IRR ,
-        InfinityDatabase.COLUMN_IMP ,
-        InfinityDatabase.COLUMN_CUBE ,
-        InfinityDatabase.COLUMN_NOTE,
-        InfinityDatabase.COLUMN_ISC,
-        InfinityDatabase.COLUMN_NAME,
-        InfinityDatabase.COLUMN_TYPE ,
-        InfinityDatabase.COLUMN_HACKABLE ,
-        InfinityDatabase.COLUMN_BSW ,
-        InfinityDatabase.COLUMN_CCW,
-        InfinityDatabase.COLUMN_SPEC ,
-        InfinityDatabase.COLUMN_OPTION_SPECIFIC ,
-        InfinityDatabase.COLUMN_ALL_DIE,
-        InfinityDatabase.COLUMN_AVA
+            InfinityDatabase.COLUMN_ID,
+            InfinityDatabase.COLUMN_UNIT_ID,
+            InfinityDatabase.COLUMN_MOV,
+            InfinityDatabase.COLUMN_CC,
+            InfinityDatabase.COLUMN_BS,
+            InfinityDatabase.COLUMN_PH,
+            InfinityDatabase.COLUMN_WIP,
+            InfinityDatabase.COLUMN_ARM,
+            InfinityDatabase.COLUMN_BTS,
+            InfinityDatabase.COLUMN_WOUNDS,
+            InfinityDatabase.COLUMN_WOUNDS_TYPE,
+            InfinityDatabase.COLUMN_SILHOUETTE,
+            InfinityDatabase.COLUMN_IRR,
+            InfinityDatabase.COLUMN_IMP,
+            InfinityDatabase.COLUMN_CUBE,
+            InfinityDatabase.COLUMN_NOTE,
+            InfinityDatabase.COLUMN_ISC,
+            InfinityDatabase.COLUMN_NAME,
+            InfinityDatabase.COLUMN_TYPE,
+            InfinityDatabase.COLUMN_HACKABLE,
+            InfinityDatabase.COLUMN_BSW,
+            InfinityDatabase.COLUMN_CCW,
+            InfinityDatabase.COLUMN_SPEC,
+            InfinityDatabase.COLUMN_OPTION_SPECIFIC,
+            InfinityDatabase.COLUMN_ALL_DIE,
+            InfinityDatabase.COLUMN_AVA
     };
 
     public static final String ShowMercenariesListKey = "show_mercs";
@@ -180,8 +179,6 @@ public class UnitsData {
     }
 
 
-
-
     private void printCursor(Cursor cursor) {
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -252,7 +249,7 @@ public class UnitsData {
                         cursor.close();
 
                     } else if ((army.name.equals("Combined Army"))
-                                || (army.name.equals("Tohaa"))) {
+                            || (army.name.equals("Tohaa"))) {
                         // we need to add armand 'le muet' to the list.  He's a special case
                         cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
                                 InfinityDatabase.COLUMN_NAME + "='Armand'", null, null, null,
@@ -263,7 +260,6 @@ public class UnitsData {
                             units.add(unit);
                         }
                         cursor.close();
-
 
 
                     }
@@ -520,16 +516,16 @@ public class UnitsData {
     private long writeOption(Option option, long unitId) {
 
         ContentValues v = new ContentValues();
-        
+
         v.put(InfinityDatabase.COLUMN_UNIT_ID, unitId);
         v.put(InfinityDatabase.COLUMN_NAME, option.name);
         v.put(InfinityDatabase.COLUMN_CODE, option.code);
-        v.put(InfinityDatabase.COLUMN_NOTE , option.note);
-        v.put(InfinityDatabase.COLUMN_CODENAME , option.codename);
+        v.put(InfinityDatabase.COLUMN_NOTE, option.note);
+        v.put(InfinityDatabase.COLUMN_CODENAME, option.codename);
         v.put(InfinityDatabase.COLUMN_COST, option.cost);
         v.put(InfinityDatabase.COLUMN_SWC, option.swc);
-        v.put(InfinityDatabase.COLUMN_BSW , TextUtils.join(",", option.bsw));
-        v.put(InfinityDatabase.COLUMN_CCW , TextUtils.join(",", option.ccw));
+        v.put(InfinityDatabase.COLUMN_BSW, TextUtils.join(",", option.bsw));
+        v.put(InfinityDatabase.COLUMN_CCW, TextUtils.join(",", option.ccw));
         v.put(InfinityDatabase.COLUMN_SPEC, TextUtils.join(",", option.spec));
         v.put(InfinityDatabase.COLUMN_PROFILE, option.profile);
 
@@ -540,28 +536,28 @@ public class UnitsData {
 
         ContentValues v = new ContentValues();
 
-        v.put(InfinityDatabase.COLUMN_UNIT_ID , unitId);
+        v.put(InfinityDatabase.COLUMN_UNIT_ID, unitId);
         v.put(InfinityDatabase.COLUMN_MOV, profile.mov);
         v.put(InfinityDatabase.COLUMN_CC, profile.cc);
-        v.put(InfinityDatabase.COLUMN_BS , profile.bs);
-        v.put(InfinityDatabase.COLUMN_PH , profile.ph);
-        v.put(InfinityDatabase.COLUMN_WIP , profile.wip);
-        v.put(InfinityDatabase.COLUMN_ARM , profile.arm);
-        v.put(InfinityDatabase.COLUMN_BTS , profile.bts);
-        v.put(InfinityDatabase.COLUMN_WOUNDS , profile.wounds);
-        v.put(InfinityDatabase.COLUMN_WOUNDS_TYPE , profile.woundType);
-        v.put(InfinityDatabase.COLUMN_SILHOUETTE , profile.silhouette);
-        v.put(InfinityDatabase.COLUMN_IRR , profile.irr);
-        v.put(InfinityDatabase.COLUMN_IMP , profile.imp);
-        v.put(InfinityDatabase.COLUMN_CUBE , profile.cube);
+        v.put(InfinityDatabase.COLUMN_BS, profile.bs);
+        v.put(InfinityDatabase.COLUMN_PH, profile.ph);
+        v.put(InfinityDatabase.COLUMN_WIP, profile.wip);
+        v.put(InfinityDatabase.COLUMN_ARM, profile.arm);
+        v.put(InfinityDatabase.COLUMN_BTS, profile.bts);
+        v.put(InfinityDatabase.COLUMN_WOUNDS, profile.wounds);
+        v.put(InfinityDatabase.COLUMN_WOUNDS_TYPE, profile.woundType);
+        v.put(InfinityDatabase.COLUMN_SILHOUETTE, profile.silhouette);
+        v.put(InfinityDatabase.COLUMN_IRR, profile.irr);
+        v.put(InfinityDatabase.COLUMN_IMP, profile.imp);
+        v.put(InfinityDatabase.COLUMN_CUBE, profile.cube);
         v.put(InfinityDatabase.COLUMN_NOTE, profile.note);
         v.put(InfinityDatabase.COLUMN_ISC, profile.isc);
         v.put(InfinityDatabase.COLUMN_NAME, profile.name);
-        v.put(InfinityDatabase.COLUMN_TYPE , profile.type);
-        v.put(InfinityDatabase.COLUMN_HACKABLE , profile.hackable);
-        v.put(InfinityDatabase.COLUMN_BSW , TextUtils.join(",", profile.bsw));
+        v.put(InfinityDatabase.COLUMN_TYPE, profile.type);
+        v.put(InfinityDatabase.COLUMN_HACKABLE, profile.hackable);
+        v.put(InfinityDatabase.COLUMN_BSW, TextUtils.join(",", profile.bsw));
         v.put(InfinityDatabase.COLUMN_CCW, TextUtils.join(",", profile.ccw));
-        v.put(InfinityDatabase.COLUMN_SPEC , TextUtils.join(",", profile.spec));
+        v.put(InfinityDatabase.COLUMN_SPEC, TextUtils.join(",", profile.spec));
         v.put(InfinityDatabase.COLUMN_OPTION_SPECIFIC, profile.optionSpecific);
         v.put(InfinityDatabase.COLUMN_ALL_DIE, profile.allProfilesMustDie);
         v.put(InfinityDatabase.COLUMN_AVA, profile.ava);
@@ -584,7 +580,7 @@ public class UnitsData {
         v.put(InfinityDatabase.COLUMN_IMAGE, unit.image);
 
         return m_database.insert(InfinityDatabase.TABLE_UNITS, null, v);
-        
+
     }
 
 }

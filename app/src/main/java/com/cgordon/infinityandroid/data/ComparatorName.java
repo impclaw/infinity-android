@@ -8,6 +8,7 @@ import java.util.Comparator;
 public class ComparatorName implements Comparator {
 
     private boolean m_isc;
+
     public ComparatorName(boolean isc) {
         m_isc = isc;
     }

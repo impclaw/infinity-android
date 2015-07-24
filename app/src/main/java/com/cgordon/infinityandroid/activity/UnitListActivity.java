@@ -1,13 +1,10 @@
 package com.cgordon.infinityandroid.activity;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.NavUtils;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +24,6 @@ import com.cgordon.infinityandroid.storage.WeaponsData;
 
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -43,7 +39,7 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
 
     private static final String TAG = UnitListActivity.class.getSimpleName();
     private static Army m_army;
-    private Map<String,Weapon> m_weapons;
+    private Map<String, Weapon> m_weapons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +74,6 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(m_army.name);
-
 
 
 //        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.unit_list);
@@ -135,12 +130,12 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
         HashSet<String> bsw = new HashSet<>();
         HashSet<String> ccw = new HashSet<>();
 
-        for (int i = 0; i < unit.profiles.size(); i++ ) {
+        for (int i = 0; i < unit.profiles.size(); i++) {
             bsw.addAll(unit.profiles.get(i).bsw);
             ccw.addAll(unit.profiles.get(i).ccw);
         }
 
-        for (int i = 0; i < unit.options.size(); i++ ) {
+        for (int i = 0; i < unit.options.size(); i++) {
             bsw.addAll(unit.options.get(i).bsw);
             ccw.addAll(unit.options.get(i).ccw);
         }
@@ -153,7 +148,7 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
 
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
                 new Pair<View, String>(viewHolder.m_imageView, TRANSITION_IMAGE)
-        //        ,new Pair<View, String>(viewHolder.m_textView, TRANSITION_UNIT_NAME)
+                //        ,new Pair<View, String>(viewHolder.m_textView, TRANSITION_UNIT_NAME)
         );
 
         intent.putExtra(MainActivity.UNIT, unit);
@@ -175,7 +170,7 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
 
             Weapon weapon = m_weapons.get(name);
             if (weapon == null) {
-                Log.d(TAG, "Weapon: " +name + " not found");
+                Log.d(TAG, "Weapon: " + name + " not found");
             }
             sb.append(weapon.toString()).append("\n");
 

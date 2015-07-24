@@ -22,10 +22,10 @@ public class UnitParser {
     private final String TAG = UnitParser.class.getSimpleName();
 
     Context m_context;
+
     public UnitParser(Context context) {
         m_context = context;
     }
-
 
 
     public ArrayList<Unit> parse(int resourceId) {
@@ -304,9 +304,6 @@ public class UnitParser {
 
         return subArray;
     }
-
-
-
 
 
 }

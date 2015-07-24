@@ -2,7 +2,6 @@ package com.cgordon.infinityandroid.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +69,7 @@ public class WeaponsAdapter extends ArrayAdapter<String> {
 
 
         if (row == null) {
-            LayoutInflater inflater = ((Activity)m_context).getLayoutInflater();
+            LayoutInflater inflater = ((Activity) m_context).getLayoutInflater();
             row = inflater.inflate(m_resource, parent, false);
         }
 

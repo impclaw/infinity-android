@@ -1,112 +1,112 @@
 {
-    "armies": [
-               {
-               "army": "Aleph",
-               "mercs": true
-               },
-               {
-               "army": "Ariadna",
-               "mercs": true
-               },
-               {
-               "army": "Combined Army",
-               "mercs": false
-               },
-               {
-               "army": "Haqqislam",
-               "mercs": true
-               },
-               {
-               "army": "Nomads",
-               "mercs": true
-               },
-               {
-               "army": "Mercenary",
-               "mercs": false
-               },
-               {
-               "army": "PanOceania",
-               "mercs": true
-               },
-               {
-               "army": "Tohaa",
-               "mercs": false
-               },
-               {
-               "army": "Yu Jing",
-               "mercs": true
-               }
-               ],
-    "sectorials": [
-                   {
-                   "army": "Haqqislam",
-                   "name": "Qapu Khalqi",
-                   "mercs": true
-                   },
-                   {
-                   "army": "Haqqislam",
-                   "name": "Hassassin Bahram",
-                   "mercs": true
-                   },
-                   {
-                   "army": "Combined Army",
-                   "name": "Morat Aggression Force",
-                   "mercs": false
-                   },
-                   {
-                   "army": "Combined Army",
-                   "name": "Shasvastii Expeditionary Force",
-                   "mercs": false
-                   },
-                   {
-                   "army": "Ariadna",
-                   "name": "Caledonian Highlander Army",
-                   "mercs": true
-                   },
-                   {
-                   "army": "Yu Jing",
-                   "name": "Imperial Service",
-                   "mercs": true
-                   },
-                   {
-                   "army": "Yu Jing",
-                   "name": "Japanese Sectorial Army",
-                   "mercs": true
-                   },
-                   {
-                   "army": "Nomads",
-                   "name": "Bakunin Jurisdictional Command",
-                   "mercs": true
-                   },
-                   {
-                   "army": "Nomads",
-                   "name": "Corregidor Jurisdictional Command",
-                   "mercs": true
-                   },
-                   {
-                   "army": "PanOceania",
-                   "name": "Shock Army of Acontecimento",
-                   "mercs": true
-                   },
-                   {
-                   "army": "PanOceania",
-                   "name": "Neoterran Capitaline Army",
-                   "mercs": true
-                   },
-                   {
-                   "army": "PanOceania",
-                   "name": "Military Orders",
-                   "mercs": true
-                   },
-                   {
-                   "army": "Ariadna",
-                   "name": "Merovingian Rapid Response Force",
-                   "mercs": true
-                   },
-                   {
-                   "army": "Aleph",
-                   "name": "Steel Phalanx",
-                   "mercs": true
-                   }
-                   ]
+  "armies": [
+    {
+      "army": "Aleph",
+      "mercs": true
+    },
+    {
+      "army": "Ariadna",
+      "mercs": true
+    },
+    {
+      "army": "Combined Army",
+      "mercs": false
+    },
+    {
+      "army": "Haqqislam",
+      "mercs": true
+    },
+    {
+      "army": "Nomads",
+      "mercs": true
+    },
+    {
+      "army": "Mercenary",
+      "mercs": false
+    },
+    {
+      "army": "PanOceania",
+      "mercs": true
+    },
+    {
+      "army": "Tohaa",
+      "mercs": false
+    },
+    {
+      "army": "Yu Jing",
+      "mercs": true
+    }
+  ],
+  "sectorials": [
+    {
+      "army": "Haqqislam",
+      "name": "Qapu Khalqi",
+      "mercs": true
+    },
+    {
+      "army": "Haqqislam",
+      "name": "Hassassin Bahram",
+      "mercs": true
+    },
+    {
+      "army": "Combined Army",
+      "name": "Morat Aggression Force",
+      "mercs": false
+    },
+    {
+      "army": "Combined Army",
+      "name": "Shasvastii Expeditionary Force",
+      "mercs": false
+    },
+    {
+      "army": "Ariadna",
+      "name": "Caledonian Highlander Army",
+      "mercs": true
+    },
+    {
+      "army": "Yu Jing",
+      "name": "Imperial Service",
+      "mercs": true
+    },
+    {
+      "army": "Yu Jing",
+      "name": "Japanese Sectorial Army",
+      "mercs": true
+    },
+    {
+      "army": "Nomads",
+      "name": "Bakunin Jurisdictional Command",
+      "mercs": true
+    },
+    {
+      "army": "Nomads",
+      "name": "Corregidor Jurisdictional Command",
+      "mercs": true
+    },
+    {
+      "army": "PanOceania",
+      "name": "Shock Army of Acontecimento",
+      "mercs": true
+    },
+    {
+      "army": "PanOceania",
+      "name": "Neoterran Capitaline Army",
+      "mercs": true
+    },
+    {
+      "army": "PanOceania",
+      "name": "Military Orders",
+      "mercs": true
+    },
+    {
+      "army": "Ariadna",
+      "name": "Merovingian Rapid Response Force",
+      "mercs": true
+    },
+    {
+      "army": "Aleph",
+      "name": "Steel Phalanx",
+      "mercs": true
+    }
+  ]
 }

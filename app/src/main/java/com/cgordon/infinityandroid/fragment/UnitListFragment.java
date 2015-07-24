@@ -1,9 +1,7 @@
 package com.cgordon.infinityandroid.fragment;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,14 +9,12 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.MainActivity;
-import com.cgordon.infinityandroid.adapter.ArmyAdapter;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.ComparatorName;
@@ -26,7 +22,6 @@ import com.cgordon.infinityandroid.data.ComparatorType;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.storage.UnitsData;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 

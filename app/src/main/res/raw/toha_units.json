@@ -559,7 +559,7 @@
       "Infiltration"
     ],
     "w": "1",
-        "s": "2",
+    "s": "2",
     "wip": "13"
   },
   {
@@ -607,7 +607,7 @@
     "ph": "10",
     "spec": [],
     "w": "1",
-        "s": "2",
+    "s": "2",
     "wip": "13"
   },
   {
@@ -952,11 +952,10 @@
         "w": "1",
         "s": "2",
         "wip": "13",
-        "independent" : {
-            "cost" : "7",
-            "swc" : "0"
+        "independent": {
+          "cost": "7",
+          "swc": "0"
         }
-
       }
     ],
     "note": "",
@@ -971,11 +970,10 @@
         "note": "",
         "spec": [],
         "swc": "2",
-        "independent" : {
-            "cost" : "74",
-            "swc" : "2"
+        "independent": {
+          "cost": "74",
+          "swc": "2"
         }
-
       }
     ],
     "ava": "1",
@@ -1071,7 +1069,7 @@
     ],
     "type": "WB",
     "w": "1",
-        "s": "2",
+    "s": "2",
     "wip": "13"
   },
   {
@@ -1120,7 +1118,7 @@
     ],
     "type": "LI",
     "w": "1",
-        "s": "2",
+    "s": "2",
     "wip": "14"
   },
   {
@@ -1198,7 +1196,7 @@
     ],
     "type": "LI",
     "w": "1",
-        "s": "2",
+    "s": "2",
     "wip": "13"
   },
   {
@@ -1243,7 +1241,7 @@
     ],
     "type": "LI",
     "w": "1",
-        "s": "2",
+    "s": "2",
     "wip": "13"
   },
   {
@@ -1386,7 +1384,7 @@
     "bs": "12",
     "ph": "12",
     "w": "1",
-        "s": "2",
+    "s": "2",
     "wip": "14",
     "ava": "1",
     "bts": "3",
@@ -1440,7 +1438,7 @@
       }
     ]
   },
-{
+  {
     "army": "Tohaa",
     "isc": "Nikoul Ambush Unit",
     "name": "Nikoul",
@@ -1483,9 +1481,9 @@
         "bsw": [],
         "ccw": [],
         "spec": [
-                 "Multispectral Visor L1",
-                 "Sapper"
-                 ]
+          "Multispectral Visor L1",
+          "Sapper"
+        ]
       }
     ],
     "ava": "2",
@@ -1521,12 +1519,12 @@
         "spec": ["Minelayer"],
         "swc": "1.5"
       }
-     ],
+    ],
     "cbcode": [
       "280907-0404"
     ]
   },
-{
+  {
     "army": "Tohaa",
     "isc": "Kotail Mobile Unit",
     "name": "Kotail",
@@ -1651,7 +1649,7 @@
       "280907-0404"
     ]
   },
-{
+  {
     "army": "Tohaa",
     "isc": "Rasail Boarding Team",
     "name": "Rasail",
@@ -1708,11 +1706,10 @@
         "w": "1",
         "s": "2",
         "wip": "13",
-        "independent" : {
-            "cost" : "4",
-            "swc" : "0"
+        "independent": {
+          "cost": "4",
+          "swc": "0"
         }
-
       },
       {
         "name": "Inactive Armour",
@@ -1735,9 +1732,9 @@
     "childs": [
       {
         "bsw": [
-                "Combi Rifle",
-                "Antipersonnel Mines"
-                ],
+          "Combi Rifle",
+          "Antipersonnel Mines"
+        ],
         "cbcode": [],
         "ccw": [],
         "code": "Default",
@@ -1746,16 +1743,15 @@
         "note": "",
         "spec": [],
         "swc": "0",
-        "independent" : {
-            "cost" : "33",
-            "swc" : "0"
+        "independent": {
+          "cost": "33",
+          "swc": "0"
         }
-
       },
       {
         "bsw": [
-                "Viral Combi Rifle"
-                ],
+          "Viral Combi Rifle"
+        ],
         "cbcode": [],
         "ccw": [],
         "code": "Viral Combi",
@@ -1764,17 +1760,16 @@
         "note": "",
         "spec": [],
         "swc": "0",
-        "independent" : {
-            "cost" : "38",
-            "swc" : "0"
+        "independent": {
+          "cost": "38",
+          "swc": "0"
         }
-
       },
       {
         "bsw": [
-                "Boarding Shotgun",
-                "Contender"
-                ],
+          "Boarding Shotgun",
+          "Contender"
+        ],
         "cbcode": [],
         "ccw": [],
         "code": "Boarding Shotgun",
@@ -1783,17 +1778,16 @@
         "note": "",
         "spec": [],
         "swc": "0",
-        "independent" : {
-            "cost" : "34",
-            "swc" : "0"
+        "independent": {
+          "cost": "34",
+          "swc": "0"
         }
-
       },
       {
         "bsw": [
-                "Light Shotgun",
-                "Contender (2)"
-                ],
+          "Light Shotgun",
+          "Contender (2)"
+        ],
         "cbcode": [],
         "ccw": [],
         "code": "Dual Contenders",
@@ -1802,16 +1796,15 @@
         "note": "",
         "spec": [],
         "swc": "0",
-        "independent" : {
-            "cost" : "35",
-            "swc" : "0"
+        "independent": {
+          "cost": "35",
+          "swc": "0"
         }
-
       },
       {
         "bsw": [
-                "Spitfire"
-                ],
+          "Spitfire"
+        ],
         "cbcode": [],
         "ccw": [],
         "code": "Spitfire",
@@ -1820,17 +1813,16 @@
         "note": "",
         "spec": [],
         "swc": "2",
-        "independent" : {
-            "cost" : "38",
-            "swc" : "2"
+        "independent": {
+          "cost": "38",
+          "swc": "2"
         }
-
       },
       {
         "bsw": [
-                "Combi Rifle",
-                "Antipersonnel Mines"
-                ],
+          "Combi Rifle",
+          "Antipersonnel Mines"
+        ],
         "cbcode": [],
         "ccw": [],
         "code": "Lieutenant",
@@ -1839,16 +1831,15 @@
         "note": "",
         "spec": ["Lieutenant"],
         "swc": "0",
-        "independent" : {
-            "cost" : "33",
-            "swc" : "0"
+        "independent": {
+          "cost": "33",
+          "swc": "0"
         }
-
       },
       {
         "bsw": [
-                "Viral Combi Rifle"
-                ],
+          "Viral Combi Rifle"
+        ],
         "cbcode": [],
         "ccw": [],
         "code": "Viral Combi Lieutenant",
@@ -1857,16 +1848,15 @@
         "note": "",
         "spec": ["Lieutenant"],
         "swc": "0",
-        "independent" : {
-            "cost" : "38",
-            "swc" : "0"
+        "independent": {
+          "cost": "38",
+          "swc": "0"
         }
-
       },
       {
         "bsw": [
-                "Spitfire"
-                ],
+          "Spitfire"
+        ],
         "cbcode": [],
         "ccw": [],
         "code": "Spitfire Lieutenant",
@@ -1875,11 +1865,10 @@
         "note": "",
         "spec": ["Lieutenant"],
         "swc": "2",
-        "independent" : {
-            "cost" : "38",
-            "swc" : "2"
+        "independent": {
+          "cost": "38",
+          "swc": "2"
         }
-
       }
     ],
     "ava": "4",

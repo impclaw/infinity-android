@@ -532,11 +532,10 @@
         "ccw": [
           "Electric Pulse"
         ],
-         "independent" : {
-             "cost" : "4",
-             "swc" : "0"
-         }
-
+        "independent": {
+          "cost": "4",
+          "swc": "0"
+        }
       }
     ],
     "spec": [],
@@ -573,11 +572,10 @@
         ],
         "ccw": [],
         "note": "",
-        "independent" : {
-            "cost" : "23",
-            "swc" : "0"
+        "independent": {
+          "cost": "23",
+          "swc": "0"
         }
-
       },
       {
         "code": "Spitfire+MSV",
@@ -638,11 +636,10 @@
         ],
         "ccw": [],
         "note": "",
-        "independent" : {
-            "cost" : "23",
-            "swc" : "0"
+        "independent": {
+          "cost": "23",
+          "swc": "0"
         }
-
       }
     ],
     "cbcode": [
@@ -749,8 +746,8 @@
     "hackable": "X",
     "ava": "3",
     "bsw": [
-            "Flash Pulse"
-            ],
+      "Flash Pulse"
+    ],
     "spec": [
       "CH: Mimetism",
       "G: Remote Presence",
@@ -1930,71 +1927,71 @@
     "w": "X",
     "wip": "X"
   },
-     {
-     "army": "Aleph",
-     "name": "Chandra Sergeant Thrasymedes",
-     "isc": "Chandra Sergeant Thrasymedes",
-     "image": "Chandra Spec-Ops",
-     "irr": "",
-     "arm": "3",
-     "bts": "0",
-     "note": "",
-     "cube": "",
-     "bs": "12",
-     "cc": "19",
-     "imp": "",
-     "mov": "4-2",
-     "type": "MI",
-     "ph": "13",
-     "w": "1",
+  {
+    "army": "Aleph",
+    "name": "Chandra Sergeant Thrasymedes",
+    "isc": "Chandra Sergeant Thrasymedes",
+    "image": "Chandra Spec-Ops",
+    "irr": "",
+    "arm": "3",
+    "bts": "0",
+    "note": "",
+    "cube": "",
+    "bs": "12",
+    "cc": "19",
+    "imp": "",
+    "mov": "4-2",
+    "type": "MI",
+    "ph": "13",
+    "w": "1",
     "s": "2",
-     "wip": "13",
-     "ava": "1",
-     "spec": [
-              "ODD: Optical Disruptor",
-              "360° Visor",
-              "Specialist Troop"
-              ],
-     "bsw": [
-             "Submachine Gun",
-             "Nanopulser",
-             "Flash Grenades"
-             ],
-     "ccw": [
-             "Pistol",
-             "Shock CCW"
-             ],
-     "childs": [
-                {
-                "bsw": [],
-                "swc": "0",
-                "cbcode": [],
-                "code": "Default",
-                "note": "",
-                "ccw": [],
-                "codename": "Infiltrator",
-                "cost": "27",
-                "spec": [
-                         "Infiltration"
-                         ]
-                },
-                {
-                "bsw": [
-                        "Light Rocket Launcher"
-                        ],
-                "swc": "0.5",
-                "cbcode": [],
-                "code": "Enomotarchos",
-                "note": "",
-                "ccw": [],
-                "codename": "",
-                "cost": "30",
-                "spec": [
-                         "Fireteam: Enomotarchos"
-                         ]
-                }
-                ]
-     },
+    "wip": "13",
+    "ava": "1",
+    "spec": [
+      "ODD: Optical Disruptor",
+      "360° Visor",
+      "Specialist Troop"
+    ],
+    "bsw": [
+      "Submachine Gun",
+      "Nanopulser",
+      "Flash Grenades"
+    ],
+    "ccw": [
+      "Pistol",
+      "Shock CCW"
+    ],
+    "childs": [
+      {
+        "bsw": [],
+        "swc": "0",
+        "cbcode": [],
+        "code": "Default",
+        "note": "",
+        "ccw": [],
+        "codename": "Infiltrator",
+        "cost": "27",
+        "spec": [
+          "Infiltration"
+        ]
+      },
+      {
+        "bsw": [
+          "Light Rocket Launcher"
+        ],
+        "swc": "0.5",
+        "cbcode": [],
+        "code": "Enomotarchos",
+        "note": "",
+        "ccw": [],
+        "codename": "",
+        "cost": "30",
+        "spec": [
+          "Fireteam: Enomotarchos"
+        ]
+      }
+    ]
+  },
   {
     "arm": "3",
     "army": "Aleph",
@@ -2402,10 +2399,10 @@
         "s": "1",
         "hackable": "X",
         "wip": "13",
-         "independent" : {
-             "cost" : "2",
-             "swc" : "0"
-         }
+        "independent": {
+          "cost": "2",
+          "swc": "0"
+        }
       }
     ],
     "bsw": [],
@@ -2423,9 +2420,9 @@
         "note": "",
         "spec": [],
         "swc": "1.5",
-        "independent" : {
-            "cost" : "41",
-            "swc" : "1.5"
+        "independent": {
+          "cost": "41",
+          "swc": "1.5"
         }
       }
     ],
@@ -2851,7 +2848,7 @@
         "swc": "0",
         "cbcode": [],
         "spec": [
-            "Engineer"
+          "Engineer"
         ],
         "bsw": [
           "Adhesive Launcher"
@@ -2871,7 +2868,7 @@
         ],
         "bsw": [
           "Adhesive Launcher",
-		"Nimbus Grenades"
+          "Nimbus Grenades"
         ],
         "ccw": [],
         "note": ""
@@ -2883,7 +2880,7 @@
         "swc": "0.5",
         "cbcode": [],
         "spec": [
-            "Engineer"
+          "Engineer"
         ],
         "bsw": [
           "Flammenspeer"
@@ -3035,10 +3032,10 @@
         "ccw": [
           "Electric Pulse"
         ],
-         "independent" : {
-             "cost" : "4",
-             "swc" : "0"
-         }
+        "independent": {
+          "cost": "4",
+          "swc": "0"
+        }
       },
       {
         "mov": "6-4",
@@ -3067,10 +3064,10 @@
         "ccw": [
           "Electric Pulse"
         ],
-         "independent" : {
-             "cost" : "4",
-             "swc" : "0"
-         }
+        "independent": {
+          "cost": "4",
+          "swc": "0"
+        }
       }
     ],
     "spec": [],
@@ -3087,9 +3084,9 @@
         "spec": [],
         "bsw": [],
         "ccw": [],
-        "independent" : {
-            "cost" : "30",
-            "swc" : "0"
+        "independent": {
+          "cost": "30",
+          "swc": "0"
         }
       },
       {
@@ -3102,9 +3099,9 @@
         "spec": [],
         "bsw": [],
         "ccw": [],
-        "independent" : {
-            "cost" : "29",
-            "swc" : "0"
+        "independent": {
+          "cost": "29",
+          "swc": "0"
         }
       }
     ]
@@ -3167,10 +3164,10 @@
         "ccw": [
           "Electric Pulse"
         ],
-         "independent" : {
-             "cost" : "7",
-             "swc" : "0"
-         }
+        "independent": {
+          "cost": "7",
+          "swc": "0"
+        }
       },
       {
         "mov": "6-4",
@@ -3200,10 +3197,10 @@
         "ccw": [
           "Electric Pulse"
         ],
-         "independent" : {
-             "cost" : "7",
-             "swc" : "0"
-         }
+        "independent": {
+          "cost": "7",
+          "swc": "0"
+        }
       }
     ],
     "spec": [],
@@ -3223,9 +3220,9 @@
         ],
         "bsw": [],
         "ccw": [],
-        "independent" : {
-            "cost" : "25",
-            "swc" : "0.5"
+        "independent": {
+          "cost": "25",
+          "swc": "0.5"
         }
       },
       {
@@ -3241,9 +3238,9 @@
         ],
         "bsw": [],
         "ccw": [],
-        "independent" : {
-            "cost" : "22",
-            "swc" : "0.5"
+        "independent": {
+          "cost": "22",
+          "swc": "0.5"
         }
       },
       {
@@ -3258,9 +3255,9 @@
         ],
         "bsw": [],
         "ccw": [],
-        "independent" : {
-            "cost" : "23",
-            "swc" : "0.5"
+        "independent": {
+          "cost": "23",
+          "swc": "0.5"
         }
       },
       {
@@ -3276,9 +3273,9 @@
         ],
         "bsw": [],
         "ccw": [],
-        "independent" : {
-            "cost" : "20",
-            "swc" : "0.5"
+        "independent": {
+          "cost": "20",
+          "swc": "0.5"
         }
       }
     ]

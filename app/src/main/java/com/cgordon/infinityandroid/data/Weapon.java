@@ -50,7 +50,7 @@ public class Weapon {
         sb.append("B:").append(burst).append("\t");
         sb.append("Ammo:").append(ammo).append("\t");
 
-        if ((cc != null) &&(cc.equals("Yes"))) {
+        if ((cc != null) && (cc.equals("Yes"))) {
             sb.append(", CC");
         }
 

@@ -24,7 +24,7 @@ public class SectorialParser {
         m_context = context;
     }
 
-    public ArrayList<Army> parse (int resourceId) {
+    public ArrayList<Army> parse(int resourceId) {
         InputStream inputStream = m_context.getResources().openRawResource(resourceId);
 
         ArrayList<Army> sectorials = new ArrayList<Army>();
@@ -45,6 +45,7 @@ public class SectorialParser {
 
         return sectorials;
     }
+
     private Army parseSectorialArmy(JsonReader reader) throws IOException {
         reader.beginObject();
 

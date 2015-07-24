@@ -31,14 +31,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/isc"
                 android:text="Armand 'Le Muet'"
-                android:layout_toRightOf="@+id/image_view"/>
+                android:layout_toRightOf="@+id/image_view" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/type"
                 android:text="HI"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true" />
 
             <TableLayout
                 android:layout_below="@+id/image_view"
@@ -49,70 +49,90 @@
                 android:stretchColumns="*">
 
                 <TableRow>
+
                     <TextView
                         android:text="MOV"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:text="CC"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:text="BS"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:text="PH"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:text="WIP"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:text="ARM"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:text="BTS"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:text="W"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:text="S"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:text="AVA"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
 
                 </TableRow>
 
                 <TableRow>
+
                     <TextView
                         android:id="@+id/mov"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:id="@+id/cc"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:id="@+id/bs"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:id="@+id/ph"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:id="@+id/wip"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:id="@+id/arm"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:id="@+id/bts"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:id="@+id/wounds"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:id="@+id/silhouette"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
+
                     <TextView
                         android:id="@+id/ava"
-                        style="@style/AppTheme.Stats"/>
+                        style="@style/AppTheme.Stats" />
                 </TableRow>
 
 
@@ -131,22 +151,25 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:id="@+id/irr"
-                    android:padding="1dp"/>
+                    android:padding="1dp" />
+
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:id="@+id/imp"
-                    android:padding="1dp"/>
+                    android:padding="1dp" />
+
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:id="@+id/cube"
-                    android:padding="1dp"/>
+                    android:padding="1dp" />
+
                 <ImageView
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:id="@+id/hackable"
-                    android:padding="1dp"/>
+                    android:padding="1dp" />
 
             </GridLayout>
 

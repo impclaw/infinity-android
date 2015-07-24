@@ -93,16 +93,14 @@ public class ProfileFragment extends Fragment {
         }
 
         TextView bsw = (TextView) view.findViewById(R.id.bsw);
-        if ((profile.bsw == null) || (profile.bsw.size() == 0))
-        {
+        if ((profile.bsw == null) || (profile.bsw.size() == 0)) {
             bsw.setVisibility(View.GONE);
         } else {
             bsw.setText("BS Weapons: " + TextUtils.join(", ", profile.bsw));
         }
 
         TextView ccw = (TextView) view.findViewById(R.id.ccw);
-        if ((profile.ccw == null) || (profile.ccw.size() == 0))
-        {
+        if ((profile.ccw == null) || (profile.ccw.size() == 0)) {
             ccw.setVisibility(View.GONE);
         } else {
             ccw.setText("CC Weapons: " + TextUtils.join(", ", profile.ccw));

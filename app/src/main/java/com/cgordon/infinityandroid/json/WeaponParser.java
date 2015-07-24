@@ -69,7 +69,7 @@ public class WeaponParser {
             } else if (name.equals("max_mod")) {
                 weapon.max_mod = reader.nextString();
             } else if (name.equals("medium_dist")) {
-                weapon. medium_dist = reader.nextString();
+                weapon.medium_dist = reader.nextString();
             } else if (name.equals("medium_mod")) {
                 weapon.medium_mod = reader.nextString();
             } else if (name.equals("name")) {

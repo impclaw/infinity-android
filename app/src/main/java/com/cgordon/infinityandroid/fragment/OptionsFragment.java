@@ -1,6 +1,5 @@
 package com.cgordon.infinityandroid.fragment;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,16 +7,12 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Unit;
-
-import java.util.List;
 
 /**
  * Created by cgordon on 7/12/2015.
@@ -55,7 +50,7 @@ public class OptionsFragment extends Fragment {
         if (option.ccw != null && option.ccw.size() > 0) {
             ccw.setText(TextUtils.join(", ", option.ccw));
         } else {
-               ccw.setVisibility(View.GONE);
+            ccw.setVisibility(View.GONE);
         }
 
         if (option.profile != 0) {

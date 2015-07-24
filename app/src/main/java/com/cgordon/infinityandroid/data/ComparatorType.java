@@ -27,14 +27,14 @@ public class ComparatorType implements Comparator {
     private List<String> m_typeOrderList;
 
 
-    public ComparatorType (boolean isc) {
+    public ComparatorType(boolean isc) {
         m_isc = isc;
         m_typeOrderList = Arrays.asList(m_typeOrder);
     }
 
     @Override
     public int compare(Object lhs, Object rhs) {
-        if ((lhs instanceof Unit) && (rhs instanceof  Unit)) {
+        if ((lhs instanceof Unit) && (rhs instanceof Unit)) {
 
             Unit lhsUnit = (Unit) lhs;
             Unit rhsUnit = (Unit) rhs;

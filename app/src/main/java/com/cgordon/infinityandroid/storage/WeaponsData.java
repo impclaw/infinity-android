@@ -6,14 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.cgordon.infinityandroid.data.Army;
-import com.cgordon.infinityandroid.data.ArmyUnit;
 import com.cgordon.infinityandroid.data.Weapon;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -94,40 +91,41 @@ public class WeaponsData {
             v.put(InfinityDatabase.COLUMN_ALT_PROFILE, w.alt_profile);
             v.put(InfinityDatabase.COLUMN_MODE, w.mode);
 
-            if (m_database.insert(InfinityDatabase.TABLE_WEAPONS, null, v ) == -1) {
+            if (m_database.insert(InfinityDatabase.TABLE_WEAPONS, null, v) == -1) {
                 Log.d(TAG, "Failed insert");
             }
 
         }
 
     }
-     public Map<String,Weapon> getWeapons() {
 
-         Cursor cursor = null;
-         try {
-             cursor = m_database.query(InfinityDatabase.TABLE_WEAPONS, allColumns, null, null,
-                     null, null, null, null);
+    public Map<String, Weapon> getWeapons() {
 
-             cursor.moveToFirst();
+        Cursor cursor = null;
+        try {
+            cursor = m_database.query(InfinityDatabase.TABLE_WEAPONS, allColumns, null, null,
+                    null, null, null, null);
 
-             Map<String, Weapon> weapons = new HashMap<>();
+            cursor.moveToFirst();
 
-             while (!cursor.isAfterLast()) {
-                 Weapon weapon = cursorToWeapon(cursor);
+            Map<String, Weapon> weapons = new HashMap<>();
 
-                 weapons.put(weapon.name, weapon);
+            while (!cursor.isAfterLast()) {
+                Weapon weapon = cursorToWeapon(cursor);
 
-                 cursor.moveToNext();
-             }
+                weapons.put(weapon.name, weapon);
 
-             return weapons;
+                cursor.moveToNext();
+            }
 
-         } finally {
-             if (cursor != null) {
-                 cursor.close();
-             }
-         }
-     }
+            return weapons;
+
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
 
     private Weapon cursorToWeapon(Cursor cursor) {
         Weapon weapon = new Weapon();

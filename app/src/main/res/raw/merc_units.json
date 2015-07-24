@@ -94,7 +94,6 @@
         ],
         "note": ""
       },
-
       {
         "code": "Default",
         "cost": "8",
@@ -1136,87 +1135,87 @@
       "280710-0365"
     ]
   },
-     {
-     "army": "Mercenary",
-     "isc": "Anaconda Mercenary Tag Squadron",
-     "name": "Anaconda",
-     "profiles": [
-                  {
-                  "isc": "Anaconda",
-                  "ph": "16",
-                  "mov": "4-4",
-                  "irr": "",
-                  "imp": "",
-                  "cube": "X",
-                  "cc": "16",
-                  "bts": "6",
-                  "ccw": [
-                          "CCW"
-                          ],
-                  "spec": [
-                           "ECM",
-                           "Escape System",
-                           "V: Courage",
-                           "Manned"
-                           ],
-                  "bsw": [
-                          "Spitfire",
-                          "Light Flamethrower",
-                          "Panzerfaust"
-                          ],
-                  "bs": "13",
-                  "wip": "13",
-                  "w": "2",
-                  "s": "7",
-                  "hackable": "X",
-                  "type": "TAG",
-                  "arm": "6"
-                  },
-                  {
-                  "name": "Operator",
-                  "mov": "4-4",
-                  "cc": "13",
-                  "bs": "12",
-                  "ph": "10",
-                  "wip": "13",
-                  "arm": "1",
-                  "bts": "3",
-                  "w": "1",
-                  "s": "2",
-                  "hackable": "",
-                  "type": "LI",
-                  "ava": "",
-                  "bsw": [
-                          "Spitfire"
-                          ],
-                  "ccw": [
-                          "Pistol",
-                          "Knife"
-                          ],
-                  "spec": [
-                           "V: Courage"
-                           ]
-                  }
-                  ],
-     "note": "",
-     "ava": "1",
-     "ccw": [],
-     "bsw": [],
-     "spec": [],
-     "childs": [
-                {
-                "bsw": [],
-                "cbcode": [],
-                "ccw": [],
-                "code": "Default",
-                "codename": "Spitfire",
-                "cost": "62",
-                "note": "",
-                "spec": [],
-                "swc": "2"
-                }
-                ]
-     },
+  {
+    "army": "Mercenary",
+    "isc": "Anaconda Mercenary Tag Squadron",
+    "name": "Anaconda",
+    "profiles": [
+      {
+        "isc": "Anaconda",
+        "ph": "16",
+        "mov": "4-4",
+        "irr": "",
+        "imp": "",
+        "cube": "X",
+        "cc": "16",
+        "bts": "6",
+        "ccw": [
+          "CCW"
+        ],
+        "spec": [
+          "ECM",
+          "Escape System",
+          "V: Courage",
+          "Manned"
+        ],
+        "bsw": [
+          "Spitfire",
+          "Light Flamethrower",
+          "Panzerfaust"
+        ],
+        "bs": "13",
+        "wip": "13",
+        "w": "2",
+        "s": "7",
+        "hackable": "X",
+        "type": "TAG",
+        "arm": "6"
+      },
+      {
+        "name": "Operator",
+        "mov": "4-4",
+        "cc": "13",
+        "bs": "12",
+        "ph": "10",
+        "wip": "13",
+        "arm": "1",
+        "bts": "3",
+        "w": "1",
+        "s": "2",
+        "hackable": "",
+        "type": "LI",
+        "ava": "",
+        "bsw": [
+          "Spitfire"
+        ],
+        "ccw": [
+          "Pistol",
+          "Knife"
+        ],
+        "spec": [
+          "V: Courage"
+        ]
+      }
+    ],
+    "note": "",
+    "ava": "1",
+    "ccw": [],
+    "bsw": [],
+    "spec": [],
+    "childs": [
+      {
+        "bsw": [],
+        "cbcode": [],
+        "ccw": [],
+        "code": "Default",
+        "codename": "Spitfire",
+        "cost": "62",
+        "note": "",
+        "spec": [],
+        "swc": "2"
+      }
+    ]
+  },
   {
     "arm": "0",
     "army": "Mercenary",
@@ -1255,7 +1254,6 @@
         "spec": ["Aerocam"],
         "swc": "0"
       }
-
     ],
     "cube": "X",
     "imp": "",
@@ -1295,9 +1293,9 @@
         "note": "",
         "spec": [],
         "ccw": [
-               "Pistol",
-               "Knife"
-               ],
+          "Pistol",
+          "Knife"
+        ],
         "swc": "0"
       },
       {
@@ -1311,9 +1309,9 @@
         "note": "",
         "spec": [],
         "ccw": [
-               "Pistol",
-               "Knife"
-               ],
+          "Pistol",
+          "Knife"
+        ],
         "swc": "0"
       },
       {
@@ -1327,9 +1325,9 @@
         "note": "",
         "spec": [],
         "ccw": [
-               "Breaker Pistol (2)",
-               "Knife"
-               ],
+          "Breaker Pistol (2)",
+          "Knife"
+        ],
         "swc": "0.5"
       },
       {
@@ -1343,12 +1341,11 @@
         "note": "",
         "spec": [],
         "ccw": [
-               "Pistol",
-               "Knife"
-               ],
+          "Pistol",
+          "Knife"
+        ],
         "swc": "1"
       }
-
     ],
     "cube": "X",
     "imp": "",
@@ -1479,8 +1476,10 @@
         "swc": "0",
         "cbcode": [],
         "spec": [],
-        "bsw": ["Combi Rifle",
-			"Nanopulser"],
+        "bsw": [
+          "Combi Rifle",
+          "Nanopulser"
+        ],
         "ccw": [],
         "note": ""
       },
@@ -1491,12 +1490,13 @@
         "swc": "0",
         "cbcode": [],
         "spec": [],
-        "bsw": ["Boarding Shotgun",
-			"Nanopulser"],
+        "bsw": [
+          "Boarding Shotgun",
+          "Nanopulser"
+        ],
         "ccw": [],
         "note": ""
       }
-
     ],
     "imp": ""
   },

@@ -4,8 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by cgordon on 5/31/2015.
@@ -25,7 +23,7 @@ public class Unit implements Parcelable {
     public boolean linkable = false;
 
 
-    public Unit () {
+    public Unit() {
         options = new ArrayList<Option>();
         profiles = new ArrayList<Profile>();
     }
@@ -82,7 +80,7 @@ public class Unit implements Parcelable {
         }
         sb.append("\n");
 
-        if ((note != null) &&(!note.isEmpty())) {
+        if ((note != null) && (!note.isEmpty())) {
             sb.append("Note: ").append(note).append("\n");
         }
         return sb.toString();
@@ -94,8 +92,7 @@ public class Unit implements Parcelable {
         // determine equality based on ISC name.  This is used ofr indexOf operations on a list.
         if (o instanceof Unit) {
             return isc.equals(((Unit) o).isc);
-        }
-        else {
+        } else {
             return super.equals(o);
         }
     }

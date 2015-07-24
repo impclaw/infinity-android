@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,7 @@ import java.util.List;
 /**
  * Created by cgordon on 6/10/2015.
  */
-public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewHolder> {
+public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.ViewHolder> {
 
     private static final String TAG = UnitListAdapter.class.getSimpleName();
 
@@ -35,7 +34,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
 
     List<Unit> m_units;
 
-    public UnitListAdapter(Context context, List<Unit> units ) {
+    public UnitListAdapter(Context context, List<Unit> units) {
         m_units = units;
         m_context = context;
         m_resources = context.getResources();
@@ -139,7 +138,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
 
     public static String prepareDrawableResource(String resourceName) {
         return resourceName.toLowerCase().replace(" ", "_").replace("-", "_").replace(",", "")
-                .replace(":", "").replace(".", "").replace("'","");
+                .replace(":", "").replace(".", "").replace("'", "");
     }
 
     @Override
@@ -157,8 +156,7 @@ public class UnitListAdapter extends RecyclerView.Adapter <UnitListAdapter.ViewH
 
         public long dbID;
 
-        public ViewHolder(View itemView)
-        {
+        public ViewHolder(View itemView) {
             super(itemView);
             m_imageView = (ImageView) itemView.findViewById(R.id.image_view);
             m_textView = (TextView) itemView.findViewById(R.id.text_view);

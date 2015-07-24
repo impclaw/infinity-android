@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by cgordon on 5/30/2015.
@@ -95,14 +94,14 @@ public class Profile implements Parcelable {
         dest.writeString(woundType);
         dest.writeString(silhouette);
 
-        dest.writeByte((byte)(irr ? 1 : 0));
+        dest.writeByte((byte) (irr ? 1 : 0));
         dest.writeString(imp);
         dest.writeString(cube);
         dest.writeString(note);
         dest.writeString(isc);
         dest.writeString(name);
         dest.writeString(type);
-        dest.writeByte((byte)(hackable ? 1 : 0));
+        dest.writeByte((byte) (hackable ? 1 : 0));
         dest.writeString(ava);
 
         dest.writeString(optionSpecific);
@@ -125,7 +124,7 @@ public class Profile implements Parcelable {
         if (isc != null) {
             sb.append("ISC: ").append(isc).append("\t");
         }
-        if (ava != null ) {
+        if (ava != null) {
             sb.append("AVA: ").append(ava).append("\t");
         }
         sb.append("Type: ").append(type).append("\n\t");

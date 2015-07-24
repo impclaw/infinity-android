@@ -6,7 +6,7 @@ import android.os.Parcelable;
 /**
  * Created by cgordon on 6/1/2015.
  */
-public class ArmyUnit implements Parcelable{
+public class ArmyUnit implements Parcelable {
 
     public long dbId;
     public long sectorialId;
@@ -15,7 +15,8 @@ public class ArmyUnit implements Parcelable{
     public boolean linkable;
     public String army;
 
-    public ArmyUnit() {}
+    public ArmyUnit() {
+    }
 
     public ArmyUnit(Parcel parcel) {
         dbId = parcel.readLong();

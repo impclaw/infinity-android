@@ -16,7 +16,6 @@ import com.cgordon.infinityandroid.adapter.WeaponsAdapter;
 import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Profile;
 import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.data.Weapon;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -88,9 +87,9 @@ public class UnitFragment extends Fragment {
 
         }
 
-        for (int i  = 0; i < m_unit.options.size(); i++) {
+        for (int i = 0; i < m_unit.options.size(); i++) {
             OptionsFragment optionsFragment = new OptionsFragment();
-            Bundle bundle  = new Bundle();
+            Bundle bundle = new Bundle();
             bundle.putParcelable(MainActivity.UNIT, m_unit);
             bundle.putInt(MainActivity.INDEX, i);
             optionsFragment.setArguments(bundle);
@@ -102,7 +101,6 @@ public class UnitFragment extends Fragment {
 
 
         transaction.commit();
-
 
 
         ArrayList<String> bsw = new ArrayList<>();
@@ -137,7 +135,6 @@ public class UnitFragment extends Fragment {
         }
 
 
-
         // remove duplicates
         Set<String> hs = new HashSet<>();
         hs.addAll(bsw);
@@ -166,7 +163,6 @@ public class UnitFragment extends Fragment {
         bsw.addAll(ccw);
 
 
-
         WeaponsAdapter adapter = new WeaponsAdapter(getActivity(), R.layout.row_weapon, bsw);
         for (int i = 0; i < adapter.getCount(); i++) {
             m_linearLayout.addView(adapter.getView(i, null, null));
@@ -179,7 +175,6 @@ public class UnitFragment extends Fragment {
 //        weaponsFragment.setArguments(bundle);
 //        m_fragments.add(0, weaponsFragment);
 //        transaction.add(R.id.fragment_container, weaponsFragment);
-
 
 
     }

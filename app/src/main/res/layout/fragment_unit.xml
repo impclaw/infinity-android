@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/fragment_container"/>
+                android:id="@+id/fragment_container" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -26,7 +26,7 @@
                 android:text="Weapons"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:padding="4dp"/>
+                android:padding="4dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -34,8 +34,9 @@
                 android:orientation="vertical"
                 android:id="@+id/weapon_container">
 
-                <include layout="@layout/row_weapon"/>
-                <include layout="@layout/row_weapon"/>
+                <include layout="@layout/row_weapon" />
+
+                <include layout="@layout/row_weapon" />
 
             </LinearLayout>
 

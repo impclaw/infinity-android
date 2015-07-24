@@ -161,8 +161,7 @@
     ],
     "imp": ""
   },
-
-{
+  {
     "mov": "4-2",
     "army": "Nomads",
     "wip": "13",
@@ -191,7 +190,7 @@
     ],
     "ccw": [
       "Knife",
-	"Breaker Pistol",
+      "Breaker Pistol",
       "Pistol"
     ],
     "childs": [
@@ -261,7 +260,7 @@
         "ccw": [],
         "note": ""
       },
-	{
+      {
         "code": "Observer",
         "cost": "27",
         "codename": "",
@@ -269,7 +268,7 @@
         "cbcode": [],
         "spec": [
           "Forward Observer",
-		"Sensor"
+          "Sensor"
         ],
         "bsw": [
           "Combi Rifle",
@@ -297,8 +296,6 @@
     ],
     "imp": ""
   },
-
-
   {
     "mov": "4-4",
     "army": "Nomads",
@@ -476,7 +473,7 @@
         "spec": [],
         "bsw": [
           "HMG",
-		"E/Mauler"
+          "E/Mauler"
         ],
         "ccw": [],
         "note": ""
@@ -904,12 +901,12 @@
     "spec": [
       "MediKit",
       "CH: Mimetism",
-	"Doctor",
+      "Doctor",
       "Religious Troop"
     ],
     "ccw": [
       "Pistol",
-	 "EXP CCW"
+      "EXP CCW"
     ],
     "childs": [
       {
@@ -954,7 +951,6 @@
     ],
     "imp": ""
   },
-
   {
     "mov": "4-4",
     "army": "Nomads",
@@ -1026,7 +1022,7 @@
         "ccw": [],
         "note": ""
       },
-	{
+      {
         "code": "Combi",
         "cost": "34",
         "codename": "",
@@ -1039,7 +1035,7 @@
         "ccw": [],
         "note": ""
       },
-	{
+      {
         "code": "Tinbot",
         "cost": "37",
         "codename": "",
@@ -1097,7 +1093,7 @@
         ],
         "spec": [
           "ECM",
-		"Manned"
+          "Manned"
         ],
         "ccw": []
       },
@@ -1274,7 +1270,7 @@
     "spec": [
       "CH: Camouflage",
       "Infiltration",
-	"Multiterrain"
+      "Multiterrain"
     ],
     "ccw": [
       "Knife",
@@ -1417,7 +1413,7 @@
     "spec": [
       "CH: TO Camouflage",
       "Infiltration",
-	"Multiterrain"
+      "Multiterrain"
     ],
     "ccw": [
       "Knife",
@@ -1542,14 +1538,14 @@
     "spec": [
       "Martial Arts L2",
       "CH: Camouflage",
-	"Infiltration",
-	"Multiterrain",
-	"Scavenger"
+      "Infiltration",
+      "Multiterrain",
+      "Scavenger"
     ],
     "ccw": [
-		"Pistol",
-		"DA CCW"
-		],
+      "Pistol",
+      "DA CCW"
+    ],
     "childs": [
       {
         "code": "Default",
@@ -1600,9 +1596,9 @@
         "swc": "0.5",
         "cbcode": [],
         "spec": [
-			"Hacker",
-			"Assault Hacking Device"
-			],
+          "Hacker",
+          "Assault Hacking Device"
+        ],
         "bsw": [
           "Light Shotgun",
           "Adhesive Launcher"
@@ -1638,10 +1634,9 @@
         "ccw": [],
         "note": ""
       }
-     ],
+    ],
     "imp": ""
   },
-
   {
     "mov": "4-4",
     "army": "Nomads",
@@ -1667,7 +1662,7 @@
     "spec": [
       "Martial Arts L2",
       "MetaChemistry",
-	"Kinematika L1"
+      "Kinematika L1"
     ],
     "ccw": [],
     "childs": [
@@ -1773,10 +1768,10 @@
         ],
         "note": ""
       }
-     ],
+    ],
     "imp": "X"
   },
-{
+  {
     "mov": "4-4",
     "army": "Nomads",
     "wip": "12",
@@ -1818,7 +1813,7 @@
         "spec": [],
         "bsw": [
           "Light Shotgun",
-		"Smoke Grenades"
+          "Smoke Grenades"
         ],
         "ccw": ["E/M CCW"],
         "note": ""
@@ -1832,7 +1827,7 @@
         "spec": [],
         "bsw": [
           "Chain Rifle",
-		"Smoke Grenades"
+          "Smoke Grenades"
         ],
         "ccw": ["DA CCW"],
         "note": ""
@@ -1846,7 +1841,7 @@
         "spec": [],
         "bsw": [
           "Adhesive Launcher",
-		"Panzerfaust"
+          "Panzerfaust"
         ],
         "ccw": ["DA CCW"],
         "note": ""
@@ -1880,7 +1875,7 @@
     ],
     "spec": [
       "Doctor",
-	  "MediKit"
+      "MediKit"
     ],
     "ccw": [
       "Knife",
@@ -1991,7 +1986,7 @@
         "ccw": [],
         "note": ""
       },
-	{
+      {
         "code": "Combi Panda",
         "cost": "27",
         "codename": "",
@@ -1999,13 +1994,13 @@
         "cbcode": [],
         "spec": [],
         "bsw": [
-			"Combi Rifle",
-			"FastPanda"
-			],
+          "Combi Rifle",
+          "FastPanda"
+        ],
         "ccw": [],
         "note": ""
       },
-	{
+      {
         "code": "Boarding Shotgun Panda",
         "cost": "26",
         "codename": "",
@@ -2013,13 +2008,13 @@
         "cbcode": [],
         "spec": [],
         "bsw": [
-			"Boarding Shotgun",
-			"FastPanda"
-			],
+          "Boarding Shotgun",
+          "FastPanda"
+        ],
         "ccw": [],
         "note": ""
       },
-	{
+      {
         "code": "Boarding Shotgun",
         "cost": "24",
         "codename": "",
@@ -2027,8 +2022,8 @@
         "cbcode": [],
         "spec": [],
         "bsw": [
-			"Boarding Shotgun"
-			],
+          "Boarding Shotgun"
+        ],
         "ccw": [],
         "note": ""
       },
@@ -2045,7 +2040,7 @@
         "ccw": [],
         "note": ""
       },
-	{
+      {
         "code": "Lieutenant Panda",
         "cost": "27",
         "codename": "",
@@ -2053,9 +2048,9 @@
         "cbcode": [],
         "spec": ["Lieutenant"],
         "bsw": [
-			"Combi Rifle",
-			"FastPanda"
-			],
+          "Combi Rifle",
+          "FastPanda"
+        ],
         "ccw": [],
         "note": ""
       }
@@ -2089,11 +2084,11 @@
     ],
     "spec": [
       "Climbing Plus",
-	  "Deactivator",
+      "Deactivator",
       "Forward Observer",
       "G: Remote Presence",
       "Repeater",
-	  "Sat-lock",
+      "Sat-lock",
       "Sensor",
       "Sniffer"
     ],
@@ -2161,7 +2156,7 @@
         "ccw": [],
         "note": ""
       }
-     ],
+    ],
     "imp": ""
   },
   {
@@ -2240,7 +2235,7 @@
       "Forward Observer",
       "G: Remote Presence",
       "Sat-lock",
-	"Repeater",
+      "Repeater",
       "Sensor"
     ],
     "ccw": [
@@ -2284,7 +2279,7 @@
     "hackable": "X",
     "ava": "2",
     "bsw": [
-        "Flash Pulse"
+      "Flash Pulse"
     ],
     "spec": [
       "CH: Mimetism",
@@ -2373,7 +2368,7 @@
           "G: Remote Presence",
           "ODD: Optical Disruptor Device",
           "Repeater",
-		"Sat-lock",
+          "Sat-lock",
           "Sensor"
         ],
         "ccw": [
@@ -2484,7 +2479,7 @@
         "spec": [
           "ECM",
           "Ejection System",
-		"Manned",
+          "Manned",
           "Repeater"
         ],
         "ccw": []
@@ -2787,8 +2782,8 @@
     "name": "Moran",
     "army": "Nomads",
     "cbcode": [
-            "280527-0169",
-            "280536-0216"
+      "280527-0169",
+      "280536-0216"
     ],
     "note": "",
     "ava": "2",
@@ -2803,7 +2798,7 @@
           "CH: Mimetism",
           "Infiltration",
           "Repeater",
-        "Multiterrain",
+          "Multiterrain",
           "V: Courage"
         ],
         "cube": "X",
@@ -3563,7 +3558,7 @@
     ],
     "spec": [
       "Climbing Plus",
-	"Kinematika L1",
+      "Kinematika L1",
       "i-Khol L1",
       "Natural Born Warrior",
       "Total Immunity"
@@ -3612,7 +3607,7 @@
     "spec": [
       "G: Synchronized",
       "Total Immunity",
-	"Kinematika L1",
+      "Kinematika L1",
       "Climbing Plus",
       "Hyper-Dynamics L3"
     ],
@@ -3773,9 +3768,9 @@
         }
       }
     ],
-    "ccw" : [],
-    "bsw" : [],
-    "spec" : [],
+    "ccw": [],
+    "bsw": [],
+    "spec": [],
     "ava": "1",
     "childs": [
       {
@@ -3943,55 +3938,55 @@
     "w": "X",
     "wip": "X"
   },
- {
-  "army": "Nomads",
-  "isc": "Alguacil Vortex Lupe Balboa",
-  "name": "Alguacil Vortex Lupe Balboa",
-  "image": "Vortex Spec-Ops",
-  "irr": "",
-  "arm": "2",
-  "bts": "3",
-  "note": "",
-  "cube": "X",
-  "bs": "12",
-  "cc": "14",
-  "imp": "",
-  "mov": "4-4",
-  "type": "LI",
-  "ph": "11",
-  "w": "1",
-  "s": "2",
-  "wip": "13",
-  "bsw": [
-    "Combi Rifle",
-    "Nanopulser",
-    "Panzerfaust",
-    "Smoke Grenades"
-  ],
-  "ccw": [
-    "Pistol",
-    "CCW"
-  ],
-  "spec": [
-    "CH: Mimetism",
-    "Specialist Troop",
-    "V: Dogged"
-  ],
-  "ava": "1",
-  "childs": [
-    {
-      "bsw": [],
-      "swc": "0",
-      "cbcode": [],
-      "code": "Default",
-      "note": "",
-      "ccw": [],
-      "codename": "Combi",
-      "cost": "23",
-      "spec": []
-    }
-  ]
-},
+  {
+    "army": "Nomads",
+    "isc": "Alguacil Vortex Lupe Balboa",
+    "name": "Alguacil Vortex Lupe Balboa",
+    "image": "Vortex Spec-Ops",
+    "irr": "",
+    "arm": "2",
+    "bts": "3",
+    "note": "",
+    "cube": "X",
+    "bs": "12",
+    "cc": "14",
+    "imp": "",
+    "mov": "4-4",
+    "type": "LI",
+    "ph": "11",
+    "w": "1",
+    "s": "2",
+    "wip": "13",
+    "bsw": [
+      "Combi Rifle",
+      "Nanopulser",
+      "Panzerfaust",
+      "Smoke Grenades"
+    ],
+    "ccw": [
+      "Pistol",
+      "CCW"
+    ],
+    "spec": [
+      "CH: Mimetism",
+      "Specialist Troop",
+      "V: Dogged"
+    ],
+    "ava": "1",
+    "childs": [
+      {
+        "bsw": [],
+        "swc": "0",
+        "cbcode": [],
+        "code": "Default",
+        "note": "",
+        "ccw": [],
+        "codename": "Combi",
+        "cost": "23",
+        "spec": []
+      }
+    ]
+  },
   {
     "childs": [
       {

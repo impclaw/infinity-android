@@ -14,8 +14,8 @@ import com.cgordon.infinityandroid.json.WeaponParser;
  */
 public class InfinityDatabase extends SQLiteOpenHelper {
 
-     private static final String DATABASE_NAME = "infinity.db";
-     private static final int DATABASE_VERSION = 11;
+    private static final String DATABASE_NAME = "infinity.db";
+    private static final int DATABASE_VERSION = 11;
 
     public static final String TABLE_WEAPONS = "weapons";
     public static final String TABLE_UNITS = "units";
@@ -123,84 +123,84 @@ public class InfinityDatabase extends SQLiteOpenHelper {
 
 
     private static final String CREATE_TABLE_UNITS = "create table " + TABLE_UNITS + " ( " +
-        COLUMN_ID + " integer primary key, " +
-        COLUMN_AVA  + " text, " +
-        COLUMN_SHARED_AVA + " text, " +
-        COLUMN_FACTION + " text, " +
-        COLUMN_NOTE + " text, " +
-        COLUMN_NAME + " text, " +
-        COLUMN_ISC + " text, " +
-        COLUMN_IMAGE + " text " +
-        ");";
+            COLUMN_ID + " integer primary key, " +
+            COLUMN_AVA + " text, " +
+            COLUMN_SHARED_AVA + " text, " +
+            COLUMN_FACTION + " text, " +
+            COLUMN_NOTE + " text, " +
+            COLUMN_NAME + " text, " +
+            COLUMN_ISC + " text, " +
+            COLUMN_IMAGE + " text " +
+            ");";
 
     private static final String CREATE_TABLE_OPTIONS = "create table " + TABLE_OPTIONS + " ( " +
-        COLUMN_ID + " integer primary key, " +
-        COLUMN_UNIT_ID + " integer, " +
-        COLUMN_NAME + " text, " +
-        COLUMN_CODE + " text, " +
-        COLUMN_NOTE + " text, " +
-        COLUMN_CODENAME + " text, " +
-        COLUMN_COST  + " integer, " +
-        COLUMN_SWC + " real, " +
-        COLUMN_BSW + " text, " +
-        COLUMN_CCW + " text, " +
-        COLUMN_SPEC + " text, " +
-        COLUMN_PROFILE + " integer " +
-        ");";
+            COLUMN_ID + " integer primary key, " +
+            COLUMN_UNIT_ID + " integer, " +
+            COLUMN_NAME + " text, " +
+            COLUMN_CODE + " text, " +
+            COLUMN_NOTE + " text, " +
+            COLUMN_CODENAME + " text, " +
+            COLUMN_COST + " integer, " +
+            COLUMN_SWC + " real, " +
+            COLUMN_BSW + " text, " +
+            COLUMN_CCW + " text, " +
+            COLUMN_SPEC + " text, " +
+            COLUMN_PROFILE + " integer " +
+            ");";
 
     private static final String CREATE_TABLE_PROFILES = "create table " + TABLE_PROFILES + " ( " +
-        COLUMN_ID + " integer primary key, " +
-        COLUMN_UNIT_ID + " integer, " +
-        COLUMN_MOV + " text, " +
-        COLUMN_CC + " text, " +
-        COLUMN_BS  + " text, " +
-        COLUMN_PH  + " text, " +
-        COLUMN_WIP  + " text, " +
-        COLUMN_ARM  + " text, " +
-        COLUMN_BTS  + " text, " +
-        COLUMN_WOUNDS  + " text, " +
-        COLUMN_WOUNDS_TYPE  + " text, " +
-        COLUMN_SILHOUETTE  + " text, " +
-        COLUMN_IRR  + " integer, " + // boolean
-        COLUMN_IMP  + " text, " +
-        COLUMN_CUBE  + " text, " +
-        COLUMN_NOTE + " text, " +
-        COLUMN_ISC + " text, " +
-        COLUMN_NAME + " text, " +
-        COLUMN_TYPE  + " text, " +
-        COLUMN_HACKABLE  + " integer, " + // boolean
-        COLUMN_BSW  + " text, " +
-        COLUMN_CCW + " text, " +
-        COLUMN_SPEC  + " text, " +
-        COLUMN_OPTION_SPECIFIC  + " text, " +
-        COLUMN_ALL_DIE   + " text, " +
-        COLUMN_AVA  + " text " +
-        ");";
+            COLUMN_ID + " integer primary key, " +
+            COLUMN_UNIT_ID + " integer, " +
+            COLUMN_MOV + " text, " +
+            COLUMN_CC + " text, " +
+            COLUMN_BS + " text, " +
+            COLUMN_PH + " text, " +
+            COLUMN_WIP + " text, " +
+            COLUMN_ARM + " text, " +
+            COLUMN_BTS + " text, " +
+            COLUMN_WOUNDS + " text, " +
+            COLUMN_WOUNDS_TYPE + " text, " +
+            COLUMN_SILHOUETTE + " text, " +
+            COLUMN_IRR + " integer, " + // boolean
+            COLUMN_IMP + " text, " +
+            COLUMN_CUBE + " text, " +
+            COLUMN_NOTE + " text, " +
+            COLUMN_ISC + " text, " +
+            COLUMN_NAME + " text, " +
+            COLUMN_TYPE + " text, " +
+            COLUMN_HACKABLE + " integer, " + // boolean
+            COLUMN_BSW + " text, " +
+            COLUMN_CCW + " text, " +
+            COLUMN_SPEC + " text, " +
+            COLUMN_OPTION_SPECIFIC + " text, " +
+            COLUMN_ALL_DIE + " text, " +
+            COLUMN_AVA + " text " +
+            ");";
 
     private static final String CREATE_TABLE_WEAPONS = "create table " + TABLE_WEAPONS + " (" +
-        COLUMN_ID + " integer primary key, " +
-        COLUMN_AMMO + " text, " +
-        COLUMN_BURST + " text, " +
-        COLUMN_CC + " text, " +
-        COLUMN_DAMAGE + " text, " +
-        COLUMN_EM_VUL + " text, " +
-        COLUMN_LONG_DIST + " text, " +
-        COLUMN_LONG_MOD + " text, " +
-        COLUMN_MAX_DIST + " text, " +
-        COLUMN_MAX_MOD + " text, " +
-        COLUMN_MEDIUM_DIST + " text, " +
-        COLUMN_MEDIUM_MOD + " text, " +
-        COLUMN_NAME + " text, " +
-        COLUMN_NOTE + " text, " +
-        COLUMN_SHORT_DIST + " text, " +
-        COLUMN_SHORT_MOD + " text, " +
-        COLUMN_TEMPLATE + " text, " +
-        COLUMN_USES + " text, " +
-        COLUMN_ATTR + " text, " +
-        COLUMN_SUPPRESSIVE + " text, " +
-        COLUMN_ALT_PROFILE + " text, " +
-        COLUMN_MODE + " text " +
-        ");";
+            COLUMN_ID + " integer primary key, " +
+            COLUMN_AMMO + " text, " +
+            COLUMN_BURST + " text, " +
+            COLUMN_CC + " text, " +
+            COLUMN_DAMAGE + " text, " +
+            COLUMN_EM_VUL + " text, " +
+            COLUMN_LONG_DIST + " text, " +
+            COLUMN_LONG_MOD + " text, " +
+            COLUMN_MAX_DIST + " text, " +
+            COLUMN_MAX_MOD + " text, " +
+            COLUMN_MEDIUM_DIST + " text, " +
+            COLUMN_MEDIUM_MOD + " text, " +
+            COLUMN_NAME + " text, " +
+            COLUMN_NOTE + " text, " +
+            COLUMN_SHORT_DIST + " text, " +
+            COLUMN_SHORT_MOD + " text, " +
+            COLUMN_TEMPLATE + " text, " +
+            COLUMN_USES + " text, " +
+            COLUMN_ATTR + " text, " +
+            COLUMN_SUPPRESSIVE + " text, " +
+            COLUMN_ALT_PROFILE + " text, " +
+            COLUMN_MODE + " text " +
+            ");";
 
 
     private static final String CREATE_TABLE_ARMY = "create table " + TABLE_ARMY + " ( " +
@@ -223,13 +223,13 @@ public class InfinityDatabase extends SQLiteOpenHelper {
 
     private final static String TAG = InfinityDatabase.class.getSimpleName();
 
-     public InfinityDatabase(Context context) {
+    public InfinityDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-         m_context = context;
-     }
+        m_context = context;
+    }
 
-     @Override
-     public void onCreate(SQLiteDatabase db) {
+    @Override
+    public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_WEAPONS);
         db.execSQL(CREATE_TABLE_UNITS);
         db.execSQL(CREATE_TABLE_OPTIONS);
@@ -260,17 +260,17 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         WeaponParser weaponParser = new WeaponParser(m_context);
         WeaponsData weaponsData = new WeaponsData(db);
         weaponsData.writeWeapons(weaponParser.parse(R.raw.weapons));
-     }
+    }
 
-     @Override
-     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-         db.execSQL("DROP TABLE IF EXISTS " + TABLE_WEAPONS);
-         db.execSQL("DROP TABLE IF EXISTS " + TABLE_UNITS);
-         db.execSQL("DROP TABLE IF EXISTS " + TABLE_OPTIONS);
-         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
-         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY);
-         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_UNITS);
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WEAPONS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_UNITS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_OPTIONS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_UNITS);
 
-         onCreate(db);
-     }
+        onCreate(db);
+    }
 }

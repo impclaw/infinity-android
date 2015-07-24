@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Created by cgordon on 5/25/2015.
  */
-public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
+public class ArmyAdapter extends RecyclerView.Adapter<ArmyAdapter.ViewHolder> {
 
     private final static String TAG = ArmyAdapter.class.getSimpleName();
 
@@ -80,7 +80,7 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
         resourceName = resourceName.toLowerCase().replace(" ", "_");
 
         int resourceId = m_resources.getIdentifier(resourceName, "drawable", m_context.getPackageName());
-            holder.m_imageView.setImageResource(resourceId);
+        holder.m_imageView.setImageResource(resourceId);
 
         holder.m_cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,15 +105,13 @@ public class ArmyAdapter extends RecyclerView.Adapter <ArmyAdapter.ViewHolder> {
         public ImageView m_imageView;
         public CardView m_cardView;
 
-        public ViewHolder(View itemView)
-        {
+        public ViewHolder(View itemView) {
             super(itemView);
             m_imageView = (ImageView) itemView.findViewById(R.id.image_view);
             m_textView = (TextView) itemView.findViewById(R.id.text_view);
             m_cardView = (CardView) itemView.findViewById(R.id.card_view);
         }
     }
-
 
 
 }

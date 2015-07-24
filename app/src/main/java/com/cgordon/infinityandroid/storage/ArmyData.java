@@ -35,7 +35,7 @@ public class ArmyData {
             InfinityDatabase.COLUMN_ARMY_ID,
             InfinityDatabase.COLUMN_AVA,
             InfinityDatabase.COLUMN_ISC,
-            InfinityDatabase.COLUMN_LINKABLE ,
+            InfinityDatabase.COLUMN_LINKABLE,
             InfinityDatabase.COLUMN_FACTION
     };
 
@@ -61,9 +61,9 @@ public class ArmyData {
         Iterator it = armies.iterator();
 
         while (it.hasNext()) {
-            Army army = (Army)it.next();
+            Army army = (Army) it.next();
 
-            long armyId = writeArmy(army) ;
+            long armyId = writeArmy(army);
 
             if (armyId == -1) {
                 Log.d(TAG, "Failed insert");

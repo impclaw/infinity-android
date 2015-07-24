@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
 
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.cgordon.infinityandroid.fragment.UnitListFragment"
         tools:layout="@layout/fragment_recycler_view"
-        android:id="@+id/unit_list"/>
+        android:id="@+id/unit_list" />
 
 </LinearLayout>

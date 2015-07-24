@@ -5,7 +5,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by cgordon on 5/30/2015.
