@@ -34,10 +34,6 @@
                 android:orientation="vertical"
                 android:id="@+id/weapon_container">
 
-                <include layout="@layout/row_weapon" />
-
-                <include layout="@layout/row_weapon" />
-
             </LinearLayout>
 
         </LinearLayout>
