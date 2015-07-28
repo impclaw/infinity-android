@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -129,6 +130,7 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.ViewHo
         int resourceId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
 
         if (resourceId == 0) {
+            Log.d(TAG, "Missing resource: " + resourceName);
             String factionResource = UnitListAdapter.prepareDrawableResource(unit.faction + imageSize);
             resourceId = context.getResources().getIdentifier(factionResource, "drawable", context.getPackageName());
         }
@@ -138,7 +140,7 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.ViewHo
 
     public static String prepareDrawableResource(String resourceName) {
         return resourceName.toLowerCase().replace(" ", "_").replace("-", "_").replace(",", "")
-                .replace(":", "").replace(".", "").replace("'", "");
+                .replace(":", "").replace(".", "").replace("'", "").replace('é', 'e');
     }
 
     @Override

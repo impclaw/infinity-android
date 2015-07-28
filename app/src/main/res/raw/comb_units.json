@@ -1532,7 +1532,8 @@
         "spec": [],
         "bsw": [
           "Chain Rifle",
-          "Smoke Grenades"
+                     "Smoke Grenades",
+                     "Grenades"
         ],
         "ccw": [
           "AP CCW"

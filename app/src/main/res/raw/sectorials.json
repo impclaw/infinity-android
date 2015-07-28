@@ -814,6 +814,69 @@
     ]
   },
   {
+    "army": "Ariadna",
+    "name": "USAriadna Ranger Force",
+    "abbr" : "USAriadna",
+    "units": [
+      {
+        "ava": "2",
+        "isc": "112, Emergency Service"
+      },
+      {
+        "ava": "1",
+        "isc": "Dozers, Field Engineers"
+      },
+      {
+        "ava": "1",
+        "isc": "Intel Spec-Ops"
+      },
+      {
+        "ava": "1",
+        "isc": "Van Zant"
+      },
+      {
+        "ava": "1",
+        "isc": "Warcor",
+        "army" : "Mercenary"
+      },
+      {
+        "ava": "T",
+        "isc": "USAriadna Grunts",
+        "linkable": true
+      },
+      {
+        "ava": "5",
+        "isc": "Marauders, 5307th Ranger Unit",
+        "linkable": true
+      },
+      {
+        "ava": "5",
+        "isc": "Mavericks, 9th Motorized Recon Bat."
+      },
+      {
+        "ava": "5",
+        "isc": "Minutemen",
+        "linkable": true
+      },
+      {
+        "ava": "2",
+        "isc": "Traktor Mul, Artillery and Support Regiment"
+      },
+      {
+        "ava": "4",
+        "isc": "Foxtrot"
+      },
+      {
+        "ava": "3",
+        "isc": "Hardcases"
+      },
+      {
+        "ava": "3",
+        "isc": "Devil Dog Teams, 2nd Assault Bat."
+      }
+    ]
+  },
+  {
     "army": "Haqqislam",
     "name": "Qapu Khalqi",
     "units": [
@@ -1635,5 +1698,5 @@
         "army": "Mercenary"
       }
     ]
-  }
+ }
 ]

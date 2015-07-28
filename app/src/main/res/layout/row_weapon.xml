@@ -84,9 +84,11 @@
         android:text="Note:" />
 
     <View
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/background_material_dark" />
+        android:background="@color/colourPrimary"
+        />
+    <!--android:background="@color/background_material_dark" -->
 
 </RelativeLayout>
