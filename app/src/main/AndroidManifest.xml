@@ -40,6 +40,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.cgordon.infinityandroid.activity.MainActivity" />
         </activity>
+        <activity
+            android:name=".activity.ListConstructionActivity"
+            android:label="@string/title_list_construction"
+            android:parentActivityName=".activity.UnitListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.cgordon.infinityandroid.activity.UnitListActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -37,5 +37,10 @@
     <string name="AlphaUnitListSummary">Show the units in alphabetical order instead of LI, MI, HI, etc.</string>
     <string name="ShowMercsTitle">Show Mercenaries</string>
     <string name="ShowMercsSummary">Display mercenaries as part of the main Armies. Appropriate mercenaries will always show in Sectorials.</string>
+    <string name="title_list_construction">List Construction</string>
+    <string name="UnitList">Unit List</string>
+    <string name="Unit">Unit</string>
+    <string name="List">List</string>
+    <string name="action_create">Create</string>
 
 </resources>

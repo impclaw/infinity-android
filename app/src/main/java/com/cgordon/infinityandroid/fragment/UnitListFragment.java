@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,10 +48,14 @@ public class UnitListFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
-        FragmentActivity activity = getActivity();
-        if (activity instanceof ArmyProvider) {
-            m_army = ((ArmyProvider) activity).getArmy();
-        }
+        m_army = getArguments().getParcelable(MainActivity.ARMY);
+
+        Log.d(TAG, "m_army: " + m_army);
+
+//        FragmentActivity activity = getActivity();
+//        if (activity instanceof ArmyProvider) {
+//            m_army = ((ArmyProvider) activity).getArmy();
+//        }
 
         m_recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         m_recyclerView.setHasFixedSize(true);
@@ -99,11 +104,6 @@ public class UnitListFragment extends Fragment {
 
         return view;
     }
-
-    public interface ArmyProvider {
-        public Army getArmy();
-    }
-
 
     public interface UnitSelectedListener {
         public void unitSelected(Unit unit, final UnitListAdapter.ViewHolder viewHolder);

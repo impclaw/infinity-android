@@ -1,5 +1,6 @@
 package com.cgordon.infinityandroid.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.activity.ListConstructionActivity;
 import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.adapter.WeaponsAdapter;
 import com.cgordon.infinityandroid.data.Option;
@@ -28,7 +30,7 @@ import java.util.Set;
 /**
  * Created by cgordon on 6/10/2015.
  */
-public class UnitFragment extends Fragment {
+public class UnitFragment extends Fragment implements ListConstructionActivity.UnitChangedListener {
 
     private final static String TAG = UnitFragment.class.getSimpleName();
 
@@ -47,8 +49,6 @@ public class UnitFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        Log.d(TAG, getActivity().toString());
         View v = inflater.inflate(R.layout.fragment_unit, container, false);
 
         m_linearLayout = (LinearLayout) v.findViewById(R.id.weapon_container);
@@ -58,6 +58,15 @@ public class UnitFragment extends Fragment {
         //profileFragment.setArguments(getIntent().getExtras());
 
         return v;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (activity instanceof ListConstructionActivity) {
+            ((ListConstructionActivity) activity).addUnitChangedListener(this);
+
+        }
     }
 
     public void setUnit(Unit unit) {
@@ -93,6 +102,7 @@ public class UnitFragment extends Fragment {
             bundle.putParcelable(MainActivity.UNIT, m_unit);
             bundle.putInt(MainActivity.INDEX, i);
             optionsFragment.setArguments(bundle);
+
 
             m_fragments.add(0, optionsFragment);
 
@@ -162,21 +172,18 @@ public class UnitFragment extends Fragment {
 
         bsw.addAll(ccw);
 
+        m_linearLayout.removeAllViews();
 
         WeaponsAdapter adapter = new WeaponsAdapter(getActivity(), R.layout.row_weapon, bsw);
         for (int i = 0; i < adapter.getCount(); i++) {
             m_linearLayout.addView(adapter.getView(i, null, null));
         }
 
-//
-//        WeaponsFragment weaponsFragment = new WeaponsFragment();
-//        Bundle bundle  = new Bundle();
-//        bundle.putParcelable(MainActivity.UNIT, m_unit);
-//        weaponsFragment.setArguments(bundle);
-//        m_fragments.add(0, weaponsFragment);
-//        transaction.add(R.id.fragment_container, weaponsFragment);
+    }
 
-
+    @Override
+    public void OnUnitChanged(Unit unit) {
+        setUnit(unit);
     }
 
 }

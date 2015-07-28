@@ -1,15 +1,20 @@
 package com.cgordon.infinityandroid.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v4.util.Pair;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -18,6 +23,7 @@ import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
+import com.cgordon.infinityandroid.fragment.ProfileFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.storage.ArmyData;
 import com.cgordon.infinityandroid.storage.WeaponsData;
@@ -30,7 +36,8 @@ import java.util.Set;
 /**
  * Created by cgordon on 6/24/2015.
  */
-public class UnitListActivity extends AppCompatActivity implements UnitListFragment.ArmyProvider,
+public class UnitListActivity extends AppCompatActivity
+        implements
         UnitListFragment.UnitSelectedListener {
 
     public static final String TRANSITION_IMAGE = "Transition:image";
@@ -44,6 +51,7 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_unit_list);
 
         if (savedInstanceState != null) {
             m_army = savedInstanceState.getParcelable(MainActivity.ARMY);
@@ -54,14 +62,25 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
             onResume();
         }
 
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        UnitListFragment unitListFragment = new UnitListFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(MainActivity.ARMY, m_army);
+        unitListFragment.setArguments(bundle);
+
+        transaction.add(R.id.fragment_container, unitListFragment);
+
+        transaction.commit();
+
         WeaponsData weaponsData = new WeaponsData(this);
         weaponsData.open();
         m_weapons = weaponsData.getWeapons();
         weaponsData.close();
 
         Log.d(TAG, m_army.toString());
-
-        setContentView(R.layout.activity_unit_list);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -85,10 +104,24 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_unit_list, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.home) {
-            NavUtils.navigateUpFromSameTask(this);
-            return true;
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            case R.id.action_create:
+                Intent i = new Intent(this, ListConstructionActivity.class);
+                i.putExtra(MainActivity.ARMY, m_army);
+                startActivity(i);
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -112,11 +145,6 @@ public class UnitListActivity extends AppCompatActivity implements UnitListFragm
             m_army = armyData.getArmy(dbId);
             armyData.close();
         }
-    }
-
-    @Override
-    public Army getArmy() {
-        return m_army;
     }
 
     @Override

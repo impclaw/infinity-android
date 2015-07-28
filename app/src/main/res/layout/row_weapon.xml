@@ -87,7 +87,7 @@
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/colourPrimary"
+        android:background="@color/colourAccent"
         />
     <!--android:background="@color/background_material_dark" -->
 

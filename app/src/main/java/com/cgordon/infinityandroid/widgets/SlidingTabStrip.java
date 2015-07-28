@@ -1,4 +1,4 @@
-package com.christiedigital.android.virtualremote.widget;
+package com.cgordon.infinityandroid.widgets;
 
 /*
  * Copyright 2014 Google Inc. All rights reserved.

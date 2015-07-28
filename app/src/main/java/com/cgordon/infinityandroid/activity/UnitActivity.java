@@ -86,4 +86,10 @@ public class UnitActivity extends AppCompatActivity {
 
     }
 
+    public void optionClicked(View view) {
+        Log.d(TAG, "option clicked: " + view);
+    }
+
+
+
 }
