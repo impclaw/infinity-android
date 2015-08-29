@@ -1,3 +1,20 @@
+/*
+ * Copyright 2015 by Chris Gordon
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package com.cgordon.infinityandroid.storage;
 
 import android.content.Context;
@@ -23,6 +40,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public static final String TABLE_PROFILES = "profiles";
     public static final String TABLE_ARMY = "army";
     public static final String TABLE_ARMY_UNITS = "army_units";
+    public static final String TABLE_ARMY_LISTS = "army_lists";
+    public static final String TABLE_ARMY_LIST_UNITS = "army_list_units";
 
     // ===== UNITS COLUMNS =====
     public static final String COLUMN_AVA = "ava";
@@ -121,6 +140,32 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_LINKABLE = "linkable";
     // COLUMN_FACTION
 
+    // ===== ARMY LIST DATA =====
+    // COLUMN_ID
+    // COLUMN_NAME; String name,
+    // COLUMN_ARMY_ID; long armyId,
+    public static final String COLUMN_POINTS = "points";
+
+    // ===== ARMY LIST UNIT DATA =====
+    // COLUMN_ID
+    public static final String COLUMN_LIST_ID = "list_id";  // long listId,
+    // COLUMN_UNIT_ID; long unitId,
+    // COLUMN_PROFILE; int profile)
+
+
+    private static final String CREATE_TABLE_ARMY_LISTS = "create table " + TABLE_ARMY_LISTS + " ( " +
+            COLUMN_ID + " integer primary key, " +
+            COLUMN_NAME + " text, " +
+            COLUMN_ARMY_ID + " integer, " +
+            COLUMN_POINTS + " integer " +
+            ");";
+
+    private static final String CREATE_TABLE_ARMY_LIST_UNITS = "create table " + TABLE_ARMY_LIST_UNITS+ " ( " +
+            COLUMN_ID + " integer primary key, " +
+            COLUMN_LIST_ID + " integer, " +
+            COLUMN_UNIT_ID + " integer, " +
+            COLUMN_PROFILE + " integer " +
+            ");";
 
     private static final String CREATE_TABLE_UNITS = "create table " + TABLE_UNITS + " ( " +
             COLUMN_ID + " integer primary key, " +
@@ -236,6 +281,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_PROFILES);
         db.execSQL(CREATE_TABLE_ARMY);
         db.execSQL(CREATE_TABLE_ARMY_UNITS);
+        db.execSQL(CREATE_TABLE_ARMY_LISTS);
+        db.execSQL(CREATE_TABLE_ARMY_LIST_UNITS);
 
         // Load units
         UnitParser unitParser = new UnitParser(m_context);
@@ -270,6 +317,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_UNITS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LISTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LIST_UNITS);
 
         onCreate(db);
     }
