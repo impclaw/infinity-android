@@ -3018,6 +3018,7 @@
     "bts": "0",
     "isc": "Traktor Mul, Artillery and Support Regiment",
     "name": "Traktor Mul",
+    "image": "Traktor_Mul",
     "bs": "10",
     "note": "",
     "cube": "R",
@@ -4170,6 +4171,7 @@
   {
     "isc": "Marauders, 5307th Ranger Unit",
     "name": "Marauder",
+    "image": "Marauders",
     "army": "Ariadna",
     "type": "MI",
     "imp": "",
@@ -4322,6 +4324,7 @@
   {
     "isc": "Mavericks, 9th Motorized Recon Bat.",
     "name": "Maverick",
+    "image": "Mavericks",
     "army": "Ariadna",
     "profiles": [
       {
@@ -4419,6 +4422,7 @@
   {
     "isc": "Devil Dog Teams, 2nd Assault Bat.",
     "name": "Devil Dog",
+    "image": "Devil_Dogs",
     "army": "Ariadna",
     "profiles": [
       {

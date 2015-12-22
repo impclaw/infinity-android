@@ -75,7 +75,7 @@ public class ProfileFragment extends Fragment {
         stat.setText(profile.silhouette);
 
         stat = (TextView) view.findViewById(R.id.ava);
-        if ((profile.ava != null) && (!profile.ava.isEmpty())) {
+        if ((profile.ava != null) && (profile.ava.isEmpty())) {
             stat.setText(profile.ava);
         } else {
             stat.setText(unit.ava);

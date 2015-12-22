@@ -33,6 +33,7 @@ import com.cgordon.infinityandroid.data.Unit;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 public class UnitsData {
@@ -281,6 +282,10 @@ public class UnitsData {
 
                     }
                 }
+
+
+
+
                 return units;
             } else {
 
@@ -316,6 +321,26 @@ public class UnitsData {
                 printCursor(cursor);
                 List<Unit> armyUnits = getArmyUnits(cursor);
                 cursor.close();
+
+                // remove mercenary duplicates - because we're using a non-unique key to join the
+                // tables, we get duplicate entries if the unit is available as both a faction and
+                // mercenary unit (ie. KTS in Qapu Khalki).  go through and remove the mercenary
+                // entry
+
+                Iterator i = armyUnits.iterator();
+
+                Log.d(TAG, "Loaded units");
+                String previousUnit = "";
+                while (i.hasNext())
+                {
+                    Unit u = (Unit) i.next();
+                    if (u.isc.compareTo(previousUnit) == 0) {
+                        i.remove();
+                    } else {
+                        previousUnit = u.isc;
+                    }
+                }
+
                 return armyUnits;
             }
         } finally {
