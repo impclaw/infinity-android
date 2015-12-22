@@ -2056,6 +2056,7 @@
     "army": "Haqqislam",
     "isc": "Kasym Beg",
     "name": "Kasym Beg",
+    "image": "Kum Motorized Troops",
     "sharedAva": "Kasym Beg",
     "ava": "1",
     "profiles": [
@@ -2127,7 +2128,7 @@
     "isc": "Kasym Beg (Lieutenant)",
     "name": "Kasym Beg Lt.",
     "sharedAva": "Kasym Beg",
-    "image": "Kasym Beg",
+    "image": "Kum Motorized Troops",
     "ava": "1",
     "profiles": [
       {
@@ -2990,6 +2991,7 @@
     "bts": "0",
     "isc": "Hussein Al-Djabel",
     "name": "Al-Djabel",
+    "image": "Hassassin Fiday",
     "bs": "12",
     "note": "",
     "cube": "",
@@ -4114,6 +4116,7 @@
     "army": "Haqqislam",
     "isc": "Zamira Nazarova",
     "name": "Zamira",
+    "image": "Kum Motorized Troops",
     "profiles": [
       {
         "wip": "13",
@@ -4178,6 +4181,7 @@
     "army": "Haqqislam",
     "isc": "Zuleyka Nazarova",
     "name": "Zuleyka",
+    "image": "Kum Motorized Troops",
     "profiles": [
       {
         "wip": "14",
