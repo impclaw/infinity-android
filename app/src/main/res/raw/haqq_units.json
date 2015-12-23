@@ -2464,13 +2464,13 @@
       },
       {
         "code": "Default",
-        "cost": "38",
-        "codename": "HMG",
+        "cost": "41",
+        "codename": "AP HMG",
         "swc": "2",
         "cbcode": [],
         "spec": [],
         "bsw": [
-          "HMG"
+          "AP HMG"
         ],
         "ccw": [],
         "note": ""
