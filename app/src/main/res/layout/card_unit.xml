@@ -50,7 +50,7 @@
                 android:src="@drawable/panoceania_48" />
             <!--android:layout_centerInParent="true"-->
             <TextView
-                android:id="@+id/text_view"
+                android:id="@+id/text_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/image_view"

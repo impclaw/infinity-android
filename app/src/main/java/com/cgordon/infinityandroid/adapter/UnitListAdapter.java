@@ -176,7 +176,7 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.ViewHo
         public ViewHolder(View itemView) {
             super(itemView);
             m_imageView = (ImageView) itemView.findViewById(R.id.image_view);
-            m_textView = (TextView) itemView.findViewById(R.id.text_view);
+            m_textView = (TextView) itemView.findViewById(R.id.text_name);
             m_type = (TextView) itemView.findViewById(R.id.type);
             m_cardView = (CardView) itemView.findViewById(R.id.card_view);
         }

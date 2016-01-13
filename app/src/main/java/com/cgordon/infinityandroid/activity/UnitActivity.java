@@ -95,7 +95,7 @@ public class UnitActivity extends AppCompatActivity {
 
 //        ViewCompat.setTransitionName(toolbar, UnitListActivity.TRANSITION_UNIT_NAME);
 
-        TextView textView = (TextView) findViewById(R.id.text_view);
+        TextView textView = (TextView) findViewById(R.id.text_name);
 //        textView.setText(m_unit.toString());
 
     }
