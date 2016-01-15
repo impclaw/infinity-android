@@ -60,5 +60,7 @@
     <string name="Unit">Unit</string>
     <string name="List">List</string>
     <string name="action_create">Create</string>
+    <string name="unit_logo">Unit logo</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

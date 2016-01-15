@@ -29,9 +29,10 @@ import android.widget.TextView;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.fragment.OptionsFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 
-public class UnitActivity extends AppCompatActivity {
+public class UnitActivity extends AppCompatActivity implements OptionsFragment.OnOptionSelectedListener {
 
     private static final String TAG = UnitActivity.class.getSimpleName();
     private Unit m_unit;
@@ -100,10 +101,8 @@ public class UnitActivity extends AppCompatActivity {
 
     }
 
-    public void optionClicked(View view) {
-        Log.d(TAG, "option clicked: " + view);
+    @Override
+    public void onOptionSelected(int option) {
+        Log.d(TAG, "option selected: " + option);
     }
-
-
-
 }

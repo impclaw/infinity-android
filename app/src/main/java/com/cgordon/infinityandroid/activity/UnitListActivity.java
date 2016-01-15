@@ -94,7 +94,7 @@ public class UnitListActivity extends AppCompatActivity
         m_weapons = weaponsData.getWeapons();
         weaponsData.close();
 
-        Log.d(TAG, m_army.toString());
+        //Log.d(TAG, m_army.toString());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -163,7 +163,7 @@ public class UnitListActivity extends AppCompatActivity
 
     @Override
     public void unitSelected(Unit unit, UnitListAdapter.ViewHolder viewHolder) {
-        Log.d(TAG, unit.toString());
+        //Log.d(TAG, unit.toString());
         Intent intent = new Intent(this, UnitActivity.class);
 
         StringBuffer sb = new StringBuffer();

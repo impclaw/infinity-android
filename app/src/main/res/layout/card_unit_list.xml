@@ -23,7 +23,7 @@
     android:layout_height="wrap_content"
     android:layout_weight="1"
     android:orientation="vertical"
-    android:padding="@dimen/army_card_padding">
+    >
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
@@ -44,24 +44,23 @@
                 android:id="@+id/image_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/panoceania_48"
                 android:padding="4dp"
+                android:contentDescription="@string/unit_logo"
                 />
                 <!--android:layout_centerInParent="true"-->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/text_name"
+                    android:id="@+id/text_isc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/image_view"
-                    android:gravity="left|center_vertical"
+                    android:gravity="start|center_vertical"
                     android:padding="4dp"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
@@ -69,12 +68,10 @@
                     android:text="Chaksa"
                     android:textAlignment="center" />
                 <TextView
-                    android:id="@+id/text_profile"
+                    android:id="@+id/text_option"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/image_view"
-                    android:layout_below="@id/text_name"
-                    android:gravity="left|center_vertical"
+                    android:gravity="start|center_vertical"
                     android:padding="4dp"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
@@ -88,7 +85,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/text_name"
                     android:id="@+id/text_points"
                     android:padding="4dp"
                     android:paddingLeft="8dp"
@@ -100,14 +96,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/text_name"
-                    android:layout_below="@id/text_points"
                     android:id="@+id/text_swc"
                     android:padding="4dp"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
                     android:text="1"
-                    android:textAlignment="textEnd"
                     android:gravity="end"
                     />
             </LinearLayout>
@@ -115,7 +108,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@android:drawable/ic_menu_close_clear_cancel"
-
+                android:id="@+id/delete"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/cancel"
                 />
 
 

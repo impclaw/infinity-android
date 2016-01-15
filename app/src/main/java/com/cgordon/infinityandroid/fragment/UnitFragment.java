@@ -200,4 +200,9 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         setUnit(unit);
     }
 
+    public void optionClicked(View view) {
+        Log.d(TAG, "option clicked: " + view);
+
+    }
+
 }

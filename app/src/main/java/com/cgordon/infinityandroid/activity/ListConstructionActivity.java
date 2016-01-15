@@ -25,28 +25,30 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.fragment.ArmyListFragment;
 import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
+import com.cgordon.infinityandroid.fragment.OptionsFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.widgets.SlidingTabLayout;
 
 public class ListConstructionActivity extends AppCompatActivity
-    implements UnitListFragment.UnitSelectedListener
+    implements UnitListFragment.UnitSelectedListener, OptionsFragment.OnOptionSelectedListener
 {
 
     UnitChangedListener m_unitChangedListener = null;
+
+    private Unit m_currentSelectedUnit = null;
 
     private final static String TAG = AppCompatActivity.class.getSimpleName();
     private ViewPager m_pager;
     private Army m_army;
     private ListConstructionPagerAdapter m_adapter;
+    private OptionSelectedListener m_optionListener;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +63,7 @@ public class ListConstructionActivity extends AppCompatActivity
         m_pager = (ViewPager) findViewById(R.id.pager);
         m_adapter = new ListConstructionPagerAdapter(getSupportFragmentManager());
         m_pager.setAdapter(m_adapter);
+        m_pager.setOffscreenPageLimit(3);
         SlidingTabLayout tabs = (SlidingTabLayout) findViewById(R.id.tabs);
         tabs.setViewPager(m_pager);
 
@@ -70,11 +73,24 @@ public class ListConstructionActivity extends AppCompatActivity
 
     public void unitSelected(Unit unit, UnitListAdapter.ViewHolder viewHolder) {
         m_unitChangedListener.OnUnitChanged(unit);
+        m_currentSelectedUnit = unit;
+        Log.d(TAG, "Unit Selected: " + unit.dbId);
         m_pager.setCurrentItem(1);
     }
 
     public void addUnitChangedListener(UnitChangedListener listener) {
         m_unitChangedListener = listener;
+    }
+
+    @Override
+    public void onOptionSelected(int option) {
+        Log.d(TAG, "Option Selected: " + option);
+        m_optionListener.OnOptionSelected(m_currentSelectedUnit, option);
+        m_pager.setCurrentItem(2);
+    }
+
+    public void addOptionChangedListener(OptionSelectedListener optionListener) {
+        m_optionListener = optionListener;
     }
 
     class ListConstructionPagerAdapter extends FragmentPagerAdapter {
@@ -125,10 +141,16 @@ public class ListConstructionActivity extends AppCompatActivity
         public void OnUnitChanged(Unit unit);
     }
 
-    public void optionClicked(View view) {
-        Log.d(TAG, "option clicked: " + view);
-        m_pager.setCurrentItem(2);
+    public interface OptionSelectedListener {
+        public void OnOptionSelected(Unit unitDBid, int option);
     }
+
+
+//    public void optionClicked(View view) {
+//        Log.d(TAG, "option clicked: " + view);
+//
+//        m_pager.setCurrentItem(2);
+//    }
 
 
 
