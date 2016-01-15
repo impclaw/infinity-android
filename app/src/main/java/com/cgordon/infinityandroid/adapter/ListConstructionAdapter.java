@@ -49,12 +49,10 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
         m_list = new ArrayList<>();
     }
 
-    @Override
-    public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
-        super.onDetachedFromRecyclerView(recyclerView);
+    public void delete(int position) {
+        m_list.remove(position);
+        notifyItemRemoved(position);
     }
-
-
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
@@ -69,8 +67,6 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
         holder.m_option.setText(option.code);
         holder.m_points.setText(Integer.toString(option.cost));
         holder.m_swc.setText(Double.toString(option.swc));
-
-
     }
 
     public void addUnit(Unit unit, int option) {
@@ -91,7 +87,7 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
         return vh;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView m_image;
         public TextView m_isc;
@@ -102,7 +98,9 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
 
         public CardView m_cardView;
 
-        public ViewHolder(View itemView) {
+
+
+        public ViewHolder(final View itemView) {
             super(itemView);
             m_image = (ImageView) itemView.findViewById(R.id.image_view);
             m_isc = (TextView) itemView.findViewById(R.id.text_isc);
@@ -111,6 +109,14 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
             m_swc = (TextView) itemView.findViewById(R.id.text_swc);
             m_delete = (ImageButton) itemView.findViewById(R.id.delete);
             m_cardView = (CardView) itemView.findViewById(R.id.card_view);
+
+            m_delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    delete(getAdapterPosition());
+                }
+            });
+
         }
     }
 }
