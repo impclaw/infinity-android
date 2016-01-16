@@ -24,7 +24,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +34,7 @@ import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.data.Unit;
 
 public class ListConstructionFragment extends Fragment
-        implements ListConstructionActivity.OptionSelectedListener{
+        implements ListConstructionActivity.OptionSelectedListener {
 
     private static final String TAG = ListConstructionFragment.class.getSimpleName();
 
@@ -55,8 +54,12 @@ public class ListConstructionFragment extends Fragment
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
-        m_recyclerView.setLayoutManager( layoutManager );
+        m_recyclerView.setLayoutManager(layoutManager);
         m_adapter = new ListConstructionAdapter(getActivity());
+        if (getActivity() instanceof ListConstructionAdapter.OnListChanged) {
+            m_adapter.setListChangedListener((ListConstructionAdapter.OnListChanged) getActivity());
+        }
+
         m_recyclerView.setAdapter(m_adapter);
 
         return v;
@@ -82,7 +85,7 @@ public class ListConstructionFragment extends Fragment
         super.onAttach(activity);
 
         if (activity instanceof ListConstructionActivity) {
-            ((ListConstructionActivity) activity).addOptionChangedListener(this);
+            ((ListConstructionActivity) activity).setOptionChangedListener(this);
 
         }
 
@@ -90,7 +93,6 @@ public class ListConstructionFragment extends Fragment
 
     @Override
     public void OnOptionSelected(Unit unit, int option) {
-        Log.d(TAG, "Got unit: " + unit + " option: " + option);
         m_adapter.addUnit(unit, option);
     }
 }

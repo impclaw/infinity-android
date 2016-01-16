@@ -27,6 +27,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
@@ -37,7 +38,8 @@ import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.widgets.SlidingTabLayout;
 
 public class ListConstructionActivity extends AppCompatActivity
-    implements UnitListFragment.UnitSelectedListener, OptionsFragment.OnOptionSelectedListener
+    implements UnitListFragment.UnitSelectedListener, OptionsFragment.OnOptionSelectedListener,
+        ListConstructionAdapter.OnListChanged
 {
 
     UnitChangedListener m_unitChangedListener = null;
@@ -49,6 +51,7 @@ public class ListConstructionActivity extends AppCompatActivity
     private Army m_army;
     private ListConstructionPagerAdapter m_adapter;
     private OptionSelectedListener m_optionListener;
+    private ListStatusListener m_listStatusListener;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,8 +92,18 @@ public class ListConstructionActivity extends AppCompatActivity
         m_pager.setCurrentItem(2);
     }
 
-    public void addOptionChangedListener(OptionSelectedListener optionListener) {
+    public void setOptionChangedListener(OptionSelectedListener optionListener) {
         m_optionListener = optionListener;
+    }
+
+    public void setListStatusChangedListener( ListStatusListener listStatusListener) {
+        m_listStatusListener = listStatusListener;
+    }
+
+    @Override
+    public void listStatus(int cost, double swc, int lieutenantCount) {
+        Log.d(TAG, "Cost: " + cost + " SWC: " + swc + " LT.: " + lieutenantCount);
+        m_listStatusListener.OnListStatusChanged(cost, swc, lieutenantCount);
     }
 
     class ListConstructionPagerAdapter extends FragmentPagerAdapter {
@@ -145,6 +158,9 @@ public class ListConstructionActivity extends AppCompatActivity
         public void OnOptionSelected(Unit unitDBid, int option);
     }
 
+    public interface ListStatusListener {
+        public void OnListStatusChanged(int cost, double swc, int lieutenantCount);
+    }
 
 //    public void optionClicked(View view) {
 //        Log.d(TAG, "option clicked: " + view);

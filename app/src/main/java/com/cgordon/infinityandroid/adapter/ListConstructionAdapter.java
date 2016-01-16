@@ -33,6 +33,7 @@ import com.cgordon.infinityandroid.data.Unit;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -44,13 +45,49 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
 
     private Context m_context;
 
+//    int m_totalCost = 0;
+//    double m_totalSWC = 0;
+    private OnListChanged m_listener;
+
+    public interface OnListChanged {
+        public void listStatus(int cost, double swc, int lieutenantCount);
+    }
+
+    public void setListChangedListener(OnListChanged listener) {
+        m_listener = listener;
+    }
+
+
     public ListConstructionAdapter(Context context) {
         m_context = context;
         m_list = new ArrayList<>();
     }
 
+    private void updateListener() {
+        Iterator it = m_list.iterator();
+        int costTotal = 0;
+        double swcTotal = 0;
+        int ltCount = 0;
+
+        while (it.hasNext()) {
+            Entry e = (Entry)it.next();
+            Unit unit = (Unit) e.getKey();
+            int option = (int) e.getValue();
+            costTotal += unit.options.get(option).cost;
+            swcTotal += unit.options.get(option).swc;
+
+            if (unit.options.get(option).spec.contains("Lieutenant")) {
+                ltCount++;
+            }
+        }
+
+
+        m_listener.listStatus(costTotal, swcTotal, ltCount);
+    }
+
     public void delete(int position) {
         m_list.remove(position);
+        updateListener();
         notifyItemRemoved(position);
     }
 
@@ -71,6 +108,8 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
 
     public void addUnit(Unit unit, int option) {
         m_list.add(new AbstractMap.SimpleEntry<>(unit, option));
+
+        updateListener();
         notifyItemRangeInserted(getItemCount() - 1, 1);
     }
 
