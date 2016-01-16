@@ -20,6 +20,7 @@ package com.cgordon.infinityandroid.adapter;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,7 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
     private OnListChanged m_listener;
 
     public interface OnListChanged {
-        public void listStatus(int cost, double swc, int lieutenantCount);
+        public void listStatus(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount);
     }
 
     public void setListChangedListener(OnListChanged listener) {
@@ -68,6 +69,10 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
         int costTotal = 0;
         double swcTotal = 0;
         int ltCount = 0;
+        int regularCount = 0;
+        int irregularCount = 0;
+        int impetuousCount = 0;
+
 
         while (it.hasNext()) {
             Entry e = (Entry)it.next();
@@ -79,10 +84,19 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
             if (unit.options.get(option).spec.contains("Lieutenant")) {
                 ltCount++;
             }
+
+            if (unit.profiles.get(0).irr) {
+                irregularCount++;
+            } else {
+                regularCount++;
+            }
+            if (!unit.profiles.get(0).imp.isEmpty()) {
+                impetuousCount++;
+            }
         }
 
 
-        m_listener.listStatus(costTotal, swcTotal, ltCount);
+        m_listener.listStatus(costTotal, swcTotal, ltCount, regularCount, irregularCount, impetuousCount );
     }
 
     public void delete(int position) {

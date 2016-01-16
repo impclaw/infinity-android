@@ -101,9 +101,11 @@ public class ListConstructionActivity extends AppCompatActivity
     }
 
     @Override
-    public void listStatus(int cost, double swc, int lieutenantCount) {
+    public void listStatus(int cost, double swc, int lieutenantCount, int regularCount,
+                           int irregularCount, int impetuousCount) {
         Log.d(TAG, "Cost: " + cost + " SWC: " + swc + " LT.: " + lieutenantCount);
-        m_listStatusListener.OnListStatusChanged(cost, swc, lieutenantCount);
+        m_listStatusListener.OnListStatusChanged(cost, swc, lieutenantCount, regularCount,
+                irregularCount, impetuousCount );
     }
 
     class ListConstructionPagerAdapter extends FragmentPagerAdapter {
@@ -159,7 +161,7 @@ public class ListConstructionActivity extends AppCompatActivity
     }
 
     public interface ListStatusListener {
-        public void OnListStatusChanged(int cost, double swc, int lieutenantCount);
+        public void OnListStatusChanged(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount);
     }
 
 //    public void optionClicked(View view) {

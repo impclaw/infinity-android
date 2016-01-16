@@ -34,6 +34,9 @@ public class ListStatusFragment extends Fragment implements ListConstructionActi
     private TextView m_lieutenant;
     private TextView m_cost;
     private TextView m_swc;
+    private TextView m_regular;
+    private TextView m_irregular;
+    private TextView m_impetuous;
 
     @Nullable
     @Override
@@ -44,6 +47,10 @@ public class ListStatusFragment extends Fragment implements ListConstructionActi
         m_lieutenant.setText("Missing");
         m_cost = (TextView) v.findViewById(R.id.text_cost);
         m_swc = (TextView) v.findViewById(R.id.text_swc);
+
+        m_regular = (TextView) v.findViewById(R.id.text_orders_regular);
+        m_irregular = (TextView) v.findViewById(R.id.text_orders_irregular);
+        m_impetuous = (TextView) v.findViewById(R.id.text_orders_impetuous);
 
         return v;
     }
@@ -59,16 +66,21 @@ public class ListStatusFragment extends Fragment implements ListConstructionActi
     }
 
     @Override
-    public void OnListStatusChanged(int cost, double swc, int lieutenantCount) {
+    public void OnListStatusChanged(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount) {
         m_cost.setText(Integer.toString(cost));
         m_swc.setText(Double.toString(swc));
+
         String ltStatus = "Ok";
         if (lieutenantCount <1) {
             ltStatus = "Missing";
         } else if (lieutenantCount >1) {
             ltStatus = "Too many";
         }
-
         m_lieutenant.setText(ltStatus);
+
+        m_regular.setText(Integer.toString(regularCount));
+        m_irregular.setText(Integer.toString(irregularCount));
+        m_impetuous.setText(Integer.toString(impetuousCount));
+
     }
 }
