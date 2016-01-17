@@ -27,6 +27,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
@@ -54,6 +55,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
 
     List<Fragment> m_fragments;
     private LinearLayout m_linearLayout;
+    private ScrollView m_scrollview;
 
     public UnitFragment() {
         m_unit = null;
@@ -66,6 +68,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         View v = inflater.inflate(R.layout.fragment_unit, container, false);
 
         m_linearLayout = (LinearLayout) v.findViewById(R.id.weapon_container);
+        m_scrollview = (ScrollView) v.findViewById(R.id.scrollView);
 
         // In case this activity was started with special instructions from an
         // Intent, pass the Intent's extras to the fragment as arguments
@@ -84,6 +87,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     }
 
     public void setUnit(Unit unit) {
+        m_scrollview.scrollTo(0,0);
         Log.d(TAG, "UnitFragment setId: " + unit.dbId);
 
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
