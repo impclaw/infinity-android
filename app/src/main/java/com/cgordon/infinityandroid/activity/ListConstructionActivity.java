@@ -17,6 +17,8 @@
 
 package com.cgordon.infinityandroid.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -59,8 +61,10 @@ public class ListConstructionActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeButtonEnabled(true);
+//
         //getSupportActionBar().setTitle(m_unit.isc);
 
         m_pager = (ViewPager) findViewById(R.id.pager);
@@ -72,6 +76,35 @@ public class ListConstructionActivity extends AppCompatActivity
 
         m_army = getIntent().getParcelableExtra(MainActivity.ARMY);
 
+    }
+
+
+
+
+    @Override
+    public void onBackPressed() {
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        alert.setTitle(R.string.cancel_list_title);
+        alert.setMessage(R.string.cancel_list_message);
+
+        alert.setPositiveButton(R.string.ok,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int whichButton) {
+                        ListConstructionActivity.this.finish();
+                    }
+                });
+
+        alert.setNegativeButton(R.string.cancel,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int whichButton) {
+                    }
+                });
+
+        alert.show();
     }
 
     public void unitSelected(Unit unit, UnitListAdapter.ViewHolder viewHolder) {

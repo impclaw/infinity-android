@@ -62,5 +62,8 @@
     <string name="action_create">Create</string>
     <string name="unit_logo">Unit logo</string>
     <string name="cancel">Cancel</string>
+    <string name="cancel_list_title">You are about to leave</string>
+    <string name="cancel_list_message">Your list will be lost.  Continue?</string>
+    <string name="ok">Ok</string>
 
 </resources>
