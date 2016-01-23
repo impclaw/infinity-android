@@ -95,6 +95,101 @@
     "imp": "F"
   },
   {
+    "isc": "Achilles v2 (Hoplite Armor)",
+    "name": "Achilles v2",
+    "image": "Achilles",
+    "army": "Aleph",
+    "mov": "6-4",
+    "wip": "15",
+    "bts": "6",
+    "bs": "15",
+    "note": "",
+    "cube": "2",
+    "type": "HI",
+    "ph": "15",
+    "cc": "24",
+    "arm": "6",
+    "irr": "",
+    "w": "3",
+    "s": "2",
+    "hackable": "X",
+    "ava": "1",
+    "bsw": [
+      "Nanopulser"
+    ],
+    "spec": [
+      "Martial Arts L4",
+      "Forward Deployment L1",
+      "CH: Mimetism",
+      "Kinematika L1"
+    ],
+    "ccw": [
+      "EXP CCW",
+      "Pistol"
+    ],
+    "childs": [
+      {
+        "code": "Default",
+        "cost": "74",
+        "codename": "MULTI",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "MULTI Rifle",
+          "D.E.P."
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "MULTI Lieutenant",
+        "cost": "74",
+        "codename": "",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [
+          "Lieutenant"
+        ],
+        "bsw": [
+          "MULTI Rifle",
+          "D.E.P."
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Spitfire",
+        "cost": "75",
+        "codename": "",
+        "swc": "2.5",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [
+          "Spitfire"
+        ],
+        "ccw": [],
+        "note": ""
+      },
+      {
+        "code": "Spitfire Lieutenant",
+        "cost": "75",
+        "codename": "",
+        "swc": "2.5",
+        "cbcode": [],
+        "spec": [
+          "Lieutenant"
+        ],
+        "bsw": [
+          "Spitfire"
+        ],
+        "ccw": [],
+        "note": ""
+      }
+    ],
+    "imp": "F"
+  },
+  {
     "mov": "4-4",
     "army": "Aleph",
     "wip": "15",
@@ -1603,7 +1698,8 @@
         "swc": "0",
         "cbcode": [],
         "spec": [
-          "Doctor"
+          "Doctor",
+          "MediKit"
         ],
         "bsw": [],
         "ccw": [],
@@ -2639,7 +2735,7 @@
     ],
     "cc": "22",
     "ccw": [
-      "Pistol",
+      "AP Heavy Pistol",
       "EXP CCW"
     ],
     "childs": [
@@ -3279,5 +3375,53 @@
         }
       }
     ]
+  },
+  {
+    "mov": "4-4",
+    "army": "Aleph",
+    "wip": "14",
+    "bts": "3",
+    "isc": "Acmon, Sergeant of Dactyls",
+    "name": "Acmon",
+    "bs": "13",
+    "note": "",
+    "cube": "2",
+    "type": "LI",
+    "ph": "11",
+    "cc": "16",
+    "arm": "1",
+    "irr": "",
+    "w": "1",
+    "s": "2",
+    "ava": "1",
+    "bsw": [
+      "Combi Rifle",
+      "Panzerfaust",
+      "Nimbus Grenades",
+      "D-Charges"
+    ],
+    "spec": [
+      "V: Dogged",
+      "Engineer",
+      "Fireteam: Enomotarchos"
+    ],
+    "ccw": [
+      "Knife",
+      "Breaker Pistol (2)"
+    ],
+    "childs": [
+      {
+        "code": "Default",
+        "cost": "27",
+        "codename": "Engineer",
+        "swc": "0",
+        "cbcode": [],
+        "spec": [],
+        "bsw": [],
+        "ccw": [],
+        "note": ""
+      }
+    ],
+    "imp": ""
   }
 ]
