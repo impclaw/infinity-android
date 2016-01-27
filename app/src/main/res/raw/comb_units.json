@@ -1532,8 +1532,8 @@
         "spec": [],
         "bsw": [
           "Chain Rifle",
-                     "Smoke Grenades",
-                     "Grenades"
+          "Smoke Grenades",
+          "Grenades"
         ],
         "ccw": [
           "AP CCW"
@@ -4594,5 +4594,45 @@
     "w": "1",
     "s": "2",
     "wip": "14"
+  },
+  {
+    "mov": "6-4",
+    "army": "Combined Army",
+    "wip": "13",
+    "bts": "3",
+    "isc": "E-Drone",
+    "name": "E-Drone",
+    "bs": "11",
+    "note": "",
+    "cube": "R",
+    "type": "REM",
+    "hackable": "X",
+    "ph": "10",
+    "cc": "8",
+    "arm": "0",
+    "irr": "",
+    "w": "1",
+    "s": "3",
+    "ava": "2",
+    "bsw": [
+      "Combi Rifle"
+    ],
+    "spec": [
+      "EVO Repeater",
+      "G: Remote Presence",
+      "Multiterrain"
+    ],
+    "ccw": [
+      "Electric Pulse"
+    ],
+    "childs": [
+      {
+        "code": "Default",
+        "cost": "20",
+        "codename": "Combi",
+        "swc": "0.5"
+      }
+    ],
+    "imp": ""
   }
 ]

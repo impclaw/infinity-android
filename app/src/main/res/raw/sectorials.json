@@ -1424,7 +1424,8 @@
       },
       {
         "ava": "1",
-        "isc": "Med-Tech Obsidon Medchanoid"
+        "isc": "Med-Tech Obsidon Medchanoids"
+
       },
       {
         "ava": "2",
@@ -1455,6 +1456,10 @@
       {
         "ava": "1",
         "isc": "R-Drone"
+      },
+      {
+        "ava": "2",
+        "isc": "E-Drone"
       },
       {
         "ava": "2",
@@ -1538,7 +1543,7 @@
       },
       {
         "ava": "1",
-        "isc": "Med-Tech Obsidon Medchanoid"
+        "isc": "Med-Tech Obsidon Medchanoids"
       },
       {
         "ava": "1",
@@ -1555,6 +1560,10 @@
       {
         "ava": "1",
         "isc": "R-Drone"
+      },
+      {
+        "ava": "2",
+        "isc": "E-Drone"
       },
       {
         "ava": "2",
