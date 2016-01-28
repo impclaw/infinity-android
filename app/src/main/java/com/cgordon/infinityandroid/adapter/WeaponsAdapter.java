@@ -148,6 +148,14 @@ public class WeaponsAdapter extends ArrayAdapter<String> {
             noteText += weaponData.template;
         }
 
+        if (weaponData.uses != null && !weaponData.uses.isEmpty()) {
+            if (!noteText.isEmpty()) {
+                noteText += ", ";
+            }
+            noteText += "Uses: " + weaponData.uses;
+
+        }
+
         if (noteText.isEmpty()) {
             note.setVisibility(View.GONE);
         } else {
