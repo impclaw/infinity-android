@@ -246,6 +246,8 @@ public class UnitParser {
                 profile.hackable = reader.nextString().equals("X");
             } else if (name.equals("ava")) {
                 profile.ava = reader.nextString();
+            } else if (name.equals("image")) {
+                reader.nextString();
             } else {
                 throw new IOException("Unknown tag in parse Profile: " + name);
             }
