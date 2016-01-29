@@ -36,1696 +36,1699 @@
     "name": "Mercenary",
     "abbr": "Mercs"
   },
-  {
-    "army": "PanOceania",
-    "name": "Shock Army of Acontecimento",
-    "abbr": "Acontecimento",
-    "units": [
-      {
-        "ava": "T",
-        "isc": "Acontecimento Regulars",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Akalis"
-      },
-      {
-        "ava": "4",
-        "isc": "Bagh-Mari",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Lieutenant Stephen Rao",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Guarda de Assalto"
-      },
-      {
-        "ava": "2",
-        "isc": "Knights of Montesa"
-      },
-      {
-        "ava": "1",
-        "isc": "Dragoes"
-      },
-      {
-        "ava": "2",
-        "isc": "Tikbalangs, Armoured Chasseurs of Acontecimento"
-      },
-      {
-        "ava": "2",
-        "isc": "Nagas",
-        "army": "Aleph"
-      },
-      {
-        "ava": "1",
-        "isc": "Kirpal Singh, Akalis Sergeant"
-      },
-      {
-        "ava": "1",
-        "isc": "Toni Macayana, Tikbalangs Lieutenant"
-      },
-      {
-        "ava": "1",
-        "isc": "Pathfinder Dronbots"
-      },
-      {
-        "ava": "1",
-        "isc": "Sierra Dronbots"
-      },
-      {
-        "ava": "1",
-        "isc": "Clipper Dronbots"
-      },
-      {
-        "ava": "2",
-        "isc": "Fugazi Dronbots"
-      },
-      {
-        "ava": "1",
-        "isc": "Armbots: Bulleteers"
-      },
-      {
-        "ava": "2",
-        "isc": "Armbots: Peacemakers"
-      },
-      {
-        "ava": "4",
-        "isc": "Palbots"
-      },
-      {
-        "ava": "2",
-        "isc": "Mulebots"
-      },
-      {
-        "ava": "1",
-        "isc": "Trauma-Docs"
-      },
-      {
-        "ava": "2",
-        "isc": "Machinists"
-      },
-      {
-        "ava": "1",
-        "isc": "Indigo Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Warcors",
-        "army": "Mercenary"
-      }
-    ]
-  },
-  {
-    "army": "PanOceania",
-    "name": "Neoterran Capitaline Army",
-    "abbr": "Neoterran",
-    "units": [
-      {
-        "ava": "T",
-        "isc": "Auxilia"
-      },
-      {
-        "ava": "5",
-        "isc": "Fusiliers",
-        "linkable": true
-      },
-      {
-        "ava": "T",
-        "isc": "Neoterra Bolts",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Hexas, Strategic Security Division"
-      },
-      {
-        "ava": "3",
-        "isc": "Aquila Guard"
-      },
-      {
-        "ava": "2",
-        "isc": "Swiss Guard"
-      },
-      {
-        "ava": "2",
-        "isc": "Squalos"
-      },
-      {
-        "ava": "2",
-        "isc": "Clausewitz Uhlans"
-      },
-      {
-        "ava": "2",
-        "isc": "Deva Functionaries",
-        "army": "Aleph"
-      },
-      {
-        "ava": "1",
-        "isc": "Garuda Tacbots",
-        "army": "Aleph"
-      },
-      {
-        "ava": "2",
-        "isc": "Pathfinder Dronbots"
-      },
-      {
-        "ava": "2",
-        "isc": "Sierra Dronbots"
-      },
-      {
-        "ava": "2",
-        "isc": "Clipper Dronbots"
-      },
-      {
-        "ava": "3",
-        "isc": "Fugazi Dronbots"
-      },
-      {
-        "ava": "2",
-        "isc": "Armbots: Bulleteers"
-      },
-      {
-        "ava": "2",
-        "isc": "Armbots: Peacemakers"
-      },
-      {
-        "ava": "2",
-        "isc": "Palbots"
-      },
-      {
-        "ava": "2",
-        "isc": "Mulebots"
-      },
-      {
-        "ava": "1",
-        "isc": "Trauma-Docs"
-      },
-      {
-        "ava": "1",
-        "isc": "Machinists"
-      },
-      {
-        "ava": "1",
-        "isc": "Indigo Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Fusilier Indigo Bipandra",
-        "linkable": true
-      },
-      {
-        "ava": "2",
-        "isc": "CSU, Corporate Security Unit",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "1",
-        "isc": "Warcors",
-        "army": "Mercenary"
-      }
-    ]
-  },
-  {
-    "army": "PanOceania",
-    "name": "Military Orders",
-    "units": [
-      {
-        "ava": "3",
-        "isc": "Fusiliers",
-        "linkable": true
-      },
-      {
-        "ava": "T",
-        "isc": "Order Sergeants",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Knights Hospitaller",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Knights of Montesa"
-      },
-      {
-        "ava": "4",
-        "isc": "Crusader Brethren"
-      },
-      {
-        "ava": "4",
-        "isc": "Knights Of Santiago",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Knights of the Holy Sepulchre"
-      },
-      {
-        "ava": "4",
-        "isc": "Teutonic Knights",
-        "linkable": true
-      },
-      {
-        "ava": "6",
-        "isc": "Magister Knights",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Military Order Father-Knights"
-      },
-      {
-        "ava": "2",
-        "isc": "Seraphs"
-      },
-      {
-        "ava": "1",
-        "isc": "Father-Officer Gabriele De Fersen",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Joan of Arc",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Joan of Arc 2.0 (Mobility Armor)",
-        "linkable": true
-      },
-      {
-        "ava": "2",
-        "isc": "Pathfinder Dronbots"
-      },
-      {
-        "ava": "2",
-        "isc": "Sierra Dronbots"
-      },
-      {
-        "ava": "1",
-        "isc": "Clipper Dronbots"
-      },
-      {
-        "ava": "1",
-        "isc": "Fugazi Dronbots"
-      },
-      {
-        "ava": "2",
-        "isc": "Armbots: Bulleteers"
-      },
-      {
-        "ava": "2",
-        "isc": "Armbots: Peacemakers"
-      },
-      {
-        "ava": "2",
-        "isc": "Palbots"
-      },
-      {
-        "ava": "2",
-        "isc": "Mulebots"
-      },
-      {
-        "ava": "1",
-        "isc": "Trauma-Docs"
-      },
-      {
-        "ava": "1",
-        "isc": "Machinists"
-      },
-      {
-        "ava": "1",
-        "isc": "Indigo Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Fusilier Indigo Bipandra",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Indigo Brother Konstantinos",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Warcors",
-        "army": "Mercenary"
-      }
-    ]
-  },
-  {
-    "army": "Yu Jing",
-    "name": "Imperial Service",
-    "units": [
-      {
-        "ava": "T",
-        "isc": "Celestial Guard",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Zhànying Imperial Agents",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Miranda Ashcroft",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "5",
-        "isc": "Imperial Agent, Pheasant Rank",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Imperial Agents, Crane Rank",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Wu Ming Assault Corps",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Hsien Warriors",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Bao Troops",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Su-Jian Immediate Action Unit"
-      },
-      {
-        "ava": "1",
-        "isc": "Ninjas"
-      },
-      {
-        "ava": "8",
-        "isc": "Kuang Shi",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Dakini Tacbots",
-        "army": "Aleph"
-      },
-      {
-        "ava": "1",
-        "isc": "Garuda Tacbots",
-        "army": "Aleph"
-      },
-      {
-        "ava": "1",
-        "isc": "Sophotects",
-        "army": "Aleph"
-      },
-      {
-        "ava": "1",
-        "isc": "Sun Tze"
-      },
-      {
-        "ava": "1",
-        "isc": "Sun Tze v.2 (Marksman Leader)"
-      },
-      {
-        "ava": "1",
-        "isc": "Father Lucien Sforza",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "2",
-        "isc": "Yáoxiè Rui Shi"
-      },
-      {
-        "ava": "2",
-        "isc": "Yáoxiè Lù Duān"
-      },
-      {
-        "ava": "2",
-        "isc": "Yáokòng Wèibīng"
-      },
-      {
-        "ava": "3",
-        "isc": "Yáokòng Hùsòng"
-      },
-      {
-        "ava": "1",
-        "isc": "Yáokòng Son-bae"
-      },
-      {
-        "ava": "1",
-        "isc": "Yáokòng Chaīyì"
-      },
-      {
-        "ava": "2",
-        "isc": "Yudbots",
-        "army": "Aleph"
-      },
-      {
-        "ava": "2",
-        "isc": "Yáopú Pangguling"
-      },
-      {
-        "ava": "1",
-        "isc": "Guǐ Fēng Spec-Ops"
-      },
-      {
-        "ava": "3",
-        "isc": "Authorized Bounty Hunters",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "1",
-        "isc": "Warcors",
-        "army": "Mercenary"
-      }
-    ]
-  },
-  {
-    "army": "Yu Jing",
-    "name": "Japanese Sectorial Army",
-    "units": [
-      {
-        "ava": "T",
-        "isc": "Keisotsu Butai",
-        "linkable": true
-      },
-      {
-        "ava": "2",
-        "isc": "Kempeitai"
-      },
-      {
-        "ava": "4",
-        "isc": "Aragoto Senkenbutai"
-      },
-      {
-        "ava": "3",
-        "isc": "Karakuri Special Project",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Domaru Butai",
-        "linkable": true
-      },
-      {
-        "ava": "6",
-        "isc": "Haramaki Zensenbutai",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Raiden Seibutai"
-      },
-      {
-        "ava": "2",
-        "isc": "O-Yoroi Kidobutai"
-      },
-      {
-        "ava": "4",
-        "isc": "Ninjas"
-      },
-      {
-        "ava": "3",
-        "isc": "Oniwaban"
-      },
-      {
-        "ava": "2",
-        "isc": "Tokusetsu Butai"
-      },
-      {
-        "ava": "1",
-        "isc": "Oniwaban Shinobu Kitsune"
-      },
-      {
-        "ava": "1",
-        "isc": "Yojimbo",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "1",
-        "isc": "Asuka Kisaragi"
-      },
-      {
-        "ava": "1",
-        "isc": "Domaru Takeshi \"Neko\" Oyama",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Saito Tōgan",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "1",
-        "isc": "Miyamoto Musashi",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "1",
-        "isc": "Yáoxiè Rui Shi"
-      },
-      {
-        "ava": "1",
-        "isc": "Yáoxiè Lù Duān"
-      },
-      {
-        "ava": "1",
-        "isc": "Yáokòng Wèibīng"
-      },
-      {
-        "ava": "1",
-        "isc": "Yáokòng Hùsòng"
-      },
-      {
-        "ava": "1",
-        "isc": "Yáokòng Son-bae"
-      },
-      {
-        "ava": "1",
-        "isc": "Yáokòng Chaīyì"
-      },
-      {
-        "ava": "2",
-        "isc": "Yáozăo"
-      },
-      {
-        "ava": "2",
-        "isc": "Yáopú Pangguling"
-      },
-      {
-        "ava": "1",
-        "isc": "Guǐ Fēng Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Keisotsu Guǐ Fēng Yuriko Oda",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Warcors",
-        "army": "Mercenary"
-      }
-    ]
-  },
-  {
-    "army": "Ariadna",
-    "name": "Caledonian Highlander Army",
-    "abbr": "Caledonian Army",
-    "units": [
-      {
-        "ava": "T",
-        "isc": "Caledonian Volunteers",
-        "linkable": true
-      },
-      {
-        "ava": "6",
-        "isc": "Highlander Caterans"
-      },
-      {
-        "ava": "5",
-        "isc": "3rd Highlander Greys"
-      },
-      {
-        "ava": "5",
-        "isc": "Scot (2nd Battalion)"
-      },
-      {
-        "ava": "5",
-        "isc": "Scot (1st Battalion)",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Caledonian Mormaers",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "S.A.S."
-      },
-      {
-        "ava": "4",
-        "isc": "9th Wulver Grenadiers",
-        "linkable": true
-      },
-      {
-        "ava": "T",
-        "isc": "45th Highlanders",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "2nd Irregular Cameronians Reg."
-      },
-      {
-        "ava": "2",
-        "isc": "Traktor Mul, Artillery and Support Regiment"
-      },
-      {
-        "ava": "3",
-        "isc": "112, Emergency Service"
-      },
-      {
-        "ava": "2",
-        "isc": "Dozers, Field Engineers"
-      },
-      {
-        "ava": "1",
-        "isc": "Uxia McNeill"
-      },
-      {
-        "ava": "1",
-        "isc": "William Wallace",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "McMurrough",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "1",
-        "isc": "Intel Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Volunteer Intel Isobel McGregor",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Warcors",
-        "army": "Mercenary"
-      }
-    ]
-  },
-  {
-    "army": "Ariadna",
-    "name": "Merovingian Rapid Response Force",
-    "abbr": "M.R.R.F.",
-    "units": [
-      {
-        "ava": "T",
-        "isc": "Métros",
-        "linkable": true
-      },
-      {
-        "ava": "6",
-        "isc": "Para-Commandos"
-      },
-      {
-        "ava": "5",
-        "isc": "Loup-Garous",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Zouaves"
-      },
-      {
-        "ava": "5",
-        "isc": "Moblots",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Chasseurs"
-      },
-      {
-        "ava": "2",
-        "isc": "Traktor Mul, Artillery and Support Regiment"
-      },
-      {
-        "ava": "3",
-        "isc": "112, Emergency Service"
-      },
-      {
-        "ava": "2",
-        "isc": "Dozers, Field Engineers"
-      },
-      {
-        "ava": "1",
-        "isc": "Corregidor Alguaciles",
-        "army": "Nomads"
-      },
-      {
-        "ava": "1",
-        "isc": "Brigadier Jacques Bruant",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Briscards, 8éme Régiment d'Infanterie de Montagne",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Margot Berthier, Mirage-5"
-      },
-      {
-        "ava": "1",
-        "isc": "Intel Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "army": "Mercenary",
-        "isc": "Anaconda"
-      },
-      {
-        "ava": "1",
-        "army": "Mercenary",
-        "isc": "Warcors"
-      }
-    ]
-  },
-  {
-    "army": "Ariadna",
-    "name": "USAriadna Ranger Force",
-    "abbr" : "USAriadna",
-    "units": [
-      {
-        "ava": "2",
-        "isc": "112, Emergency Service"
-      },
-      {
-        "ava": "1",
-        "isc": "Dozers, Field Engineers"
-      },
-      {
-        "ava": "1",
-        "isc": "Intel Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Van Zant"
-      },
-      {
-        "ava": "1",
-        "isc": "Warcors",
-        "army" : "Mercenary"
-      },
-      {
-        "ava": "T",
-        "isc": "USAriadna Grunts",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Marauders, 5307th Ranger Unit",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Mavericks, 9th Motorized Recon Bat."
-      },
-      {
-        "ava": "5",
-        "isc": "Minutemen",
-        "linkable": true
-      },
-      {
-        "ava": "2",
-        "isc": "Traktor Mul, Artillery and Support Regiment"
-      },
-      {
-        "ava": "4",
-        "isc": "Foxtrot"
-      },
-      {
-        "ava": "3",
-        "isc": "Hardcases"
-      },
-      {
-        "ava": "3",
-        "isc": "Devil Dog Teams, 2nd Assault Bat."
-      }
-    ]
-  },
-  {
-    "army": "Haqqislam",
-    "name": "Qapu Khalqi",
-    "units": [
-      {
-        "ava": "T",
-        "isc": "Ghulam",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Odalisques",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "KTS, Kaplan Tactical Services",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Sekban",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Bashi Bazouk"
-      },
-      {
-        "ava": "4",
-        "isc": "Hafza Unit",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Djanbazan Tactical Group",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Special Deterrance Group Azra'il",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Janissaries",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Al Hawwa'"
-      },
-      {
-        "ava": "3",
-        "isc": "Yuan Yuan",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "4",
-        "isc": "Druze Shock Teams",
-        "army": "Mercenary",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Corregidor Alguaciles",
-        "army": "Nomads"
-      },
-      {
-        "ava": "1",
-        "isc": "Mobile Brigada",
-        "army": "Nomads"
-      },
-      {
-        "ava": "1",
-        "isc": "Iguana Squadron",
-        "army": "Nomads"
-      },
-      {
-        "ava": "1",
-        "isc": "Rafiq Remote"
-      },
-      {
-        "ava": "2",
-        "isc": "Shihab Remote"
-      },
-      {
-        "ava": "1",
-        "isc": "Shaytaniyah Remote"
-      },
-      {
-        "ava": "3",
-        "isc": "Fanous Remote"
-      },
-      {
-        "ava": "2",
-        "isc": "Nasmat Remotes"
-      },
-      {
-        "ava": "2",
-        "isc": "Kameel Remotes"
-      },
-      {
-        "ava": "1",
-        "isc": "Najjarun Engineer"
-      },
-      {
-        "ava": "1",
-        "isc": "Scarface Turner",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "1",
-        "isc": "Husam Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Warcors",
-        "army": "Mercenary"
-      }
-    ]
-  },
-  {
-    "army": "Haqqislam",
-    "name": "Hassassin Bahram",
-    "units": [
-      {
-        "ava": "5",
-        "isc": "Daylami Infantry"
-      },
-      {
-        "ava": "4",
-        "isc": "Ghulam",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Hassassin Govads",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Hassassin Farzans"
-      },
-      {
-        "ava": "6",
-        "isc": "Hassassin Muyibs",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Hassassin Ragiks"
-      },
-      {
-        "ava": "4",
-        "isc": "Hassassin Lasiqs",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Asawira Regiment",
-        "linkable": true
-      },
-      {
-        "ava": "2",
-        "isc": "Hassassin Fiday"
-      },
-      {
-        "ava": "2",
-        "isc": "Hassassin Barid"
-      },
-      {
-        "ava": "4",
-        "isc": "Ghazi Muttawi'ah"
-      },
-      {
-        "ava": "1",
-        "isc": "Hussein Al-Djabel"
-      },
-      {
-        "ava": "1",
-        "isc": "Rafiq Remote"
-      },
-      {
-        "ava": "1",
-        "isc": "Shihab Remote"
-      },
-      {
-        "ava": "1",
-        "isc": "Shaytaniyah Remote"
-      },
-      {
-        "ava": "1",
-        "isc": "Fanous Remote"
-      },
-      {
-        "ava": "2",
-        "isc": "Nasmat Remotes"
-      },
-      {
-        "ava": "2",
-        "isc": "Kameel Remotes"
-      },
-      {
-        "ava": "1",
-        "isc": "Najjarun Engineer"
-      },
-      {
-        "ava": "1",
-        "isc": "Husam Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Hassassin Husam Yasbir",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Warcors",
-        "army": "Mercenary"
-      }
-    ]
-  },
-  {
-    "army": "Nomads",
-    "name": "Jurisdictional Command of Bakunin",
-    "abbr": "Bakunin",
-    "units": [
-      {
-        "ava": "T",
-        "isc": "Moderators from Bakunin",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Reverend Moiras",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Reverend Custodiers",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Reverend Healers",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Sin-Eater Observants"
-      },
-      {
-        "ava": "3",
-        "isc": "Prowlers"
-      },
-      {
-        "ava": "1",
-        "isc": "Lizard"
-      },
-      {
-        "ava": "3",
-        "isc": "Zeros"
-      },
-      {
-        "ava": "T",
-        "isc": "Die Morlock Gruppe"
-      },
-      {
-        "ava": "3",
-        "isc": "Bakunin Überfallkommando : Chimera"
-      },
-      {
-        "ava": "9",
-        "isc": "Bakunin Überfallkommando : Pupniks"
-      },
-      {
-        "ava": "1",
-        "isc": "Bran do Castro, Triple Zero"
-      },
-      {
-        "ava": "1",
-        "isc": "Reverend Superior CASSANDRA KUSANAGI",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Zoe"
-      },
-      {
-        "ava": "1",
-        "isc": "Avicenna",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "2",
-        "isc": "Tsyklon Sputniks"
-      },
-      {
-        "ava": "2",
-        "isc": "Lunokhod Sputniks"
-      },
-      {
-        "ava": "2",
-        "isc": "Stempler Zond"
-      },
-      {
-        "ava": "1",
-        "isc": "Reaktion Zond"
-      },
-      {
-        "ava": "1",
-        "isc": "Vertigo Zond"
-      },
-      {
-        "ava": "1",
-        "isc": "Meteor Zond"
-      },
-      {
-        "ava": "2",
-        "isc": "Transductor Zond"
-      },
-      {
-        "ava": "4",
-        "isc": "Zondbots"
-      },
-      {
-        "ava": "2",
-        "isc": "Salyut Zonds"
-      },
-      {
-        "ava": "2",
-        "isc": "Clockmakers"
-      },
-      {
-        "ava": "1",
-        "isc": "Daktaris"
-      },
-      {
-        "ava": "5",
-        "isc": "Riot Grrls",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Vortex Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Warcors",
-        "army": "Mercenary"
-      }
-    ]
-  },
-  {
-    "army": "Nomads",
-    "name": "Jurisdictional Command of Corregidor",
-    "abbr": "Corregidor",
-    "units": [
-      {
-        "ava": "T",
-        "isc": "Corregidor Alguaciles",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Tomcats"
-      },
-      {
-        "ava": "5",
-        "isc": "Hellcats"
-      },
-      {
-        "ava": "5",
-        "isc": "Wildcats, Polyvalent Tactical Unit",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Intruders"
-      },
-      {
-        "ava": "6",
-        "isc": "Mobile Brigada",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Iguana Squadron"
-      },
-      {
-        "ava": "4",
-        "isc": "Gecko"
-      },
-      {
-        "ava": "3",
-        "isc": "Corregidor Bandits"
-      },
-      {
-        "ava": "2",
-        "isc": "Moran, Maasai Hunter"
-      },
-      {
-        "ava": "5",
-        "isc": "Corregidor Jaguars",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Carlota Kowalsky, Tomcats Sergeant"
-      },
-      {
-        "ava": "1",
-        "isc": "Señor Massacre",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "1",
-        "isc": "McMurrough",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "1",
-        "isc": "Valerya Gromoz, Mercenary Hacker",
-        "army": "Mercenary"
-      },
-      {
-        "ava": "2",
-        "isc": "Tsyklon Sputniks"
-      },
-      {
-        "ava": "2",
-        "isc": "Lunokhod Sputniks"
-      },
-      {
-        "ava": "1",
-        "isc": "Stempler Zond"
-      },
-      {
-        "ava": "1",
-        "isc": "Reaktion Zond"
-      },
-      {
-        "ava": "1",
-        "isc": "Vertigo Zond"
-      },
-      {
-        "ava": "2",
-        "isc": "Transductor Zond"
-      },
-      {
-        "ava": "2",
-        "isc": "Zondbots"
-      },
-      {
-        "ava": "2",
-        "isc": "Salyut Zonds"
-      },
-      {
-        "ava": "1",
-        "isc": "Clockmakers"
-      },
-      {
-        "ava": "1",
-        "isc": "Daktaris"
-      },
-      {
-        "ava": "1",
-        "isc": "Vortex Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Alguacil Vortex Lupe Balboa",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Warcors",
-        "army": "Mercenary"
-      }
-    ]
-  },
-  {
-    "army": "Combined Army",
-    "name": "Morat Aggression Force",
-    "abbr": "Morat Aggro Force",
-    "units": [
-      {
-        "ava": "T",
-        "isc": "Morat Vanguard Infantry",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Kurgat Reg. of Assault Engineers"
-      },
-      {
-        "ava": "5",
-        "isc": "Rodok",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Yaogat Strike Infantry",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Rasyat Diplomatic Division"
-      },
-      {
-        "ava": "5",
-        "isc": "Suryats",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Sogarat Tempest Regiment",
-        "linkable": true
-      },
-      {
-        "ava": "2",
-        "isc": "Raicho Armoured Brigade"
-      },
-      {
-        "ava": "2",
-        "isc": "Oznat",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "Zerat Special Missions Regiment"
-      },
-      {
-        "ava": "T",
-        "isc": "Dāturazi Witch-Soldiers",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "The Hungries: \"Gakis\""
-      },
-      {
-        "ava": "4",
-        "isc": "The Hungries: \"Pretas\""
-      },
-      {
-        "ava": "1",
-        "isc": "Med-Tech Obsidon Medchanoids"
-
-      },
-      {
-        "ava": "2",
-        "isc": "Raktorak",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Kornak Gazarot",
-        "linkable": true
-      },
-      {
-        "ava": "2",
-        "isc": "Ikadron Batroids"
-      },
-      {
-        "ava": "1",
-        "isc": "M-Drone"
-      },
-      {
-        "ava": "1",
-        "isc": "Q-Drone"
-      },
-      {
-        "ava": "1",
-        "isc": "T-Drone"
-      },
-      {
-        "ava": "1",
-        "isc": "R-Drone"
-      },
-      {
-        "ava": "2",
-        "isc": "E-Drone"
-      },
-      {
-        "ava": "2",
-        "isc": "Slave Drones"
-      },
-      {
-        "ava": "1",
-        "isc": "Treitak Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Corax Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Treitak Anyat",
-        "linkable": true
-      }
-    ]
-  },
-  {
-    "army": "Combined Army",
-    "name": "Shasvastii Expeditionary Force",
-    "abbr": "Shasvastii Exped. Force",
-    "units": [
-      {
-        "ava": "T",
-        "isc": "Shasvastii Seed-Soldiers",
-        "linkable": true
-      },
-      {
-        "ava": "4",
-        "isc": "Shasvastii Cadmus"
-      },
-      {
-        "ava": "3",
-        "isc": "Shasvastii Haiduks"
-      },
-      {
-        "ava": "5",
-        "isc": "Shasvastii Aswangs"
-      },
-      {
-        "ava": "3",
-        "isc": "Shasvastii Noctifers"
-      },
-      {
-        "ava": "4",
-        "isc": "Shasvastii Gwailos",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Shasvastii Caliban (Seed-Embryo)",
-        "linkable": true
-      },
-      {
-        "ava": "5",
-        "isc": "Shasvastii Caliban (Infiltration)"
-      },
-      {
-        "ava": "5",
-        "isc": "Shasvastii Caliban (Developed)",
-        "linkable": true
-      },
-      {
-        "ava": "3",
-        "isc": "The Shrouded"
-      },
-      {
-        "ava": "3",
-        "isc": "Malignos"
-      },
-      {
-        "ava": "2",
-        "isc": "Speculo Killers"
-      },
-      {
-        "ava": "1",
-        "isc": "Shasvastii Special Armoured Corp Sphinx"
-      },
-      {
-        "ava": "1",
-        "isc": "Med-Tech Obsidon Medchanoids"
-      },
-      {
-        "ava": "1",
-        "isc": "M-Drone"
-      },
-      {
-        "ava": "2",
-        "isc": "Q-Drone"
-      },
-      {
-        "ava": "2",
-        "isc": "T-Drone"
-      },
-      {
-        "ava": "1",
-        "isc": "R-Drone"
-      },
-      {
-        "ava": "2",
-        "isc": "E-Drone"
-      },
-      {
-        "ava": "2",
-        "isc": "Slave Drones"
-      },
-      {
-        "ava": "2",
-        "isc": "Ikadron Batroids"
-      },
-      {
-        "ava": "1",
-        "isc": "Cadmus-Naish Agent Sheskiin",
-        "linkable": true
-      },
-      {
-        "ava": "1",
-        "isc": "Corax Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Treitak Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Shasvastii Corax Hasht",
-        "linkable": true
-      }
-    ]
-  },
-  {
-    "army": "Aleph",
-    "name": "Steel Phalanx",
-    "units": [
-      {
-        "ava": "4",
-        "isc": "Ekdromoi"
-      },
-      {
-        "ava": "4",
-        "isc": "Dactyls"
-      },
-      {
-        "ava": "1",
-        "isc": "Diomedes"
-      },
-      {
-        "ava": "1",
-        "isc": "Thamyris the Aoidos"
-      },
-      {
-        "ava": "6",
-        "isc": "Thorakitai"
-      },
-      {
-        "ava": "2",
-        "isc": "Agema Marksmen"
-      },
-      {
-        "ava": "1",
-        "isc": "Nesaie Alke"
-      },
-      {
-        "ava": "1",
-        "isc": "Patroclus"
-      },
-      {
-        "ava": "1",
-        "isc": "Atalanta"
-      },
-      {
-        "ava": "1",
-        "isc": "Achilles"
-      },
-      {
-        "ava": "1",
-        "isc": "Achilles v2 (Hoplite Armor)"
-      },
-      {
-        "ava": "1",
-        "isc": "Ajax the Great"
-      },
-      {
-        "ava": "T",
-        "isc": "Myrmidons"
-      },
-      {
-        "ava": "3",
-        "isc": "Myrmidon Officer"
-      },
-      {
-        "ava": "1",
-        "isc": "Machaon"
-      },
-      {
-        "ava": "1",
-        "isc": "Eudoros"
-      },
-      {
-        "ava": "1",
-        "isc": "Phoenix"
-      },
-      {
-        "ava": "1",
-        "isc": "Penthesilea"
-      },
-      {
-        "ava": "2",
-        "isc": "Daleth Rebots"
-      },
-      {
-        "ava": "1",
-        "isc": "Zayin Rebots"
-      },
-      {
-        "ava": "1",
-        "isc": "Samekh Rebots"
-      },
-      {
-        "ava": "2",
-        "isc": "Lamedh Rebots"
-      },
-      {
-        "ava": "4",
-        "isc": "Yudbots"
-      },
-      {
-        "ava": "2",
-        "isc": "Netrods"
-      },
-      {
-        "ava": "2",
-        "isc": "Probots"
-      },
-      {
-        "ava": "1",
-        "isc": "Chandra Spec-Ops"
-      },
-      {
-        "ava": "1",
-        "isc": "Chandra Sergeant Thrasymedes"
-      },
-      {
-        "ava": "1",
-        "isc": "Teucer"
-      },
-      {
-        "ava": "1",
-        "isc": "Drakios"
-      },
-      {
-        "ava": "1",
-        "isc": "Scylla"
-      },
-      {
-        "ava": "4",
-        "isc": "Acmon, Sergeant of Dactyls"
-      },
-      {
-        "ava": "1",
-        "isc": "Warcors",
-        "army": "Mercenary"
-      }
-    ]
- }
+  
+    {
+      "army": "PanOceania",
+      "name": "Shock Army of Acontecimento",
+      "abbr": "Acontecimento",
+      "units": [
+        {
+          "ava": "T",
+          "isc": "Acontecimento Regulars",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Akalis"
+        },
+        {
+          "ava": "4",
+          "isc": "Bagh-Mari",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Lieutenant Stephen Rao",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Guarda de Assalto"
+        },
+        {
+          "ava": "2",
+          "isc": "Knights of Montesa"
+        },
+        {
+          "ava": "1",
+          "isc": "Dragoes"
+        },
+        {
+          "ava": "2",
+          "isc": "Tikbalangs, Armoured Chasseurs of Acontecimento"
+        },
+        {
+          "ava": "2",
+          "isc": "Nagas",
+          "army": "Aleph"
+        },
+        {
+          "ava": "1",
+          "isc": "Kirpal Singh, Akalis Sergeant"
+        },
+        {
+          "ava": "1",
+          "isc": "Toni Macayana, Tikbalangs Lieutenant"
+        },
+        {
+          "ava": "1",
+          "isc": "Pathfinder Dronbot"
+        },
+        {
+          "ava": "1",
+          "isc": "Sierra Dronbot"
+        },
+        {
+          "ava": "1",
+          "isc": "Clipper Dronbot"
+        },
+        {
+          "ava": "2",
+          "isc": "Fugazi Dronbot"
+        },
+        {
+          "ava": "1",
+          "isc": "Armbots: Bulleteers"
+        },
+        {
+          "ava": "2",
+          "isc": "Armbots: Peacemakers"
+        },
+        {
+          "ava": "4",
+          "isc": "Palbots"
+        },
+        {
+          "ava": "2",
+          "isc": "Mulebots"
+        },
+        {
+          "ava": "1",
+          "isc": "Trauma-Doc"
+        },
+        {
+          "ava": "2",
+          "isc": "Machinist"
+        },
+        {
+          "ava": "1",
+          "isc": "Indigo Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        }
+      ]
+    },
+    {
+      "army": "PanOceania",
+      "name": "Neoterran Capitaline Army",
+      "abbr": "Neoterran",
+      "units": [
+        {
+          "ava": "T",
+          "isc": "Auxilia"
+        },
+        {
+          "ava": "5",
+          "isc": "Fusiliers",
+          "linkable": true
+        },
+        {
+          "ava": "T",
+          "isc": "Neoterra Bolts",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Hexas, Strategic Security Division"
+        },
+        {
+          "ava": "3",
+          "isc": "Aquila Guard"
+        },
+        {
+          "ava": "2",
+          "isc": "Swiss Guard"
+        },
+        {
+          "ava": "2",
+          "isc": "Squalos"
+        },
+        {
+          "ava": "2",
+          "isc": "Clausewitz Uhlans"
+        },
+        {
+          "ava": "2",
+          "isc": "Deva Functionaries",
+          "army": "Aleph"
+        },
+        {
+          "ava": "1",
+          "isc": "Garuda Tacbots",
+          "army": "Aleph"
+        },
+        {
+          "ava": "2",
+          "isc": "Pathfinder Dronbot"
+        },
+        {
+          "ava": "2",
+          "isc": "Sierra Dronbot"
+        },
+        {
+          "ava": "2",
+          "isc": "Clipper Dronbot"
+        },
+        {
+          "ava": "3",
+          "isc": "Fugazi Dronbot"
+        },
+        {
+          "ava": "2",
+          "isc": "Armbots: Bulleteers"
+        },
+        {
+          "ava": "2",
+          "isc": "Armbots: Peacemakers"
+        },
+        {
+          "ava": "2",
+          "isc": "Palbots"
+        },
+        {
+          "ava": "2",
+          "isc": "Mulebots"
+        },
+        {
+          "ava": "1",
+          "isc": "Trauma-Doc"
+        },
+        {
+          "ava": "1",
+          "isc": "Machinist"
+        },
+        {
+          "ava": "1",
+          "isc": "Indigo Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Fusilier Indigo Bipandra",
+          "linkable": true
+        },
+        {
+          "ava": "2",
+          "isc": "CSU, Corporate Security Unit",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        }
+      ]
+    },
+    {
+      "army": "PanOceania",
+      "name": "Military Orders",
+      "units": [
+        {
+          "ava": "3",
+          "isc": "Fusiliers",
+          "linkable": true
+        },
+        {
+          "ava": "T",
+          "isc": "Order Sergeants",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Knights Hospitaller",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Knights of Montesa"
+        },
+        {
+          "ava": "4",
+          "isc": "Crusader Brethren"
+        },
+        {
+          "ava": "4",
+          "isc": "Knights Of Santiago",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Knights of the Holy Sepulchre"
+        },
+        {
+          "ava": "4",
+          "isc": "Teutonic Knights",
+          "linkable": true
+        },
+        {
+          "ava": "6",
+          "isc": "Magister Knights",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Father-Knights"
+        },
+        {
+          "ava": "2",
+          "isc": "Seraphs"
+        },
+        {
+          "ava": "1",
+          "isc": "Father-Officer Gabriele De Fersen",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Joan of Arc",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Joan of Arc 2.0 (Mobility Armor)",
+          "linkable": true
+        },
+        {
+          "ava": "2",
+          "isc": "Pathfinder Dronbot"
+        },
+        {
+          "ava": "2",
+          "isc": "Sierra Dronbot"
+        },
+        {
+          "ava": "1",
+          "isc": "Clipper Dronbot"
+        },
+        {
+          "ava": "1",
+          "isc": "Fugazi Dronbot"
+        },
+        {
+          "ava": "2",
+          "isc": "Armbots: Bulleteers"
+        },
+        {
+          "ava": "2",
+          "isc": "Armbots: Peacemakers"
+        },
+        {
+          "ava": "2",
+          "isc": "Palbots"
+        },
+        {
+          "ava": "2",
+          "isc": "Mulebots"
+        },
+        {
+          "ava": "1",
+          "isc": "Trauma-Doc"
+        },
+        {
+          "ava": "1",
+          "isc": "Machinist"
+        },
+        {
+          "ava": "1",
+          "isc": "Indigo Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Fusilier Indigo Bipandra",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Indigo Brother Konstantinos",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        }
+      ]
+    },
+    {
+      "army": "Yu Jing",
+      "name": "Imperial Service",
+      "units": [
+        {
+          "ava": "T",
+          "isc": "Celestial Guard",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Zhànying Imperial Agents",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Miranda Ashcroft",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "5",
+          "isc": "Imperial Agent, Pheasant Rank",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Imperial Agents, Crane Rank",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Wu Ming",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Hsien",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Bao Troop",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Su-Jian Immediate Action Unit"
+        },
+        {
+          "ava": "1",
+          "isc": "Ninjas"
+        },
+        {
+          "ava": "8",
+          "isc": "Kuang Shi",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Dakini Tacbots",
+          "army": "Aleph"
+        },
+        {
+          "ava": "1",
+          "isc": "Garuda Tacbots",
+          "army": "Aleph"
+        },
+        {
+          "ava": "1",
+          "isc": "Sophotects",
+          "army": "Aleph"
+        },
+        {
+          "ava": "1",
+          "isc": "Sun Tze"
+        },
+        {
+          "ava": "1",
+          "isc": "Sun Tze v.2 (Marksman Leader)"
+        },
+        {
+          "ava": "1",
+          "isc": "Father Lucien Sforza",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "2",
+          "isc": "Yáoxiè Rui Shi"
+        },
+        {
+          "ava": "2",
+          "isc": "Yáoxiè Lù Duān"
+        },
+        {
+          "ava": "2",
+          "isc": "Yáokòng Wèibīng"
+        },
+        {
+          "ava": "3",
+          "isc": "Yáokòng Hùsòng"
+        },
+        {
+          "ava": "1",
+          "isc": "Yáokòng Son-bae"
+        },
+        {
+          "ava": "1",
+          "isc": "Yáokòng Chaīyì"
+        },
+        {
+          "ava": "2",
+          "isc": "Yudbots",
+          "army": "Aleph"
+        },
+        {
+          "ava": "2",
+          "isc": "Yáopú Pangguling"
+        },
+        {
+          "ava": "1",
+          "isc": "Guǐ Fēng Spec-Ops"
+        },
+        {
+          "ava": "3",
+          "isc": "Authorized Bounty Hunters",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        }
+      ]
+    },
+    {
+      "army": "Yu Jing",
+      "name": "Japanese Sectorial Army",
+      "units": [
+        {
+          "ava": "T",
+          "isc": "Keisotsu",
+          "linkable": true
+        },
+        {
+          "ava": "2",
+          "isc": "Kempeitai"
+        },
+        {
+          "ava": "4",
+          "isc": "Aragoto Senkenbutai"
+        },
+        {
+          "ava": "3",
+          "isc": "Karakuri Special Project",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Domaru Butai",
+          "linkable": true
+        },
+        {
+          "ava": "6",
+          "isc": "Haramaki Zensenbutai",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Raiden Seibutai"
+        },
+        {
+          "ava": "2",
+          "isc": "O-Yoroi Kidobutai"
+        },
+        {
+          "ava": "4",
+          "isc": "Ninjas"
+        },
+        {
+          "ava": "3",
+          "isc": "Oniwaban"
+        },
+        {
+          "ava": "2",
+          "isc": "Tokusetsu Butai"
+        },
+        {
+          "ava": "1",
+          "isc": "Oniwaban Shinobu Kitsune"
+        },
+        {
+          "ava": "1",
+          "isc": "Yojimbo",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "1",
+          "isc": "Asuka Kisaragi"
+        },
+        {
+          "ava": "1",
+          "isc": "Domaru Takeshi \"Neko\" Oyama",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Saito Tōgan",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "1",
+          "isc": "Miyamoto Mushashi",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "1",
+          "isc": "Yáoxiè Rui Shi"
+        },
+        {
+          "ava": "1",
+          "isc": "Yáoxiè Lù Duān"
+        },
+        {
+          "ava": "1",
+          "isc": "Yáokòng Wèibīng"
+        },
+        {
+          "ava": "1",
+          "isc": "Yáokòng Hùsòng"
+        },
+        {
+          "ava": "1",
+          "isc": "Yáokòng Son-bae"
+        },
+        {
+          "ava": "1",
+          "isc": "Yáokòng Chaīyì"
+        },
+        {
+          "ava": "2",
+          "isc": "Yáozăo"
+        },
+        {
+          "ava": "2",
+          "isc": "Yáopú Pangguling"
+        },
+        {
+          "ava": "1",
+          "isc": "Guǐ Fēng Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Keisotsu Guǐ Fēng Yuriko Oda",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        }
+      ]
+    },
+    {
+      "army": "Ariadna",
+      "name": "Caledonian Highlander Army",
+      "abbr": "Caledonian Army",
+      "units": [
+        {
+          "ava": "T",
+          "isc": "Caledonian Volunteers",
+          "linkable": true
+        },
+        {
+          "ava": "6",
+          "isc": "Highlander Caterans"
+        },
+        {
+          "ava": "5",
+          "isc": "3rd Highlander Greys",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Scot (2nd Battalion)"
+        },
+        {
+          "ava": "5",
+          "isc": "Scot (1st Battalion)",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Caledonian Mormaers"
+        },
+        {
+          "ava": "4",
+          "isc": "S.A.S."
+        },
+        {
+          "ava": "4",
+          "isc": "9th Wulver Grenadiers",
+          "linkable": true
+        },
+        {
+          "ava": "T",
+          "isc": "45th Highlanders",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "2nd Irregular Cameronians Reg."
+        },
+        {
+          "ava": "2",
+          "isc": "Traktor Mul, Artillery and Support Regiment"
+        },
+        {
+          "ava": "3",
+          "isc": "112, Emergency Service"
+        },
+        {
+          "ava": "2",
+          "isc": "Dozers, Field Engineers"
+        },
+        {
+          "ava": "1",
+          "isc": "Uxia McNeill"
+        },
+        {
+          "ava": "1",
+          "isc": "William Wallace",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "McMurrough",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "1",
+          "isc": "Intel Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Volunteer Intel Isobel McGregor",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        }
+      ]
+    },
+    {
+      "army": "Ariadna",
+      "name": "Merovingian Rapid Response Force",
+      "abbr": "M.R.R.F.",
+      "units": [
+        {
+          "ava": "T",
+          "isc": "Métros",
+          "linkable": true
+        },
+        {
+          "ava": "6",
+          "isc": "Para-Commandos"
+        },
+        {
+          "ava": "5",
+          "isc": "Loup-Garous",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Zouaves"
+        },
+        {
+          "ava": "5",
+          "isc": "Moblots",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Chasseurs"
+        },
+        {
+          "ava": "2",
+          "isc": "Traktor Mul, Artillery and Support Regiment"
+        },
+        {
+          "ava": "3",
+          "isc": "112, Emergency Service"
+        },
+        {
+          "ava": "2",
+          "isc": "Dozers, Field Engineers"
+        },
+        {
+          "ava": "1",
+          "isc": "Alguaciles",
+          "army": "Nomads"
+        },
+        {
+          "ava": "1",
+          "isc": "Brigadier Jacques Bruant",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Briscard",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Margot Berthier, Mirage-5"
+        },
+        {
+          "ava": "1",
+          "isc": "Intel Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Anaconda",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        }
+      ]
+    },
+    {
+      "army": "Ariadna",
+      "name": "USAriadna Ranger Force",
+      "abbr": "USAriadna",
+      "units": [
+        {
+          "ava": "2",
+          "isc": "112, Emergency Service"
+        },
+        {
+          "ava": "1",
+          "isc": "Dozers, Field Engineers"
+        },
+        {
+          "ava": "1",
+          "isc": "Intel Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Van Zant"
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "T",
+          "isc": "USAriadna Grunts",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Marauders, 5307th Ranger Unit",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Mavericks, 9th Motorized Recon Bat."
+        },
+        {
+          "ava": "5",
+          "isc": "Minutemen",
+          "linkable": true
+        },
+        {
+          "ava": "2",
+          "isc": "Traktor Mul, Artillery and Support Regiment"
+        },
+        {
+          "ava": "4",
+          "isc": "Foxtrot"
+        },
+        {
+          "ava": "3",
+          "isc": "Hardcases"
+        },
+        {
+          "ava": "3",
+          "isc": "Devil Dog Teams, 2nd Assault Bat."
+        },
+        {
+          "ava": "4",
+          "isc": "6th Airborne Rangers"
+        }
+      ]
+    },
+    {
+      "army": "Haqqislam",
+      "name": "Qapu Khalqi",
+      "units": [
+        {
+          "ava": "T",
+          "isc": "Ghulam",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Odalisques",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "KTS, Kaplan Tactical Services",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Sekban",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Bashi Bazouk"
+        },
+        {
+          "ava": "4",
+          "isc": "Hafza Unit",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Djanbazan",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Azra'il",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Janissaries",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Al Hawwa' Unit"
+        },
+        {
+          "ava": "3",
+          "isc": "Yuan Yuan",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "4",
+          "isc": "Druze Shock Teams",
+          "linkable": true,
+          "army": "Mercenary"
+        },
+        {
+          "ava": "4",
+          "isc": "Alguaciles",
+          "army": "Nomads"
+        },
+        {
+          "ava": "1",
+          "isc": "Mobile Brigada",
+          "army": "Nomads"
+        },
+        {
+          "ava": "1",
+          "isc": "Iguana Squadron",
+          "army": "Nomads"
+        },
+        {
+          "ava": "1",
+          "isc": "Rafiq Remote"
+        },
+        {
+          "ava": "2",
+          "isc": "Shihab Remote"
+        },
+        {
+          "ava": "1",
+          "isc": "Shaytaniyah Remote"
+        },
+        {
+          "ava": "3",
+          "isc": "Fanous Remote"
+        },
+        {
+          "ava": "2",
+          "isc": "Nasmat Remotes"
+        },
+        {
+          "ava": "2",
+          "isc": "Kameel Remotes"
+        },
+        {
+          "ava": "1",
+          "isc": "Najjarun Engineer"
+        },
+        {
+          "ava": "1",
+          "isc": "Scarface",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "1",
+          "isc": "Husam Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        }
+      ]
+    },
+    {
+      "army": "Haqqislam",
+      "name": "Hassassin Bahram",
+      "units": [
+        {
+          "ava": "5",
+          "isc": "Daylami Infantry"
+        },
+        {
+          "ava": "4",
+          "isc": "Ghulam",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Hassassin Govads",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Hassassin Farzans"
+        },
+        {
+          "ava": "6",
+          "isc": "Hassassin Muyibs",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Hassassin Ragiks"
+        },
+        {
+          "ava": "4",
+          "isc": "Hassassin Lasiqs",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Asawira Regiment",
+          "linkable": true
+        },
+        {
+          "ava": "2",
+          "isc": "Hassassin Fiday"
+        },
+        {
+          "ava": "2",
+          "isc": "Hassassin Barid"
+        },
+        {
+          "ava": "4",
+          "isc": "Muttawi'ah"
+        },
+        {
+          "ava": "1",
+          "isc": "Hussein Al-Djabel"
+        },
+        {
+          "ava": "1",
+          "isc": "Rafiq Remote"
+        },
+        {
+          "ava": "1",
+          "isc": "Shihab Remote"
+        },
+        {
+          "ava": "1",
+          "isc": "Shaytaniyah Remote"
+        },
+        {
+          "ava": "1",
+          "isc": "Fanous Remote"
+        },
+        {
+          "ava": "2",
+          "isc": "Nasmat Remotes"
+        },
+        {
+          "ava": "2",
+          "isc": "Kameel Remotes"
+        },
+        {
+          "ava": "1",
+          "isc": "Najjarun Engineer"
+        },
+        {
+          "ava": "1",
+          "isc": "Husam Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Hassassin Husam Yasbir",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        }
+      ]
+    },
+    {
+      "army": "Nomads",
+      "name": "Bakunin Jurisdictional Command",
+      "abbr": "Bakunin",
+      "units": [
+        {
+          "ava": "T",
+          "isc": "Moderators from Bakunin",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Reverend Moiras",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Reverend Custodiers",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Reverend Healers",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Sin-Eater Observants"
+        },
+        {
+          "ava": "3",
+          "isc": "Prowlers"
+        },
+        {
+          "ava": "1",
+          "isc": "Lizard"
+        },
+        {
+          "ava": "3",
+          "isc": "Zeros"
+        },
+        {
+          "ava": "T",
+          "isc": "Die Morlock Gruppe"
+        },
+        {
+          "ava": "3",
+          "isc": "Bakunin Überfallkommando : Chimera"
+        },
+        {
+          "ava": "9",
+          "isc": "Bakunin Überfallkommando : Pupniks"
+        },
+        {
+          "ava": "1",
+          "isc": "Bran do Castro, Triple Zero"
+        },
+        {
+          "ava": "1",
+          "isc": "Reverend Superior CASSANDRA KUSANAGI",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Zoe"
+        },
+        {
+          "ava": "1",
+          "isc": "Avicenna",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "2",
+          "isc": "Tsyklon Sputniks"
+        },
+        {
+          "ava": "2",
+          "isc": "Lunokhod Sputniks"
+        },
+        {
+          "ava": "2",
+          "isc": "Stempler Zond"
+        },
+        {
+          "ava": "1",
+          "isc": "Reaktion Zond"
+        },
+        {
+          "ava": "1",
+          "isc": "Vertigo Zond"
+        },
+        {
+          "ava": "1",
+          "isc": "Meteor Zond"
+        },
+        {
+          "ava": "2",
+          "isc": "Transductor Zond"
+        },
+        {
+          "ava": "4",
+          "isc": "Zondbots"
+        },
+        {
+          "ava": "2",
+          "isc": "Salyut Zonds"
+        },
+        {
+          "ava": "2",
+          "isc": "Clockmakers"
+        },
+        {
+          "ava": "1",
+          "isc": "Daktaris"
+        },
+        {
+          "ava": "5",
+          "isc": "Riot Grrls",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Vortex Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        }
+      ]
+    },
+    {
+      "army": "Nomads",
+      "name": "Corregidor Jurisdictional Command",
+      "abbr": "Corregidor",
+      "units": [
+        {
+          "ava": "T",
+          "isc": "Alguaciles",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Tomcats"
+        },
+        {
+          "ava": "5",
+          "isc": "Hellcats"
+        },
+        {
+          "ava": "5",
+          "isc": "Wildcats, Polyvalent Tactical Unit",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Intruders"
+        },
+        {
+          "ava": "6",
+          "isc": "Mobile Brigada",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Iguana Squadron"
+        },
+        {
+          "ava": "4",
+          "isc": "Gecko"
+        },
+        {
+          "ava": "3",
+          "isc": "Corregidor Bandits"
+        },
+        {
+          "ava": "2",
+          "isc": "Moran, Maasai Hunter"
+        },
+        {
+          "ava": "5",
+          "isc": "Corregidor Jaguars",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Carlota Kowalsky, Tomcats Sergeant"
+        },
+        {
+          "ava": "1",
+          "isc": "Señor Massacre",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "1",
+          "isc": "McMurrough",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "1",
+          "isc": "Valerya Gromoz, Mercenary Hacker",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "2",
+          "isc": "Tsyklon Sputniks"
+        },
+        {
+          "ava": "2",
+          "isc": "Lunokhod Sputniks"
+        },
+        {
+          "ava": "1",
+          "isc": "Stempler Zond"
+        },
+        {
+          "ava": "1",
+          "isc": "Reaktion Zond"
+        },
+        {
+          "ava": "1",
+          "isc": "Vertigo Zond"
+        },
+        {
+          "ava": "2",
+          "isc": "Transductor Zond"
+        },
+        {
+          "ava": "2",
+          "isc": "Zondbots"
+        },
+        {
+          "ava": "2",
+          "isc": "Salyut Zonds"
+        },
+        {
+          "ava": "1",
+          "isc": "Clockmakers"
+        },
+        {
+          "ava": "1",
+          "isc": "Daktaris"
+        },
+        {
+          "ava": "1",
+          "isc": "Vortex Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Alguacil Vortex Lupe Balboa",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        }
+      ]
+    },
+    {
+      "army": "Combined Army",
+      "name": "Morat Aggression Force",
+      "units": [
+        {
+          "ava": "T",
+          "isc": "Morat Vanguard Infantry",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Kurgat Reg. of Assault Engineers"
+        },
+        {
+          "ava": "5",
+          "isc": "Rodok",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Yaogat Strike Infantry",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Rasyat Diplomatic Division"
+        },
+        {
+          "ava": "5",
+          "isc": "Suryats",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Sogarat Tempest Regiment",
+          "linkable": true
+        },
+        {
+          "ava": "2",
+          "isc": "Raicho Armoured Brigade"
+        },
+        {
+          "ava": "2",
+          "isc": "Oznat",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "Zerat Special Missions Regiment"
+        },
+        {
+          "ava": "T",
+          "isc": "Dāturazi Witch-Soldiers",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "The Hungries: \"Gakis\""
+        },
+        {
+          "ava": "4",
+          "isc": "The Hungries: \"Pretas\""
+        },
+        {
+          "ava": "1",
+          "isc": "Med-Tech Obsidon Medchanoid"
+        },
+        {
+          "ava": "2",
+          "isc": "Raktorak",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Kornak Gazarot",
+          "linkable": true
+        },
+        {
+          "ava": "2",
+          "isc": "Ikadron Batroids"
+        },
+        {
+          "ava": "1",
+          "isc": "M-Drone"
+        },
+        {
+          "ava": "1",
+          "isc": "Q-Drone"
+        },
+        {
+          "ava": "1",
+          "isc": "T-Drone"
+        },
+        {
+          "ava": "1",
+          "isc": "R-Drone"
+        },
+        {
+          "ava": "2",
+          "isc": "E-Drone"
+        },
+        {
+          "ava": "2",
+          "isc": "Slave Drones"
+        },
+        {
+          "ava": "1",
+          "isc": "Treitak Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Corax Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Treitak Anyat",
+          "linkable": true
+        }
+      ]
+    },
+    {
+      "army": "Combined Army",
+      "name": "Shasvastii Expeditionary Force",
+      "abbr": "Shasvastii Exped. Force",
+      "units": [
+        {
+          "ava": "T",
+          "isc": "Shasvastii Seed-Soldiers",
+          "linkable": true
+        },
+        {
+          "ava": "4",
+          "isc": "Shasvastii Cadmus"
+        },
+        {
+          "ava": "3",
+          "isc": "Shasvastii Haiduks"
+        },
+        {
+          "ava": "5",
+          "isc": "Shasvastii Aswangs"
+        },
+        {
+          "ava": "3",
+          "isc": "Shasvastii Noctifers"
+        },
+        {
+          "ava": "4",
+          "isc": "Shasvastii Gwailos",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Shasvastii Caliban (Seed-Embryo)",
+          "linkable": true
+        },
+        {
+          "ava": "5",
+          "isc": "Shasvastii Caliban (Infiltration)"
+        },
+        {
+          "ava": "5",
+          "isc": "Shasvastii Caliban (Developed)",
+          "linkable": true
+        },
+        {
+          "ava": "3",
+          "isc": "The Shrouded"
+        },
+        {
+          "ava": "3",
+          "isc": "Malignos"
+        },
+        {
+          "ava": "2",
+          "isc": "Speculo Killers"
+        },
+        {
+          "ava": "1",
+          "isc": "Shasvastii Special Armoured Corp Sphinx"
+        },
+        {
+          "ava": "1",
+          "isc": "Med-Tech Obsidon Medchanoid"
+        },
+        {
+          "ava": "1",
+          "isc": "M-Drone"
+        },
+        {
+          "ava": "2",
+          "isc": "Q-Drone"
+        },
+        {
+          "ava": "2",
+          "isc": "T-Drone"
+        },
+        {
+          "ava": "1",
+          "isc": "R-Drone"
+        },
+        {
+          "ava": "2",
+          "isc": "E-Drone"
+        },
+        {
+          "ava": "2",
+          "isc": "Slave Drones"
+        },
+        {
+          "ava": "2",
+          "isc": "Ikadron Batroids"
+        },
+        {
+          "ava": "1",
+          "isc": "Cadmus-Naish Agent Sheskiin",
+          "linkable": true
+        },
+        {
+          "ava": "1",
+          "isc": "Corax Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Treitak Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Shasvastii Corax Hasht",
+          "linkable": true
+        }
+      ]
+    },
+    {
+      "army": "Aleph",
+      "name": "Steel Phalanx",
+      "units": [
+        {
+          "ava": "4",
+          "isc": "Ekdromoi"
+        },
+        {
+          "ava": "4",
+          "isc": "Dactyls"
+        },
+        {
+          "ava": "1",
+          "isc": "Diomedes"
+        },
+        {
+          "ava": "1",
+          "isc": "Thamyris"
+        },
+        {
+          "ava": "6",
+          "isc": "Thorakitai"
+        },
+        {
+          "ava": "2",
+          "isc": "Agema Marksman"
+        },
+        {
+          "ava": "1",
+          "isc": "Nesaie Alke"
+        },
+        {
+          "ava": "1",
+          "isc": "Patroclus"
+        },
+        {
+          "ava": "1",
+          "isc": "Atalanta"
+        },
+        {
+          "ava": "1",
+          "isc": "Achilles"
+        },
+        {
+          "ava": "1",
+          "isc": "Achilles v2 (Hoplite Armor)"
+        },
+        {
+          "ava": "1",
+          "isc": "Ajax"
+        },
+        {
+          "ava": "T",
+          "isc": "Myrmidons"
+        },
+        {
+          "ava": "3",
+          "isc": "Myrmidon Officer"
+        },
+        {
+          "ava": "1",
+          "isc": "Machaon"
+        },
+        {
+          "ava": "1",
+          "isc": "Eudoros"
+        },
+        {
+          "ava": "1",
+          "isc": "Phoenix"
+        },
+        {
+          "ava": "1",
+          "isc": "Penthesilea"
+        },
+        {
+          "ava": "2",
+          "isc": "Daleth Rebots"
+        },
+        {
+          "ava": "1",
+          "isc": "Zayin Rebots"
+        },
+        {
+          "ava": "1",
+          "isc": "Samekh Rebots"
+        },
+        {
+          "ava": "2",
+          "isc": "Lamedh Rebots"
+        },
+        {
+          "ava": "4",
+          "isc": "Yudbots"
+        },
+        {
+          "ava": "2",
+          "isc": "Netrods"
+        },
+        {
+          "ava": "2",
+          "isc": "Probots"
+        },
+        {
+          "ava": "1",
+          "isc": "Chandra Spec-Ops"
+        },
+        {
+          "ava": "1",
+          "isc": "Chandra Sergeant Thrasymedes"
+        },
+        {
+          "ava": "1",
+          "isc": "Teucer"
+        },
+        {
+          "ava": "1",
+          "isc": "Drakios"
+        },
+        {
+          "ava": "1",
+          "isc": "Scylla"
+        },
+        {
+          "ava": "1",
+          "isc": "Warcor",
+          "army": "Mercenary"
+        },
+        {
+          "ava": "4",
+          "isc": "Acmon, Sergeant of Dactyls"
+        }
+      ]
+    }
 ]
