@@ -21,6 +21,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -67,6 +68,8 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_unit, container, false);
 
+        setRetainInstance(true);
+
         m_linearLayout = (LinearLayout) v.findViewById(R.id.weapon_container);
         m_scrollview = (ScrollView) v.findViewById(R.id.scrollView);
 
@@ -75,6 +78,13 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         //profileFragment.setArguments(getIntent().getExtras());
 
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setUnit(m_unit);
+
     }
 
     @Override
@@ -87,6 +97,10 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     }
 
     public void setUnit(Unit unit) {
+        if (unit == null) {
+            return;
+        }
+
         m_scrollview.scrollTo(0,0);
         Log.d(TAG, "UnitFragment setId: " + unit.dbId);
 

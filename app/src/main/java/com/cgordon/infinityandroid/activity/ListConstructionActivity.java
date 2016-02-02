@@ -20,6 +20,7 @@ package com.cgordon.infinityandroid.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -62,6 +63,10 @@ public class ListConstructionActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        if (savedInstanceState != null) {
+            m_currentSelectedUnit = savedInstanceState.getParcelable("unit");
+        }
+
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setHomeButtonEnabled(true);
 //
@@ -73,12 +78,17 @@ public class ListConstructionActivity extends AppCompatActivity
         m_pager.setOffscreenPageLimit(3);
         SlidingTabLayout tabs = (SlidingTabLayout) findViewById(R.id.tabs);
         tabs.setViewPager(m_pager);
-
         m_army = getIntent().getParcelableExtra(MainActivity.ARMY);
 
     }
 
 
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putParcelable("unit", m_currentSelectedUnit);
+        super.onSaveInstanceState(outState);
+    }
 
 
     @Override
@@ -116,6 +126,7 @@ public class ListConstructionActivity extends AppCompatActivity
 
     public void addUnitChangedListener(UnitChangedListener listener) {
         m_unitChangedListener = listener;
+        m_unitChangedListener.OnUnitChanged(m_currentSelectedUnit);
     }
 
     @Override
