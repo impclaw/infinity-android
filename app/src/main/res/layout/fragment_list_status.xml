@@ -20,9 +20,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/regular"
-            android:paddingRight="4dp"
-            android:paddingLeft="4dp"/>
+            android:src="@drawable/regular" />
 
         <TextView
             android:id="@+id/text_orders_regular"
@@ -39,8 +37,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/irregular"
-            android:paddingRight="4dp"/>
+            android:src="@drawable/irregular" />
 
         <TextView
             android:id="@+id/text_orders_irregular"
@@ -57,16 +54,71 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/impetuous"
-            android:paddingRight="4dp" />
+            android:src="@drawable/impetuous" />
 
         <TextView
             android:id="@+id/text_orders_impetuous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="0"
-            android:paddingRight="4dp"/>
+            android:text="0" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Lt.:" />
+
+        <TextView
+            android:id="@+id/text_lieutenant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="2dp"
+            android:text="0" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Points:" />
+
+        <TextView
+            android:id="@+id/text_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="2dp"
+            android:text="0" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="SWC:" />
+
+        <TextView
+            android:id="@+id/text_swc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="2dp"
+            android:text="0" />
 
     </LinearLayout>
 

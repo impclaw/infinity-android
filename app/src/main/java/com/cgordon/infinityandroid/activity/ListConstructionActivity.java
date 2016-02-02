@@ -20,6 +20,7 @@ package com.cgordon.infinityandroid.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -33,7 +34,6 @@ import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.fragment.ArmyStatusFragment;
 import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
 import com.cgordon.infinityandroid.fragment.OptionsFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
@@ -41,9 +41,8 @@ import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.widgets.SlidingTabLayout;
 
 public class ListConstructionActivity extends AppCompatActivity
-    implements UnitListFragment.UnitSelectedListener,
-        OptionsFragment.OnOptionSelectedListener,
-        ListConstructionAdapter.ListChangedListener
+    implements UnitListFragment.UnitSelectedListener, OptionsFragment.OnOptionSelectedListener,
+        ListConstructionAdapter.OnListChanged
 {
 
     UnitChangedListener m_unitChangedListener = null;
@@ -56,7 +55,6 @@ public class ListConstructionActivity extends AppCompatActivity
     private ListConstructionPagerAdapter m_adapter;
     private OptionSelectedListener m_optionListener;
     private ListStatusListener m_listStatusListener;
-    private ArmyStatusListener m_armyListener;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -147,9 +145,11 @@ public class ListConstructionActivity extends AppCompatActivity
     }
 
     @Override
-    public void onListChanged(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount) {
+    public void listStatus(int cost, double swc, int lieutenantCount, int regularCount,
+                           int irregularCount, int impetuousCount) {
         Log.d(TAG, "Cost: " + cost + " SWC: " + swc + " LT.: " + lieutenantCount);
-        m_armyListener.OnArmyStatusChanged(cost, swc, lieutenantCount);
+        m_listStatusListener.OnListStatusChanged(cost, swc, lieutenantCount, regularCount,
+                irregularCount, impetuousCount );
     }
 
     class ListConstructionPagerAdapter extends FragmentPagerAdapter {
@@ -160,7 +160,7 @@ public class ListConstructionActivity extends AppCompatActivity
             tabs = new String[3];
             tabs[0] = getResources().getString(R.string.UnitList);
             tabs[1] = getResources().getString(R.string.Unit);
-            tabs[2] = getResources().getString(R.string.group1);
+            tabs[2] = getResources().getString(R.string.List);
         }
 
         @Override
@@ -204,16 +204,16 @@ public class ListConstructionActivity extends AppCompatActivity
         public void OnOptionSelected(Unit unitDBid, int option);
     }
 
-    public void setArmyStatusListener( ArmyStatusListener listener) {
-        m_armyListener = listener;
-    }
-
-    public interface ArmyStatusListener {
-        public void OnArmyStatusChanged(int cost, double swc, int lieutenantCount);
-    }
-
     public interface ListStatusListener {
-        public void OnListStatusChanged(int regularCount, int irregularCount, int impetuousCount, int group);
+        public void OnListStatusChanged(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount);
     }
+
+//    public void optionClicked(View view) {
+//        Log.d(TAG, "option clicked: " + view);
+//
+//        m_pager.setCurrentItem(2);
+//    }
+
+
 
 }

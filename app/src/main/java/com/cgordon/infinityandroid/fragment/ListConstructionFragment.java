@@ -27,7 +27,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
@@ -42,38 +41,30 @@ public class ListConstructionFragment extends Fragment
     private static Parcelable m_scrollState = null;
 
     private RecyclerView m_recyclerView;
-    private ListStatusFragment m_listStatus;
 
     private ListConstructionAdapter m_adapter;
-    private TextView m_ordersRegular;
-    private TextView m_ordersIrregular;
-    private TextView m_ordersImpetuous;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_list_construction, container, false);
 
-        setRetainInstance(true);
-
         m_recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         m_recyclerView.setHasFixedSize(true);
-
-        m_listStatus = (ListStatusFragment) getChildFragmentManager().findFragmentById(R.id.list_status);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
         m_recyclerView.setLayoutManager(layoutManager);
         m_adapter = new ListConstructionAdapter(getActivity());
-        if (getActivity() instanceof ListConstructionAdapter.ListChangedListener) {
-            m_adapter.addListChangedListener((ListConstructionAdapter.ListChangedListener) getActivity());
-            m_adapter.addListChangedListener(m_listStatus);
+        if (getActivity() instanceof ListConstructionAdapter.OnListChanged) {
+            m_adapter.setListChangedListener((ListConstructionAdapter.OnListChanged) getActivity());
         }
 
         m_recyclerView.setAdapter(m_adapter);
 
         return v;
     }
+
 
     @Override
     public void onPause() {
@@ -104,5 +95,4 @@ public class ListConstructionFragment extends Fragment
     public void OnOptionSelected(Unit unit, int option) {
         m_adapter.addUnit(unit, option);
     }
-
 }
