@@ -36,10 +36,11 @@
         android:layout_weight="1"/>
 
     <fragment
-        android:name="com.cgordon.infinityandroid.fragment.ListStatusFragment"
+        android:name="com.cgordon.infinityandroid.fragment.ArmyStatusFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout="@layout/fragment_list_status" />
+        tools:layout="@layout/fragment_army_status"
+        android:id="@+id/army_status"/>
 
 
 </LinearLayout>

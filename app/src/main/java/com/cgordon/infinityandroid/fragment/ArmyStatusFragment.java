@@ -28,37 +28,50 @@ import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
-import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 
-public class ListStatusFragment extends Fragment implements ListConstructionAdapter.ListChangedListener{
+public class ArmyStatusFragment extends Fragment implements ListConstructionActivity.ArmyStatusListener{
 
-    private TextView m_regular;
-    private TextView m_irregular;
-    private TextView m_impetuous;
+    private TextView m_lieutenant;
+    private TextView m_cost;
+    private TextView m_swc;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_list_status, container, false);
+        View v = inflater.inflate(R.layout.fragment_army_status, container, false);
 
-        m_regular = (TextView) v.findViewById(R.id.text_orders_regular);
-        m_irregular = (TextView) v.findViewById(R.id.text_orders_irregular);
-        m_impetuous = (TextView) v.findViewById(R.id.text_orders_impetuous);
+        m_lieutenant = (TextView) v.findViewById(R.id.text_lieutenant);
+        m_lieutenant.setText("Missing");
+        m_cost = (TextView) v.findViewById(R.id.text_cost);
+        m_swc = (TextView) v.findViewById(R.id.text_swc);
 
-//        Fragment parentFragment = getParentFragment();
-//        if (parentFragment instanceof ListConstructionFragment) {
-//            parentFragment
-//            ((OnListChanged)parentFragment).setListChangedListener(this);
-//        }
 
         return v;
     }
 
     @Override
-    public void onListChanged(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount) {
-        m_regular.setText(Integer.toString(regularCount));
-        m_irregular.setText(Integer.toString(irregularCount));
-        m_impetuous.setText(Integer.toString(impetuousCount));
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if (activity instanceof ListConstructionActivity) {
+            ((ListConstructionActivity)activity).setArmyStatusListener(this);
+        }
 
     }
+
+    @Override
+    public void OnArmyStatusChanged(int cost, double swc, int lieutenantCount) {
+        m_cost.setText(Integer.toString(cost));
+        m_swc.setText(Double.toString(swc));
+
+        String ltStatus = "Ok";
+        if (lieutenantCount <1) {
+            ltStatus = "Missing";
+        } else if (lieutenantCount >1) {
+            ltStatus = "Too many";
+        }
+        m_lieutenant.setText(ltStatus);
+
+    }
+
 }

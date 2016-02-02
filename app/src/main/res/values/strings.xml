@@ -65,5 +65,9 @@
     <string name="cancel_list_title">You are about to leave</string>
     <string name="cancel_list_message">Your list will be lost.  Continue?</string>
     <string name="ok">Ok</string>
+    <string name="group1">Group 1</string>
+    <string name="group2">Group 2</string>
+    <string name="group3">Group 3</string>
+    <string name="group4">Group 4</string>
 
 </resources>

@@ -48,20 +48,29 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
 
 //    int m_totalCost = 0;
 //    double m_totalSWC = 0;
-    private OnListChanged m_listener;
 
-    public interface OnListChanged {
-        public void listStatus(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount);
+    private List<ListChangedListener> m_listeners;
+
+    public interface ListChangedListener {
+
+        public void onListChanged(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount);
     }
 
-    public void setListChangedListener(OnListChanged listener) {
-        m_listener = listener;
+    public boolean addListChangedListener(ListChangedListener listener) {
+        if (listener != null) {
+            return m_listeners.add(listener);
+        }
+        return false;
     }
 
+    public boolean removeListChangedListener(ListChangedListener listener) {
+        return m_listeners.remove(listener);
+    }
 
     public ListConstructionAdapter(Context context) {
         m_context = context;
         m_list = new ArrayList<>();
+        m_listeners = new ArrayList<>();
     }
 
     private void updateListener() {
@@ -95,8 +104,13 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
             }
         }
 
+        for (ListChangedListener l: m_listeners
+             ) {
+            l.onListChanged(costTotal, swcTotal, ltCount, regularCount, irregularCount, impetuousCount);
+            
+        }
 
-        m_listener.listStatus(costTotal, swcTotal, ltCount, regularCount, irregularCount, impetuousCount );
+        //m_listener.onListChanged(costTotal, swcTotal, ltCount, regularCount, irregularCount, impetuousCount);
     }
 
     public void delete(int position) {

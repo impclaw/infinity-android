@@ -44,7 +44,7 @@ public class UnitActivity extends AppCompatActivity implements OptionsFragment.O
         super.onCreate(savedInstanceState);
 
         m_unit = getIntent().getParcelableExtra(MainActivity.UNIT);
-        Log.d(TAG, m_unit.toString());
+        Log.d(TAG, "Creating UnitActivity: " + m_unit.toString());
 
         setContentView(R.layout.activity_unit);
 
