@@ -64,7 +64,9 @@ public class ListConstructionFragment extends Fragment
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
         m_recyclerView.setLayoutManager(layoutManager);
-        m_adapter = new ListConstructionAdapter(getActivity());
+        if (m_adapter == null) {
+            m_adapter = new ListConstructionAdapter(getActivity());
+        }
         if (getActivity() instanceof ListConstructionAdapter.ListChangedListener) {
             m_adapter.addListChangedListener((ListConstructionAdapter.ListChangedListener) getActivity());
             m_adapter.addListChangedListener(m_listStatus);

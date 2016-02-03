@@ -65,9 +65,6 @@ public class ListConstructionActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (savedInstanceState != null) {
-            m_currentSelectedUnit = savedInstanceState.getParcelable("unit");
-        }
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setHomeButtonEnabled(true);
@@ -82,9 +79,17 @@ public class ListConstructionActivity extends AppCompatActivity
         tabs.setViewPager(m_pager);
         m_army = getIntent().getParcelableExtra(MainActivity.ARMY);
 
+        if (savedInstanceState != null) {
+            m_currentSelectedUnit = savedInstanceState.getParcelable("unit");
+        }
+
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        notifyUnitSelected(m_currentSelectedUnit, null);
+    }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -119,10 +124,18 @@ public class ListConstructionActivity extends AppCompatActivity
         alert.show();
     }
 
-    public void unitSelected(Unit unit, UnitListAdapter.ViewHolder viewHolder) {
-        m_unitChangedListener.OnUnitChanged(unit);
+    protected void notifyUnitSelected (Unit unit, UnitListAdapter.ViewHolder viewHolder) {
+        if (m_unitChangedListener != null) {
+            m_unitChangedListener.OnUnitChanged(unit);
+        }
         m_currentSelectedUnit = unit;
-        Log.d(TAG, "Unit Selected: " + unit.dbId);
+        if (unit != null) {
+            Log.d(TAG, "Unit Selected: " + unit.dbId);
+        }
+    }
+
+    public void unitSelected(Unit unit, UnitListAdapter.ViewHolder viewHolder) {
+        notifyUnitSelected(unit, viewHolder);
         m_pager.setCurrentItem(1);
     }
 

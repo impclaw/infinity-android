@@ -4525,5 +4525,119 @@
         }
       }
     ]
+  },
+  {
+    "army": "Ariadna",
+    "isc": "6th Airborne Rangers",
+    "name": "Airborne Ranger",
+    "type": "LI",
+    "imp": "",
+    "irr": "",
+    "cube": "",
+    "mov": "4-4",
+    "cc": "22",
+    "bs": "12",
+    "ph": "12",
+    "wip": "13",
+    "arm": "1",
+    "bts": "0",
+    "w": "1",
+    "s": "2",
+    "ava": "2",
+    "spec": [
+      "Martial Arts L2",
+      "AD: Parachutist",
+      "Kinematika L1",
+      "Jungle Terrain"
+    ],
+    "bsw": [],
+    "ccw": [
+      "Knife",
+      "AP CCW"
+    ],
+    "childs": [
+      {
+        "code": "Default",
+        "codename": "Submachine Gun",
+        "cost": "20",
+        "swc": "0",
+        "spec": [],
+        "bsw": [
+          "Submachine Gun"
+        ],
+        "ccw": [
+          "Pistol"
+        ]
+      },
+      {
+        "code": "Molotok",
+        "codename": "",
+        "cost": "32",
+        "swc": "1.5",
+        "spec": [],
+        "bsw": [
+          "Molotok"
+        ],
+        "ccw": [
+          "Pistol"
+        ]
+      },
+      {
+        "code": "Boarding Shotgun",
+        "codename": "",
+        "cost": "24",
+        "swc": "0",
+        "spec": [],
+        "bsw": [
+          "Boarding Shotgun"
+        ],
+        "ccw": [
+          "Pistol"
+        ]
+      },
+      {
+        "code": "Rifle",
+        "codename": "",
+        "cost": "25",
+        "swc": "0",
+        "spec": [],
+        "bsw": [
+          "Rifle"
+        ],
+        "ccw": [
+          "Assault Pistol"
+        ]
+      },
+      {
+        "code": "Forward Observer",
+        "codename": "",
+        "cost": "21",
+        "swc": "0",
+        "spec": [
+          "Forward Observer"
+        ],
+        "bsw": [
+          "Submachine Gun"
+        ],
+        "ccw": [
+          "Pistol"
+        ]
+      },
+      {
+        "code": "Lieutenant",
+        "codename": "",
+        "cost": "20",
+        "swc": "1",
+        "spec": [
+          "Lieutenant"
+        ],
+        "bsw": [
+          "Submachine Gun"
+        ],
+        "ccw": [
+          "Pistol"
+        ]
+      }
+    ]
   }
 ]

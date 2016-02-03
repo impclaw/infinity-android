@@ -68,7 +68,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_unit, container, false);
 
-        setRetainInstance(true);
+        //setRetainInstance(true);
 
         m_linearLayout = (LinearLayout) v.findViewById(R.id.weapon_container);
         m_scrollview = (ScrollView) v.findViewById(R.id.scrollView);
@@ -79,13 +79,6 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
 
         return v;
     }
-
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        setUnit(m_unit);
-//
-//    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -101,7 +94,9 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
             return;
         }
 
-        m_scrollview.scrollTo(0,0);
+        if (m_scrollview != null) {
+            m_scrollview.scrollTo(0, 0);
+        }
         Log.d(TAG, "UnitFragment setId: " + unit.dbId);
 
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();

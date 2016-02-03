@@ -58,7 +58,14 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
 
     public boolean addListChangedListener(ListChangedListener listener) {
         if (listener != null) {
-            return m_listeners.add(listener);
+            boolean retval = true;
+
+            if (!m_listeners.contains(listener)) {
+                retval = m_listeners.add(listener);
+            }
+
+            return retval;
+
         }
         return false;
     }
