@@ -49,7 +49,6 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
     private List<ListChangedListener> m_listeners;
 
     public interface ListChangedListener {
-
         public void onListChanged(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount);
     }
 
