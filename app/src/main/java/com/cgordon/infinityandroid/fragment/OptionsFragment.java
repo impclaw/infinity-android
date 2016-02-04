@@ -96,7 +96,7 @@ public class OptionsFragment extends Fragment {
 
         TextView ccw = (TextView) view.findViewById(R.id.ccw);
         if (option.ccw != null && option.ccw.size() > 0) {
-            ccw.setText(TextUtils.join(", ", option.ccw));
+            ccw.setText("CCW: " + TextUtils.join(", ", option.ccw));
         } else {
             ccw.setVisibility(View.GONE);
         }

@@ -4639,5 +4639,112 @@
         ]
       }
     ]
+  },
+  {
+    "army": "Ariadna",
+    "isc": "Desperadoes",
+    "name": "Desperado",
+    "ava": "2",
+    "spec": [
+      "Sixth Sense L2",
+      "V: Courage"
+    ],
+    "bsw": [],
+    "ccw": [],
+    "profiles": [
+      {
+        "type": "WB",
+        "imp": "X",
+        "irr": "X",
+        "cube": "",
+        "mov": "8-4",
+        "cc": "18",
+        "bs": "11",
+        "ph": "12",
+        "wip": "13",
+        "arm": "1",
+        "bts": "0",
+        "w": "1",
+        "s": "4",
+        "spec": [
+          "Motorcycle",
+          "Kinematika L1"
+        ],
+        "bsw": [
+          "Smoke Light Grenade Launcher"
+        ],
+        "ccw": []
+      },
+      {
+        "name": "Dismounted",
+        "mov": "4-4",
+        "s": "2",
+        "spec": [],
+        "bsw": [],
+        "ccw": []
+      }
+    ],
+    "childs": [
+      {
+        "code": "Default",
+        "codename": "Chain Rifle",
+        "cost": "11",
+        "swc": "0",
+        "spec": [],
+        "bsw": [
+          "Chain Rifle",
+          "Smoke Grenades"
+        ],
+        "ccw": [
+          "Heavy Pistol (2)",
+          "AP CCW"
+        ]
+      },
+      {
+        "code": "Assault Pistol",
+        "codename": "",
+        "cost": "13",
+        "swc": "0",
+        "spec": [],
+        "bsw": [
+          "Chain Rifle",
+          "Smoke Grenades"
+        ],
+        "ccw": [
+          "Assault Pistol (2)",
+          "CCW"
+        ]
+      },
+      {
+        "code": "Boarding Shotgun",
+        "codename": "",
+        "cost": "18",
+        "swc": "0",
+        "spec": [],
+        "bsw": [
+          "Boarding Shotgun",
+          "Smoke Grenades"
+        ],
+        "ccw": [
+          "Heavy Pistol (2)",
+          "CCW"
+        ]
+      },
+      {
+        "code": "Submachine Gun",
+        "codename": "",
+        "cost": "13",
+        "swc": "0",
+        "spec": [],
+        "bsw": [
+          "Submachine Gun",
+          "Smoke Grenades"
+        ],
+        "ccw": [
+          "Heavy Pistol (2)",
+          "CCW"
+        ]
+      }
+    ]
   }
 ]
