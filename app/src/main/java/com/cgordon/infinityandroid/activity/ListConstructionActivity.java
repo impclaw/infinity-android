@@ -88,7 +88,7 @@ public class ListConstructionActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        notifyUnitSelected(m_currentSelectedUnit, null);
+        //notifyUnitSelected(m_currentSelectedUnit, null);
     }
 
     @Override
@@ -141,7 +141,11 @@ public class ListConstructionActivity extends AppCompatActivity
 
     public void addUnitChangedListener(UnitChangedListener listener) {
         m_unitChangedListener = listener;
-        m_unitChangedListener.OnUnitChanged(m_currentSelectedUnit);
+        //m_unitChangedListener.OnUnitChanged(m_currentSelectedUnit);
+    }
+
+    public Unit getUnit() {
+        return m_currentSelectedUnit;
     }
 
     @Override

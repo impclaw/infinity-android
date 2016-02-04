@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 by Chris Gordon
+ * Copyright 2015-2016 by Chris Gordon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,22 +23,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.MainActivity;
-import com.cgordon.infinityandroid.adapter.WeaponsAdapter;
-import com.cgordon.infinityandroid.data.Option;
-import com.cgordon.infinityandroid.data.Profile;
-import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.data.Weapon;
 import com.cgordon.infinityandroid.storage.WeaponsData;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
 
 public class WeaponsFragment extends Fragment {
 
@@ -47,58 +37,83 @@ public class WeaponsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_weapons, container, false);
+        View view = inflater.inflate(R.layout.fragment_weapon, container, false);
 
-        Unit unit = getArguments().getParcelable(MainActivity.UNIT);
+        Bundle arguments = getArguments();
+        Weapon weaponData = arguments.getParcelable(MainActivity.WEAPON);
 
-        ListView listView = (ListView) view.findViewById(R.id.list_view);
 
+        TextView name = (TextView) view.findViewById(R.id.name);
+        name.setText(weaponData.name);
 
-        ArrayList<String> bsw = new ArrayList<>();
-        ArrayList<String> ccw = new ArrayList<>();
+        TextView burst = (TextView) view.findViewById(R.id.burst);
+        burst.setText("B: " + weaponData.burst);
 
-        Iterator it = unit.profiles.iterator();
-        while (it.hasNext()) {
-            Profile profile = (Profile) it.next();
-            bsw.addAll(profile.bsw);
-            ccw.addAll(profile.ccw);
+        TextView damage = (TextView) view.findViewById(R.id.damage);
+        damage.setText("Dmg: " + weaponData.damage);
+
+        TextView ammo = (TextView) view.findViewById(R.id.ammo);
+        ammo.setText("Ammo: " + weaponData.ammo);
+
+        TextView suppressive = (TextView) view.findViewById(R.id.suppressive);
+        if (weaponData.suppressive == null || weaponData.suppressive.isEmpty()) {
+            suppressive.setText("Suppressive: No, ");
+        } else {
+            suppressive.setText("Suppressive: " + weaponData.suppressive + ", ");
         }
 
-        it = unit.options.iterator();
-        while (it.hasNext()) {
-            Option option = (Option) it.next();
-            bsw.addAll(option.bsw);
-            ccw.addAll(option.ccw);
+        TextView cc = (TextView) view.findViewById(R.id.cc);
+        cc.setText("CC: " + weaponData.cc);
+
+        TextView ranges = (TextView) view.findViewById(R.id.ranges);
+        StringBuffer sb = new StringBuffer();
+
+        if (!weaponData.short_dist.equals("--")) {
+            sb.append("0-").append(weaponData.short_dist);
+            sb.append(": ").append(weaponData.short_mod);
+        }
+        if (!weaponData.medium_dist.equals("--")) {
+            sb.append(", ").append(weaponData.short_dist).append("-").append(weaponData.medium_dist);
+            sb.append(": ").append(weaponData.medium_mod);
+        }
+        if (!weaponData.long_dist.equals("--")) {
+            sb.append(", ").append(weaponData.medium_dist).append("-").append(weaponData.long_dist);
+            sb.append(": ").append(weaponData.long_mod);
+        }
+        if (!weaponData.max_dist.equals("--")) {
+            sb.append(", ").append(weaponData.long_dist).append("-").append(weaponData.max_dist);
+            sb.append(": ").append(weaponData.max_mod);
+        }
+        ranges.setText(sb.toString());
+
+        String noteText = "";
+        TextView note = (TextView) view.findViewById(R.id.note);
+        if (weaponData.note != null && !weaponData.note.isEmpty()) {
+            noteText = weaponData.note;
         }
 
-        // remove duplicates
-        Set<String> hs = new HashSet<>();
-        hs.addAll(bsw);
-        bsw.clear();
-        bsw.addAll(hs);
-
-        hs.clear();
-        hs.addAll(ccw);
-        ccw.clear();
-        ccw.addAll(hs);
-
-        Collections.sort(bsw, new Comparator<String>() {
-            @Override
-            public int compare(String lhs, String rhs) {
-                return lhs.compareToIgnoreCase(rhs);
+        if (weaponData.template != null
+                && !weaponData.template.isEmpty()
+                && !weaponData.template.toLowerCase().equals("no")) {
+            if (!noteText.isEmpty()) {
+                noteText += ", ";
             }
-        });
+            noteText += weaponData.template;
+        }
 
-        Collections.sort(ccw, new Comparator<String>() {
-            @Override
-            public int compare(String lhs, String rhs) {
-                return lhs.compareToIgnoreCase(rhs);
+        if (weaponData.uses != null && !weaponData.uses.isEmpty()) {
+            if (!noteText.isEmpty()) {
+                noteText += ", ";
             }
-        });
+            noteText += "Uses: " + weaponData.uses;
 
-        bsw.addAll(ccw);
+        }
 
-        listView.setAdapter(new WeaponsAdapter(getActivity(), R.layout.row_weapon, bsw));
+        if (noteText.isEmpty()) {
+            note.setVisibility(View.GONE);
+        } else {
+            note.setText(noteText);
+        }
 
         return view;
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 by Chris Gordon
+ * Copyright 2015-2016 by Chris Gordon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,10 @@
 
 package com.cgordon.infinityandroid.data;
 
-public class Weapon {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Weapon implements Parcelable {
 
     public String ammo;
     public String burst;
@@ -40,6 +43,8 @@ public class Weapon {
     public String suppressive;
     public String alt_profile;
     public String mode;
+
+    public Weapon() {}
 
     @Override
     public String toString() {
@@ -95,6 +100,68 @@ public class Weapon {
         return sb.toString();
     }
 
-}
+    public Weapon(Parcel parcel) {
+        ammo = parcel.readString();
+        burst = parcel.readString();
+        cc = parcel.readString();
+        damage = parcel.readString();
+        em_vul = parcel.readString();
+        long_dist = parcel.readString();
+        long_mod = parcel.readString();
+        max_dist = parcel.readString();
+        max_mod = parcel.readString();
+        medium_dist = parcel.readString();
+        medium_mod = parcel.readString();
+        name = parcel.readString();
+        note = parcel.readString();
+        short_dist = parcel.readString();
+        short_mod = parcel.readString();
+        template = parcel.readString();
+        uses = parcel.readString();
+        attr = parcel.readString();
+        suppressive = parcel.readString();
+        alt_profile = parcel.readString();
+        mode = parcel.readString();
+    }
 
-// ? public String em_vul;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+         dest.writeString(ammo);
+         dest.writeString(burst);
+         dest.writeString(cc);
+         dest.writeString(damage);
+         dest.writeString(em_vul);
+         dest.writeString(long_dist);
+         dest.writeString(long_mod);
+         dest.writeString(max_dist);
+         dest.writeString(max_mod);
+         dest.writeString(medium_dist);
+         dest.writeString(medium_mod);
+         dest.writeString(name);
+         dest.writeString(note);
+         dest.writeString(short_dist);
+         dest.writeString(short_mod);
+         dest.writeString(template);
+         dest.writeString(uses);
+         dest.writeString(attr);
+         dest.writeString(suppressive);
+         dest.writeString(alt_profile);
+         dest.writeString(mode);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Parcelable.Creator<Weapon> CREATOR
+            = new Parcelable.Creator<Weapon>() {
+        public Weapon createFromParcel(Parcel in) {
+            return new Weapon(in);
+        }
+
+        public Weapon[] newArray(int size) {
+            return new Weapon[size];
+        }
+    };    
+}

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 by Chris Gordon
+ * Copyright 2015-2016 by Chris Gordon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,7 +32,8 @@ import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.OptionsFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 
-public class UnitActivity extends AppCompatActivity implements OptionsFragment.OnOptionSelectedListener {
+public class UnitActivity extends AppCompatActivity
+        implements OptionsFragment.OnOptionSelectedListener, UnitFragment.UnitChangeSource {
 
     private static final String TAG = UnitActivity.class.getSimpleName();
     private Unit m_unit;
@@ -51,7 +52,6 @@ public class UnitActivity extends AppCompatActivity implements OptionsFragment.O
         Fragment unit = getSupportFragmentManager().findFragmentById(R.id.unit);
         if (unit instanceof UnitFragment) {
             m_unitFragment = (UnitFragment) unit;
-            m_unitFragment.setUnit(m_unit);
         }
 
         ImageView image = (ImageView) findViewById(R.id.image_view);
@@ -91,8 +91,6 @@ public class UnitActivity extends AppCompatActivity implements OptionsFragment.O
         getSupportActionBar().setTitle(m_unit.isc);
 
 
-        //getSupportActionBar().setIcon(R.drawable.panoceania_24);
-
 //        ViewCompat.setTransitionName(toolbar, UnitListActivity.TRANSITION_UNIT_NAME);
 
         TextView textView = (TextView) findViewById(R.id.text_name);
@@ -103,5 +101,10 @@ public class UnitActivity extends AppCompatActivity implements OptionsFragment.O
     @Override
     public void onOptionSelected(int option) {
         Log.d(TAG, "option selected: " + option);
+    }
+
+    @Override
+    public Unit getUnit() {
+        return m_unit;
     }
 }

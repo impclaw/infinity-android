@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 by Chris Gordon
+ * Copyright 2015-2016 by Chris Gordon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -88,6 +88,7 @@ public class ListConstructionFragment extends Fragment
     public void onResume() {
         super.onResume();
         m_recyclerView.getLayoutManager().onRestoreInstanceState(m_scrollState);
+        m_adapter.updateListener();
     }
 
 

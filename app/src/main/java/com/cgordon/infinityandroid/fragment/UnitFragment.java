@@ -21,7 +21,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,10 +32,11 @@ import android.widget.ScrollView;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
 import com.cgordon.infinityandroid.activity.MainActivity;
-import com.cgordon.infinityandroid.adapter.WeaponsAdapter;
 import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Profile;
 import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.data.Weapon;
+import com.cgordon.infinityandroid.storage.WeaponsData;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,6 +44,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class UnitFragment extends Fragment implements ListConstructionActivity.UnitChangedListener {
@@ -63,6 +64,14 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         m_fragments = new ArrayList<>();
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            m_unit = savedInstanceState.getParcelable(MainActivity.UNIT);
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -72,6 +81,10 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
 
         m_linearLayout = (LinearLayout) v.findViewById(R.id.weapon_container);
         m_scrollview = (ScrollView) v.findViewById(R.id.scrollView);
+
+        if (savedInstanceState == null) {
+            setUnit(m_unit);
+        }
 
         // In case this activity was started with special instructions from an
         // Intent, pass the Intent's extras to the fragment as arguments
@@ -85,8 +98,17 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         super.onAttach(activity);
         if (activity instanceof ListConstructionActivity) {
             ((ListConstructionActivity) activity).addUnitChangedListener(this);
-
         }
+
+        if (activity instanceof UnitChangeSource) {
+            m_unit = ((UnitChangeSource) activity).getUnit();
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(MainActivity.UNIT, m_unit);
     }
 
     public void setUnit(Unit unit) {
@@ -135,9 +157,6 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
 
             transaction.add(R.id.fragment_container, optionsFragment);
         }
-
-
-        transaction.commit();
 
 
         ArrayList<String> bsw = new ArrayList<>();
@@ -199,12 +218,24 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
 
         bsw.addAll(ccw);
 
-        m_linearLayout.removeAllViews();
+        WeaponsData wd = new WeaponsData(getActivity());
+        wd.open();
+        Map<String, Weapon> m_weaponsList = wd.getWeapons();
+        wd.close();
 
-        WeaponsAdapter adapter = new WeaponsAdapter(getActivity(), R.layout.row_weapon, bsw);
-        for (int i = 0; i < adapter.getCount(); i++) {
-            m_linearLayout.addView(adapter.getView(i, null, null));
+
+        for (int i = 0; i < bsw.size(); i++) {
+            WeaponsFragment weaponsFragment = new WeaponsFragment();
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(MainActivity.WEAPON, m_weaponsList.get(bsw.get(i)));
+            weaponsFragment.setArguments(bundle);
+
+            m_fragments.add(0, weaponsFragment);
+
+            transaction.add(R.id.weapon_container, weaponsFragment);
         }
+
+        transaction.commit();
 
     }
 
@@ -216,6 +247,10 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     public void optionClicked(View view) {
         Log.d(TAG, "option clicked: " + view);
 
+    }
+
+    public interface UnitChangeSource {
+        public Unit getUnit();
     }
 
 }

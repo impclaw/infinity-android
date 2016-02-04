@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 by Chris Gordon
+ * Copyright 2015-2016 by Chris Gordon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -46,9 +46,6 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
 
     private Context m_context;
 
-//    int m_totalCost = 0;
-//    double m_totalSWC = 0;
-
     private List<ListChangedListener> m_listeners;
 
     public interface ListChangedListener {
@@ -80,7 +77,7 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
         m_listeners = new ArrayList<>();
     }
 
-    private void updateListener() {
+    public void updateListener() {
         Iterator it = m_list.iterator();
         int costTotal = 0;
         double swcTotal = 0;

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 by Chris Gordon
+ * Copyright 2015-2016 by Chris Gordon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements ArmyListFragment.
     public static final String ABBR = "abbr";
     public static final String UNIT = "unit";
     public static final String INDEX = "profile";
+    public static final String WEAPON = "weapon";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
