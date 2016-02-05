@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 by Chris Gordon
+ * Copyright 2015-2016 by Chris Gordon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
