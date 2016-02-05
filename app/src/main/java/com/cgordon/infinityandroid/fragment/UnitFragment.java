@@ -227,7 +227,11 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         for (int i = 0; i < bsw.size(); i++) {
             WeaponsFragment weaponsFragment = new WeaponsFragment();
             Bundle bundle = new Bundle();
-            bundle.putParcelable(MainActivity.WEAPON, m_weaponsList.get(bsw.get(i)));
+            String name = bsw.get(i);
+            if (name.endsWith(" (2)")) {
+                name = name.substring(0, name.length()-4);
+            }
+            bundle.putParcelable(MainActivity.WEAPON, m_weaponsList.get(name));
             weaponsFragment.setArguments(bundle);
 
             m_fragments.add(0, weaponsFragment);

@@ -42,6 +42,9 @@ public class WeaponsFragment extends Fragment {
         Bundle arguments = getArguments();
         Weapon weaponData = arguments.getParcelable(MainActivity.WEAPON);
 
+        if (weaponData == null) {
+            weaponData = new Weapon();
+        }
 
         TextView name = (TextView) view.findViewById(R.id.name);
         name.setText(weaponData.name);
