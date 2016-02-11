@@ -31,6 +31,7 @@ import android.widget.TextView;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.fragment.UnitListFragment;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ import java.util.Map.Entry;
 public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructionAdapter.ViewHolder> {
 
     private static final String TAG = ListConstructionAdapter.class.getSimpleName();
+    private UnitListFragment.UnitSelectedListener m_unitSelectedListener = null;
 
     private List<Entry<Unit, Integer>> m_list;
 
@@ -74,6 +76,10 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
         m_context = context;
         m_list = new ArrayList<>();
         m_listeners = new ArrayList<>();
+
+        if (context instanceof UnitListFragment.UnitSelectedListener) {
+            m_unitSelectedListener = (UnitListFragment.UnitSelectedListener) context;
+        }
     }
 
     public void updateListener() {
@@ -157,7 +163,7 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
         return vh;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView m_image;
         public TextView m_isc;
@@ -179,6 +185,16 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
             m_swc = (TextView) itemView.findViewById(R.id.text_swc);
             m_delete = (ImageButton) itemView.findViewById(R.id.delete);
             m_cardView = (CardView) itemView.findViewById(R.id.card_view);
+
+            m_cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Entry<Unit, Integer> temp = m_list.get(getAdapterPosition());
+                    Unit tmpUnit = temp.getKey();
+                    m_unitSelectedListener.unitSelected(m_list.get(getAdapterPosition()).getKey(),
+                            ViewHolder.this);
+                }
+            });
 
             m_delete.setOnClickListener(new View.OnClickListener() {
                 @Override

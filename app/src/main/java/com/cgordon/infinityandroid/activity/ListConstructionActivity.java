@@ -25,6 +25,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
@@ -33,7 +34,6 @@ import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.fragment.ArmyStatusFragment;
 import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
 import com.cgordon.infinityandroid.fragment.OptionsFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
@@ -124,7 +124,7 @@ public class ListConstructionActivity extends AppCompatActivity
         alert.show();
     }
 
-    protected void notifyUnitSelected (Unit unit, UnitListAdapter.ViewHolder viewHolder) {
+    protected void notifyUnitSelected (Unit unit, RecyclerView.ViewHolder viewHolder) {
         if (m_unitChangedListener != null) {
             m_unitChangedListener.OnUnitChanged(unit);
         }
@@ -134,7 +134,7 @@ public class ListConstructionActivity extends AppCompatActivity
         }
     }
 
-    public void unitSelected(Unit unit, UnitListAdapter.ViewHolder viewHolder) {
+    public void unitSelected(Unit unit, RecyclerView.ViewHolder viewHolder) {
         notifyUnitSelected(unit, viewHolder);
         m_pager.setCurrentItem(1);
     }
@@ -177,7 +177,7 @@ public class ListConstructionActivity extends AppCompatActivity
             tabs = new String[3];
             tabs[0] = getResources().getString(R.string.UnitList);
             tabs[1] = getResources().getString(R.string.Unit);
-            tabs[2] = getResources().getString(R.string.group1);
+            tabs[2] = getResources().getString(R.string.list);
         }
 
         @Override

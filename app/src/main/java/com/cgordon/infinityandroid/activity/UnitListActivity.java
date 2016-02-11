@@ -17,18 +17,16 @@
 
 package com.cgordon.infinityandroid.activity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v4.util.Pair;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -40,7 +38,6 @@ import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
-import com.cgordon.infinityandroid.fragment.ProfileFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.storage.ArmyData;
 import com.cgordon.infinityandroid.storage.WeaponsData;
@@ -162,7 +159,7 @@ public class UnitListActivity extends AppCompatActivity
     }
 
     @Override
-    public void unitSelected(Unit unit, UnitListAdapter.ViewHolder viewHolder) {
+    public void unitSelected(Unit unit, RecyclerView.ViewHolder viewHolder) {
         //Log.d(TAG, unit.toString());
         Intent intent = new Intent(this, UnitActivity.class);
 
@@ -188,13 +185,17 @@ public class UnitListActivity extends AppCompatActivity
         sb.append("\nCC Weapons\n");
         sb.append(weaponsToString(ccw));
 
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
-                new Pair<View, String>(viewHolder.m_imageView, TRANSITION_IMAGE)
-                //        ,new Pair<View, String>(viewHolder.m_textView, TRANSITION_UNIT_NAME)
-        );
+        if (viewHolder instanceof UnitListAdapter.ViewHolder) {
+            UnitListAdapter.ViewHolder tmpViewHolder = (UnitListAdapter.ViewHolder) viewHolder;
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
+                    new Pair<View, String>(tmpViewHolder.m_imageView, TRANSITION_IMAGE)
+                    //        ,new Pair<View, String>(viewHolder.m_textView, TRANSITION_UNIT_NAME)
+            );
 
-        intent.putExtra(MainActivity.UNIT, unit);
-        ActivityCompat.startActivity(this, intent, options.toBundle());
+            intent.putExtra(MainActivity.UNIT, unit);
+            ActivityCompat.startActivity(this, intent, options.toBundle());
+        }
+
 
         //startActivity(intent);
 

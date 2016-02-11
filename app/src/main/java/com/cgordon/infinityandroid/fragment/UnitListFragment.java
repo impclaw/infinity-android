@@ -120,7 +120,7 @@ public class UnitListFragment extends Fragment {
     }
 
     public interface UnitSelectedListener {
-        public void unitSelected(Unit unit, final UnitListAdapter.ViewHolder viewHolder);
+        public void unitSelected(Unit unit, final RecyclerView.ViewHolder viewHolder);
     }
 
     // For screen orientation change
