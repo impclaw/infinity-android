@@ -20,6 +20,7 @@ package com.cgordon.infinityandroid.adapter;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,14 +33,20 @@ import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
+import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
-public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructionAdapter.ViewHolder> {
+public class ListConstructionAdapter
+    extends RecyclerView.Adapter<ListConstructionAdapter.ViewHolder>
+    implements ItemTouchHelperListener
+
+{
 
     private static final String TAG = ListConstructionAdapter.class.getSimpleName();
     private UnitListFragment.UnitSelectedListener m_unitSelectedListener = null;
@@ -49,6 +56,27 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
     private Context m_context;
 
     private List<ListChangedListener> m_listeners;
+
+    @Override
+    public boolean onItemMove(int fromIndex, int toIndex) {
+        Log.d(TAG, "Move from: " + fromIndex + " to: " + toIndex);
+        if (fromIndex < toIndex) {
+            for (int i = fromIndex; i < toIndex; i++) {
+                Collections.swap(m_list, i, i + 1);
+            }
+        } else {
+            for (int i = fromIndex; i > toIndex; i--) {
+                Collections.swap(m_list, i, i - 1);
+            }
+        }
+        notifyItemMoved(fromIndex, toIndex);
+        return true;
+    }
+
+    @Override
+    public boolean onItemSwipe(int index) {
+        return true;
+    }
 
     public interface ListChangedListener {
         public void onListChanged(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount);
@@ -205,4 +233,43 @@ public class ListConstructionAdapter extends RecyclerView.Adapter<ListConstructi
 
         }
     }
-}
+
+    public static class ListConstructionTouchHelper extends ItemTouchHelper.Callback {
+
+        private final ItemTouchHelperListener m_listener;
+
+        public ListConstructionTouchHelper(ItemTouchHelperListener listener) {
+            m_listener = listener;
+        }
+
+        @Override
+        public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+            int drag = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+            int swipe = ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+            return makeMovementFlags(drag, swipe);
+        }
+
+        @Override
+        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                              RecyclerView.ViewHolder destination) {
+            m_listener.onItemMove(viewHolder.getAdapterPosition(), destination.getAdapterPosition());
+            return true;
+        }
+
+        @Override
+        public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
+            m_listener.onItemSwipe(i);
+        }
+
+        @Override
+        public boolean isLongPressDragEnabled() {
+            return true;
+        }
+
+        @Override
+        public boolean isItemViewSwipeEnabled() {
+            return false;
+        }
+    }
+
+ }

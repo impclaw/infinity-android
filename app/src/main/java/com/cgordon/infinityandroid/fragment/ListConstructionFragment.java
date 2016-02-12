@@ -24,6 +24,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,9 @@ import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
+
+import static com.cgordon.infinityandroid.adapter.ListConstructionAdapter.*;
 
 public class ListConstructionFragment extends Fragment
         implements ListConstructionActivity.OptionSelectedListener {
@@ -67,10 +71,14 @@ public class ListConstructionFragment extends Fragment
         if (m_adapter == null) {
             m_adapter = new ListConstructionAdapter(getActivity());
         }
-        if (getActivity() instanceof ListConstructionAdapter.ListChangedListener) {
-            m_adapter.addListChangedListener((ListConstructionAdapter.ListChangedListener) getActivity());
+        if (getActivity() instanceof ListChangedListener) {
+            m_adapter.addListChangedListener((ListChangedListener) getActivity());
             m_adapter.addListChangedListener(m_listStatus);
         }
+
+        ItemTouchHelper.Callback callback = new ListConstructionTouchHelper(m_adapter);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
+        itemTouchHelper.attachToRecyclerView(m_recyclerView);
 
         m_recyclerView.setAdapter(m_adapter);
 
