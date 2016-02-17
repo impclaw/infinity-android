@@ -154,7 +154,9 @@ public class ListConstructionAdapter
                 if (unit.profiles.get(0).irr) {
                     irregularCount++;
                 } else {
-                    regularCount++;
+                    if (!unit.profiles.get(0).spec.contains("G: Servant")) {
+                        regularCount++;
+                    }
                 }
 
                 // models with Frenzy don't start the game with an impetuous order like regular
