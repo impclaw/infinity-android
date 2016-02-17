@@ -31,11 +31,4 @@
 
     </android.support.v7.widget.RecyclerView>
 
-    <fragment
-        android:name="com.cgordon.infinityandroid.fragment.ListStatusFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout="@layout/fragment_list_status"
-        android:id="@+id/list_status"/>
-
 </LinearLayout>

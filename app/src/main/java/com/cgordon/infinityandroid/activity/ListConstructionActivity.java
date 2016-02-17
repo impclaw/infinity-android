@@ -31,7 +31,6 @@ import android.util.Log;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
-import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
@@ -164,7 +163,7 @@ public class ListConstructionActivity extends AppCompatActivity
     }
 
     @Override
-    public void onListChanged(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount) {
+    public void onListChanged(int cost, double swc, int lieutenantCount) {
         Log.d(TAG, "Cost: " + cost + " SWC: " + swc + " LT.: " + lieutenantCount);
         m_armyListener.OnArmyStatusChanged(cost, swc, lieutenantCount);
     }

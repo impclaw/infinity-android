@@ -17,7 +17,6 @@
 
 package com.cgordon.infinityandroid.fragment;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -27,7 +26,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.activity.ListConstructionActivity;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 
 public class ListStatusFragment extends Fragment implements ListConstructionAdapter.ListChangedListener{
@@ -55,10 +53,10 @@ public class ListStatusFragment extends Fragment implements ListConstructionAdap
     }
 
     @Override
-    public void onListChanged(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount) {
-        m_regular.setText(Integer.toString(regularCount));
-        m_irregular.setText(Integer.toString(irregularCount));
-        m_impetuous.setText(Integer.toString(impetuousCount));
+    public void onListChanged(int cost, double swc, int lieutenantCount) {
+//        m_regular.setText(Integer.toString(regularCount));
+//        m_irregular.setText(Integer.toString(irregularCount));
+//        m_impetuous.setText(Integer.toString(impetuousCount));
 
     }
 }

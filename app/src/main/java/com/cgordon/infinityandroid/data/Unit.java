@@ -22,7 +22,7 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-public class Unit implements Parcelable {
+public class Unit implements Parcelable, ListElement {
 
     public long dbId;
     public String ava;  // sometimes this can be 'T', so can't be an int

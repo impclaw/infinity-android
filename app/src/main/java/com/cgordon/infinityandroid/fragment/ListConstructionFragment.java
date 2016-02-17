@@ -46,7 +46,6 @@ public class ListConstructionFragment extends Fragment
     private static Parcelable m_scrollState = null;
 
     private RecyclerView m_recyclerView;
-    private ListStatusFragment m_listStatus;
 
     private ListConstructionAdapter m_adapter;
     private TextView m_ordersRegular;
@@ -63,8 +62,6 @@ public class ListConstructionFragment extends Fragment
         m_recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         m_recyclerView.setHasFixedSize(true);
 
-        m_listStatus = (ListStatusFragment) getChildFragmentManager().findFragmentById(R.id.list_status);
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
         m_recyclerView.setLayoutManager(layoutManager);
@@ -73,7 +70,6 @@ public class ListConstructionFragment extends Fragment
         }
         if (getActivity() instanceof ListChangedListener) {
             m_adapter.addListChangedListener((ListChangedListener) getActivity());
-            m_adapter.addListChangedListener(m_listStatus);
         }
 
         ItemTouchHelper.Callback callback = new ListConstructionTouchHelper(m_adapter);

@@ -30,6 +30,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.data.CombatGroup;
+import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
@@ -38,20 +40,22 @@ import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
 public class ListConstructionAdapter
-    extends RecyclerView.Adapter<ListConstructionAdapter.ViewHolder>
+    extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     implements ItemTouchHelperListener
 
 {
-
     private static final String TAG = ListConstructionAdapter.class.getSimpleName();
     private UnitListFragment.UnitSelectedListener m_unitSelectedListener = null;
 
-    private List<Entry<Unit, Integer>> m_list;
+    private final int TYPE_UNIT = 0;
+    private final int TYPE_GROUP = 1;
+
+    // list of unit, option selection for that unit.
+    private List<Entry<ListElement, Integer>> m_list;
 
     private Context m_context;
 
@@ -59,6 +63,10 @@ public class ListConstructionAdapter
 
     @Override
     public boolean onItemMove(int fromIndex, int toIndex) {
+        // you can't replace the first item in the list because that's the Group 1 header.
+        if (toIndex == 0) {
+            return false;
+        }
         Log.d(TAG, "Move from: " + fromIndex + " to: " + toIndex);
         if (fromIndex < toIndex) {
             for (int i = fromIndex; i < toIndex; i++) {
@@ -70,6 +78,7 @@ public class ListConstructionAdapter
             }
         }
         notifyItemMoved(fromIndex, toIndex);
+        updateListener();
         return true;
     }
 
@@ -79,7 +88,7 @@ public class ListConstructionAdapter
     }
 
     public interface ListChangedListener {
-        public void onListChanged(int cost, double swc, int lieutenantCount, int regularCount, int irregularCount, int impetuousCount);
+        void onListChanged(int cost, double swc, int lieutenantCount);
     }
 
     public boolean addListChangedListener(ListChangedListener listener) {
@@ -103,6 +112,13 @@ public class ListConstructionAdapter
     public ListConstructionAdapter(Context context) {
         m_context = context;
         m_list = new ArrayList<>();
+
+        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(1), 0));
+        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(2), 0));
+        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(3), 0));
+        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(4), 0));
+
+
         m_listeners = new ArrayList<>();
 
         if (context instanceof UnitListFragment.UnitSelectedListener) {
@@ -111,7 +127,9 @@ public class ListConstructionAdapter
     }
 
     public void updateListener() {
-        Iterator it = m_list.iterator();
+        CombatGroup currentCombatGroup = null;
+        int currentCombatGroupIndex = 0;
+
         int costTotal = 0;
         double swcTotal = 0;
         int ltCount = 0;
@@ -120,30 +138,57 @@ public class ListConstructionAdapter
         int impetuousCount = 0;
 
 
-        while (it.hasNext()) {
-            Entry e = (Entry)it.next();
-            Unit unit = (Unit) e.getKey();
-            int option = (int) e.getValue();
-            costTotal += unit.options.get(option).cost;
-            swcTotal += unit.options.get(option).swc;
+        for (int i = 0; i < m_list.size(); i++) {
+            Entry e = (Entry) m_list.get(i);
+            ListElement le = (ListElement) e.getKey();
+            if (le instanceof Unit) {
+                Unit unit = (Unit) le;
+                int option = (int) e.getValue();
+                costTotal += unit.options.get(option).cost;
+                swcTotal += unit.options.get(option).swc;
 
-            if (unit.options.get(option).spec.contains("Lieutenant")) {
-                ltCount++;
-            }
+                if (unit.options.get(option).spec.contains("Lieutenant")) {
+                    ltCount++;
+                }
 
-            if (unit.profiles.get(0).irr) {
-                irregularCount++;
-            } else {
-                regularCount++;
+                if (unit.profiles.get(0).irr) {
+                    irregularCount++;
+                } else {
+                    regularCount++;
+                }
+
+                // models with Frenzy don't start the game with an impetuous order like regular
+                // impetuous models do
+                if ((unit.profiles.get(0).imp.compareToIgnoreCase("F") != 0)
+                        && (!unit.profiles.get(0).imp.isEmpty())) {
+                    impetuousCount++;
+                }
             }
-            if (!unit.profiles.get(0).imp.isEmpty()) {
-                impetuousCount++;
+            else if (le instanceof CombatGroup) {
+                if (currentCombatGroup != null) {
+                    currentCombatGroup.m_regularOrders = regularCount;
+                    currentCombatGroup.m_irregularOrders = irregularCount;
+                    currentCombatGroup.m_impetuousOrders = impetuousCount;
+                    notifyItemChanged(currentCombatGroupIndex);
+                }
+                regularCount = 0;
+                irregularCount = 0;
+                impetuousCount = 0;
+                currentCombatGroup = (CombatGroup) le;
+                currentCombatGroupIndex = i;
             }
+        }
+        // update the last combat group since we're out of the loop.
+        if (currentCombatGroup != null) {
+            currentCombatGroup.m_regularOrders = regularCount;
+            currentCombatGroup.m_irregularOrders = irregularCount;
+            currentCombatGroup.m_impetuousOrders = impetuousCount;
+            notifyItemChanged(currentCombatGroupIndex);
         }
 
         for (ListChangedListener l: m_listeners
              ) {
-            l.onListChanged(costTotal, swcTotal, ltCount, regularCount, irregularCount, impetuousCount);
+            l.onListChanged(costTotal, swcTotal, ltCount);
             
         }
 
@@ -156,42 +201,93 @@ public class ListConstructionAdapter
         notifyItemRemoved(position);
     }
 
+    private int determineGroup(int position) {
+        return 1;
+    }
+
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
 
-        Unit unit = m_list.get(position).getKey();
-        Option option = unit.options.get(m_list.get(position).getValue());
+        if (holder instanceof UnitViewHolder) {
+            UnitViewHolder unitViewHolder = (UnitViewHolder)holder;
 
-        int resourceId = UnitListAdapter.getDrawableResource(unit, m_context, 48);
-        holder.m_image.setImageResource(resourceId);
+            Unit unit = (Unit) m_list.get(position).getKey();
+            Option option = unit.options.get(m_list.get(position).getValue());
 
-        holder.m_isc.setText(unit.isc);
-        holder.m_option.setText(option.code);
-        holder.m_points.setText(Integer.toString(option.cost));
-        holder.m_swc.setText(Double.toString(option.swc));
+            int resourceId = UnitListAdapter.getDrawableResource(unit, m_context, 48);
+            unitViewHolder.m_image.setImageResource(resourceId);
+
+            unitViewHolder.m_isc.setText(unit.isc);
+            unitViewHolder.m_option.setText(option.code);
+            unitViewHolder.m_points.setText(Integer.toString(option.cost));
+            unitViewHolder.m_swc.setText(Double.toString(option.swc));
+        } else {
+            GroupViewHolder groupViewHolder = (GroupViewHolder)holder;
+            CombatGroup combatGroup = (CombatGroup) m_list.get(position).getKey();
+            groupViewHolder.m_group.setText("Group " + combatGroup.m_id);
+            groupViewHolder.m_regular.setText(Integer.toString(combatGroup.m_regularOrders));
+            groupViewHolder.m_irregular.setText(Integer.toString(combatGroup.m_irregularOrders));
+            groupViewHolder.m_impetuous.setText(Integer.toString(combatGroup.m_impetuousOrders));
+        }
     }
 
     public void addUnit(Unit unit, int option) {
-        m_list.add(new AbstractMap.SimpleEntry<>(unit, option));
+        m_list.add(1, new AbstractMap.SimpleEntry<>((ListElement) unit, option));
+
+
 
         updateListener();
-        notifyItemRangeInserted(getItemCount() - 1, 1);
+        notifyItemRangeInserted(1, 1);
     }
 
     public int getItemCount() {
-//        return m_armies.size();
-        return m_list.size();
+        return m_list.size();  // group headers
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_unit_list, parent,
-                false);
-        ViewHolder vh = new ViewHolder(v);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = null;
+        RecyclerView.ViewHolder vh = null;
+        if (viewType == TYPE_UNIT) {
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_unit_list, parent, false);
+            vh = new UnitViewHolder(v);
+        } else {
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_group_header, parent, false);
+            vh = new GroupViewHolder(v);
+
+        }
+
         return vh;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public int getItemViewType(int position) {
+        ListElement le = m_list.get(position).getKey();
+        if (le instanceof Unit) {
+            return TYPE_UNIT;
+        } else {
+            return TYPE_GROUP;
+        }
+    }
+
+    public class GroupViewHolder extends RecyclerView.ViewHolder {
+
+        public TextView m_group;
+        public TextView m_regular;
+        public TextView m_irregular;
+        public TextView m_impetuous;
+        public int m_type;
+
+        public GroupViewHolder(View itemView) {
+            super(itemView);
+            m_group = (TextView) itemView.findViewById(R.id.text_group);
+            m_regular = (TextView) itemView.findViewById(R.id.text_orders_regular);
+            m_irregular = (TextView) itemView.findViewById(R.id.text_orders_irregular);
+            m_impetuous = (TextView) itemView.findViewById(R.id.text_orders_impetuous);
+
+        }
+    }
+    public class UnitViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView m_image;
         public TextView m_isc;
@@ -204,7 +300,7 @@ public class ListConstructionAdapter
 
 
 
-        public ViewHolder(final View itemView) {
+        public UnitViewHolder(final View itemView) {
             super(itemView);
             m_image = (ImageView) itemView.findViewById(R.id.image_view);
             m_isc = (TextView) itemView.findViewById(R.id.text_isc);
@@ -217,10 +313,10 @@ public class ListConstructionAdapter
             m_cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Entry<Unit, Integer> temp = m_list.get(getAdapterPosition());
-                    Unit tmpUnit = temp.getKey();
-                    m_unitSelectedListener.unitSelected(m_list.get(getAdapterPosition()).getKey(),
-                            ViewHolder.this);
+                    Entry<ListElement, Integer> temp = m_list.get(getAdapterPosition());
+                    Unit tmpUnit = (Unit) temp.getKey();
+                    m_unitSelectedListener.unitSelected((Unit) m_list.get(getAdapterPosition()).getKey(),
+                            UnitViewHolder.this);
                 }
             });
 
@@ -244,9 +340,12 @@ public class ListConstructionAdapter
 
         @Override
         public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-            int drag = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
-            int swipe = ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
-            return makeMovementFlags(drag, swipe);
+            if (viewHolder instanceof UnitViewHolder) {
+                int drag = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+                int swipe = 0; //ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+                return makeMovementFlags(drag, swipe);
+            }
+            return makeMovementFlags(0, 0);
         }
 
         @Override
