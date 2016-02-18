@@ -1,7 +1,7 @@
 [
   {
     "army": "Yu Jing",
-    "isc": "Keisotsu",
+    "isc": "Keisotsu Butai",
     "name": "Keisotsu",
     "type": "LI",
     "imp": "",
@@ -532,7 +532,7 @@
   },
   {
     "army": "Yu Jing",
-    "isc": "Zúyong Invincibles",
+    "isc": "Zúyong Invincibles, Terra-Cotta Soldiers",
     "name": "Zúyong",
     "type": "HI",
     "imp": "",
@@ -784,7 +784,7 @@
   },
   {
     "army": "Yu Jing",
-    "isc": "Wu Ming",
+    "isc": "Wu Ming Assault Corps",
     "name": "Wu Ming",
     "type": "HI",
     "imp": "",
@@ -911,7 +911,7 @@
   },
   {
     "army": "Yu Jing",
-    "isc": "Daofei",
+    "isc": "Daofei Tactical Section",
     "name": "Daofei",
     "type": "HI",
     "imp": "",
@@ -1026,7 +1026,7 @@
   },
   {
     "army": "Yu Jing",
-    "isc": "Hac Tao",
+    "isc": "Hac Tao Special Unit",
     "name": "Hac Tao",
     "type": "HI",
     "imp": "",
@@ -1143,7 +1143,7 @@
   },
   {
     "army": "Yu Jing",
-    "isc": "Hsien",
+    "isc": "Hsien Warriors",
     "name": "Hsien",
     "type": "HI",
     "imp": "",
@@ -1262,7 +1262,7 @@
   },
   {
     "army": "Yu Jing",
-    "isc": "Guijia",
+    "isc": "Guijia Squadron",
     "name": "Guijia",
     "ava": "2",
     "spec": [],
@@ -1347,7 +1347,7 @@
   },
   {
     "army": "Yu Jing",
-    "isc": "Guilang",
+    "isc": "Gŭiláng Skirmishers",
     "name": "Guilang",
     "type": "SK",
     "imp": "",
@@ -1696,7 +1696,7 @@
   },
   {
     "army": "Yu Jing",
-    "isc": "Yisheng",
+    "isc": "Zhanshi YĪSHĒNG",
     "name": "Yisheng",
     "type": "LI",
     "imp": "",
@@ -1737,7 +1737,7 @@
   },
   {
     "army": "Yu Jing",
-    "isc": "Mech-Engineer",
+    "isc": "Mech-Engineers",
     "name": "Mech-Engineer",
     "type": "LI",
     "imp": "",
@@ -2275,7 +2275,7 @@
   },
   {
     "army": "Yu Jing",
-    "isc": "Shang Ji",
+    "isc": "Shang Ji Invincibles",
     "name": "Shang Ji",
     "type": "HI",
     "imp": "",
@@ -3522,6 +3522,7 @@
     "army": "Yu Jing",
     "isc": "Domaru Takeshi \"Neko\" Oyama",
     "name": "Oyama",
+    "image": "Domaru Butai",
     "type": "HI",
     "imp": "F",
     "irr": "",
@@ -3578,7 +3579,8 @@
   {
     "army": "Yu Jing",
     "isc": "Sun Tze v.2 (Marksman Leader)",
-    "name": "Sun Tze",
+    "name": "Sun Tze v.2",
+    "image": "Sun Tze",
     "type": "MI",
     "imp": "",
     "irr": "",
@@ -3752,7 +3754,7 @@
   },
   {
     "army": "Yu Jing",
-    "isc": "Bao Troop",
+    "isc": "Bao Troops",
     "name": "Bao",
     "type": "LI",
     "imp": "",

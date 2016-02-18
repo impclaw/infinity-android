@@ -412,17 +412,17 @@
         },
         {
           "ava": "5",
-          "isc": "Wu Ming",
+          "isc": "Wu Ming Assault Corps",
           "linkable": true
         },
         {
           "ava": "4",
-          "isc": "Hsien",
+          "isc": "Hsien Warriors",
           "linkable": true
         },
         {
           "ava": "4",
-          "isc": "Bao Troop",
+          "isc": "Bao Troops",
           "linkable": true
         },
         {
@@ -521,7 +521,7 @@
       "units": [
         {
           "ava": "T",
-          "isc": "Keisotsu",
+          "isc": "Keisotsu Butai",
           "linkable": true
         },
         {
@@ -592,7 +592,7 @@
         },
         {
           "ava": "1",
-          "isc": "Miyamoto Mushashi",
+          "isc": "Miyamoto Musashi",
           "army": "Mercenary"
         },
         {
