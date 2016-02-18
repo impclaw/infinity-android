@@ -97,7 +97,7 @@
   },
   {
     "army": "Mercenary",
-    "isc": "Bashi Bazouk",
+    "isc": "Bashi Bazouks",
     "name": "Bashi Bazouk",
     "type": "LI",
     "imp": "",
@@ -897,7 +897,7 @@
   },
   {
     "army": "Mercenary",
-    "isc": "Scarface",
+    "isc": "Scarface Turner",
     "name": "Scarface",
     "ava": "1",
     "spec": [],
@@ -1011,7 +1011,7 @@
   },
   {
     "army": "Mercenary",
-    "isc": "Anaconda",
+    "isc": "Anaconda Mercenary Tag Squadron",
     "name": "Anaconda",
     "ava": "1",
     "spec": [],
@@ -1089,7 +1089,7 @@
   },
   {
     "army": "Mercenary",
-    "isc": "Warcor",
+    "isc": "Warcors",
     "name": "Warcor",
     "type": "LI",
     "imp": "",

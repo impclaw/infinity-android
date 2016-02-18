@@ -480,7 +480,7 @@
   },
   {
     "army": "PanOceania",
-    "isc": "Nisses",
+    "isc": "Svalarheima Nisses",
     "name": "Nisse",
     "type": "MI",
     "imp": "",
@@ -854,7 +854,7 @@
   },
   {
     "army": "PanOceania",
-    "isc": "Father-Knights",
+    "isc": "Military Order Father-Knights",
     "name": "Father-Knight",
     "type": "HI",
     "imp": "",
@@ -1458,7 +1458,7 @@
   },
   {
     "army": "PanOceania",
-    "isc": "Trauma-Doc",
+    "isc": "Trauma-Docs",
     "name": "Trauma-Doc",
     "type": "LI",
     "imp": "",
@@ -1499,7 +1499,7 @@
   },
   {
     "army": "PanOceania",
-    "isc": "Machinist",
+    "isc": "Machinists",
     "name": "Machinist",
     "type": "LI",
     "imp": "",
@@ -1540,7 +1540,7 @@
   },
   {
     "army": "PanOceania",
-    "isc": "Pathfinder Dronbot",
+    "isc": "Pathfinder Dronbots",
     "name": "Pathfinder Dronbot",
     "type": "REM",
     "imp": "",
@@ -1586,7 +1586,7 @@
   },
   {
     "army": "PanOceania",
-    "isc": "Sierra Dronbot",
+    "isc": "Sierra Dronbots",
     "name": "Sierra Dronbot",
     "type": "REM",
     "imp": "",
@@ -1628,7 +1628,7 @@
   },
   {
     "army": "PanOceania",
-    "isc": "Clipper Dronbot",
+    "isc": "Clipper Dronbots",
     "name": "Clipper Dronbot",
     "type": "REM",
     "imp": "",
@@ -1668,7 +1668,7 @@
   },
   {
     "army": "PanOceania",
-    "isc": "Fugazi Dronbot",
+    "isc": "Fugazi Dronbots",
     "name": "Fugazi Dronbot",
     "type": "REM",
     "imp": "",
@@ -3403,6 +3403,7 @@
     "army": "PanOceania",
     "isc": "Kirpal Singh, Akalis Sergeant",
     "name": "Singh",
+    "image": "Akalis",
     "type": "MI",
     "imp": "",
     "irr": "",
@@ -3446,6 +3447,7 @@
     "army": "PanOceania",
     "isc": "Toni Macayana, Tikbalangs Lieutenant",
     "name": "Macayana",
+    "image": "Tikbalangs, Armoured Chasseurs of Acontecimento",
     "type": "TAG",
     "imp": "",
     "irr": "",
@@ -3503,6 +3505,7 @@
     "army": "PanOceania",
     "isc": "Joan of Arc 2.0 (Mobility Armor)",
     "name": "Joan of Arc 2.0",
+    "image": "Joan of Arc",
     "type": "HI",
     "imp": "F",
     "irr": "",
@@ -3783,6 +3786,7 @@
   {
     "army": "PanOceania",
     "isc": "Lieutenant Stephen Rao",
+    "image": "Bagh-Mari",
     "name": "Rao",
     "type": "MI",
     "imp": "",
