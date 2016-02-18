@@ -3682,86 +3682,81 @@
     "army": "PanOceania",
     "isc": "Seraphs",
     "name": "Seraph",
+    "ava": "1",
+    "spec": [],
+    "bsw": [],
+    "ccw": [],
     "profiles": [
       {
-        "mov": "6-4",
-        "bs": "14",
-        "bts": "6",
         "type": "TAG",
-        "cube": "",
-        "note": "",
-        "ph": "16",
-        "cc": "19",
-        "arm": "7",
-        "irr": "",
-        "w": "3",
-        "s": "6",
         "imp": "",
-        "bsw": [
-          "Spitfire"
-        ],
-        "ccw": [
-          "EXP CCW"
-        ],
+        "irr": "",
+        "cube": "",
+        "hackable": "X",
+        "mov": "6-4",
+        "cc": "20",
+        "bs": "15",
+        "ph": "16",
+        "wip": "12",
+        "arm": "7",
+        "bts": "6",
+        "w": "3",
+        "s": "7",
         "spec": [
           "G: Remote Presence",
           "Religious Troop",
-          "ECM"
+          "ECM",
+          "Kinematika L1",
+          "Super-Jump"
         ],
-        "wip": "12",
-        "hackable": "X"
+        "bsw": [
+          "Spitfire",
+          "Nanopulser"
+        ],
+        "ccw": [
+          "EXP CCW"
+        ]
       },
       {
-        "mov": "6-4",
-        "wip": "11",
-        "bts": "3",
         "name": "Auxbot",
-        "bs": "10",
-        "note": "",
-        "cube": "",
         "type": "REM",
-        "ph": "10",
-        "cc": "8",
-        "arm": "0",
+        "imp": "",
         "irr": "",
+        "cube": "",
+        "hackable": "X",
+        "mov": "6-4",
+        "cc": "8",
+        "bs": "10",
+        "ph": "10",
+        "wip": "11",
+        "arm": "0",
+        "bts": "3",
         "w": "1",
         "s": "1",
-        "bsw": [
-          "Heavy Flamethrower"
-        ],
         "spec": [
           "G: Synchronized"
+        ],
+        "bsw": [
+          "Heavy Flamethrower"
         ],
         "ccw": [
           "Electric Pulse"
         ],
-        "imp": "",
-        "hackable": "X",
         "independent": {
           "cost": "4",
           "swc": "0"
         }
       }
     ],
-    "spec": [],
-    "ccw": [],
-    "bsw": [],
-    "ava": "1",
     "childs": [
       {
         "code": "Default",
-        "cost": "83",
         "codename": "Spitfire",
+        "cost": "82",
         "swc": "2",
-        "cbcode": [],
         "spec": [],
         "bsw": [],
-        "ccw": [],
-        "note": "",
-        "independent": {
-          "cost": "79",
-          "swc": "2"
-        }
+        "ccw": []
       }
     ]
   },
