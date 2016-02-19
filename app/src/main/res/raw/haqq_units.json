@@ -300,7 +300,7 @@
   },
   {
     "army": "Haqqislam",
-    "isc": "NAFFATÛN",
+    "isc": "Naffatûn",
     "name": "Naffatun",
     "type": "LI",
     "imp": "",
@@ -366,7 +366,7 @@
   },
   {
     "army": "Haqqislam",
-    "isc": "HALQA Mechanized Infantry",
+    "isc": "Halqa Mechanized Infantry",
     "name": "Halqa",
     "type": "LI",
     "imp": "",
@@ -609,7 +609,7 @@
   },
   {
     "army": "Haqqislam",
-    "isc": "DJANBAZAN Tactical Group",
+    "isc": "Djanbazan Tactical Group",
     "name": "Djanbazan",
     "type": "MI",
     "imp": "",
@@ -1464,7 +1464,7 @@
   },
   {
     "army": "Haqqislam",
-    "isc": "GHAZI MUTTAWI'AH",
+    "isc": "Ghazi Muttawi'ah",
     "name": "Muttawi'ah",
     "type": "LI",
     "imp": "X",
@@ -2158,7 +2158,7 @@
   },
   {
     "army": "Haqqislam",
-    "isc": "Special Deterrance Group AZRA'IL",
+    "isc": "Special Deterrance Group Azra'il",
     "name": "Azra'il",
     "type": "HI",
     "imp": "",

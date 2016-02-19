@@ -161,7 +161,7 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.ViewHo
                 .replace('ǐ', 'i').replace('ì', 'i').replace('ī', 'i')
                 .replace('ñ', 'n')
                 .replace('ō', 'o').replace('ò', 'o')
-                .replace('ú', 'u').replace('ù', 'u').replace('ŭ', 'u').replace('û', 'u');
+                .replace('ú', 'u').replace('ù', 'u').replace('ŭ', 'u').replace('û', 'u').replace('ü', 'u');
     }
 
     @Override

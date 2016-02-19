@@ -1,7 +1,7 @@
 [
   {
     "army": "Nomads",
-    "isc": "Alguaciles",
+    "isc": "Corregidor Alguaciles",
     "name": "Alguacil",
     "type": "LI",
     "imp": "",
@@ -947,7 +947,7 @@
   },
   {
     "army": "Nomads",
-    "isc": "Lizard",
+    "isc": "Lizard Squadron",
     "name": "Lizard",
     "ava": "1",
     "spec": [],
@@ -1033,7 +1033,7 @@
   },
   {
     "army": "Nomads",
-    "isc": "Szalamandra",
+    "isc": "Szalamandra Squadron",
     "name": "Szalamandra",
     "ava": "1",
     "spec": [],
@@ -1723,7 +1723,7 @@
   },
   {
     "army": "Nomads",
-    "isc": "Interventor",
+    "isc": "Tunguska Interventor",
     "name": "Interventor",
     "type": "LI",
     "imp": "",
@@ -3131,6 +3131,7 @@
     "army": "Nomads",
     "isc": "Bakunin Überfallkommando : Chimera",
     "name": "Chimera",
+    "image": "Bakunin Überfallkommando",
     "type": "WB",
     "imp": "X",
     "irr": "X",
@@ -3177,6 +3178,7 @@
     "army": "Nomads",
     "isc": "Bakunin Überfallkommando : Pupniks",
     "name": "Pupnik",
+    "image": "Bakunin Überfallkommando",
     "type": "WB",
     "imp": "X",
     "irr": "X",
@@ -3216,8 +3218,9 @@
   },
   {
     "army": "Nomads",
-    "isc": "Reverend Superior CASSANDRA KUSANAGI",
+    "isc": "Reverend Superior Cassandra Kusanagi",
     "name": "Kusanagi",
+    "image": "Reverend Moiras",
     "type": "MI",
     "imp": "",
     "irr": "",
@@ -3274,6 +3277,7 @@
     "army": "Nomads",
     "isc": "Carlota Kowalsky, Tomcats Sergeant",
     "name": "Carlota Kowalsky",
+    "image": "Tomcats",
     "ava": "1",
     "spec": [],
     "bsw": [],
@@ -3687,7 +3691,7 @@
   },
   {
     "army": "Nomads",
-    "isc": "Gecko",
+    "isc": "Gecko Squadron",
     "name": "Gecko",
     "ava": "2",
     "spec": [],
