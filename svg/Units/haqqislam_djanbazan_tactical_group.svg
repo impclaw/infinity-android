@@ -15,10 +15,10 @@
    version="1.1"
    style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
    viewBox="0 0 7874.0005 7874.0005"
-   id="svg3420"
+   id="svg4152"
    inkscape:version="0.91 r13725"
    sodipodi:docname="Haqqislam - Djanbazan Tactical Group - [N3] [Vyo].svg"><metadata
-     id="metadata3434"><rdf:RDF><cc:Work
+     id="metadata4166"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
      pagecolor="#ffffff"
@@ -31,7 +31,7 @@
      inkscape:pageshadow="2"
      inkscape:window-width="640"
      inkscape:window-height="480"
-     id="namedview3432"
+     id="namedview4164"
      showgrid="false"
      inkscape:zoom="0.23838384"
      inkscape:cx="736.83001"
@@ -39,10 +39,10 @@
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg3420" /><defs
-     id="defs3422"><style
+     inkscape:current-layer="svg4152" /><defs
+     id="defs4154"><style
        type="text/css"
-       id="style3424"><![CDATA[
+       id="style4156"><![CDATA[
     .fil1 {fill:black}
     .fil0 {fill:#A6CC39}
    ]]></style></defs><g
@@ -52,11 +52,11 @@
        class="fil0"
        cy="11000"
        r="3937"
-       id="circle3428"
+       id="circle4160"
        cx="0"
        style="fill:#a6cc39" /><path
        class="fil1"
        d="m 0,13527 2380,-1697 c 90,-260 140,-539 140,-830 C 2520,9608 1392,8480 0,8480 c -1392,0 -2520,1128 -2520,2520 0,291 50,570 140,830 l 1058,754 1220,-870 -1000,-714 c 0,-609 493,-1102 1102,-1102 609,0 1102,493 1102,1102 l -1032,736 -1290,921 1220,870 z"
-       id="path3430"
+       id="path4162"
        inkscape:connector-curvature="0"
        style="fill:#000000" /></g></svg>

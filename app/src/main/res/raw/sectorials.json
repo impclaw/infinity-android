@@ -916,12 +916,12 @@
         },
         {
           "ava": "5",
-          "isc": "Djanbazan",
+          "isc": "DJANBAZAN Tactical Group",
           "linkable": true
         },
         {
           "ava": "3",
-          "isc": "Azra'il",
+          "isc": "Special Deterrance Group AZRA'IL",
           "linkable": true
         },
         {
@@ -1054,7 +1054,7 @@
         },
         {
           "ava": "4",
-          "isc": "Muttawi'ah"
+          "isc": "GHAZI MUTTAWI'AH"
         },
         {
           "ava": "1",
@@ -1106,7 +1106,7 @@
     },
     {
       "army": "Nomads",
-      "name": "Bakunin Jurisdictional Command",
+      "name": "Jurisdictional Command of Bakunin",
       "abbr": "Bakunin",
       "units": [
         {
@@ -1237,7 +1237,7 @@
     },
     {
       "army": "Nomads",
-      "name": "Corregidor Jurisdictional Command",
+      "name": "Jurisdictional Command of Corregidor",
       "abbr": "Corregidor",
       "units": [
         {
