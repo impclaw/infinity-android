@@ -36,6 +36,7 @@
     "name": "Mercenary",
     "abbr": "Mercs"
   },
+  
   {
     "army": "PanOceania",
     "name": "Shock Army of Acontecimento",
@@ -658,7 +659,8 @@
       },
       {
         "ava": "5",
-        "isc": "3rd Highlander Greys"
+          "isc": "3rd Highlander Greys",
+          "linkable": true
       },
       {
         "ava": "5",
@@ -670,9 +672,8 @@
         "linkable": true
       },
       {
-        "ava": "3",
-        "isc": "Caledonian Mormaers",
-        "linkable": true
+          "ava": "5",
+          "isc": "Caledonian Mormaers"
       },
       {
         "ava": "4",
@@ -685,7 +686,7 @@
       },
       {
         "ava": "T",
-        "isc": "45th Highlanders",
+          "isc": "45th Highlanders Rifles",
         "linkable": true
       },
       {
@@ -780,7 +781,7 @@
       },
       {
         "ava": "1",
-        "isc": "Corregidor Alguaciles",
+          "isc": "Alguaciles",
         "army": "Nomads"
       },
       {
@@ -803,20 +804,20 @@
       },
       {
         "ava": "1",
-        "army": "Mercenary",
-        "isc": "Anaconda"
+          "isc": "Anaconda Mercenary Tag Squadron",
+          "army": "Mercenary"
       },
       {
         "ava": "1",
-        "army": "Mercenary",
-        "isc": "Warcors"
+          "isc": "Warcors",
+          "army": "Mercenary"
       }
     ]
   },
   {
     "army": "Ariadna",
     "name": "USAriadna Ranger Force",
-    "abbr" : "USAriadna",
+      "abbr": "USAriadna",
     "units": [
       {
         "ava": "2",
@@ -837,7 +838,7 @@
       {
         "ava": "1",
         "isc": "Warcors",
-        "army" : "Mercenary"
+          "army": "Mercenary"
       },
       {
         "ava": "T",
@@ -910,7 +911,7 @@
       },
       {
         "ava": "4",
-        "isc": "Bashi Bazouk"
+          "isc": "Bashi Bazouks"
       },
       {
         "ava": "4",
@@ -919,12 +920,12 @@
       },
       {
         "ava": "5",
-        "isc": "Djanbazan Tactical Group",
+          "isc": "DJANBAZAN Tactical Group",
         "linkable": true
       },
       {
         "ava": "3",
-        "isc": "Special Deterrance Group Azra'il",
+          "isc": "Special Deterrance Group AZRA'IL",
         "linkable": true
       },
       {
@@ -944,12 +945,12 @@
       {
         "ava": "4",
         "isc": "Druze Shock Teams",
-        "army": "Mercenary",
-        "linkable": true
+          "linkable": true,
+          "army": "Mercenary"
       },
       {
         "ava": "4",
-        "isc": "Corregidor Alguaciles",
+          "isc": "Alguaciles",
         "army": "Nomads"
       },
       {
@@ -1057,7 +1058,7 @@
       },
       {
         "ava": "4",
-        "isc": "Ghazi Muttawi'ah"
+          "isc": "GHAZI MUTTAWI'AH"
       },
       {
         "ava": "1",
@@ -1142,7 +1143,7 @@
       },
       {
         "ava": "1",
-        "isc": "Lizard"
+          "isc": "Lizard Squadron"
       },
       {
         "ava": "3",
@@ -1276,7 +1277,7 @@
       },
       {
         "ava": "4",
-        "isc": "Gecko Squad"
+          "isc": "Gecko Squadron"
       },
       {
         "ava": "3",
@@ -1369,7 +1370,6 @@
   {
     "army": "Combined Army",
     "name": "Morat Aggression Force",
-    "abbr": "Morat Aggro Force",
     "units": [
       {
         "ava": "T",
@@ -1433,7 +1433,6 @@
       {
         "ava": "1",
         "isc": "Med-Tech Obsidon Medchanoids"
-
       },
       {
         "ava": "2",
@@ -1627,7 +1626,7 @@
       },
       {
         "ava": "2",
-        "isc": "Agema Marksmen"
+          "isc": "Agema Marksman"
       },
       {
         "ava": "1",
@@ -1726,13 +1725,13 @@
         "isc": "Scylla"
       },
       {
-        "ava": "4",
-        "isc": "Acmon, Sergeant of Dactyls"
-      },
-      {
         "ava": "1",
         "isc": "Warcors",
         "army": "Mercenary"
+        },
+        {
+          "ava": "4",
+          "isc": "Acmon, Sergeant of Dactyls"
       }
     ]
  }

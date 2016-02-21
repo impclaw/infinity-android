@@ -15,10 +15,10 @@
    version="1.1"
    style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
    viewBox="0 0 7874.0005 7874.0005"
-   id="svg3484"
+   id="svg5278"
    inkscape:version="0.91 r13725"
    sodipodi:docname="Haqqislam - Halqa Mechanized Infantry - [N3] [Vyo].svg"><metadata
-     id="metadata3498"><rdf:RDF><cc:Work
+     id="metadata5292"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
      pagecolor="#ffffff"
@@ -31,7 +31,7 @@
      inkscape:pageshadow="2"
      inkscape:window-width="640"
      inkscape:window-height="480"
-     id="namedview3496"
+     id="namedview5290"
      showgrid="false"
      inkscape:zoom="0.23838384"
      inkscape:cx="736.83001"
@@ -39,10 +39,10 @@
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg3484" /><defs
-     id="defs3486"><style
+     inkscape:current-layer="svg5278" /><defs
+     id="defs5280"><style
        type="text/css"
-       id="style3488"><![CDATA[
+       id="style5282"><![CDATA[
     .fil0 {fill:#B2C801}
     .fil1 {fill:white}
    ]]></style></defs><g
@@ -52,11 +52,11 @@
        class="fil0"
        cy="11000"
        r="3937"
-       id="circle3492"
+       id="circle5286"
        cx="0"
        style="fill:#b2c801" /><path
        class="fil1"
        d="m -2303,9858 c 210,0 407,57 577,157 187,104 424,38 532,-148 35,-61 52,-128 52,-193 0,-2 0,-3 0,-4 0,-630 511,-1141 1142,-1141 631,0 1142,511 1142,1141 0,1 0,3 0,4 0,66 17,132 52,193 108,186 345,252 532,148 170,-100 367,-157 577,-157 631,0 1142,511 1142,1142 0,631 -511,1142 -1142,1142 -630,0 -1142,-511 -1142,-1142 l 0,-3 c -1,-135 -71,-266 -196,-338 -124,-71 -270,-68 -386,-4 -6,3 -12,6 -17,10 -55,33 -101,79 -135,138 -108,186 -46,423 137,534 345,196 578,567 578,993 0,630 -511,1141 -1142,1141 -631,0 -1142,-511 -1142,-1141 0,-426 233,-797 578,-993 183,-111 245,-348 137,-534 -34,-59 -80,-105 -135,-138 -5,-4 -11,-7 -17,-10 -116,-64 -262,-67 -386,4 -125,72 -195,203 -196,338 0,1 0,2 0,3 0,631 -512,1142 -1142,1142 -631,0 -1142,-511 -1142,-1142 0,-631 511,-1142 1142,-1142 z M 0,11936 c 217,0 394,176 394,394 0,217 -177,393 -394,393 -217,0 -394,-176 -394,-393 0,-218 177,-394 394,-394 z M 0,9277 c 217,0 394,176 394,393 0,218 -177,394 -394,394 -217,0 -394,-176 -394,-394 0,-217 177,-393 394,-393 z m 2303,1329 c 218,0 394,177 394,394 0,217 -176,394 -394,394 -217,0 -394,-177 -394,-394 0,-217 177,-394 394,-394 z m -4606,0 c 217,0 394,177 394,394 0,217 -177,394 -394,394 -218,0 -394,-177 -394,-394 0,-217 176,-394 394,-394 z"
-       id="path3494"
+       id="path5288"
        inkscape:connector-curvature="0"
        style="fill:#ffffff" /></g></svg>

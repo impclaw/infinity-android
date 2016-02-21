@@ -207,7 +207,7 @@ public class UnitsData {
             for (int i = 0; i < columns.length; i++) {
                 sb.append(columns[i]).append(": ").append(cursor.getString(i)).append(" ");
             }
-            Log.d(TAG, "ISC: " + sb.toString());
+            //Log.d(TAG, "ISC: " + sb.toString());
 
             cursor.moveToNext();
 

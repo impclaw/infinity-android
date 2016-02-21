@@ -17,8 +17,8 @@
    viewBox="0 0 7874.0005 7874.0005"
    id="svg2"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="Haqqislam - Ahl Fassed Regiment - [N3] [Vyo].svg"><metadata
-     id="metadata22"><rdf:RDF><cc:Work
+   sodipodi:docname="Haqqislam - Ahl Fassed Regiment - [Alt] [Vyo].svg"><metadata
+     id="metadata24"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
      pagecolor="#ffffff"
@@ -31,7 +31,7 @@
      inkscape:pageshadow="2"
      inkscape:window-width="640"
      inkscape:window-height="480"
-     id="namedview20"
+     id="namedview22"
      showgrid="false"
      inkscape:zoom="0.23838384"
      inkscape:cx="736.83001"
@@ -43,8 +43,8 @@
      id="defs4"><style
        type="text/css"
        id="style6"><![CDATA[
-    .fil0 {fill:#A6CC39}
-    .fil1 {fill:#EECE00}
+    .fil1 {fill:#B2C801}
+    .fil0 {fill:#EECE00}
     .fil2 {fill:#F8DB46}
    ]]></style></defs><g
      id="Layer_x0020_1"
@@ -55,20 +55,26 @@
        r="3937"
        id="circle10"
        cx="0"
-       style="fill:#a6cc39" /><polygon
+       style="fill:#eece00" /><circle
        class="fil1"
+       cy="11000"
+       r="3819"
+       id="circle12"
+       cx="0"
+       style="fill:#b2c801" /><polygon
+       class="fil0"
        points="-614,11354 -2318,9661 0,10291 2318,9661 614,11354 250,12732 512,13008 0,13677 -512,13008 -250,12732 "
-       id="polygon12"
+       id="polygon14"
        style="fill:#eece00" /><polygon
        class="fil2"
        points="508,11293 1918,9893 0,10414 -1918,9893 -508,11293 -119,12766 -357,13016 0,13483 357,13016 119,12766 "
-       id="polygon14"
-       style="fill:#f8db46" /><polygon
-       class="fil1"
-       points="0,11709 -2318,12339 -614,10646 0,8323 614,10646 2318,12339 "
        id="polygon16"
+       style="fill:#f8db46" /><polygon
+       class="fil0"
+       points="0,11709 -2318,12339 -614,10646 0,8323 614,10646 2318,12339 "
+       id="polygon18"
        style="fill:#eece00" /><polygon
        class="fil2"
        points="0,11586 1918,12107 508,10707 0,8785 -508,10707 -1918,12107 "
-       id="polygon18"
+       id="polygon20"
        style="fill:#f8db46" /></g></svg>

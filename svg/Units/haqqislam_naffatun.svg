@@ -15,10 +15,10 @@
    version="1.1"
    style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
    viewBox="0 0 7874.0005 7874.0005"
-   id="svg3773"
+   id="svg5834"
    inkscape:version="0.91 r13725"
    sodipodi:docname="Haqqislam - Naffatun - [N3] [Vyo].svg"><metadata
-     id="metadata3789"><rdf:RDF><cc:Work
+     id="metadata5850"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
      pagecolor="#ffffff"
@@ -31,7 +31,7 @@
      inkscape:pageshadow="2"
      inkscape:window-width="640"
      inkscape:window-height="480"
-     id="namedview3787"
+     id="namedview5848"
      showgrid="false"
      inkscape:zoom="0.23838384"
      inkscape:cx="736.83001"
@@ -39,10 +39,10 @@
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg3773" /><defs
-     id="defs3775"><style
+     inkscape:current-layer="svg5834" /><defs
+     id="defs5836"><style
        type="text/css"
-       id="style3777"><![CDATA[
+       id="style5838"><![CDATA[
     .fil1 {fill:#B2C801}
     .fil0 {fill:#EECE00}
     .fil2 {fill:white}
@@ -53,17 +53,17 @@
        class="fil0"
        cy="11000"
        r="3937"
-       id="circle3781"
+       id="circle5842"
        cx="0"
        style="fill:#eece00" /><circle
        class="fil1"
        cy="11000"
        r="3819"
-       id="circle3783"
+       id="circle5844"
        cx="0"
        style="fill:#b2c801" /><path
        class="fil2"
        d="m 236,12433 c 991,0 1826,-665 2084,-1573 -295,396 -766,652 -1296,652 -892,0 -1615,-723 -1615,-1614 0,-892 723,-1615 1615,-1615 10,0 21,1 31,1 l 0,0 0,0 C 951,8243 845,8209 735,8180 500,8119 254,8087 0,8087 c -1609,0 -2913,1304 -2913,2913 0,1609 1304,2913 2913,2913 1339,0 2467,-903 2808,-2134 -378,708 -1123,1190 -1981,1190 -738,0 -1392,-356 -1801,-906 345,234 762,370 1210,370 z"
-       id="path3785"
+       id="path5846"
        inkscape:connector-curvature="0"
        style="fill:#ffffff" /></g></svg>
