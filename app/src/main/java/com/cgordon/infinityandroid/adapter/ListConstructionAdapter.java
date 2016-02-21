@@ -37,9 +37,11 @@ import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
 
+import java.security.acl.Group;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -234,12 +236,23 @@ public class ListConstructionAdapter
     }
 
     public void addUnit(Unit unit, int option) {
-        m_list.add(1, new AbstractMap.SimpleEntry<>((ListElement) unit, option));
+        // find the index of Combat Group 2 and insert it before that.
+        int insertIndex = 1;
+        for (int i = 0; i < m_list.size(); i++) {
+            ListElement listElement = (ListElement) m_list.get(i).getKey();
+            if (listElement instanceof CombatGroup) {
+                CombatGroup combatGroup = (CombatGroup) listElement;
+                if (combatGroup.m_id == 2)
+                {
+                    insertIndex = i;
+                    break;
+                }
+            }
+        }
 
-
-
+        m_list.add(insertIndex, new AbstractMap.SimpleEntry<>((ListElement) unit, option));
         updateListener();
-        notifyItemRangeInserted(1, 1);
+        notifyItemRangeInserted(insertIndex, 1);
     }
 
     public int getItemCount() {
