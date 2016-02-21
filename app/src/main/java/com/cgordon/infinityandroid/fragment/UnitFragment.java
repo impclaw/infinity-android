@@ -217,6 +217,8 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         });
 
         bsw.addAll(ccw);
+        bsw.add("Discover");
+        bsw.add("Suppressive Fire");
 
         WeaponsData wd = new WeaponsData(getActivity());
         wd.open();
