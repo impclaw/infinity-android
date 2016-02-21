@@ -508,7 +508,7 @@
   },
   {
     "army": "Tohaa",
-    "isc": "Tohaa Diplomatic Delegates",
+    "isc": "Diplomatic Delegates",
     "name": "Diplomatic Delegate",
     "type": "LI",
     "imp": "",
@@ -550,7 +550,7 @@
   },
   {
     "army": "Tohaa",
-    "isc": "Gao-Rael",
+    "isc": "Gao-Rael Unit",
     "name": "Gao-Rael",
     "ava": "4",
     "spec": [],
@@ -672,7 +672,7 @@
   },
   {
     "army": "Tohaa",
-    "isc": "Gao-Tarsos",
+    "isc": "Gao-Tarsos Unit",
     "name": "Gao-Tarsos",
     "ava": "3",
     "spec": [],
@@ -775,7 +775,7 @@
   },
   {
     "army": "Tohaa",
-    "isc": "Gorgos",
+    "isc": "Gorgos Squad",
     "name": "Gorgos",
     "ava": "1",
     "spec": [],
@@ -881,7 +881,7 @@
   },
   {
     "army": "Tohaa",
-    "isc": "Makaul",
+    "isc": "Makaul Troops",
     "name": "Makaul",
     "type": "WB",
     "imp": "X",
@@ -960,7 +960,7 @@
   },
   {
     "army": "Tohaa",
-    "isc": "Kumotail",
+    "isc": "Kumotail Bioengineers",
     "name": "Kumotail",
     "type": "LI",
     "imp": "",
@@ -1753,7 +1753,7 @@
   },
   {
     "army": "Tohaa",
-    "isc": "Igao",
+    "isc": "Igao Unit",
     "name": "Igao",
     "type": "SK",
     "imp": "F",
