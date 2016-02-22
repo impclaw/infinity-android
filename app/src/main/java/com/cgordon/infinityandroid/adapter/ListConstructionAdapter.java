@@ -28,6 +28,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.CombatGroup;
@@ -200,9 +201,14 @@ public class ListConstructionAdapter
     }
 
     public void delete(int position) {
-        m_list.remove(position);
-        updateListener();
-        notifyItemRemoved(position);
+        if (position > -1) {
+            m_list.remove(position);
+            updateListener();
+            notifyItemRemoved(position);
+        } else {
+            Toast toast = Toast.makeText(m_context, "Invalid delete index", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     private int determineGroup(int position) {
