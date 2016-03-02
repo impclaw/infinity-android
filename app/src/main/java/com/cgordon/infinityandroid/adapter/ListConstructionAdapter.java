@@ -61,6 +61,10 @@ public class ListConstructionAdapter
 
     private List<ListChangedListener> m_listeners;
 
+    public List<Entry<ListElement, Integer>> getList() {
+        return new ArrayList<>(m_list);
+    }
+
     @Override
     public boolean onItemMove(int fromIndex, int toIndex) {
         // you can't replace the first item in the list because that's the Group 1 header.

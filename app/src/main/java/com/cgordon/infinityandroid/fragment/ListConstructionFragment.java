@@ -29,12 +29,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
+import com.cgordon.infinityandroid.storage.SavedLists;
 
 import static com.cgordon.infinityandroid.adapter.ListConstructionAdapter.*;
 
@@ -112,4 +114,12 @@ public class ListConstructionFragment extends Fragment
         m_adapter.addUnit(unit, option);
     }
 
+    public void saveList(String list1, long armyDbId, int points) {
+        SavedLists savedLists = new SavedLists(getActivity());
+        savedLists.open();
+        if (!savedLists.saveList("List1", 1, 300, m_adapter.getList())) {
+            Toast.makeText(getActivity(), "Save failed!", Toast.LENGTH_LONG);
+        }
+        savedLists.close();
+    }
 }

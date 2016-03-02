@@ -29,6 +29,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
@@ -38,6 +39,7 @@ import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
 import com.cgordon.infinityandroid.fragment.OptionsFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
+import com.cgordon.infinityandroid.storage.SavedLists;
 import com.cgordon.infinityandroid.widgets.SlidingTabLayout;
 
 public class ListConstructionActivity extends AppCompatActivity
@@ -57,6 +59,7 @@ public class ListConstructionActivity extends AppCompatActivity
     private OptionSelectedListener m_optionListener;
     private ListStatusListener m_listStatusListener;
     private ArmyStatusListener m_armyListener;
+    private ListConstructionFragment m_listConstructionFragment;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -195,7 +198,8 @@ public class ListConstructionActivity extends AppCompatActivity
                     fragment = new UnitFragment();
                     break;
                 case 2:
-                    fragment = new ListConstructionFragment();
+                    m_listConstructionFragment = new ListConstructionFragment();
+                    fragment = m_listConstructionFragment;
                     break;
             }
 
@@ -237,5 +241,19 @@ public class ListConstructionActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_list_construction, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_save:
+                m_listConstructionFragment.saveList("list1", m_army.dbId, 300);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
     }
 }
