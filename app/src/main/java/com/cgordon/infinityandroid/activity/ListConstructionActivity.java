@@ -28,6 +28,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
@@ -232,4 +233,9 @@ public class ListConstructionActivity extends AppCompatActivity
         public void OnListStatusChanged(int regularCount, int irregularCount, int impetuousCount, int group);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_list_construction, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 }

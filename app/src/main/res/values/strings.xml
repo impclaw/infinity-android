@@ -75,5 +75,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_closed">Closed</string>
+    <string name="action_save">Save</string>
+    <string name="action_save_as">Save As</string>
+    <string name="action_rename">Rename</string>
+    <string name="action_set_points">Set Points</string>
 
 </resources>

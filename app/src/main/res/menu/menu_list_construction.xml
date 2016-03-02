@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
- Copyright 2015 by Chris Gordon
+ Copyright 2016 by Chris Gordon
 
  This program is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -18,19 +18,29 @@
 -->
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.cgordon.infinityandroid.activity.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_save"
+        android:icon="@drawable/ic_save_white_24dp"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/action_save"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_save_as"
+        android:orderInCategory="100"
+        android:title="@string/action_save_as"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_rename"
+        android:orderInCategory="100"
+        android:title="@string/action_rename"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_set_points"
+        android:orderInCategory="100"
+        android:title="@string/action_set_points"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_about"
-        android:orderInCategory="100"
-        android:title="@string/action_about"
-        app:showAsAction="never" />
+
 </menu>
