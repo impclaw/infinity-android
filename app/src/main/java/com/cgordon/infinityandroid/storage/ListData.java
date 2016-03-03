@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2016 by Chris Gordon
+ * Copyright 2016 by Chris Gordon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,100 +20,101 @@ package com.cgordon.infinityandroid.storage;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import com.cgordon.infinityandroid.data.CombatGroup;
+import com.cgordon.infinityandroid.data.ListElement;
+import com.cgordon.infinityandroid.data.Unit;
+
+import java.util.List;
+import java.util.Map;
 
 public class ListData {
 
-    private final static String TAG = ArmyData.class.getSimpleName();
+    private static final String TAG = ListData.class.getSimpleName();
 
     private SQLiteDatabase m_database;
     private InfinityDatabase m_dbHelper;
 
-    private final String[] listListsColumns = {
-        InfinityDatabase.COLUMN_ID,
-        InfinityDatabase.COLUMN_NAME,
-        InfinityDatabase.COLUMN_ARMY_ID,
-        InfinityDatabase.COLUMN_POINTS
+    private String[] listColumns = {
+            InfinityDatabase.COLUMN_ID,
+            InfinityDatabase.COLUMN_NAME,
+            InfinityDatabase.COLUMN_ARMY_ID,
+            InfinityDatabase.COLUMN_POINTS,
     };
 
-    private final String[] listUnitsColumns = {
-        InfinityDatabase.COLUMN_ID,
-        InfinityDatabase.COLUMN_LIST_ID,
-        InfinityDatabase.COLUMN_UNIT_ID,
-        InfinityDatabase.COLUMN_PROFILE
+    private String[] listUnitsColumns = {
+            InfinityDatabase.COLUMN_ID,
+            InfinityDatabase.COLUMN_LIST_ID,
+            InfinityDatabase.COLUMN_TYPE,// 0 = combat group, 1 = Unit
+            InfinityDatabase.COLUMN_UNIT_ID,
+            InfinityDatabase.COLUMN_PROFILE,
     };
-
-    private final String[] listContentsColumns = {
-
-    };
-
 
     public ListData(Context context) {
         m_dbHelper = new InfinityDatabase(context);
     }
-
     public ListData(SQLiteDatabase db) {
         m_database = db;
     }
-
     public void open() {
         m_database = m_dbHelper.getWritableDatabase();
     }
-
     public void close() {
         m_database.close();
     }
 
-    /**
-     *
-     * @param name Name of the list - does not have to be unique
-     * @param armyId Army/Sectorial primary key
-     * @param points Points for the list
-     * @return Primary key id for the new list
-     */
-    public long addList(String name, long armyId, int points) {
+    public boolean saveList(String name, long army, int points, List<Map.Entry<ListElement, Integer>> list) {
+        boolean retval = false;
+
+        m_database.beginTransaction();
 
         ContentValues v = new ContentValues();
-
         v.put(InfinityDatabase.COLUMN_NAME, name);
-        v.put(InfinityDatabase.COLUMN_ARMY_ID, armyId);
+        v.put(InfinityDatabase.COLUMN_ARMY_ID, army);
         v.put(InfinityDatabase.COLUMN_POINTS, points);
 
-        return m_database.insert(InfinityDatabase.TABLE_ARMY_LISTS, null, v);
+        long listId = m_database.insert(InfinityDatabase.TABLE_ARMY_LISTS, null, v);
 
+        if (listId == -1) {
+            Log.d(TAG, "List insert failed");
+        } else {
+
+            retval = true;
+            for( int i = 0; i < list.size(); i++) {
+
+                Map.Entry<ListElement, Integer> listItem = list.get(i);
+                v = new ContentValues();
+                v.put(InfinityDatabase.COLUMN_LIST_ID, listId);
+                if (listItem.getKey() instanceof CombatGroup) {
+                    CombatGroup combatGroup = (CombatGroup) listItem.getKey();
+                    v.put(InfinityDatabase.COLUMN_TYPE, 0);
+                    v.put(InfinityDatabase.COLUMN_PROFILE, combatGroup.m_id);
+                } else {
+                    Unit unit = (Unit) listItem.getKey();
+                    v.put(InfinityDatabase.COLUMN_TYPE, 1);
+                    v.put(InfinityDatabase.COLUMN_UNIT_ID, unit.dbId);
+                    v.put(InfinityDatabase.COLUMN_PROFILE, listItem.getValue());
+                }
+
+                if (m_database.insert(InfinityDatabase.TABLE_ARMY_LIST_UNITS, null, v) == -1) {
+                    retval = false;
+                    Log.d(TAG, "Unit List insert failed!: " + i);
+                    break;
+                }
+
+            }
+        }
+
+        if (retval) {
+            m_database.setTransactionSuccessful();
+        }
+        m_database.endTransaction();
+        return retval;
     }
 
-    public boolean deleteList(long listId) {
+    // rename list
 
-
-        return false;
-    }
-
-    public boolean renameList(long listId, String name) {
-        return false;
-    }
-
-    /**
-     *
-     * @param listId The list primary key id
-     * @param unitId The unit primary key id
-     * @param profile The profile index within the unit
-     * @return The primary key id for this item within the listContents
-     */
-    public long addUnit(long listId, long unitId, int profile) {
-        ContentValues v = new ContentValues();
-
-        v.put(InfinityDatabase.COLUMN_LIST_ID, listId);
-        v.put(InfinityDatabase.COLUMN_UNIT_ID, unitId);
-        v.put(InfinityDatabase.COLUMN_PROFILE, profile);
-
-        return m_database.insert(InfinityDatabase.TABLE_ARMY_LIST_UNITS, null, v);
-    }
-
-    public boolean removeUnit(long listContentId) {
-
-//        m_database.insert(InfinityDatabase.TABLE_ARMY_LISTS, )
-
-        return false;
-    }
+    // delete list
 
 }

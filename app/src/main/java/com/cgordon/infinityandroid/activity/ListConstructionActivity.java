@@ -39,7 +39,6 @@ import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
 import com.cgordon.infinityandroid.fragment.OptionsFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
-import com.cgordon.infinityandroid.storage.SavedLists;
 import com.cgordon.infinityandroid.widgets.SlidingTabLayout;
 
 public class ListConstructionActivity extends AppCompatActivity

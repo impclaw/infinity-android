@@ -32,7 +32,7 @@ import com.cgordon.infinityandroid.json.WeaponParser;
 public class InfinityDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "infinity.db";
-    private static final int DATABASE_VERSION = 26;
+    private static final int DATABASE_VERSION = 27;
 
     public static final String TABLE_WEAPONS = "weapons";
     public static final String TABLE_UNITS = "units";
@@ -152,21 +152,6 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     // COLUMN_UNIT_ID; long unitId,
     // COLUMN_PROFILE; int profile)
 
-
-    private static final String CREATE_TABLE_ARMY_LISTS = "create table " + TABLE_ARMY_LISTS + " ( " +
-            COLUMN_ID + " integer primary key, " +
-            COLUMN_NAME + " text, " +
-            COLUMN_ARMY_ID + " integer, " +
-            COLUMN_POINTS + " integer " +
-            ");";
-
-    private static final String CREATE_TABLE_ARMY_LIST_UNITS = "create table " + TABLE_ARMY_LIST_UNITS+ " ( " +
-            COLUMN_ID + " integer primary key, " +
-            COLUMN_LIST_ID + " integer, " +
-            COLUMN_UNIT_ID + " integer, " +
-            COLUMN_PROFILE + " integer " +
-            ");";
-
     private static final String CREATE_TABLE_UNITS = "create table " + TABLE_UNITS + " ( " +
             COLUMN_ID + " integer primary key, " +
             COLUMN_AVA + " text, " +
@@ -264,6 +249,21 @@ public class InfinityDatabase extends SQLiteOpenHelper {
             COLUMN_FACTION + " text " +
             ");";
 
+    private static final String CREATE_TABLE_ARMY_LISTS = "create table if not exists " + TABLE_ARMY_LISTS + " ( " +
+            COLUMN_ID + " integer primary key, " +
+            COLUMN_NAME  + " text, " +
+            COLUMN_ARMY_ID + " integer, " +
+            COLUMN_POINTS  + " integer " +
+            ");";
+
+    private static final String CREATE_TABLE_ARMY_LIST_UNITS = "create table if not exists " + TABLE_ARMY_LIST_UNITS + " ( " +
+            COLUMN_ID + " integer primary key, " +
+            COLUMN_LIST_ID + " integer, " +
+            COLUMN_TYPE + " integer, " + // 0 = combat group, 1 = Unit
+            COLUMN_UNIT_ID + " integer, " +
+            COLUMN_PROFILE + " integer " +
+            ");";
+
     private Context m_context;
 
     private final static String TAG = InfinityDatabase.class.getSimpleName();
@@ -317,8 +317,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_UNITS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LISTS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LIST_UNITS);
+//        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LISTS);
+//        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LIST_UNITS);
 
         onCreate(db);
     }

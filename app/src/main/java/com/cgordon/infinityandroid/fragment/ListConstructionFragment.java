@@ -36,7 +36,7 @@ import com.cgordon.infinityandroid.activity.ListConstructionActivity;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
-import com.cgordon.infinityandroid.storage.SavedLists;
+import com.cgordon.infinityandroid.storage.ListData;
 
 import static com.cgordon.infinityandroid.adapter.ListConstructionAdapter.*;
 
@@ -115,7 +115,7 @@ public class ListConstructionFragment extends Fragment
     }
 
     public void saveList(String list1, long armyDbId, int points) {
-        SavedLists savedLists = new SavedLists(getActivity());
+        ListData savedLists = new ListData(getActivity());
         savedLists.open();
         if (!savedLists.saveList("List1", 1, 300, m_adapter.getList())) {
             Toast.makeText(getActivity(), "Save failed!", Toast.LENGTH_LONG);

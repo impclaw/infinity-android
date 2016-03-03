@@ -117,10 +117,10 @@ public class ListConstructionAdapter
         m_context = context;
         m_list = new ArrayList<>();
 
-        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(1), 0));
-        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(2), 0));
-        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(3), 0));
-        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(4), 0));
+        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(1), 1));
+        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(2), 2));
+        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(3), 3));
+        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(4), 4));
 
 
         m_listeners = new ArrayList<>();
