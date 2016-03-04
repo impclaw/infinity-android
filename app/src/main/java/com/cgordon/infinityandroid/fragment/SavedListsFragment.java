@@ -57,7 +57,7 @@ public class SavedListsFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         m_recyclerView.setLayoutManager(layoutManager);
         RecyclerView.Adapter adapter = new ArmyAdapter(getActivity());
-        m_recyclerView.setAdapter(new SavedListsAdapter());
+        m_recyclerView.setAdapter(new SavedListsAdapter(getActivity()));
 
         return view;
 

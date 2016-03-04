@@ -34,12 +34,17 @@ import android.view.MenuItem;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.data.Army;
+import com.cgordon.infinityandroid.data.ArmyList;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
 import com.cgordon.infinityandroid.fragment.OptionsFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
+import com.cgordon.infinityandroid.storage.ArmyData;
+import com.cgordon.infinityandroid.storage.ListData;
 import com.cgordon.infinityandroid.widgets.SlidingTabLayout;
+
+import java.util.List;
 
 public class ListConstructionActivity extends AppCompatActivity
     implements UnitListFragment.UnitSelectedListener,
@@ -79,7 +84,22 @@ public class ListConstructionActivity extends AppCompatActivity
         m_pager.setOffscreenPageLimit(3);
         SlidingTabLayout tabs = (SlidingTabLayout) findViewById(R.id.tabs);
         tabs.setViewPager(m_pager);
+
         m_army = getIntent().getParcelableExtra(MainActivity.ARMY);
+        if (m_army == null) {
+            ArmyList armyList = getIntent().getParcelableExtra(MainActivity.LIST_ID);
+            if (armyList != null) {
+                ArmyData armyData = new ArmyData(getBaseContext());
+                armyData.open();
+                m_army = armyData.getArmy(armyList.dbId);
+                armyData.close();
+                ListData listData = new ListData(getBaseContext());
+                listData.open();
+                listData.getList(armyList.dbId);
+                listData.close();
+
+            }
+        }
 
         if (savedInstanceState != null) {
             m_currentSelectedUnit = savedInstanceState.getParcelable("unit");

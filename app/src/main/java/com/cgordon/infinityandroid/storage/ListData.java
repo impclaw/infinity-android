@@ -19,13 +19,18 @@ package com.cgordon.infinityandroid.storage;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.cgordon.infinityandroid.data.ArmyList;
 import com.cgordon.infinityandroid.data.CombatGroup;
 import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.data.Weapon;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -111,6 +116,64 @@ public class ListData {
         }
         m_database.endTransaction();
         return retval;
+    }
+
+    public List<ArmyList> getArmyLists() {
+
+        List<ArmyList> lists = new ArrayList<>();
+
+        Cursor cursor = null;
+        try {
+            cursor = m_database.query(InfinityDatabase.TABLE_ARMY_LISTS, listColumns, null, null,
+                    null, null, null, null);
+
+            cursor.moveToFirst();
+
+            while (!cursor.isAfterLast()) {
+
+                ArmyList armyList = new ArmyList();
+
+                armyList.dbId = cursor.getLong(0);
+                armyList.name = cursor.getString(1);
+                armyList.armyId = cursor.getLong(2);
+                armyList.points = cursor.getInt(3);
+
+                lists.add(armyList);
+
+                cursor.moveToNext();
+            }
+
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+        return lists;
+    }
+
+    public List<Map.Entry<ListElement, Integer>> getList(long listId) {
+        List<Map.Entry<ListElement, Integer>> retval = new ArrayList<>();
+
+        Cursor cursor = null;
+        cursor = m_database.query(InfinityDatabase.TABLE_ARMY_LIST_UNITS, listUnitsColumns,
+                InfinityDatabase.COLUMN_LIST_ID + "=" + listId, null, null, null, null, null);
+
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()) {
+
+            Log.d(TAG, "ID: " + cursor.getLong(0));
+            Log.d(TAG, "List ID: " + cursor.getLong(1));
+            Log.d(TAG, "Type: " + cursor.getInt(2));  // 0 = combat group, 1 = Unit
+            Log.d(TAG, "Unit ID: " + cursor.getInt(3));
+            Log.d(TAG, "Profile: " + cursor.getInt(4));
+
+            cursor.moveToNext();
+        }
+
+        return retval;
+
     }
 
     // rename list
