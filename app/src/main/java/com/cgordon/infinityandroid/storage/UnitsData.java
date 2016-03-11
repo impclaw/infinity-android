@@ -351,6 +351,20 @@ public class UnitsData {
 
     }
 
+    public Unit getUnit(long unitId) {
+        Unit retval = null;
+
+        Cursor cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
+                InfinityDatabase.COLUMN_ID + "=" + unitId, null, null, null, null, null);
+
+        if (cursor.getCount() > 0) {
+            cursor.moveToNext();
+            retval = cursorToUnit(cursor);
+        }
+
+        return retval;
+    }
+
     private ArrayList<Option> getOptions(long unitId) {
         Cursor cursor = null;
         try {

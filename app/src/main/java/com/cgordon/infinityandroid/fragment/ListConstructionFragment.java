@@ -34,9 +34,13 @@ import android.widget.Toast;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
+import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
 import com.cgordon.infinityandroid.storage.ListData;
+
+import java.util.List;
+import java.util.Map;
 
 import static com.cgordon.infinityandroid.adapter.ListConstructionAdapter.*;
 
@@ -46,6 +50,7 @@ public class ListConstructionFragment extends Fragment
     private static final String TAG = ListConstructionFragment.class.getSimpleName();
 
     private static Parcelable m_scrollState = null;
+    private List<Map.Entry<ListElement, Integer>> m_loadedList;
 
     private RecyclerView m_recyclerView;
 
@@ -53,6 +58,10 @@ public class ListConstructionFragment extends Fragment
     private TextView m_ordersRegular;
     private TextView m_ordersIrregular;
     private TextView m_ordersImpetuous;
+
+    public ListConstructionFragment() {
+        m_loadedList = null;
+    }
 
     @Nullable
     @Override
@@ -74,6 +83,8 @@ public class ListConstructionFragment extends Fragment
             m_adapter.addListChangedListener((ListChangedListener) getActivity());
         }
 
+        m_adapter.setList(m_loadedList);
+
         ItemTouchHelper.Callback callback = new ListConstructionTouchHelper(m_adapter);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
         itemTouchHelper.attachToRecyclerView(m_recyclerView);
@@ -81,6 +92,11 @@ public class ListConstructionFragment extends Fragment
         m_recyclerView.setAdapter(m_adapter);
 
         return v;
+    }
+
+
+    public void setList(List<Map.Entry<ListElement, Integer>> list) {
+        m_loadedList = list;
     }
 
     @Override
@@ -114,12 +130,13 @@ public class ListConstructionFragment extends Fragment
         m_adapter.addUnit(unit, option);
     }
 
-    public void saveList(String list1, long armyDbId, int points) {
+    public boolean saveList(String listName, long armyDbId, int points) {
         ListData savedLists = new ListData(getActivity());
         savedLists.open();
-        if (!savedLists.saveList("List1", 1, 300, m_adapter.getList())) {
-            Toast.makeText(getActivity(), "Save failed!", Toast.LENGTH_LONG);
-        }
+        boolean retval = savedLists.saveList(listName, armyDbId, points, m_adapter.getList());
         savedLists.close();
+        return retval;
     }
+
+
 }

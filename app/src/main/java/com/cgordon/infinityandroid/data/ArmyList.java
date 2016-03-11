@@ -39,7 +39,7 @@ public class ArmyList implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(dbId);
-        dest.writeSerializable(name);
+        dest.writeString(name);
         dest.writeLong(armyId);
         dest.writeInt(points);
     }

@@ -29,6 +29,7 @@ import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,7 +52,7 @@ public class ListData {
     private String[] listUnitsColumns = {
             InfinityDatabase.COLUMN_ID,
             InfinityDatabase.COLUMN_LIST_ID,
-            InfinityDatabase.COLUMN_TYPE,// 0 = combat group, 1 = Unit
+            InfinityDatabase.COLUMN_GROUP,
             InfinityDatabase.COLUMN_UNIT_ID,
             InfinityDatabase.COLUMN_PROFILE,
     };
@@ -69,44 +70,60 @@ public class ListData {
         m_database.close();
     }
 
-    public boolean saveList(String name, long army, int points, List<Map.Entry<ListElement, Integer>> list) {
+    public boolean saveList(String listName, long army, int points, List<Map.Entry<ListElement, Integer>> list) {
         boolean retval = false;
 
         m_database.beginTransaction();
 
+        long listId;
+
+        Cursor cursor = m_database.query(InfinityDatabase.TABLE_ARMY_LISTS, listColumns,
+                InfinityDatabase.COLUMN_NAME + "='" + listName + "'", null, null, null, null, null);
+
+        // there's an existing list under this name and we should overwrite
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            listId = cursor.getLong(0);
+
+            Log.d(TAG, "Deleting List: " + m_database.delete(InfinityDatabase.TABLE_ARMY_LISTS, InfinityDatabase.COLUMN_ID +"=" + listId, null));
+            Log.d(TAG, "Deleting List Units: " + m_database.delete(InfinityDatabase.TABLE_ARMY_LIST_UNITS, InfinityDatabase.COLUMN_LIST_ID +"=" + listId, null));
+
+        }
+
         ContentValues v = new ContentValues();
-        v.put(InfinityDatabase.COLUMN_NAME, name);
+        v.put(InfinityDatabase.COLUMN_NAME, listName);
         v.put(InfinityDatabase.COLUMN_ARMY_ID, army);
         v.put(InfinityDatabase.COLUMN_POINTS, points);
 
-        long listId = m_database.insert(InfinityDatabase.TABLE_ARMY_LISTS, null, v);
+        listId = m_database.insert(InfinityDatabase.TABLE_ARMY_LISTS, null, v);
 
         if (listId == -1) {
             Log.d(TAG, "List insert failed");
         } else {
 
+            int combatGroup = 0;
             retval = true;
+
             for( int i = 0; i < list.size(); i++) {
 
                 Map.Entry<ListElement, Integer> listItem = list.get(i);
-                v = new ContentValues();
-                v.put(InfinityDatabase.COLUMN_LIST_ID, listId);
                 if (listItem.getKey() instanceof CombatGroup) {
-                    CombatGroup combatGroup = (CombatGroup) listItem.getKey();
-                    v.put(InfinityDatabase.COLUMN_TYPE, 0);
-                    v.put(InfinityDatabase.COLUMN_PROFILE, combatGroup.m_id);
+                    combatGroup = ((CombatGroup) listItem.getKey()).m_id;
                 } else {
+                    v = new ContentValues();
+                    v.put(InfinityDatabase.COLUMN_LIST_ID, listId);
                     Unit unit = (Unit) listItem.getKey();
-                    v.put(InfinityDatabase.COLUMN_TYPE, 1);
+                    v.put(InfinityDatabase.COLUMN_GROUP, combatGroup);
                     v.put(InfinityDatabase.COLUMN_UNIT_ID, unit.dbId);
                     v.put(InfinityDatabase.COLUMN_PROFILE, listItem.getValue());
+
+                    if (m_database.insert(InfinityDatabase.TABLE_ARMY_LIST_UNITS, null, v) == -1) {
+                        retval = false;
+                        Log.d(TAG, "Unit List insert failed!: " + i);
+                        break;
+                    }
                 }
 
-                if (m_database.insert(InfinityDatabase.TABLE_ARMY_LIST_UNITS, null, v) == -1) {
-                    retval = false;
-                    Log.d(TAG, "Unit List insert failed!: " + i);
-                    break;
-                }
 
             }
         }
@@ -118,6 +135,25 @@ public class ListData {
         return retval;
     }
 
+    public boolean deleteList(String listName) {
+        boolean retval = false;
+        Cursor cursor = m_database.query(InfinityDatabase.TABLE_ARMY_LISTS, listColumns,
+                InfinityDatabase.COLUMN_NAME + "='" + listName + "'", null, null, null, null, null);
+
+        // there's an existing list under this name and we should overwrite
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            long listId = cursor.getLong(0);
+
+            Log.d(TAG, "Deleting List: " + m_database.delete(InfinityDatabase.TABLE_ARMY_LISTS, InfinityDatabase.COLUMN_ID +"=" + listId, null));
+            Log.d(TAG, "Deleting List Units: " + m_database.delete(InfinityDatabase.TABLE_ARMY_LIST_UNITS, InfinityDatabase.COLUMN_LIST_ID +"=" + listId, null));
+            retval = true;
+        }
+
+        return retval;
+
+    }
+
     public List<ArmyList> getArmyLists() {
 
         List<ArmyList> lists = new ArrayList<>();
@@ -125,7 +161,7 @@ public class ListData {
         Cursor cursor = null;
         try {
             cursor = m_database.query(InfinityDatabase.TABLE_ARMY_LISTS, listColumns, null, null,
-                    null, null, null, null);
+                    null, null, InfinityDatabase.COLUMN_ID + " DESC", null);
 
             cursor.moveToFirst();
 
@@ -155,21 +191,36 @@ public class ListData {
     public List<Map.Entry<ListElement, Integer>> getList(long listId) {
         List<Map.Entry<ListElement, Integer>> retval = new ArrayList<>();
 
+        UnitsData unitsData = new UnitsData(m_database);
+
         Cursor cursor = null;
         cursor = m_database.query(InfinityDatabase.TABLE_ARMY_LIST_UNITS, listUnitsColumns,
                 InfinityDatabase.COLUMN_LIST_ID + "=" + listId, null, null, null, null, null);
 
         cursor.moveToFirst();
 
-        while (!cursor.isAfterLast()) {
+        int combatGroup = 0;
 
-            Log.d(TAG, "ID: " + cursor.getLong(0));
-            Log.d(TAG, "List ID: " + cursor.getLong(1));
-            Log.d(TAG, "Type: " + cursor.getInt(2));  // 0 = combat group, 1 = Unit
-            Log.d(TAG, "Unit ID: " + cursor.getInt(3));
-            Log.d(TAG, "Profile: " + cursor.getInt(4));
+        while (!cursor.isAfterLast()) {
+            long id = cursor.getLong(0);
+            //long listId = cursor.getLong(1);
+            int group = cursor.getInt(2);
+            int unitId = cursor.getInt(3);
+            int profile = cursor.getInt(4);
+
+            while (combatGroup < group) {
+                CombatGroup cg = new CombatGroup(++combatGroup);
+                retval.add(new AbstractMap.SimpleEntry<>((ListElement)cg, 0));
+            }
+
+            retval.add(new AbstractMap.SimpleEntry<>((ListElement)unitsData.getUnit(unitId), profile));
 
             cursor.moveToNext();
+        }
+
+        while (combatGroup < 4) {
+            CombatGroup cg = new CombatGroup(++combatGroup);
+            retval.add(new AbstractMap.SimpleEntry<>((ListElement) cg, 0));
         }
 
         return retval;

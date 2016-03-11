@@ -27,14 +27,18 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.ArmyList;
+import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
 import com.cgordon.infinityandroid.fragment.OptionsFragment;
@@ -45,6 +49,7 @@ import com.cgordon.infinityandroid.storage.ListData;
 import com.cgordon.infinityandroid.widgets.SlidingTabLayout;
 
 import java.util.List;
+import java.util.Map;
 
 public class ListConstructionActivity extends AppCompatActivity
     implements UnitListFragment.UnitSelectedListener,
@@ -64,6 +69,9 @@ public class ListConstructionActivity extends AppCompatActivity
     private ListStatusListener m_listStatusListener;
     private ArmyStatusListener m_armyListener;
     private ListConstructionFragment m_listConstructionFragment;
+    private List<Map.Entry<ListElement, Integer>> m_loadedList = null;
+    private boolean m_listDirty = false;
+    private String m_listName = null;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,11 +99,12 @@ public class ListConstructionActivity extends AppCompatActivity
             if (armyList != null) {
                 ArmyData armyData = new ArmyData(getBaseContext());
                 armyData.open();
-                m_army = armyData.getArmy(armyList.dbId);
+                m_army = armyData.getArmy(armyList.armyId);
+                m_listName = armyList.name;
                 armyData.close();
                 ListData listData = new ListData(getBaseContext());
                 listData.open();
-                listData.getList(armyList.dbId);
+                m_loadedList = listData.getList(armyList.dbId);
                 listData.close();
 
             }
@@ -123,27 +132,31 @@ public class ListConstructionActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        if (m_listDirty) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
-        alert.setTitle(R.string.cancel_list_title);
-        alert.setMessage(R.string.cancel_list_message);
+            alert.setTitle(R.string.cancel_list_title);
+            alert.setMessage(R.string.cancel_list_message);
 
-        alert.setPositiveButton(R.string.ok,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,
-                                        int whichButton) {
-                        ListConstructionActivity.this.finish();
-                    }
-                });
+            alert.setPositiveButton(R.string.ok,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,
+                                            int whichButton) {
+                            ListConstructionActivity.this.finish();
+                        }
+                    });
 
-        alert.setNegativeButton(R.string.cancel,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,
-                                        int whichButton) {
-                    }
-                });
+            alert.setNegativeButton(R.string.cancel,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,
+                                            int whichButton) {
+                        }
+                    });
 
-        alert.show();
+            alert.show();
+        } else {
+            ListConstructionActivity.this.finish();
+        }
     }
 
     protected void notifyUnitSelected (Unit unit, RecyclerView.ViewHolder viewHolder) {
@@ -173,6 +186,7 @@ public class ListConstructionActivity extends AppCompatActivity
     @Override
     public void onOptionSelected(int option) {
         Log.d(TAG, "Option Selected: " + option);
+        m_listDirty = true;
         m_optionListener.OnOptionSelected(m_currentSelectedUnit, option);
         m_pager.setCurrentItem(2);
     }
@@ -218,6 +232,9 @@ public class ListConstructionActivity extends AppCompatActivity
                     break;
                 case 2:
                     m_listConstructionFragment = new ListConstructionFragment();
+                    if (m_loadedList != null) {
+                        m_listConstructionFragment.setList(m_loadedList);
+                    }
                     fragment = m_listConstructionFragment;
                     break;
             }
@@ -268,11 +285,78 @@ public class ListConstructionActivity extends AppCompatActivity
 
         switch (id) {
             case R.id.action_save:
-                m_listConstructionFragment.saveList("list1", m_army.dbId, 300);
+
+                if (m_listName == null) {
+                    if (renameList()) {
+                        saveList();
+                    }
+                } else {
+                    saveList();
+                }
                 return true;
+
+            case R.id.action_rename:
+                renameList();
+                m_listDirty = true;
+                return true;
+
+            case R.id.action_save_as:
+                if (renameList()) {
+                    saveList();
+                }
+                return true;
+
+            case R.id.action_delete:
+                if (m_listName != null) {
+                    ListData listData = new ListData(this);
+                    listData.open();
+                    if (!listData.deleteList(m_listName)) {
+                        Log.d(TAG, "Error deleting list: " + m_listName);
+                    }
+                    listData.close();
+                    finish();
+                }
+
             default:
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    private boolean renameList() {
+        final Boolean[] retval = new Boolean[1];
+        retval[0] = false;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final EditText editText = new EditText(this);
+        if (m_listName != null) {
+            editText.setText(m_listName);
+        }
+        builder.setView(editText);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Editable value = editText.getText();
+                String filename = value.toString();
+                if (!filename.isEmpty()) {
+                    m_listName = filename;
+                }
+                retval[0] = true;
+            }
+        });
+        builder.show();
+        return retval[0].booleanValue();
+    }
+
+    private void saveList() {
+        // see if the name has been set
+        if (m_listName != null) {
+
+            // see if the save works:
+            if(m_listConstructionFragment.saveList(m_listName, m_army.dbId, 300)) {
+                m_listDirty = false;
+            } else {
+                Toast.makeText(this, "Save failed!", Toast.LENGTH_LONG);
+            }
+        }
     }
 }

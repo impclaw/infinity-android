@@ -38,6 +38,7 @@ public class SavedListsFragment extends Fragment {
 
     private static final String TAG = SavedListsFragment.class.getSimpleName();
     private RecyclerView m_recyclerView;
+    private SavedListsAdapter m_adapter;
 
     public SavedListsFragment() {
         // Required empty public constructor
@@ -56,12 +57,16 @@ public class SavedListsFragment extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         m_recyclerView.setLayoutManager(layoutManager);
-        RecyclerView.Adapter adapter = new ArmyAdapter(getActivity());
-        m_recyclerView.setAdapter(new SavedListsAdapter(getActivity()));
+        m_adapter= new SavedListsAdapter(getActivity());
+        m_recyclerView.setAdapter(m_adapter);
 
         return view;
 
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        m_adapter.refresh();
+    }
 }

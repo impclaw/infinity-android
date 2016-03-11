@@ -151,6 +151,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_LIST_ID = "list_id";  // long listId,
     // COLUMN_UNIT_ID; long unitId,
     // COLUMN_PROFILE; int profile)
+    public static final String COLUMN_GROUP = "group_id";
+
 
     private static final String CREATE_TABLE_UNITS = "create table " + TABLE_UNITS + " ( " +
             COLUMN_ID + " integer primary key, " +
@@ -259,7 +261,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_ARMY_LIST_UNITS = "create table if not exists " + TABLE_ARMY_LIST_UNITS + " ( " +
             COLUMN_ID + " integer primary key, " +
             COLUMN_LIST_ID + " integer, " +
-            COLUMN_TYPE + " integer, " + // 0 = combat group, 1 = Unit
+            COLUMN_GROUP + " integer, " +
             COLUMN_UNIT_ID + " integer, " +
             COLUMN_PROFILE + " integer " +
             ");";

@@ -79,5 +79,6 @@
     <string name="action_save_as">Save As</string>
     <string name="action_rename">Rename</string>
     <string name="action_set_points">Set Points</string>
+    <string name="action_delete">Delete</string>
 
 </resources>

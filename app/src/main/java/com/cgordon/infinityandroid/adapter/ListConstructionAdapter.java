@@ -65,6 +65,13 @@ public class ListConstructionAdapter
         return new ArrayList<>(m_list);
     }
 
+    public void setList(List<Entry<ListElement, Integer>> list) {
+        if (list != null) {
+            m_list = list;
+            notifyDataSetChanged();
+        }
+    }
+
     @Override
     public boolean onItemMove(int fromIndex, int toIndex) {
         // you can't replace the first item in the list because that's the Group 1 header.
@@ -117,10 +124,10 @@ public class ListConstructionAdapter
         m_context = context;
         m_list = new ArrayList<>();
 
-        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(1), 1));
-        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(2), 2));
-        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(3), 3));
-        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(4), 4));
+        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(1), 0));
+        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(2), 0));
+        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(3), 0));
+        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(4), 0));
 
 
         m_listeners = new ArrayList<>();
