@@ -25,6 +25,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
+import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
@@ -50,7 +52,6 @@ public class ListConstructionFragment extends Fragment
     private static final String TAG = ListConstructionFragment.class.getSimpleName();
 
     private static Parcelable m_scrollState = null;
-    private List<Map.Entry<ListElement, Integer>> m_loadedList;
 
     private RecyclerView m_recyclerView;
 
@@ -58,10 +59,6 @@ public class ListConstructionFragment extends Fragment
     private TextView m_ordersRegular;
     private TextView m_ordersIrregular;
     private TextView m_ordersImpetuous;
-
-    public ListConstructionFragment() {
-        m_loadedList = null;
-    }
 
     @Nullable
     @Override
@@ -79,11 +76,13 @@ public class ListConstructionFragment extends Fragment
         if (m_adapter == null) {
             m_adapter = new ListConstructionAdapter(getActivity());
         }
+        Bundle arguments = getArguments();
+        if (arguments != null) {
+            m_adapter.loadSavedList(arguments.getLong(MainActivity.ID, -1));
+        }
         if (getActivity() instanceof ListChangedListener) {
             m_adapter.addListChangedListener((ListChangedListener) getActivity());
         }
-
-        m_adapter.setList(m_loadedList);
 
         ItemTouchHelper.Callback callback = new ListConstructionTouchHelper(m_adapter);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
@@ -92,11 +91,6 @@ public class ListConstructionFragment extends Fragment
         m_recyclerView.setAdapter(m_adapter);
 
         return v;
-    }
-
-
-    public void setList(List<Map.Entry<ListElement, Integer>> list) {
-        m_loadedList = list;
     }
 
     @Override
@@ -130,10 +124,10 @@ public class ListConstructionFragment extends Fragment
         m_adapter.addUnit(unit, option);
     }
 
-    public boolean saveList(String listName, long armyDbId, int points) {
+    public long saveList(String listName, long armyDbId, int points, long dbId) {
         ListData savedLists = new ListData(getActivity());
         savedLists.open();
-        boolean retval = savedLists.saveList(listName, armyDbId, points, m_adapter.getList());
+        long retval = savedLists.saveList(listName, armyDbId, points, m_adapter.getList(), dbId);
         savedLists.close();
         return retval;
     }

@@ -36,6 +36,7 @@ import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
+import com.cgordon.infinityandroid.storage.ListData;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -65,9 +66,17 @@ public class ListConstructionAdapter
         return new ArrayList<>(m_list);
     }
 
-    public void setList(List<Entry<ListElement, Integer>> list) {
-        if (list != null) {
-            m_list = list;
+
+
+    public void loadSavedList(long id) {
+        if (id != -1) {
+            Log.d(TAG, "Loading...");
+            ListData listData = new ListData(m_context);
+            listData.open();
+            m_list = listData.getList(id);
+            listData.close();
+
+            // probably not strictly necessary here...
             notifyDataSetChanged();
         }
     }

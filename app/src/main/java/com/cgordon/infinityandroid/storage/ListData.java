@@ -70,15 +70,14 @@ public class ListData {
         m_database.close();
     }
 
-    public boolean saveList(String listName, long army, int points, List<Map.Entry<ListElement, Integer>> list) {
-        boolean retval = false;
+    public long saveList(String listName, long army, int points, List<Map.Entry<ListElement, Integer>> list, long dbId) {
 
         m_database.beginTransaction();
 
         long listId;
 
         Cursor cursor = m_database.query(InfinityDatabase.TABLE_ARMY_LISTS, listColumns,
-                InfinityDatabase.COLUMN_NAME + "='" + listName + "'", null, null, null, null, null);
+                InfinityDatabase.COLUMN_ID + "=" + dbId, null, null, null, null, null);
 
         // there's an existing list under this name and we should overwrite
         if (cursor.getCount() > 0) {
@@ -102,7 +101,6 @@ public class ListData {
         } else {
 
             int combatGroup = 0;
-            retval = true;
 
             for( int i = 0; i < list.size(); i++) {
 
@@ -118,7 +116,7 @@ public class ListData {
                     v.put(InfinityDatabase.COLUMN_PROFILE, listItem.getValue());
 
                     if (m_database.insert(InfinityDatabase.TABLE_ARMY_LIST_UNITS, null, v) == -1) {
-                        retval = false;
+                        listId = -1;
                         Log.d(TAG, "Unit List insert failed!: " + i);
                         break;
                     }
@@ -128,27 +126,19 @@ public class ListData {
             }
         }
 
-        if (retval) {
+        if (listId != -1) {
             m_database.setTransactionSuccessful();
         }
+
         m_database.endTransaction();
-        return retval;
+        return listId;
     }
 
-    public boolean deleteList(String listName) {
+    public boolean deleteList(long listId) {
         boolean retval = false;
-        Cursor cursor = m_database.query(InfinityDatabase.TABLE_ARMY_LISTS, listColumns,
-                InfinityDatabase.COLUMN_NAME + "='" + listName + "'", null, null, null, null, null);
-
-        // there's an existing list under this name and we should overwrite
-        if (cursor.getCount() > 0) {
-            cursor.moveToFirst();
-            long listId = cursor.getLong(0);
-
-            Log.d(TAG, "Deleting List: " + m_database.delete(InfinityDatabase.TABLE_ARMY_LISTS, InfinityDatabase.COLUMN_ID +"=" + listId, null));
-            Log.d(TAG, "Deleting List Units: " + m_database.delete(InfinityDatabase.TABLE_ARMY_LIST_UNITS, InfinityDatabase.COLUMN_LIST_ID +"=" + listId, null));
-            retval = true;
-        }
+        Log.d(TAG, "Deleting List: " + m_database.delete(InfinityDatabase.TABLE_ARMY_LISTS, InfinityDatabase.COLUMN_ID +"=" + listId, null));
+        Log.d(TAG, "Deleting List Units: " + m_database.delete(InfinityDatabase.TABLE_ARMY_LIST_UNITS, InfinityDatabase.COLUMN_LIST_ID +"=" + listId, null));
+        retval = true;
 
         return retval;
 

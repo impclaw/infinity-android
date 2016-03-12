@@ -69,7 +69,7 @@ public class ListConstructionActivity extends AppCompatActivity
     private ListStatusListener m_listStatusListener;
     private ArmyStatusListener m_armyListener;
     private ListConstructionFragment m_listConstructionFragment;
-    private List<Map.Entry<ListElement, Integer>> m_loadedList = null;
+    private long m_listDbId = -1;
     private boolean m_listDirty = false;
     private String m_listName = null;
 
@@ -102,11 +102,8 @@ public class ListConstructionActivity extends AppCompatActivity
                 m_army = armyData.getArmy(armyList.armyId);
                 m_listName = armyList.name;
                 armyData.close();
-                ListData listData = new ListData(getBaseContext());
-                listData.open();
-                m_loadedList = listData.getList(armyList.dbId);
-                listData.close();
-
+                m_listDbId = armyList.dbId;
+                m_pager.setCurrentItem(2);
             }
         }
 
@@ -232,9 +229,9 @@ public class ListConstructionActivity extends AppCompatActivity
                     break;
                 case 2:
                     m_listConstructionFragment = new ListConstructionFragment();
-                    if (m_loadedList != null) {
-                        m_listConstructionFragment.setList(m_loadedList);
-                    }
+                    Bundle b = new Bundle();
+                    b.putLong(MainActivity.ID, m_listDbId);
+                    m_listConstructionFragment.setArguments(b);
                     fragment = m_listConstructionFragment;
                     break;
             }
@@ -285,37 +282,20 @@ public class ListConstructionActivity extends AppCompatActivity
 
         switch (id) {
             case R.id.action_save:
-
-                if (m_listName == null) {
-                    if (renameList()) {
-                        saveList();
-                    }
-                } else {
-                    saveList();
-                }
+                save();
                 return true;
 
             case R.id.action_rename:
-                renameList();
-                m_listDirty = true;
+                rename();
                 return true;
 
             case R.id.action_save_as:
-                if (renameList()) {
-                    saveList();
-                }
+                saveAs();
                 return true;
 
             case R.id.action_delete:
-                if (m_listName != null) {
-                    ListData listData = new ListData(this);
-                    listData.open();
-                    if (!listData.deleteList(m_listName)) {
-                        Log.d(TAG, "Error deleting list: " + m_listName);
-                    }
-                    listData.close();
-                    finish();
-                }
+                deleteList();
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -323,15 +303,23 @@ public class ListConstructionActivity extends AppCompatActivity
 
     }
 
-    private boolean renameList() {
-        final Boolean[] retval = new Boolean[1];
-        retval[0] = false;
+    private void save() {
+
+        if (m_listName == null) {
+            saveAs();
+        } else {
+            saveList();
+        }
+    }
+
+    private void saveAs() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         final EditText editText = new EditText(this);
         if (m_listName != null) {
             editText.setText(m_listName);
         }
         builder.setView(editText);
+        builder.setTitle(R.string.action_save_as);
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -339,12 +327,38 @@ public class ListConstructionActivity extends AppCompatActivity
                 String filename = value.toString();
                 if (!filename.isEmpty()) {
                     m_listName = filename;
+                    // reset this so we don't delete the old one
+                    m_listDbId = -1;
+                    saveList();
                 }
-                retval[0] = true;
             }
         });
+        builder.setNegativeButton(R.string.cancel, null);
         builder.show();
-        return retval[0].booleanValue();
+    }
+
+    private void rename() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final EditText editText = new EditText(this);
+        if (m_listName != null) {
+            editText.setText(m_listName);
+        }
+        builder.setView(editText);
+        builder.setTitle(R.string.action_rename);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Editable value = editText.getText();
+                String filename = value.toString();
+                if (!filename.isEmpty()) {
+                    m_listName = filename;
+                    m_listDirty = true;
+
+                }
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, null);
+        builder.show();
     }
 
     private void saveList() {
@@ -352,11 +366,24 @@ public class ListConstructionActivity extends AppCompatActivity
         if (m_listName != null) {
 
             // see if the save works:
-            if(m_listConstructionFragment.saveList(m_listName, m_army.dbId, 300)) {
+            m_listDbId = m_listConstructionFragment.saveList(m_listName, m_army.dbId, 300, m_listDbId);
+            if(m_listDbId != -1) {
                 m_listDirty = false;
             } else {
                 Toast.makeText(this, "Save failed!", Toast.LENGTH_LONG);
             }
+        }
+    }
+
+    private void deleteList() {
+        if (m_listName != null) {
+            ListData listData = new ListData(this);
+            listData.open();
+            if (!listData.deleteList(m_listDbId)) {
+                Log.d(TAG, "Error deleting list: " + m_listName);
+            }
+            listData.close();
+            finish();
         }
     }
 }
