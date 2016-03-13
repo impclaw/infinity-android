@@ -319,8 +319,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_UNITS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LISTS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LIST_UNITS);
+//        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LISTS);
+//        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LIST_UNITS);
 
         onCreate(db);
     }
