@@ -17,20 +17,18 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.cgordon.infinityandroid.activity.MainActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cgordon.infinityandroid.fragment.SavedListsFragment"
+    android:background="@color/background_material_dark">
 
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_view">
+    </android.support.v7.widget.RecyclerView>
 
-    <item
-        android:id="@+id/action_about"
-        android:orderInCategory="100"
-        android:title="@string/action_about"
-        app:showAsAction="never" />
-</menu>
+
+</FrameLayout>

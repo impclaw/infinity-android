@@ -21,11 +21,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.Army;
@@ -46,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements ArmyListFragment.
     public static final String UNIT = "unit";
     public static final String INDEX = "profile";
     public static final String WEAPON = "weapon";
+    public static final String LIST_ID = "list_id";
+    private DrawerLayout m_drawerLayout;
+    private ActionBarDrawerToggle m_drawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,31 @@ public class MainActivity extends AppCompatActivity implements ArmyListFragment.
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        m_drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        m_drawerToggle = new ActionBarDrawerToggle(this, m_drawerLayout, toolbar
+                , R.string.drawer_open, R.string.drawer_closed ) {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                invalidateOptionsMenu();
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                invalidateOptionsMenu();
+            }
+        };
+        m_drawerLayout.setDrawerListener(m_drawerToggle);
+
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        m_drawerToggle.syncState();
     }
 
     @Override

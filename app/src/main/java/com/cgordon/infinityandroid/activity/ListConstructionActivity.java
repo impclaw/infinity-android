@@ -27,17 +27,30 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.data.Army;
+import com.cgordon.infinityandroid.data.ArmyList;
+import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
 import com.cgordon.infinityandroid.fragment.OptionsFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
+import com.cgordon.infinityandroid.storage.ArmyData;
+import com.cgordon.infinityandroid.storage.ListData;
 import com.cgordon.infinityandroid.widgets.SlidingTabLayout;
+
+import java.util.List;
+import java.util.Map;
 
 public class ListConstructionActivity extends AppCompatActivity
     implements UnitListFragment.UnitSelectedListener,
@@ -56,6 +69,10 @@ public class ListConstructionActivity extends AppCompatActivity
     private OptionSelectedListener m_optionListener;
     private ListStatusListener m_listStatusListener;
     private ArmyStatusListener m_armyListener;
+    private ListConstructionFragment m_listConstructionFragment;
+    private long m_listDbId = -1;
+    private boolean m_listDirty = false;
+    private String m_listName = null;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +93,20 @@ public class ListConstructionActivity extends AppCompatActivity
         m_pager.setOffscreenPageLimit(3);
         SlidingTabLayout tabs = (SlidingTabLayout) findViewById(R.id.tabs);
         tabs.setViewPager(m_pager);
+
         m_army = getIntent().getParcelableExtra(MainActivity.ARMY);
+        if (m_army == null) {
+            ArmyList armyList = getIntent().getParcelableExtra(MainActivity.LIST_ID);
+            if (armyList != null) {
+                ArmyData armyData = new ArmyData(getBaseContext());
+                armyData.open();
+                m_army = armyData.getArmy(armyList.armyId);
+                m_listName = armyList.name;
+                armyData.close();
+                m_listDbId = armyList.dbId;
+                m_pager.setCurrentItem(2);
+            }
+        }
 
         if (savedInstanceState != null) {
             m_currentSelectedUnit = savedInstanceState.getParcelable("unit");
@@ -100,27 +130,31 @@ public class ListConstructionActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        if (m_listDirty) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
-        alert.setTitle(R.string.cancel_list_title);
-        alert.setMessage(R.string.cancel_list_message);
+            alert.setTitle(R.string.cancel_list_title);
+            alert.setMessage(R.string.cancel_list_message);
 
-        alert.setPositiveButton(R.string.ok,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,
-                                        int whichButton) {
-                        ListConstructionActivity.this.finish();
-                    }
-                });
+            alert.setPositiveButton(R.string.ok,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,
+                                            int whichButton) {
+                            ListConstructionActivity.this.finish();
+                        }
+                    });
 
-        alert.setNegativeButton(R.string.cancel,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,
-                                        int whichButton) {
-                    }
-                });
+            alert.setNegativeButton(R.string.cancel,
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,
+                                            int whichButton) {
+                        }
+                    });
 
-        alert.show();
+            alert.show();
+        } else {
+            ListConstructionActivity.this.finish();
+        }
     }
 
     protected void notifyUnitSelected (Unit unit, RecyclerView.ViewHolder viewHolder) {
@@ -150,6 +184,7 @@ public class ListConstructionActivity extends AppCompatActivity
     @Override
     public void onOptionSelected(int option) {
         Log.d(TAG, "Option Selected: " + option);
+        m_listDirty = true;
         m_optionListener.OnOptionSelected(m_currentSelectedUnit, option);
         m_pager.setCurrentItem(2);
     }
@@ -166,6 +201,11 @@ public class ListConstructionActivity extends AppCompatActivity
     public void onListChanged(int cost, double swc, int lieutenantCount) {
         Log.d(TAG, "Cost: " + cost + " SWC: " + swc + " LT.: " + lieutenantCount);
         m_armyListener.OnArmyStatusChanged(cost, swc, lieutenantCount);
+    }
+
+    @Override
+    public void onOrderChanged(int oldPosition, int newPosition) {
+        m_listDirty = true;
     }
 
     class ListConstructionPagerAdapter extends FragmentPagerAdapter {
@@ -194,7 +234,11 @@ public class ListConstructionActivity extends AppCompatActivity
                     fragment = new UnitFragment();
                     break;
                 case 2:
-                    fragment = new ListConstructionFragment();
+                    m_listConstructionFragment = new ListConstructionFragment();
+                    Bundle b = new Bundle();
+                    b.putLong(MainActivity.ID, m_listDbId);
+                    m_listConstructionFragment.setArguments(b);
+                    fragment = m_listConstructionFragment;
                     break;
             }
 
@@ -232,4 +276,135 @@ public class ListConstructionActivity extends AppCompatActivity
         public void OnListStatusChanged(int regularCount, int irregularCount, int impetuousCount, int group);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_list_construction, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_save:
+                save();
+                return true;
+
+            case R.id.action_rename:
+                rename();
+                return true;
+
+            case R.id.action_save_as:
+                saveAs();
+                return true;
+
+            case R.id.action_delete:
+                deleteList();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    private void save() {
+
+        if (m_listName == null) {
+            saveAs();
+        } else {
+            saveList();
+        }
+    }
+
+    private void saveAs() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final EditText editText = new EditText(this);
+        if (m_listName != null) {
+            editText.setText(m_listName);
+        }
+        builder.setView(editText);
+        builder.setTitle(R.string.action_save_as);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Editable value = editText.getText();
+                String filename = value.toString();
+                if (!filename.isEmpty()) {
+                    m_listName = filename;
+                    // reset this so we don't delete the old one
+                    m_listDbId = -1;
+                    saveList();
+                }
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, null);
+        builder.show();
+    }
+
+    private void rename() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final EditText editText = new EditText(this);
+        if (m_listName != null) {
+            editText.setText(m_listName);
+        }
+        builder.setView(editText);
+        builder.setTitle(R.string.action_rename);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Editable value = editText.getText();
+                String filename = value.toString();
+                if (!filename.isEmpty()) {
+                    m_listName = filename;
+                    m_listDirty = true;
+
+                }
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, null);
+        builder.show();
+    }
+
+    private void saveList() {
+        // see if the name has been set
+        if (m_listName != null) {
+
+            // see if the save works:
+            m_listDbId = m_listConstructionFragment.saveList(m_listName, m_army.dbId, 300, m_listDbId);
+            if(m_listDbId != -1) {
+                m_listDirty = false;
+            } else {
+                Toast.makeText(this, "Save failed!", Toast.LENGTH_LONG);
+            }
+        }
+    }
+
+    private void deleteList() {
+        if (m_listName != null) {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.action_delete);
+            builder.setMessage(R.string.delete_list_question);
+            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    ListData listData = new ListData(getBaseContext());
+                    listData.open();
+                    if (!listData.deleteList(m_listDbId)) {
+                        Toast.makeText(getBaseContext(), R.string.error_deleting_list + m_listName, Toast.LENGTH_LONG);
+                        Log.d(TAG, "Error deleting list: " + m_listName);
+                    }
+                    listData.close();
+                    finish();
+                }
+            });
+            builder.setNegativeButton(R.string.cancel, null);
+            builder.show();
+
+        } else {
+            Toast.makeText(this, R.string.list_not_saved, Toast.LENGTH_LONG);
+        }
+    }
 }

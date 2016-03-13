@@ -25,16 +25,24 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
+import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
+import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
+import com.cgordon.infinityandroid.storage.ListData;
+
+import java.util.List;
+import java.util.Map;
 
 import static com.cgordon.infinityandroid.adapter.ListConstructionAdapter.*;
 
@@ -67,6 +75,10 @@ public class ListConstructionFragment extends Fragment
         m_recyclerView.setLayoutManager(layoutManager);
         if (m_adapter == null) {
             m_adapter = new ListConstructionAdapter(getActivity());
+        }
+        Bundle arguments = getArguments();
+        if (arguments != null) {
+            m_adapter.loadSavedList(arguments.getLong(MainActivity.ID, -1));
         }
         if (getActivity() instanceof ListChangedListener) {
             m_adapter.addListChangedListener((ListChangedListener) getActivity());
@@ -111,5 +123,14 @@ public class ListConstructionFragment extends Fragment
     public void OnOptionSelected(Unit unit, int option) {
         m_adapter.addUnit(unit, option);
     }
+
+    public long saveList(String listName, long armyDbId, int points, long dbId) {
+        ListData savedLists = new ListData(getActivity());
+        savedLists.open();
+        long retval = savedLists.saveList(listName, armyDbId, points, m_adapter.getList(), dbId);
+        savedLists.close();
+        return retval;
+    }
+
 
 }

@@ -28,7 +28,7 @@ import android.widget.TextView;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 
-public class ListStatusFragment extends Fragment implements ListConstructionAdapter.ListChangedListener{
+public class ListStatusFragment extends Fragment {
 
     private TextView m_regular;
     private TextView m_irregular;
@@ -43,20 +43,6 @@ public class ListStatusFragment extends Fragment implements ListConstructionAdap
         m_irregular = (TextView) v.findViewById(R.id.text_orders_irregular);
         m_impetuous = (TextView) v.findViewById(R.id.text_orders_impetuous);
 
-//        Fragment parentFragment = getParentFragment();
-//        if (parentFragment instanceof ListConstructionFragment) {
-//            parentFragment
-//            ((OnListChanged)parentFragment).setListChangedListener(this);
-//        }
-
         return v;
-    }
-
-    @Override
-    public void onListChanged(int cost, double swc, int lieutenantCount) {
-//        m_regular.setText(Integer.toString(regularCount));
-//        m_irregular.setText(Integer.toString(irregularCount));
-//        m_impetuous.setText(Integer.toString(impetuousCount));
-
     }
 }

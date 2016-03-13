@@ -37,6 +37,7 @@ import com.cgordon.infinityandroid.data.Option;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
+import com.cgordon.infinityandroid.storage.ListData;
 
 import java.security.acl.Group;
 import java.util.AbstractMap;
@@ -64,6 +65,25 @@ public class ListConstructionAdapter
 
     private List<ListChangedListener> m_listeners;
 
+    public List<Entry<ListElement, Integer>> getList() {
+        return new ArrayList<>(m_list);
+    }
+
+
+
+    public void loadSavedList(long id) {
+        if (id != -1) {
+            Log.d(TAG, "Loading...");
+            ListData listData = new ListData(m_context);
+            listData.open();
+            m_list = listData.getList(id);
+            listData.close();
+
+            // probably not strictly necessary here...
+            notifyDataSetChanged();
+        }
+    }
+
     @Override
     public boolean onItemMove(int fromIndex, int toIndex) {
         // you can't replace the first item in the list because that's the Group 1 header.
@@ -82,6 +102,13 @@ public class ListConstructionAdapter
         }
         notifyItemMoved(fromIndex, toIndex);
         updateListener();
+
+        for (ListChangedListener l: m_listeners
+                ) {
+            l.onOrderChanged(fromIndex, toIndex);
+
+        }
+
         return true;
     }
 
@@ -92,6 +119,7 @@ public class ListConstructionAdapter
 
     public interface ListChangedListener {
         void onListChanged(int cost, double swc, int lieutenantCount);
+        void onOrderChanged(int oldPosition, int newPosition);
     }
 
     public boolean addListChangedListener(ListChangedListener listener) {
