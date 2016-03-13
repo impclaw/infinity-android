@@ -118,6 +118,10 @@ public class ListConstructionActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         //notifyUnitSelected(m_currentSelectedUnit, null);
+        FragmentPagerAdapter fragmentPagerAdapter = m_adapter;
+        m_listConstructionFragment = (ListConstructionFragment) getSupportFragmentManager().findFragmentByTag(
+                "android:switcher:" + m_pager.getId() + ":"
+                        + fragmentPagerAdapter.getItemId(2));
     }
 
     @Override
