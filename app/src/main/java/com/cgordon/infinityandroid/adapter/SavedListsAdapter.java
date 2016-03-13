@@ -83,7 +83,7 @@ public class SavedListsAdapter  extends RecyclerView.Adapter<SavedListsAdapter.V
 
         Army army = getArmy(list.armyId);
         if (army != null) {
-            String resourceName = army.name;
+            String resourceName = army.faction;
             if (!army.faction.equals(army.name)) {
                 resourceName += "_" + army.name;
             }

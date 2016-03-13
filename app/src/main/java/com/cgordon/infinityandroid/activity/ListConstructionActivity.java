@@ -32,6 +32,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
@@ -377,13 +378,30 @@ public class ListConstructionActivity extends AppCompatActivity
 
     private void deleteList() {
         if (m_listName != null) {
-            ListData listData = new ListData(this);
-            listData.open();
-            if (!listData.deleteList(m_listDbId)) {
-                Log.d(TAG, "Error deleting list: " + m_listName);
-            }
-            listData.close();
-            finish();
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(R.string.action_delete);
+            TextView message = new TextView(this);
+            message.setText(R.string.delete_list_question);
+            builder.setView(message);
+            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    ListData listData = new ListData(getBaseContext());
+                    listData.open();
+                    if (!listData.deleteList(m_listDbId)) {
+                        Toast.makeText(getBaseContext(), R.string.error_deleting_list + m_listName, Toast.LENGTH_LONG);
+                        Log.d(TAG, "Error deleting list: " + m_listName);
+                    }
+                    listData.close();
+                    finish();
+                }
+            });
+            builder.setNegativeButton(R.string.cancel, null);
+            builder.show();
+
+        } else {
+            Toast.makeText(this, R.string.list_not_saved, Toast.LENGTH_LONG);
         }
     }
 }
