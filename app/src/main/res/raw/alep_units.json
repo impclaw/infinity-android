@@ -3024,5 +3024,111 @@
         "ccw": []
       }
     ]
+  },
+  {
+    "army": "Aleph",
+    "isc": "Hector, Homeridae's Champion",
+    "name": "Hector",
+    "type": "HI",
+    "imp": "",
+    "irr": "",
+    "cube": "2",
+    "hackable": "X",
+    "mov": "4-4",
+    "cc": "23",
+    "bs": "13",
+    "ph": "14",
+    "wip": "15",
+    "arm": "5",
+    "bts": "6",
+    "w": "2",
+    "s": "2",
+    "ava": "1",
+    "spec": [
+      "X Visor",
+      "Martial Arts L4",
+      "Kinematika L2",
+      "Strategos L1",
+      "V: No Wound Incapacitation",
+      "Fireteam: Enomotarchos"
+    ],
+    "bsw": [],
+    "ccw": [],
+    "childs": [
+      {
+        "code": "Default",
+        "codename": "Plasma",
+        "cost": "71",
+        "swc": "0",
+        "spec": [
+          "Tinbot A (Deflector L1)"
+        ],
+        "bsw": [
+          "Plasma Rifle",
+          "Nanopulser",
+          "Stun Grenades"
+        ],
+        "ccw": [
+          "Heavy Pistol",
+          "EXP CCW"
+        ]
+      },
+      {
+        "code": "Spitfire",
+        "codename": "",
+        "cost": "70",
+        "swc": "2",
+        "spec": [
+          "Tinbot A (Deflector L1)"
+        ],
+        "bsw": [
+          "Spitfire",
+          "Nanopulser",
+          "Stun Grenades"
+        ],
+        "ccw": [
+          "Heavy Pistol",
+          "EXP CCW"
+        ]
+      },
+      {
+        "code": "Plasma Lieutenant",
+        "codename": "",
+        "cost": "71",
+        "swc": "0",
+        "spec": [
+          "Tinbot A (Deflector L1)",
+          "Lieutenant"
+        ],
+        "bsw": [
+          "Plasma Rifle",
+          "Nanopulser",
+          "Stun Grenades"
+        ],
+        "ccw": [
+          "Heavy Pistol",
+          "EXP CCW"
+        ]
+      },
+      {
+        "code": "Spitfire Lieutenant",
+        "codename": "",
+        "cost": "70",
+        "swc": "2",
+        "spec": [
+          "Tinbot A (Deflector L1)",
+          "Lieutenant"
+        ],
+        "bsw": [
+          "Spitfire",
+          "Nanopulser",
+          "Stun Grenades"
+        ],
+        "ccw": [
+          "Heavy Pistol",
+          "EXP CCW"
+        ]
+      }
+    ]
   }
 ]

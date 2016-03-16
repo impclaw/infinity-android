@@ -2584,5 +2584,23 @@
     "cc": "No",
     "template": "No",
     "note": "Circular Template"
+  },
+  {
+    "name": "Stun Grenades",
+    "burst": "1",
+    "ammo": "Stun",
+    "damage": "13",
+    "short_dist": "8",
+    "short_mod": "3",
+    "medium_dist": "16",
+    "medium_mod": "-3",
+    "long_dist": "--",
+    "long_mod": "--",
+    "max_dist": "--",
+    "max_mod": "--",
+    "attr": "PH",
+    "cc": "No",
+    "template": "Impact Template (Circular)",
+    "note": "Speculative Fire"
   }
 ]

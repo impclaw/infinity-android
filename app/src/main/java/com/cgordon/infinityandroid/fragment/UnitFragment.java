@@ -121,6 +121,10 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         }
         Log.d(TAG, "UnitFragment setId: " + unit.dbId);
 
+        if (getActivity() == null) {
+            return;
+        }
+
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
         if (m_unit != null) {
