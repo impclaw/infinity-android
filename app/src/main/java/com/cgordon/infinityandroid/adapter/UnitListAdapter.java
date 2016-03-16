@@ -155,7 +155,7 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.ViewHo
     public static String prepareDrawableResource(String resourceName) {
         return resourceName.toLowerCase()
                 .replace(" ", "_").replace("-", "_").replace(",", "").replace(":", "")
-                .replace(".", "").replace("'", "")
+                .replace(".", "").replace("'", "").replace("(", "").replace(")", "")
                 .replace('á', 'a').replace('ă', 'a').replace('à', 'a').replace('ā', 'a')
                 .replace('é', 'e').replace('ē', 'e').replace('è', 'e')
                 .replace('ǐ', 'i').replace('ì', 'i').replace('ī', 'i')
