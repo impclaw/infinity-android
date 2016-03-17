@@ -148,6 +148,8 @@ public class UnitParser {
                 reader.skipValue();
             } else if (name.equals("s")) {
                 profile.silhouette = reader.nextString();
+            } else if (name.equals("index")) {
+                Log.d(TAG, "index: " + reader.nextString());
             } else {
                 throw new IOException("Unknown tag in parse Unit: " + name);
             }
