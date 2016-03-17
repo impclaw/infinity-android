@@ -1,5 +1,6 @@
 [
   {
+    "index": 7001,
     "army": "Aleph",
     "isc": "Achilles",
     "name": "Achilles",
@@ -83,6 +84,7 @@
     ]
   },
   {
+    "index": 7002,
     "army": "Aleph",
     "isc": "Achilles v2 (Hoplite Armor)",
     "name": "Achilles v2",
@@ -168,6 +170,7 @@
     ]
   },
   {
+    "index": 7003,
     "army": "Aleph",
     "isc": "Asuras",
     "name": "Asura",
@@ -250,6 +253,7 @@
     ]
   },
   {
+    "index": 7004,
     "army": "Aleph",
     "isc": "Dakini Tacbots",
     "name": "Dakini Tacbot",
@@ -339,6 +343,7 @@
     ]
   },
   {
+    "index": 7005,
     "army": "Aleph",
     "isc": "Daleth Rebots",
     "name": "Daleth Rebot",
@@ -386,6 +391,7 @@
     ]
   },
   {
+    "index": 7006,
     "army": "Aleph",
     "isc": "Dasyus",
     "name": "Dasyu",
@@ -497,6 +503,7 @@
     ]
   },
   {
+    "index": 7007,
     "army": "Aleph",
     "isc": "Deva Functionaries",
     "name": "Deva",
@@ -644,6 +651,7 @@
     ]
   },
   {
+    "index": 7008,
     "army": "Aleph",
     "isc": "Garuda Tacbots",
     "name": "Garuda Tacbot",
@@ -708,6 +716,7 @@
     ]
   },
   {
+    "index": 7009,
     "army": "Aleph",
     "isc": "Lamedh Rebots",
     "name": "Lamedh Rebot",
@@ -752,6 +761,7 @@
     ]
   },
   {
+    "index": 7010,
     "army": "Aleph",
     "isc": "Maruts",
     "name": "Marut",
@@ -809,6 +819,7 @@
     ]
   },
   {
+    "index": 7011,
     "army": "Aleph",
     "isc": "Myrmidon Officer",
     "name": "Myrmidon Officer",
@@ -900,6 +911,7 @@
     ]
   },
   {
+    "index": 7012,
     "army": "Aleph",
     "isc": "Myrmidons",
     "name": "Myrmidon",
@@ -1014,6 +1026,7 @@
     ]
   },
   {
+    "index": 7013,
     "army": "Aleph",
     "isc": "Nagas",
     "name": "Naga",
@@ -1109,6 +1122,7 @@
     ]
   },
   {
+    "index": 7014,
     "army": "Aleph",
     "isc": "Netrods",
     "name": "Netrod",
@@ -1148,6 +1162,7 @@
     ]
   },
   {
+    "index": 7015,
     "army": "Aleph",
     "isc": "Patroclus",
     "name": "Patroclus",
@@ -1208,6 +1223,7 @@
     ]
   },
   {
+    "index": 7016,
     "army": "Aleph",
     "isc": "Probots",
     "name": "Probot",
@@ -1274,6 +1290,7 @@
     ]
   },
   {
+    "index": 7017,
     "army": "Aleph",
     "isc": "Samekh Rebots",
     "name": "Samekh Rebot",
@@ -1314,6 +1331,7 @@
     ]
   },
   {
+    "index": 7018,
     "army": "Aleph",
     "isc": "Sophotects",
     "name": "Sophotects",
@@ -1357,6 +1375,7 @@
     ]
   },
   {
+    "index": 7019,
     "army": "Aleph",
     "isc": "Yudbots",
     "name": "Yudbot",
@@ -1396,6 +1415,7 @@
     ]
   },
   {
+    "index": 7020,
     "army": "Aleph",
     "isc": "Zayin Rebots",
     "name": "Zayin Rebot",
@@ -1415,7 +1435,7 @@
     "s": "3",
     "ava": "2",
     "spec": [
-      "360° Visor",
+      "360\u00b0 Visor",
       "Climbing Plus",
       "G: Remote Presence",
       "Total Reaction"
@@ -1439,6 +1459,7 @@
     ]
   },
   {
+    "index": 7021,
     "army": "Aleph",
     "isc": "Posthumans Proxy Mk.1",
     "name": "Proxy Mk.1",
@@ -1511,6 +1532,7 @@
     ]
   },
   {
+    "index": 7022,
     "army": "Aleph",
     "isc": "Posthumans Proxy Mk.2",
     "name": "Proxy Mk.2",
@@ -1571,6 +1593,7 @@
     ]
   },
   {
+    "index": 7023,
     "army": "Aleph",
     "isc": "Posthumans Proxy Mk.3",
     "name": "Proxy Mk.3",
@@ -1614,6 +1637,7 @@
     ]
   },
   {
+    "index": 7024,
     "army": "Aleph",
     "isc": "Ekdromoi",
     "name": "Ekdromos",
@@ -1727,6 +1751,7 @@
     ]
   },
   {
+    "index": 7025,
     "army": "Aleph",
     "isc": "Chandra Spec-Ops",
     "name": "Chandra",
@@ -1761,6 +1786,7 @@
     ]
   },
   {
+    "index": 7026,
     "army": "Aleph",
     "isc": "Chandra Sergeant Thrasymedes",
     "name": "Chandra Sergeant Thrasymedes",
@@ -1781,7 +1807,7 @@
     "ava": "1",
     "spec": [
       "ODD: Optical Disruptor",
-      "360° Visor",
+      "360\u00b0 Visor",
       "Specialist Troop"
     ],
     "bsw": [
@@ -1821,6 +1847,7 @@
     ]
   },
   {
+    "index": 7027,
     "army": "Aleph",
     "isc": "Thorakitai",
     "name": "Thorakites",
@@ -1839,7 +1866,7 @@
     "s": "2",
     "ava": "3",
     "spec": [
-      "360° Visor"
+      "360\u00b0 Visor"
     ],
     "bsw": [],
     "ccw": [
@@ -1947,6 +1974,7 @@
     ]
   },
   {
+    "index": 7028,
     "army": "Aleph",
     "isc": "Agema Marksman",
     "name": "Agema",
@@ -2012,6 +2040,7 @@
     ]
   },
   {
+    "index": 7029,
     "army": "Aleph",
     "isc": "Eudoros",
     "name": "Eudoros",
@@ -2071,6 +2100,7 @@
     ]
   },
   {
+    "index": 7030,
     "army": "Aleph",
     "isc": "Nesaie Alke",
     "name": "Alke",
@@ -2091,7 +2121,7 @@
     "ava": "1",
     "spec": [
       "Fireteam: Enomotarchos",
-      "360° Visor",
+      "360\u00b0 Visor",
       "V: Courage"
     ],
     "bsw": [
@@ -2126,6 +2156,7 @@
     ]
   },
   {
+    "index": 7031,
     "army": "Aleph",
     "isc": "Atalanta",
     "name": "Atalanta",
@@ -2206,12 +2237,13 @@
     ]
   },
   {
+    "index": 7032,
     "army": "Aleph",
     "isc": "Diomedes",
     "name": "Diomedes",
     "image": "Ekdromoi",
     "type": "LI",
-    "imp": "",
+    "imp": "F",
     "irr": "",
     "cube": "2",
     "mov": "4-4",
@@ -2262,6 +2294,7 @@
     ]
   },
   {
+    "index": 7033,
     "army": "Aleph",
     "isc": "Machaon",
     "name": "Machaon",
@@ -2322,6 +2355,7 @@
     ]
   },
   {
+    "index": 7034,
     "army": "Aleph",
     "isc": "Phoenix",
     "name": "Phoenix",
@@ -2380,6 +2414,7 @@
     ]
   },
   {
+    "index": 7035,
     "army": "Aleph",
     "isc": "Ajax the Great",
     "name": "Ajax",
@@ -2437,30 +2472,37 @@
     ]
   },
   {
+    "index": 7036,
     "army": "Aleph",
     "isc": "Penthesilea",
     "name": "Penthesilea",
+    "ava": "1",
+    "spec": [],
+    "bsw": [
+      "Combi Rifle",
+      "Contender",
+      "Nanopulser"
+    ],
+    "ccw": [
+      "Pistol",
+      "Monofilament CCW"
+    ],
     "profiles": [
       {
         "name": "Penthesilea",
-        "mov": "8-6",
-        "arm": "1",
-        "bs": "13",
-        "bts": "3",
-        "cc": "22",
-        "cube": "2",
+        "type": "WB",
         "imp": "I",
+        "irr": "",
+        "cube": "2",
+        "mov": "8-6",
+        "cc": "22",
+        "bs": "13",
         "ph": "12",
         "wip": "14",
-        "type": "WB",
+        "arm": "1",
+        "bts": "3",
         "w": "1",
         "s": "4",
-        "irr": "",
-        "bsw": [
-          "Combi Rifle",
-          "Contender",
-          "Nanopulser"
-        ],
         "spec": [
           "i-Khol L2",
           "Motorcycle",
@@ -2468,47 +2510,36 @@
           "V: No Wound Incapacitation",
           "Kinematika L2"
         ],
-        "ccw": [
-          "Pistol",
-          "Monofilament CCW"
-        ]
+        "bsw": [],
+        "ccw": []
       },
       {
         "name": "Dismounted",
         "mov": "4-4",
+        "s": "2",
         "spec": [
           "i-Khol L2",
           "ODD: Optical Disruptor",
           "V: No Wound Incapacitation"
         ],
         "bsw": [],
-        "ccw": [],
-        "s": "2"
+        "ccw": []
       }
-    ],
-    "ava": "1",
-    "spec": [],
-    "bsw": [],
-    "ccw": [],
-    "note": "",
-    "cbcode": [
-      "280832-0409"
     ],
     "childs": [
       {
-        "bsw": [],
-        "cbcode": [],
-        "ccw": [],
         "code": "Default",
         "codename": "Amazon Warrioress",
         "cost": "44",
-        "note": "",
+        "swc": "0",
         "spec": [],
-        "swc": "0"
+        "bsw": [],
+        "ccw": []
       }
     ]
   },
   {
+    "index": 7037,
     "army": "Aleph",
     "isc": "Thamyris the Aoidos",
     "name": "Thamyris",
@@ -2553,6 +2584,7 @@
     ]
   },
   {
+    "index": 7038,
     "army": "Aleph",
     "isc": "Dactyls",
     "name": "Dactyl",
@@ -2629,6 +2661,7 @@
     ]
   },
   {
+    "index": 7039,
     "army": "Aleph",
     "isc": "Teucer",
     "name": "Teucer",
@@ -2701,6 +2734,7 @@
     ]
   },
   {
+    "index": 7040,
     "army": "Aleph",
     "isc": "Drakios",
     "name": "Drakios",
@@ -2826,6 +2860,7 @@
     ]
   },
   {
+    "index": 7041,
     "army": "Aleph",
     "isc": "Scylla",
     "name": "Scylla",
@@ -2980,6 +3015,7 @@
     ]
   },
   {
+    "index": 7042,
     "army": "Aleph",
     "isc": "Acmon, Sergeant of Dactyls",
     "name": "Acmon",
@@ -3025,6 +3061,7 @@
     ]
   },
   {
+    "index": 7043,
     "army": "Aleph",
     "isc": "Hector, Homeridae's Champion",
     "name": "Hector",

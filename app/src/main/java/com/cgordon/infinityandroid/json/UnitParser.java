@@ -165,7 +165,19 @@ public class UnitParser {
         // a unit-level profile...
         if (unit.profiles.size() == 0) {
             unit.profiles.add(profile);
-        } else if (profile.bsw.size() > 0) {
+        } else {
+            // this means we need to make sure we copy the data in master profile of the unit into
+            // each of the profiles.  It gets inherited, unless the profile actually contains the
+            // data, in which case let the profile's specification stand.
+            for (Profile tmpProfile : unit.profiles) {
+                if (tmpProfile.bsw.size() == 0) {
+                    tmpProfile.bsw = profile.bsw;
+                }
+                if (tmpProfile.ccw.size() == 0) {
+                    tmpProfile.ccw = profile.ccw;
+                }
+            }
+
             Log.d(TAG, "Missed some data!");
         }
         return unit;
