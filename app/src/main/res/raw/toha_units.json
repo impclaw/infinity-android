@@ -1908,5 +1908,180 @@
         "ccw": []
       }
     ]
+  },
+  {
+    "index": 8022,
+    "army": "Tohaa",
+    "isc": "Kerail Preceptors",
+    "name": "Kerail Preceptor",
+    "ava": "2",
+    "spec": [],
+    "bsw": [],
+    "ccw": [
+      "Pistol",
+      "Electric Pulse"
+    ],
+    "profiles": [
+      {
+        "type": "LI",
+        "imp": "",
+        "irr": "",
+        "cube": "X",
+        "mov": "6-4",
+        "cc": "14",
+        "bs": "11",
+        "ph": "11",
+        "wip": "13",
+        "arm": "1",
+        "bts": "3",
+        "w": "1",
+        "s": "2",
+        "spec": [
+          "Symbiont Armour"
+        ],
+        "bsw": [],
+        "ccw": []
+      },
+      {
+        "name": "Inactive Armour",
+        "type": "LI",
+        "mov": "4-4",
+        "cc": "14",
+        "bs": "11",
+        "ph": "10",
+        "arm": "0",
+        "bts": "0",
+        "w": "1",
+        "s": "2",
+        "ava": " ",
+        "spec": [],
+        "bsw": [],
+        "ccw": []
+      },
+      {
+        "name": "Surda SymbioBeast",
+        "optionSpecific": "X",
+        "type": "LI",
+        "imp": "",
+        "irr": "",
+        "cube": "",
+        "mov": "6-4",
+        "cc": "22",
+        "bs": "8",
+        "ph": "15",
+        "wip": "10",
+        "arm": "0",
+        "bts": "3",
+        "w": "1",
+        "s": "3",
+        "spec": [
+          "G: Synchronized",
+          "Hyper-Dynamics L1",
+          "Kinematica L2",
+          "Super-Jump",
+          "V: Dogged"
+        ],
+        "bsw": [
+          "Pulzar"
+        ],
+        "ccw": [
+          "Viral CCW"
+        ],
+        "independent": {
+          "cost": "8",
+          "swc": "0"
+        }
+      },
+      {
+        "name": "Mutan SymbioBeast",
+        "optionSpecific": "X",
+        "type": "LI",
+        "imp": "",
+        "irr": "",
+        "cube": "",
+        "mov": "6-4",
+        "cc": "14",
+        "bs": "11",
+        "ph": "14",
+        "wip": "12",
+        "arm": "0",
+        "bts": "3",
+        "w": "1",
+        "s": "3",
+        "spec": [
+          "G: Synchronized",
+          "Super-Jump",
+          "V: Dogged"
+        ],
+        "bsw": [
+          "Contender (2)",
+          "Pulzar"
+        ],
+        "ccw": [
+          "CCW"
+        ],
+        "independent": {
+          "cost": "13",
+          "swc": "0"
+        }
+      }
+    ],
+    "childs": [
+      {
+        "code": "Default",
+        "codename": "1 Surda",
+        "cost": "20",
+        "swc": "0",
+        "profile": "2",
+        "spec": [],
+        "bsw": [
+          "Submachine Gun",
+          "Smoke Grenades"
+        ],
+        "ccw": []
+      },
+      {
+        "code": "2 Surdas",
+        "codename": "",
+        "cost": "28",
+        "swc": "0",
+        "spec": [],
+        "bsw": [
+          "Submachine Gun",
+          "Smoke Grenades"
+        ],
+        "ccw": [],
+        "profiles": [
+          "2",
+          "2"
+        ]
+      },
+      {
+        "code": "Combi, Mutan",
+        "codename": "",
+        "cost": "30",
+        "swc": "0",
+        "profile": "3",
+        "spec": [],
+        "bsw": [
+          "Combi Rifle",
+          "Nanopulser"
+        ],
+        "ccw": []
+      },
+      {
+        "code": "Light Shotgun, Mutan",
+        "codename": "",
+        "cost": "25",
+        "swc": "0",
+        "profile": "3",
+        "spec": [],
+        "bsw": [
+          "Light Shotgun",
+          "Nanopulser"
+        ],
+        "ccw": []
+      }
+    ]
   }
 ]

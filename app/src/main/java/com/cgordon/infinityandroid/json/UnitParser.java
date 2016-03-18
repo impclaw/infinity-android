@@ -308,6 +308,11 @@ public class UnitParser {
                 reader.endObject();
             } else if (name.equals("profile")) {
                 option.profile = Integer.parseInt(reader.nextString());
+            } else if (name.equals("profiles")) {
+                // this is for Kerail Preceptors - need to resolve this at some point
+                // Does profile become a list?
+                // Is there a separate tag for profileS?
+                reader.skipValue();
             } else {
                 throw new IOException("Unknown tag in parse Child: " + name);
             }
