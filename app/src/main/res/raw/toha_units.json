@@ -284,8 +284,13 @@
     "name": "Ectros",
     "ava": "4",
     "spec": [],
-    "bsw": [],
-    "ccw": [],
+    "bsw": [
+      "Nanopulser"
+    ],
+    "ccw": [
+      "Pistol",
+      "CCW"
+    ],
     "profiles": [
       {
         "type": "HI",
@@ -307,13 +312,8 @@
           "Fireteam: Tohaa",
           "Poison"
         ],
-        "bsw": [
-          "Nanopulser"
-        ],
-        "ccw": [
-          "Pistol",
-          "CCW"
-        ]
+        "bsw": [],
+        "ccw": []
       },
       {
         "name": "Inactive Armour",
@@ -1115,8 +1115,15 @@
     "image": "Ectros Regiment",
     "ava": "1",
     "spec": [],
-    "bsw": [],
-    "ccw": [],
+    "bsw": [
+      "Combi Rifle",
+      "Light Rocket Launcher",
+      "Nanopulser"
+    ],
+    "ccw": [
+      "Pistol",
+      "CCW"
+    ],
     "profiles": [
       {
         "type": "HI",
@@ -1139,15 +1146,8 @@
           "Fireteam: Tohaa",
           "Poison"
         ],
-        "bsw": [
-          "Combi Rifle",
-          "Light Rocket Launcher",
-          "Nanopulser"
-        ],
-        "ccw": [
-          "Pistol",
-          "CCW"
-        ]
+        "bsw": [],
+        "ccw": []
       },
       {
         "name": "Inactive Armour",
