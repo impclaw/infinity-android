@@ -1,5 +1,6 @@
 [
   {
+    "index": 4001,
     "army": "Haqqislam",
     "isc": "Daylami Infantry",
     "name": "Daylami",
@@ -103,6 +104,7 @@
     ]
   },
   {
+    "index": 4002,
     "army": "Haqqislam",
     "isc": "Ghulam",
     "name": "Ghulam",
@@ -299,8 +301,9 @@
     ]
   },
   {
+    "index": 4003,
     "army": "Haqqislam",
-    "isc": "Naffatûn",
+    "isc": "Naffat\u00fbn",
     "name": "Naffatun",
     "type": "LI",
     "imp": "",
@@ -365,6 +368,7 @@
     ]
   },
   {
+    "index": 4004,
     "army": "Haqqislam",
     "isc": "Halqa Mechanized Infantry",
     "name": "Halqa",
@@ -498,6 +502,7 @@
     ]
   },
   {
+    "index": 4005,
     "army": "Haqqislam",
     "isc": "Khawarijs",
     "name": "Khawarij",
@@ -608,6 +613,7 @@
     ]
   },
   {
+    "index": 4006,
     "army": "Haqqislam",
     "isc": "Djanbazan Tactical Group",
     "name": "Djanbazan",
@@ -717,6 +723,7 @@
     ]
   },
   {
+    "index": 4007,
     "army": "Haqqislam",
     "isc": "Hassassin Ragiks",
     "name": "Ragik",
@@ -797,6 +804,7 @@
     ]
   },
   {
+    "index": 4008,
     "army": "Haqqislam",
     "isc": "Janissaries",
     "name": "Janissary",
@@ -928,6 +936,7 @@
     ]
   },
   {
+    "index": 4009,
     "army": "Haqqislam",
     "isc": "Ahl Fassed Regiment",
     "name": "Fassed",
@@ -1002,6 +1011,7 @@
     ]
   },
   {
+    "index": 4010,
     "army": "Haqqislam",
     "isc": "Maghariba Guard",
     "name": "Maghariba",
@@ -1087,12 +1097,12 @@
         ]
       },
       {
-        "code": "360° Visor",
+        "code": "360\u00b0 Visor",
         "codename": "",
         "cost": "98",
         "swc": "2",
         "spec": [
-          "360° Visor"
+          "360\u00b0 Visor"
         ],
         "bsw": [
           "Heavy Flamethrower"
@@ -1102,6 +1112,7 @@
     ]
   },
   {
+    "index": 4011,
     "army": "Haqqislam",
     "isc": "Hunzakuts",
     "name": "Hunzakut",
@@ -1175,6 +1186,7 @@
     ]
   },
   {
+    "index": 4012,
     "army": "Haqqislam",
     "isc": "Murabids Tuareg",
     "name": "Tuareg",
@@ -1272,6 +1284,7 @@
     ]
   },
   {
+    "index": 4013,
     "army": "Haqqislam",
     "isc": "Hassassin Fiday",
     "name": "Fiday",
@@ -1364,58 +1377,58 @@
     ]
   },
   {
+    "index": 4014,
     "army": "Haqqislam",
     "isc": "Kum Motorized Troops",
     "name": "Kum",
+    "ava": "T",
+    "spec": [
+      "V: Dogged"
+    ],
+    "bsw": [
+      "Smoke Grenades"
+    ],
+    "ccw": [
+      "Pistol"
+    ],
     "profiles": [
       {
-        "wip": "14",
-        "bts": "0",
-        "bs": "11",
         "type": "WB",
-        "mov": "8-6",
-        "cube": "",
-        "ph": "13",
-        "cc": "20",
-        "arm": "1",
+        "imp": "X",
         "irr": "X",
+        "cube": "",
+        "mov": "8-6",
+        "cc": "20",
+        "bs": "11",
+        "ph": "13",
+        "wip": "14",
+        "arm": "1",
+        "bts": "0",
         "w": "1",
         "s": "4",
-        "imp": "X",
         "spec": [
           "Motorcycle",
           "Kinematika L2"
         ],
         "bsw": [
-          "Smoke Light Grenade Launcher",
-          "Smoke Grenades"
+          "Smoke Light Grenade Launcher"
         ],
-        "ccw": [
-          "Pistol"
-        ]
+        "ccw": []
       },
       {
         "name": "Dismounted",
         "mov": "4-4",
-        "ava": "",
         "s": "2",
+        "ava": "",
         "spec": []
       }
     ],
-    "spec": [
-      "V: Dogged"
-    ],
-    "bsw": [],
-    "note": "",
-    "ava": "T",
-    "ccw": [],
     "childs": [
       {
         "code": "Default",
-        "cost": "19",
         "codename": "Rifle",
+        "cost": "19",
         "swc": "0",
-        "cbcode": [],
         "spec": [],
         "bsw": [
           "Rifle",
@@ -1423,46 +1436,38 @@
         ],
         "ccw": [
           "Shock CCW"
-        ],
-        "note": ""
+        ]
       },
       {
         "code": "Chain Rifle",
-        "cost": "10",
         "codename": "",
+        "cost": "10",
         "swc": "0",
-        "cbcode": [],
         "spec": [],
         "bsw": [
           "Chain Rifle"
         ],
         "ccw": [
           "AP CCW"
-        ],
-        "note": ""
+        ]
       },
       {
         "code": "E/M CCW",
-        "cost": "14",
         "codename": "",
+        "cost": "14",
         "swc": "0",
-        "cbcode": [],
         "spec": [],
         "bsw": [
           "Light Shotgun"
         ],
         "ccw": [
           "E/M CCW"
-        ],
-        "note": ""
+        ]
       }
-    ],
-    "cbcode": [
-      "280409-0043",
-      "280415-0083"
     ]
   },
   {
+    "index": 4015,
     "army": "Haqqislam",
     "isc": "Ghazi Muttawi'ah",
     "name": "Muttawi'ah",
@@ -1518,6 +1523,7 @@
     ]
   },
   {
+    "index": 4016,
     "army": "Haqqislam",
     "isc": "Najjarun Engineer",
     "name": "Najjarun",
@@ -1561,6 +1567,7 @@
     ]
   },
   {
+    "index": 4017,
     "army": "Haqqislam",
     "isc": "Rafiq Remote",
     "name": "Rafiq",
@@ -1608,6 +1615,7 @@
     ]
   },
   {
+    "index": 4018,
     "army": "Haqqislam",
     "isc": "Shihab Remote",
     "name": "Shihab",
@@ -1627,7 +1635,7 @@
     "s": "3",
     "ava": "1",
     "spec": [
-      "360° Visor",
+      "360\u00b0 Visor",
       "G: Remote Presence",
       "Total Reaction"
     ],
@@ -1650,6 +1658,7 @@
     ]
   },
   {
+    "index": 4019,
     "army": "Haqqislam",
     "isc": "Shaytaniyah Remote",
     "name": "Shaytaniyah",
@@ -1690,6 +1699,7 @@
     ]
   },
   {
+    "index": 4020,
     "army": "Haqqislam",
     "isc": "Fanous Remote",
     "name": "Fanous",
@@ -1732,6 +1742,7 @@
     ]
   },
   {
+    "index": 4021,
     "army": "Haqqislam",
     "isc": "Tarik Mansuri",
     "name": "Tarik Mansuri",
@@ -1820,43 +1831,50 @@
     ]
   },
   {
+    "index": 4022,
     "army": "Haqqislam",
     "isc": "Kasym Beg",
     "name": "Kasym Beg",
-    "image": "Kum Motorized Troops",
     "sharedAva": "Kasym Beg",
+    "image": "Kum Motorized Troops",
     "ava": "1",
+    "spec": [
+      "V: Dogged"
+    ],
+    "bsw": [
+      "Chain Rifle",
+      "Panzerfaust",
+      "Smoke Grenades"
+    ],
+    "ccw": [
+      "EXP CCW",
+      "Pistol"
+    ],
     "profiles": [
       {
         "name": "Kasym Beg",
-        "wip": "14",
-        "bts": "0",
-        "bs": "12",
-        "mov": "8-6",
-        "cube": "X",
-        "imp": "I",
         "type": "WB",
-        "ph": "14",
-        "cc": "23",
-        "arm": "2",
+        "imp": "I",
         "irr": "X",
+        "cube": "X",
+        "mov": "8-6",
+        "cc": "23",
+        "bs": "12",
+        "ph": "14",
+        "wip": "14",
+        "arm": "2",
+        "bts": "0",
         "w": "1",
         "s": "4",
         "ava": "1",
-        "bsw": [
-          "Chain Rifle",
-          "Panzerfaust",
-          "Smoke Grenades",
-          "Smoke Light Grenade Launcher"
-        ],
         "spec": [
           "Motorcycle",
           "Kinematika L2"
         ],
-        "ccw": [
-          "EXP CCW",
-          "Pistol"
-        ]
+        "bsw": [
+          "Smoke Light Grenade Launcher"
+        ],
+        "ccw": []
       },
       {
         "name": "Dismounted",
@@ -1868,66 +1886,63 @@
         "ccw": []
       }
     ],
-    "cbcode": [
-      "280420-0115"
-    ],
-    "ccw": [],
-    "bsw": [],
-    "spec": [
-      "V: Dogged"
-    ],
     "childs": [
       {
         "code": "Default",
-        "cost": "16",
         "codename": "Chain Rifle",
+        "cost": "16",
         "swc": "0",
-        "cbcode": [],
         "spec": [],
         "bsw": [],
-        "ccw": [],
-        "note": ""
+        "ccw": []
       }
     ]
   },
   {
+    "index": 4023,
     "army": "Haqqislam",
     "isc": "Kasym Beg (Lieutenant)",
     "name": "Kasym Beg Lt.",
     "sharedAva": "Kasym Beg",
     "image": "Kum Motorized Troops",
     "ava": "1",
+    "spec": [
+      "V: Dogged"
+    ],
+    "bsw": [
+      "Chain Rifle",
+      "Panzerfaust",
+      "Smoke Grenades"
+    ],
+    "ccw": [
+      "EXP CCW",
+      "Pistol"
+    ],
     "profiles": [
       {
         "name": "Kasym Beg",
-        "wip": "14",
-        "bts": "0",
-        "bs": "12",
-        "mov": "8-6",
-        "cube": "X",
-        "imp": "I",
         "type": "WB",
-        "ph": "14",
-        "cc": "23",
-        "arm": "2",
+        "imp": "I",
         "irr": "",
+        "cube": "X",
+        "mov": "8-6",
+        "cc": "23",
+        "bs": "12",
+        "ph": "14",
+        "wip": "14",
+        "arm": "2",
+        "bts": "0",
         "w": "1",
         "s": "4",
         "ava": "1",
-        "bsw": [
-          "Chain Rifle",
-          "Panzerfaust",
-          "Smoke Grenades",
-          "Smoke Light Grenade Launcher"
-        ],
         "spec": [
           "Motorcycle",
           "Kinematika L2"
         ],
-        "ccw": [
-          "EXP CCW",
-          "Pistol"
-        ]
+        "bsw": [
+          "Smoke Light Grenade Launcher"
+        ],
+        "ccw": []
       },
       {
         "name": "Dismounted",
@@ -1939,31 +1954,22 @@
         "ccw": []
       }
     ],
-    "cbcode": [
-      "280420-0115"
-    ],
-    "ccw": [],
-    "bsw": [],
-    "spec": [
-      "V: Dogged"
-    ],
     "childs": [
       {
         "code": "Lieutenant",
-        "cost": "26",
         "codename": "",
+        "cost": "26",
         "swc": "-1",
-        "cbcode": [],
         "spec": [
           "Lieutenant"
         ],
         "bsw": [],
-        "ccw": [],
-        "note": ""
+        "ccw": []
       }
     ]
   },
   {
+    "index": 4024,
     "army": "Haqqislam",
     "isc": "Al Hawwa' Unit",
     "name": "Hawwa'",
@@ -2038,6 +2044,7 @@
     ]
   },
   {
+    "index": 4025,
     "army": "Haqqislam",
     "isc": "Asawira Regiment",
     "name": "Asawira",
@@ -2157,6 +2164,7 @@
     ]
   },
   {
+    "index": 4026,
     "army": "Haqqislam",
     "isc": "Special Deterrance Group Azra'il",
     "name": "Azra'il",
@@ -2209,6 +2217,7 @@
     ]
   },
   {
+    "index": 4027,
     "army": "Haqqislam",
     "isc": "Bashi Bazouk",
     "name": "Bashi Bazouk",
@@ -2285,6 +2294,7 @@
     ]
   },
   {
+    "index": 4028,
     "army": "Haqqislam",
     "isc": "Hafza Unit",
     "name": "Hafza",
@@ -2378,6 +2388,7 @@
     ]
   },
   {
+    "index": 4029,
     "army": "Haqqislam",
     "isc": "Hassassin Farzans",
     "name": "Farzan",
@@ -2438,6 +2449,7 @@
     ]
   },
   {
+    "index": 4030,
     "army": "Haqqislam",
     "isc": "Hassassin Lasiqs",
     "name": "Lasiq",
@@ -2493,6 +2505,7 @@
     ]
   },
   {
+    "index": 4031,
     "army": "Haqqislam",
     "isc": "Hassassin Muyibs",
     "name": "Muyib",
@@ -2644,6 +2657,7 @@
     ]
   },
   {
+    "index": 4032,
     "army": "Haqqislam",
     "isc": "Hussein Al-Djabel",
     "name": "Al-Djabel",
@@ -2692,6 +2706,7 @@
     ]
   },
   {
+    "index": 4033,
     "army": "Haqqislam",
     "isc": "Kameel Remotes",
     "name": "Kameel",
@@ -2759,6 +2774,7 @@
     ]
   },
   {
+    "index": 4034,
     "army": "Haqqislam",
     "isc": "Nasmat Remotes",
     "name": "Nasmat",
@@ -2798,6 +2814,7 @@
     ]
   },
   {
+    "index": 4035,
     "army": "Haqqislam",
     "isc": "Odalisques",
     "name": "Odalisque",
@@ -2816,7 +2833,7 @@
     "s": "2",
     "ava": "2",
     "spec": [
-      "Sixth Sense L2 / 360° Visor",
+      "Sixth Sense L2 / 360\u00b0 Visor",
       "V: No Wound Incapacitation",
       "i-Khol L3"
     ],
@@ -2891,6 +2908,7 @@
     ]
   },
   {
+    "index": 4036,
     "army": "Haqqislam",
     "isc": "Saladin, O-12 Liaison Officer",
     "name": "Saladin",
@@ -2945,6 +2963,7 @@
     ]
   },
   {
+    "index": 4037,
     "army": "Haqqislam",
     "isc": "Husam Spec-Ops",
     "name": "Husam",
@@ -2979,6 +2998,7 @@
     ]
   },
   {
+    "index": 4038,
     "army": "Haqqislam",
     "isc": "Hassassin Husam Yasbir",
     "name": "Hassassin Husam Yasbir",
@@ -3041,6 +3061,7 @@
     ]
   },
   {
+    "index": 4039,
     "army": "Haqqislam",
     "isc": "KTS, Kaplan Tactical Services",
     "name": "Kaplan",
@@ -3164,6 +3185,7 @@
     ]
   },
   {
+    "index": 4040,
     "army": "Haqqislam",
     "isc": "Hassassin Barid",
     "name": "Barid",
@@ -3257,6 +3279,7 @@
     ]
   },
   {
+    "index": 4041,
     "army": "Haqqislam",
     "isc": "Sekban",
     "name": "Sekban",
@@ -3275,7 +3298,7 @@
     "s": "2",
     "ava": "2",
     "spec": [
-      "360° Visor",
+      "360\u00b0 Visor",
       "Zero-G"
     ],
     "bsw": [],
@@ -3396,6 +3419,7 @@
     ]
   },
   {
+    "index": 4042,
     "army": "Haqqislam",
     "isc": "Hassassin Govads",
     "name": "Govad",
@@ -3512,6 +3536,7 @@
     ]
   },
   {
+    "index": 4043,
     "army": "Haqqislam",
     "isc": "Zhayedan Intervention Troops",
     "name": "Zhayedan",
@@ -3634,133 +3659,127 @@
     ]
   },
   {
+    "index": 4044,
     "army": "Haqqislam",
     "isc": "Zamira Nazarova",
     "name": "Zamira",
     "image": "Kum Motorized Troops",
+    "ava": "1",
+    "spec": [
+      "V: Dogged"
+    ],
+    "bsw": [
+      "Smoke Grenades",
+      "Light Shotgun"
+    ],
+    "ccw": [
+      "Pistol",
+      "E/M CCW"
+    ],
     "profiles": [
       {
-        "wip": "13",
-        "bts": "0",
-        "bs": "12",
         "type": "WB",
-        "mov": "8-6",
-        "cube": "",
-        "ph": "13",
-        "cc": "21",
-        "arm": "1",
+        "imp": "X",
         "irr": "X",
+        "cube": "",
+        "mov": "8-6",
+        "cc": "21",
+        "bs": "12",
+        "ph": "13",
+        "wip": "13",
+        "arm": "1",
+        "bts": "0",
         "w": "1",
         "s": "4",
-        "imp": "X",
         "spec": [
           "Motorcycle",
           "Kinematika L2"
         ],
         "bsw": [
-          "Smoke Light Grenade Launcher",
-          "Smoke Grenades",
-          "Light Shotgun"
+          "Smoke Light Grenade Launcher"
         ],
-        "ccw": [
-          "Pistol",
-          "E/M CCW"
-        ]
+        "ccw": []
       },
       {
         "name": "Dismounted",
         "mov": "4-4",
-        "ava": "",
         "s": "2",
+        "ava": "",
         "spec": []
       }
     ],
-    "spec": [
-      "V: Dogged"
-    ],
-    "bsw": [],
-    "note": "",
-    "ava": "1",
-    "ccw": [],
     "childs": [
       {
         "code": "Default",
-        "cost": "15",
         "codename": "Light Shotgun",
+        "cost": "15",
         "swc": "0",
-        "cbcode": [],
         "spec": [],
         "bsw": [],
-        "ccw": [],
-        "note": ""
+        "ccw": []
       }
-    ],
-    "cbcode": [
     ]
   },
   {
+    "index": 4045,
     "army": "Haqqislam",
     "isc": "Zuleyka Nazarova",
     "name": "Zuleyka",
     "image": "Kum Motorized Troops",
+    "ava": "1",
+    "spec": [
+      "V: Dogged"
+    ],
+    "bsw": [
+      "Smoke Grenades",
+      "Light Flamethrower (2)"
+    ],
+    "ccw": [
+      "Breaker Pistol (2)",
+      "DA CCW"
+    ],
     "profiles": [
       {
-        "wip": "14",
-        "bts": "0",
-        "bs": "11",
         "type": "WB",
-        "mov": "8-6",
-        "cube": "",
-        "ph": "13",
-        "cc": "22",
-        "arm": "1",
+        "imp": "X",
         "irr": "X",
+        "cube": "",
+        "mov": "8-6",
+        "cc": "22",
+        "bs": "11",
+        "ph": "13",
+        "wip": "14",
+        "arm": "1",
+        "bts": "0",
         "w": "1",
         "s": "4",
-        "imp": "X",
         "spec": [
           "Motorcycle",
           "Kinematika L2"
         ],
         "bsw": [
-          "Smoke Light Grenade Launcher",
-          "Smoke Grenades",
-          "Light Flamethrower (2)"
+          "Smoke Light Grenade Launcher"
         ],
-        "ccw": [
-          "Breaker Pistol (2)",
-          "DA CCW"
-        ]
+        "ccw": []
       },
       {
         "name": "Dismounted",
         "mov": "4-4",
-        "ava": "",
         "s": "2",
+        "ava": "",
         "spec": []
       }
     ],
-    "spec": [
-      "V: Dogged"
-    ],
-    "bsw": [],
-    "note": "",
-    "ava": "1",
-    "ccw": [],
     "childs": [
       {
         "code": "Default",
-        "cost": "14",
         "codename": "LFT",
+        "cost": "14",
         "swc": "0",
-        "cbcode": [],
         "spec": [],
         "bsw": [],
-        "ccw": [],
-        "note": ""
+        "ccw": []
       }
-    ],
-    "cbcode": [
     ]
   }
 ]

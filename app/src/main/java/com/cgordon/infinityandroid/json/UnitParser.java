@@ -170,12 +170,9 @@ public class UnitParser {
             // each of the profiles.  It gets inherited, unless the profile actually contains the
             // data, in which case let the profile's specification stand.
             for (Profile tmpProfile : unit.profiles) {
-                if (tmpProfile.bsw.size() == 0) {
-                    tmpProfile.bsw = profile.bsw;
-                }
-                if (tmpProfile.ccw.size() == 0) {
-                    tmpProfile.ccw = profile.ccw;
-                }
+                tmpProfile.bsw.addAll(profile.bsw);
+                tmpProfile.ccw.addAll(profile.ccw);
+                tmpProfile.spec.addAll(profile.spec);
             }
 
             Log.d(TAG, "Missed some data!");
