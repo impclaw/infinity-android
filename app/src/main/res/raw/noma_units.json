@@ -1,5 +1,6 @@
 [
   {
+    "index": 5001,
     "army": "Nomads",
     "isc": "Corregidor Alguaciles",
     "name": "Alguacil",
@@ -137,6 +138,7 @@
     ]
   },
   {
+    "index": 5002,
     "army": "Nomads",
     "isc": "Grenzers",
     "name": "Grenzer",
@@ -253,6 +255,7 @@
     ]
   },
   {
+    "index": 5003,
     "army": "Nomads",
     "isc": "Securitate",
     "name": "Securitate",
@@ -360,6 +363,7 @@
     ]
   },
   {
+    "index": 5004,
     "army": "Nomads",
     "isc": "Hellcats",
     "name": "Hellcat",
@@ -500,6 +504,7 @@
     ]
   },
   {
+    "index": 5005,
     "army": "Nomads",
     "isc": "Intruders",
     "name": "Intruder",
@@ -612,6 +617,7 @@
     ]
   },
   {
+    "index": 5006,
     "army": "Nomads",
     "isc": "Reverend Moiras",
     "name": "Reverend Moira",
@@ -753,6 +759,7 @@
     ]
   },
   {
+    "index": 5007,
     "army": "Nomads",
     "isc": "Reverend Healers",
     "name": "Reverend Healer",
@@ -820,6 +827,7 @@
     ]
   },
   {
+    "index": 5008,
     "army": "Nomads",
     "isc": "Mobile Brigada",
     "name": "Mobile Brigada",
@@ -946,6 +954,7 @@
     ]
   },
   {
+    "index": 5009,
     "army": "Nomads",
     "isc": "Lizard Squadron",
     "name": "Lizard",
@@ -1032,6 +1041,7 @@
     ]
   },
   {
+    "index": 5010,
     "army": "Nomads",
     "isc": "Szalamandra Squadron",
     "name": "Szalamandra",
@@ -1106,6 +1116,7 @@
     ]
   },
   {
+    "index": 5011,
     "army": "Nomads",
     "isc": "Zeros",
     "name": "Zero",
@@ -1230,6 +1241,7 @@
     ]
   },
   {
+    "index": 5012,
     "army": "Nomads",
     "isc": "Spektrs",
     "name": "Spektr",
@@ -1339,6 +1351,7 @@
     ]
   },
   {
+    "index": 5013,
     "army": "Nomads",
     "isc": "Corregidor Bandits",
     "name": "Bandit",
@@ -1451,6 +1464,7 @@
     ]
   },
   {
+    "index": 5014,
     "army": "Nomads",
     "isc": "Die Morlock Gruppe",
     "name": "Morlock",
@@ -1569,6 +1583,7 @@
     ]
   },
   {
+    "index": 5015,
     "army": "Nomads",
     "isc": "Corregidor Jaguars",
     "name": "Jaguar",
@@ -1640,6 +1655,7 @@
     ]
   },
   {
+    "index": 5016,
     "army": "Nomads",
     "isc": "Daktaris",
     "name": "Daktari",
@@ -1681,6 +1697,7 @@
     ]
   },
   {
+    "index": 5017,
     "army": "Nomads",
     "isc": "Clockmakers",
     "name": "Clockmaker",
@@ -1722,6 +1739,7 @@
     ]
   },
   {
+    "index": 5018,
     "army": "Nomads",
     "isc": "Tunguska Interventor",
     "name": "Interventor",
@@ -1825,6 +1843,7 @@
     ]
   },
   {
+    "index": 5019,
     "army": "Nomads",
     "isc": "Stempler Zond",
     "name": "Stempler Zond",
@@ -1872,6 +1891,7 @@
     ]
   },
   {
+    "index": 5020,
     "army": "Nomads",
     "isc": "Reaktion Zond",
     "name": "Reaktion Zond",
@@ -1891,7 +1911,7 @@
     "s": "3",
     "ava": "2",
     "spec": [
-      "360° Visor",
+      "360\u00b0 Visor",
       "Climbing Plus",
       "G: Remote Presence",
       "Total Reaction"
@@ -1915,6 +1935,7 @@
     ]
   },
   {
+    "index": 5021,
     "army": "Nomads",
     "isc": "Vertigo Zond",
     "name": "Vertigo Zond",
@@ -1955,6 +1976,7 @@
     ]
   },
   {
+    "index": 5022,
     "army": "Nomads",
     "isc": "Meteor Zond",
     "name": "Meteor Zond",
@@ -2000,6 +2022,7 @@
     ]
   },
   {
+    "index": 5023,
     "army": "Nomads",
     "isc": "Transductor Zond",
     "name": "Transductor Zond",
@@ -2043,6 +2066,7 @@
     ]
   },
   {
+    "index": 5024,
     "army": "Nomads",
     "isc": "Zoe",
     "name": "Zoe",
@@ -2085,8 +2109,8 @@
         }
       },
       {
-        "isc": "Π-Well",
-        "name": "Π-Well",
+        "isc": "\u03a0-Well",
+        "name": "\u03a0-Well",
         "type": "REM",
         "imp": "",
         "irr": "",
@@ -2134,6 +2158,7 @@
     ]
   },
   {
+    "index": 5025,
     "army": "Nomads",
     "isc": "Bran do Castro, Triple Zero",
     "name": "Bran",
@@ -2179,6 +2204,7 @@
     ]
   },
   {
+    "index": 5026,
     "army": "Nomads",
     "isc": "Iguana Squadron",
     "name": "Iguana",
@@ -2253,6 +2279,7 @@
     ]
   },
   {
+    "index": 5027,
     "army": "Nomads",
     "isc": "Lunokhod Sputniks",
     "name": "Lunokhod",
@@ -2296,7 +2323,7 @@
         "type": " ",
         "hackable": "",
         "mov": "6-4 ",
-        "cc": " ",
+        "cc": "\u00a0",
         "bs": " ",
         "ph": " ",
         "wip": " ",
@@ -2342,6 +2369,7 @@
     ]
   },
   {
+    "index": 5028,
     "army": "Nomads",
     "isc": "Moderators from Bakunin",
     "name": "Moderator",
@@ -2469,6 +2497,7 @@
     ]
   },
   {
+    "index": 5029,
     "army": "Nomads",
     "isc": "Moran, Maasai Hunter",
     "name": "Moran",
@@ -2511,7 +2540,7 @@
         "type": " ",
         "hackable": "",
         "mov": "6-4 ",
-        "cc": " ",
+        "cc": "\u00a0",
         "bs": " ",
         "ph": " ",
         "wip": " ",
@@ -2566,6 +2595,7 @@
     ]
   },
   {
+    "index": 5030,
     "army": "Nomads",
     "isc": "Prowlers",
     "name": "Prowler",
@@ -2638,6 +2668,7 @@
     ]
   },
   {
+    "index": 5031,
     "army": "Nomads",
     "isc": "Reverend Custodiers",
     "name": "Reverend Custodier",
@@ -2718,6 +2749,7 @@
     ]
   },
   {
+    "index": 5032,
     "army": "Nomads",
     "isc": "Salyut Zonds",
     "name": "Salyut",
@@ -2784,6 +2816,7 @@
     ]
   },
   {
+    "index": 5033,
     "army": "Nomads",
     "isc": "Sin-Eater Observants",
     "name": "Sin-Eater",
@@ -2859,6 +2892,7 @@
     ]
   },
   {
+    "index": 5034,
     "army": "Nomads",
     "isc": "Tomcats",
     "name": "Tomcat",
@@ -3034,6 +3068,7 @@
     ]
   },
   {
+    "index": 5035,
     "army": "Nomads",
     "isc": "Tsyklon Sputniks",
     "name": "Tsyklon",
@@ -3053,7 +3088,7 @@
     "s": "4",
     "ava": "2",
     "spec": [
-      "360° Visor",
+      "360\u00b0 Visor",
       "Climbing Plus",
       "G: Remote Presence",
       "Repeater"
@@ -3089,6 +3124,7 @@
     ]
   },
   {
+    "index": 5036,
     "army": "Nomads",
     "isc": "Zondbots",
     "name": "Zondbot",
@@ -3128,10 +3164,11 @@
     ]
   },
   {
+    "index": 5037,
     "army": "Nomads",
-    "isc": "Bakunin Überfallkommando : Chimera",
+    "isc": "Bakunin \u00dcberfallkommando : Chimera",
     "name": "Chimera",
-    "image": "Bakunin Überfallkommando",
+    "image": "Bakunin \u00dcberfallkommando",
     "type": "WB",
     "imp": "X",
     "irr": "X",
@@ -3175,10 +3212,11 @@
     ]
   },
   {
+    "index": 5038,
     "army": "Nomads",
-    "isc": "Bakunin Überfallkommando : Pupniks",
+    "isc": "Bakunin \u00dcberfallkommando : Pupniks",
     "name": "Pupnik",
-    "image": "Bakunin Überfallkommando",
+    "image": "Bakunin \u00dcberfallkommando",
     "type": "WB",
     "imp": "X",
     "irr": "X",
@@ -3217,6 +3255,7 @@
     ]
   },
   {
+    "index": 5039,
     "army": "Nomads",
     "isc": "Reverend Superior Cassandra Kusanagi",
     "name": "Kusanagi",
@@ -3274,6 +3313,7 @@
     ]
   },
   {
+    "index": 5040,
     "army": "Nomads",
     "isc": "Carlota Kowalsky, Tomcats Sergeant",
     "name": "Carlota Kowalsky",
@@ -3376,6 +3416,7 @@
     ]
   },
   {
+    "index": 5041,
     "army": "Nomads",
     "isc": "Riot Grrls",
     "name": "Riot Grrl",
@@ -3455,6 +3496,7 @@
     ]
   },
   {
+    "index": 5042,
     "army": "Nomads",
     "isc": "Vortex Spec-Ops",
     "name": "Vortex",
@@ -3489,6 +3531,7 @@
     ]
   },
   {
+    "index": 5043,
     "army": "Nomads",
     "isc": "Alguacil Vortex Lupe Balboa",
     "name": "Alguacil Vortex Lupe Balboa",
@@ -3535,6 +3578,7 @@
     ]
   },
   {
+    "index": 5044,
     "army": "Nomads",
     "isc": "Wildcats, Polyvalent Tactical Unit",
     "name": "Wildcat",
@@ -3690,6 +3734,7 @@
     ]
   },
   {
+    "index": 5045,
     "army": "Nomads",
     "isc": "Gecko Squadron",
     "name": "Gecko",

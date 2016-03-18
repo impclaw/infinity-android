@@ -1,5 +1,6 @@
 [
   {
+    "index": 9001,
     "army": "Mercenary",
     "isc": "Yuan Yuan",
     "name": "Yuan Yuan",
@@ -96,6 +97,7 @@
     ]
   },
   {
+    "index": 9002,
     "army": "Mercenary",
     "isc": "Bashi Bazouks",
     "name": "Bashi Bazouk",
@@ -172,6 +174,7 @@
     ]
   },
   {
+    "index": 9003,
     "army": "Mercenary",
     "isc": "Druze Shock Teams",
     "name": "Shock",
@@ -250,6 +253,7 @@
     ]
   },
   {
+    "index": 9004,
     "army": "Mercenary",
     "isc": "Highlander Caterans",
     "name": "Cateran",
@@ -303,6 +307,7 @@
     ]
   },
   {
+    "index": 9005,
     "army": "Mercenary",
     "isc": "McMurrough",
     "name": "McMurrough",
@@ -347,6 +352,7 @@
     ]
   },
   {
+    "index": 9006,
     "army": "Mercenary",
     "isc": "Kempeitai",
     "name": "Kempei",
@@ -403,9 +409,10 @@
     ]
   },
   {
+    "index": 9007,
     "army": "Mercenary",
-    "isc": "Saito Tōgan",
-    "name": "Saito Tōgan",
+    "isc": "Saito T\u014dgan",
+    "name": "Saito T\u014dgan",
     "type": "SK",
     "imp": "",
     "irr": "",
@@ -449,6 +456,7 @@
     ]
   },
   {
+    "index": 9008,
     "army": "Mercenary",
     "isc": "Miyamoto Musashi",
     "name": "Miyamoto Musashi",
@@ -494,6 +502,7 @@
     ]
   },
   {
+    "index": 9009,
     "army": "Mercenary",
     "isc": "Avicenna",
     "name": "Avicenna",
@@ -537,6 +546,7 @@
     ]
   },
   {
+    "index": 9010,
     "army": "Mercenary",
     "isc": "Father Lucien Sforza",
     "name": "Sforza",
@@ -580,9 +590,10 @@
     ]
   },
   {
+    "index": 9011,
     "army": "Mercenary",
-    "isc": "Señor Massacre",
-    "name": "Señor Massacre",
+    "isc": "Se\u00f1or Massacre",
+    "name": "Se\u00f1or Massacre",
     "type": "WB",
     "imp": "F",
     "irr": "",
@@ -638,6 +649,7 @@
     ]
   },
   {
+    "index": 9012,
     "army": "Mercenary",
     "isc": "Valerya Gromoz, Mercenary Hacker",
     "name": "Valerya Gromoz",
@@ -680,6 +692,7 @@
     ]
   },
   {
+    "index": 9013,
     "army": "Mercenary",
     "isc": "KTS, Kaplan Tactical Services",
     "name": "Kaplan",
@@ -803,6 +816,7 @@
     ]
   },
   {
+    "index": 9014,
     "army": "Mercenary",
     "isc": "Yojimbo",
     "name": "Yojimbo",
@@ -896,6 +910,7 @@
     ]
   },
   {
+    "index": 9015,
     "army": "Mercenary",
     "isc": "Scarface Turner",
     "name": "Scarface",
@@ -1010,6 +1025,7 @@
     ]
   },
   {
+    "index": 9016,
     "army": "Mercenary",
     "isc": "Anaconda Mercenary Tag Squadron",
     "name": "Anaconda",
@@ -1088,6 +1104,7 @@
     ]
   },
   {
+    "index": 9017,
     "army": "Mercenary",
     "isc": "Warcors",
     "name": "Warcor",
@@ -1141,6 +1158,7 @@
     ]
   },
   {
+    "index": 9018,
     "army": "Mercenary",
     "isc": "Authorized Bounty Hunters",
     "name": "Bounty Hunter",
@@ -1224,6 +1242,7 @@
     ]
   },
   {
+    "index": 9019,
     "army": "Mercenary",
     "isc": "Miranda Ashcroft",
     "name": "Miranda Ashcroft",
@@ -1280,6 +1299,7 @@
     ]
   },
   {
+    "index": 9020,
     "army": "Mercenary",
     "isc": "CSU, Corporate Security Unit",
     "name": "CSU",
@@ -1345,6 +1365,7 @@
     ]
   },
   {
+    "index": 9021,
     "army": "Mercenary",
     "isc": "Wardrivers",
     "name": "Wardriver",
@@ -1398,97 +1419,90 @@
     ]
   },
   {
+    "index": 9022,
     "army": "Mercenary",
     "isc": "Armand 'Le Muet'",
     "name": "Armand",
-    "profiles": [
-      {
-        "name": "Armand",
-        "mov": "4-2",
-        "w": "1",
-        "s": "2",
-        "type": "MI",
-        "ph": "12",
-        "arm": "2",
-        "cc": "18",
-        "bts": "0",
-        "bs": "13",
-        "wip": "13",
-        "cube": "X",
-        "imp": "",
-        "ccw": [],
-        "bsw": [],
-        "spec": [
-          "Symbiont Armour",
-          "ODD: Optical Disruptor",
-          "Forward Deployment L1"
-        ],
-        "irr": ""
-      },
-      {
-        "cube": "X",
-        "bs": "13",
-        "note": " ",
-        "ava": " ",
-        "irr": " ",
-        "arm": "0",
-        "bts": "0",
-        "cbcode": [],
-        "mov": "4-4",
-        "cc": "18",
-        "name": "Inactive Armour",
-        "imp": "",
-        "type": "LI",
-        "ph": "12",
-        "spec": [],
-        "w": "1",
-        "s": "2",
-        "wip": "13",
-        "bsw": [],
-        "ccw": []
-      }
-    ],
     "ava": "1",
-    "note": "",
     "spec": [],
+    "bsw": [
+      "MULTI Sniper Rifle",
+      "Nanopulser"
+    ],
     "ccw": [
       "Breaker Pistol (2)",
       "Shock CCW",
       "Knife"
     ],
+    "profiles": [
+      {
+        "name": "Armand",
+        "type": "MI",
+        "imp": "",
+        "irr": "",
+        "cube": "X",
+        "mov": "4-2",
+        "cc": "18",
+        "bs": "13",
+        "ph": "12",
+        "wip": "13",
+        "arm": "2",
+        "bts": "0",
+        "w": "1",
+        "s": "2",
+        "spec": [
+          "Symbiont Armour",
+          "ODD: Optical Disruptor",
+          "Forward Deployment L1"
+        ],
+        "bsw": [],
+        "ccw": []
+      },
+      {
+        "name": "Inactive Armour",
+        "type": "LI",
+        "imp": "",
+        "irr": " ",
+        "cube": "X",
+        "mov": "4-4",
+        "cc": "18",
+        "bs": "13",
+        "ph": "12",
+        "wip": "13",
+        "arm": "0",
+        "bts": "0",
+        "w": "1",
+        "s": "2",
+        "ava": " ",
+        "spec": [],
+        "bsw": [],
+        "ccw": []
+      }
+    ],
     "childs": [
       {
-        "bsw": [
-          "MULTI Sniper Rifle",
-          "Nanopulser",
-          "Antipersonnel Mines"
-        ],
-        "cbcode": [],
-        "ccw": [],
         "code": "Default",
         "codename": "Minelayer",
         "cost": "42",
-        "note": "",
+        "swc": "1.5",
         "spec": [
           "Minelayer"
         ],
-        "swc": "1.5"
+        "bsw": [
+          "Antipersonnel Mines"
+        ],
+        "ccw": []
       },
       {
-        "bsw": [
-          "MULTI Sniper Rifle",
-          "Nanopulser"
-        ],
-        "cbcode": [],
-        "ccw": [],
         "code": "MSV 1",
         "codename": "",
         "cost": "45",
-        "note": "",
+        "swc": "1.5",
         "spec": [
           "Multispectral Visor L1"
         ],
-        "swc": "1.5"
+        "bsw": [],
+        "ccw": []
       }
     ]
   }
