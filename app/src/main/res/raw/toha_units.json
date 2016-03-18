@@ -1917,10 +1917,7 @@
     "ava": "2",
     "spec": [],
     "bsw": [],
-    "ccw": [
-      "Pistol",
-      "Electric Pulse"
-    ],
+    "ccw": [],
     "profiles": [
       {
         "type": "LI",
@@ -1940,7 +1937,10 @@
           "Symbiont Armour"
         ],
         "bsw": [],
-        "ccw": []
+        "ccw": [
+          "Pistol",
+          "Electric Pulse"
+        ]
       },
       {
         "name": "Inactive Armour",
@@ -1956,7 +1956,44 @@
         "ava": " ",
         "spec": [],
         "bsw": [],
-        "ccw": []
+        "ccw": [
+	  "Pistol",
+	  "Electric Pulse"
+        ]
+      },
+      {
+        "name": "Surda SymbioBeast",
+        "optionSpecific": "X",
+        "type": "LI",
+        "imp": "",
+        "irr": "",
+        "cube": "",
+        "mov": "6-4",
+        "cc": "22",
+        "bs": "8",
+        "ph": "15",
+        "wip": "10",
+        "arm": "0",
+        "bts": "3",
+        "w": "1",
+        "s": "3",
+        "spec": [
+          "G: Synchronized",
+          "Hyper-Dynamics L1",
+          "Kinematica L2",
+          "Super-Jump",
+          "V: Dogged"
+        ],
+        "bsw": [
+          "Pulzar"
+        ],
+        "ccw": [
+          "Viral CCW"
+        ],
+        "independent": {
+          "cost": "8",
+          "swc": "0"
+        }
       },
       {
         "name": "Surda SymbioBeast",
@@ -2053,7 +2090,7 @@
         "ccw": [],
         "profiles": [
           "2",
-          "2"
+          "3"
         ]
       },
       {
@@ -2061,7 +2098,7 @@
         "codename": "",
         "cost": "30",
         "swc": "0",
-        "profile": "3",
+        "profile": "4",
         "spec": [],
         "bsw": [
           "Combi Rifle",
@@ -2074,7 +2111,7 @@
         "codename": "",
         "cost": "25",
         "swc": "0",
-        "profile": "3",
+        "profile": "4",
         "spec": [],
         "bsw": [
           "Light Shotgun",
