@@ -1,5 +1,6 @@
 [
   {
+    "index": 8001,
     "army": "Tohaa",
     "isc": "Kamael Light Infantry",
     "name": "Kamael",
@@ -127,6 +128,7 @@
     ]
   },
   {
+    "index": 8002,
     "army": "Tohaa",
     "isc": "Sakiel Regiment",
     "name": "Sakiel",
@@ -276,57 +278,60 @@
     ]
   },
   {
+    "index": 8003,
     "army": "Tohaa",
     "isc": "Ectros Regiment",
     "name": "Ectros",
+    "ava": "4",
+    "spec": [],
+    "bsw": [],
+    "ccw": [],
     "profiles": [
       {
-        "mov": "4-4",
-        "bts": "6",
-        "arm": "3",
+        "type": "HI",
+        "imp": "",
         "irr": "",
+        "cube": "X",
+        "hackable": "X",
+        "mov": "4-4",
         "cc": "17",
         "bs": "13",
-        "imp": "",
-        "cube": "X",
-        "note": "",
-        "type": "HI",
-        "w": "2",
-        "s": "2",
         "ph": "14",
         "wip": "13",
-        "hackable": "X",
+        "arm": "3",
+        "bts": "6",
+        "w": "2",
+        "s": "2",
         "spec": [
           "Symbiont Armour",
           "Fireteam: Tohaa",
           "Poison"
         ],
+        "bsw": [
+          "Nanopulser"
+        ],
         "ccw": [
           "Pistol",
           "CCW"
-        ],
-        "bsw": [
-          "Nanopulser"
         ]
       },
       {
-        "cube": "X",
-        "bs": "12",
-        "note": " ",
-        "ava": " ",
+        "name": "Inactive Armour",
+        "type": "LI",
+        "imp": "",
         "irr": " ",
-        "arm": "0",
-        "bts": "0",
+        "cube": "X",
+        "hackable": "",
         "mov": "4-4",
         "cc": "17",
-        "name": "Inactive Armour",
-        "imp": "",
-        "type": "LI",
+        "bs": "12",
         "ph": "11",
+        "wip": "13",
+        "arm": "0",
+        "bts": "0",
         "w": "1",
         "s": "2",
-        "wip": "13",
-        "hackable": "",
+        "ava": " ",
         "spec": [
           "Fireteam: Tohaa",
           "Poison"
@@ -335,71 +340,57 @@
         "ccw": []
       }
     ],
-    "ccw": [],
-    "spec": [],
-    "bsw": [],
-    "ava": "4",
-    "cbcode": [
-      "280901-0378"
-    ],
     "childs": [
       {
+        "code": "Default",
+        "codename": "Viral",
+        "cost": "49",
+        "swc": "0",
+        "spec": [],
         "bsw": [
           "Viral Combi Rifle"
         ],
-        "swc": "0",
-        "cbcode": [],
-        "code": "Default",
-        "note": "",
-        "ccw": [],
-        "codename": "Viral",
-        "cost": "49",
-        "spec": []
+        "ccw": []
       },
       {
+        "code": "HMG",
+        "codename": "",
+        "cost": "51",
+        "swc": "2",
+        "spec": [],
         "bsw": [
           "HMG"
         ],
-        "swc": "2",
-        "cbcode": [],
-        "code": "HMG",
-        "note": "",
-        "ccw": [],
-        "codename": "",
-        "cost": "51",
-        "spec": []
+        "ccw": []
       },
       {
+        "code": "Vulkan",
+        "codename": "",
+        "cost": "44",
+        "swc": "0",
+        "spec": [],
         "bsw": [
           "Vulkan Shotgun"
         ],
-        "swc": "0",
-        "cbcode": [],
-        "code": "Vulkan",
-        "note": "",
-        "ccw": [],
-        "codename": "",
-        "cost": "44",
-        "spec": []
+        "ccw": []
       },
       {
+        "code": "Lieutenant",
+        "codename": "",
+        "cost": "49",
+        "swc": "0",
+        "spec": [
+          "Lieutenant"
+        ],
         "bsw": [
           "Viral Combi Rifle"
         ],
-        "swc": "0",
-        "cbcode": [],
-        "code": "Lieutenant",
-        "note": "",
-        "ccw": [],
-        "codename": "",
-        "cost": "49",
-        "spec": [
-          "Lieutenant"
-        ]
+        "ccw": []
       }
     ]
   },
   {
+    "index": 8004,
     "army": "Tohaa",
     "isc": "Clipsos Infiltrators",
     "name": "Clipsos",
@@ -507,6 +498,7 @@
     ]
   },
   {
+    "index": 8005,
     "army": "Tohaa",
     "isc": "Diplomatic Delegates",
     "name": "Diplomatic Delegate",
@@ -549,6 +541,7 @@
     ]
   },
   {
+    "index": 8006,
     "army": "Tohaa",
     "isc": "Gao-Rael Unit",
     "name": "Gao-Rael",
@@ -671,6 +664,7 @@
     ]
   },
   {
+    "index": 8007,
     "army": "Tohaa",
     "isc": "Gao-Tarsos Unit",
     "name": "Gao-Tarsos",
@@ -774,6 +768,7 @@
     ]
   },
   {
+    "index": 8008,
     "army": "Tohaa",
     "isc": "Gorgos Squad",
     "name": "Gorgos",
@@ -880,6 +875,7 @@
     ]
   },
   {
+    "index": 8009,
     "army": "Tohaa",
     "isc": "Makaul Troops",
     "name": "Makaul",
@@ -959,6 +955,7 @@
     ]
   },
   {
+    "index": 8010,
     "army": "Tohaa",
     "isc": "Kumotail Bioengineers",
     "name": "Kumotail",
@@ -1002,6 +999,7 @@
     ]
   },
   {
+    "index": 8011,
     "army": "Tohaa",
     "isc": "Chaksa Auxiliars",
     "name": "Auxiliar",
@@ -1049,7 +1047,7 @@
         "swc": "1",
         "spec": [
           "Neurocinetics",
-          "360° Visor"
+          "360\u00b0 Visor"
         ],
         "bsw": [
           "HMG"
@@ -1070,6 +1068,7 @@
     ]
   },
   {
+    "index": 8012,
     "army": "Tohaa",
     "isc": "Chaksa Servant",
     "name": "Servant",
@@ -1109,25 +1108,31 @@
     ]
   },
   {
+    "index": 8013,
     "army": "Tohaa",
     "isc": "Neema Saatar",
     "name": "Neema",
     "image": "Ectros Regiment",
+    "ava": "1",
+    "spec": [],
+    "bsw": [],
+    "ccw": [],
     "profiles": [
       {
-        "cc": "21",
-        "bts": "9",
-        "bs": "13",
-        "irr": "",
-        "imp": "I",
-        "cube": "X",
-        "mov": "4-4",
-        "ph": "14",
-        "w": "2",
-        "hackable": "X",
-        "s": "2",
-        "wip": "15",
         "type": "HI",
+        "imp": "I",
+        "irr": "",
+        "cube": "X",
+        "hackable": "X",
+        "mov": "4-4",
+        "cc": "21",
+        "bs": "13",
+        "ph": "14",
+        "wip": "15",
+        "arm": "3",
+        "bts": "9",
+        "w": "2",
+        "s": "2",
         "spec": [
           "Symbiont Armour",
           "Martial Arts L2",
@@ -1142,63 +1147,54 @@
         "ccw": [
           "Pistol",
           "CCW"
-        ],
-        "arm": "3"
+        ]
       },
       {
         "name": "Inactive Armour",
         "type": "LI",
-        "arm": "0",
-        "bts": "0",
+        "hackable": "",
+        "cc": "18",
         "bs": "12",
         "ph": "12",
-        "cc": "18",
+        "arm": "0",
+        "bts": "0",
         "w": "1",
         "s": "2",
-        "hackable": "",
         "ava": " ",
-        "bsw": [],
-        "ccw": [],
         "spec": [
           "Martial Arts L2",
           "Fireteam: Tohaa",
           "Poison"
-        ]
+        ],
+        "bsw": [],
+        "ccw": []
       }
     ],
-    "note": "",
-    "ava": "1",
-    "spec": [],
-    "bsw": [],
-    "ccw": [],
     "childs": [
       {
-        "bsw": [],
-        "cbcode": [],
-        "ccw": [],
         "code": "Default",
         "codename": "Light Rocket Launcher",
         "cost": "42",
-        "note": "",
+        "swc": "0.5",
         "spec": [],
-        "swc": "0.5"
+        "bsw": [],
+        "ccw": []
       },
       {
-        "bsw": [],
-        "cbcode": [],
-        "ccw": [],
         "code": "Lieutenant",
         "codename": "",
         "cost": "42",
-        "note": "",
+        "swc": "0",
         "spec": [
           "Lieutenant"
         ],
-        "swc": "0"
+        "bsw": [],
+        "ccw": []
       }
     ]
   },
   {
+    "index": 8014,
     "army": "Tohaa",
     "isc": "Hatail Spec-Ops",
     "name": "Hatail",
@@ -1233,6 +1229,7 @@
     ]
   },
   {
+    "index": 8015,
     "army": "Tohaa",
     "isc": "Hatail Aelis Keesan",
     "name": "Hatail Aelis Keesan",
@@ -1292,6 +1289,7 @@
     ]
   },
   {
+    "index": 8016,
     "army": "Tohaa",
     "isc": "Nikoul Ambush Unit",
     "name": "Nikoul",
@@ -1372,6 +1370,7 @@
     ]
   },
   {
+    "index": 8017,
     "army": "Tohaa",
     "isc": "Kotail Mobile Unit",
     "name": "Kotail",
@@ -1487,6 +1486,7 @@
     ]
   },
   {
+    "index": 8018,
     "army": "Tohaa",
     "isc": "Rasail Boarding Team",
     "name": "Rasail",
@@ -1667,6 +1667,7 @@
     ]
   },
   {
+    "index": 8019,
     "army": "Tohaa",
     "isc": "Kaeltar Specialists",
     "name": "Kaeltar",
@@ -1752,6 +1753,7 @@
     ]
   },
   {
+    "index": 8020,
     "army": "Tohaa",
     "isc": "Igao Unit",
     "name": "Igao",
@@ -1813,6 +1815,7 @@
     ]
   },
   {
+    "index": 8021,
     "army": "Tohaa",
     "isc": "Kosuil Assault Pioneers",
     "name": "Kosuil",
