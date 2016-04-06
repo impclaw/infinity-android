@@ -36,7 +36,6 @@
     "name": "Mercenary",
     "abbr": "Mercs"
   },
-  
   {
     "army": "PanOceania",
     "name": "Shock Army of Acontecimento",
@@ -781,7 +780,7 @@
       },
       {
         "ava": "1",
-          "isc": "Alguaciles",
+          "isc": "Corregidor Alguaciles",
         "army": "Nomads"
       },
       {
@@ -950,7 +949,7 @@
       },
       {
         "ava": "4",
-          "isc": "Alguaciles",
+          "isc": "Corregidor Alguaciles",
         "army": "Nomads"
       },
       {
