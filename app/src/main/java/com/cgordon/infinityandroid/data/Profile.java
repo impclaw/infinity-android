@@ -29,6 +29,7 @@ public class Profile implements Parcelable {
     public ArrayList<String> ccw;
     public ArrayList<String> spec;
 
+    public int id;
     public String mov;
     public String cc;
     public String bs;
@@ -64,6 +65,7 @@ public class Profile implements Parcelable {
         ccw = parcel.readArrayList(String.class.getClassLoader());
         spec = parcel.readArrayList(String.class.getClassLoader());
 
+        id = parcel.readInt();
         mov = parcel.readString();
         cc = parcel.readString();
         bs = parcel.readString();
@@ -97,6 +99,7 @@ public class Profile implements Parcelable {
         dest.writeList(ccw);
         dest.writeList(spec);
 
+        dest.writeInt(id);
         dest.writeString(mov);
         dest.writeString(cc);
         dest.writeString(bs);
@@ -143,6 +146,7 @@ public class Profile implements Parcelable {
         }
         sb.append("Type: ").append(type).append("\n\t");
 
+        sb.append("id: ").append(id);
         sb.append("MOV\tCC\tBS\tPH\tWIP\tARM\tBTS\tW\tS\t\n\t");
         sb.append(mov).append("\t");
         sb.append(cc).append("\t");

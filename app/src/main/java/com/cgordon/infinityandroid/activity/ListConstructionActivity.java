@@ -32,14 +32,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.ArmyList;
-import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
 import com.cgordon.infinityandroid.fragment.OptionsFragment;
@@ -48,9 +46,6 @@ import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.storage.ArmyData;
 import com.cgordon.infinityandroid.storage.ListData;
 import com.cgordon.infinityandroid.widgets.SlidingTabLayout;
-
-import java.util.List;
-import java.util.Map;
 
 public class ListConstructionActivity extends AppCompatActivity
     implements UnitListFragment.UnitSelectedListener,
@@ -167,7 +162,7 @@ public class ListConstructionActivity extends AppCompatActivity
         }
         m_currentSelectedUnit = unit;
         if (unit != null) {
-            Log.d(TAG, "Unit Selected: " + unit.dbId);
+            Log.d(TAG, "Unit Selected: " + unit.id);
         }
     }
 

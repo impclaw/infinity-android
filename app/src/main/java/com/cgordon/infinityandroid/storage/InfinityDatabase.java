@@ -32,14 +32,15 @@ import com.cgordon.infinityandroid.json.WeaponParser;
 public class InfinityDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "infinity.db";
-    private static final int DATABASE_VERSION = 33;
+    private static final int DATABASE_VERSION = 34;
 
     public static final String TABLE_WEAPONS = "weapons";
     public static final String TABLE_UNITS = "units";
-    public static final String TABLE_OPTIONS = "options";
+    public static final String TABLE_CHILDREN = "children";
     public static final String TABLE_PROFILES = "profiles";
     public static final String TABLE_ARMY = "army";
     public static final String TABLE_ARMY_UNITS = "army_units";
+    public static final String TABLE_ARMY_UNITS_CHILDREN = "army_units_children";
     public static final String TABLE_ARMY_LISTS = "army_lists";
     public static final String TABLE_ARMY_LIST_UNITS = "army_list_units";
 
@@ -47,6 +48,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_AVA = "ava";
     public static final String COLUMN_SHARED_AVA = "sharedAva";
     public static final String COLUMN_FACTION = "faction";
+    public static final String COLUMN_UNIT_ID = "unit_id";
     // COLUMN_NOTE
     // COLUMN_NAME
     // COLUMN_ISC
@@ -75,12 +77,12 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     // COLUMN_BSW
     // COLUMN_CCW
     // COLUMN_SPEC
-    public static final String COLUMN_OPTION_SPECIFIC = "optionSpecific";
+    public static final String COLUMN_CHILD_SPECIFIC = "childSpecific";
     public static final String COLUMN_ALL_DIE = "allProfilesMustDie";
     // COLUMN_AVA
 
-    // ===== OPTIONS COLUMNS =====
-    // COLUMN_Unit ID
+    // ===== CHILD COLUMNS =====
+    public static final String COLUMN_CHILD_ID = "child_id";
     // COLUMN_Name
     public static final String COLUMN_CODE = "code"; // a short name to identify this child
     // COLUMN_Note
@@ -91,6 +93,10 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     // COLUMN_CCW
     // COLUMN_Spec
     public static final String COLUMN_PROFILE = "profile"; // This option requires an additional profile (0-based index)
+
+    public static final String COLUMN_ARMY_UNIT_ID = "army_unit_id";
+    public static final String COLUMN_HIDE = "hide";
+
 
     // ===== WEAPONS COLUMNS =====
     public static final String COLUMN_AMMO = "ammo";
@@ -123,7 +129,6 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_BSW = "bsw";  // this is comma separated list
     public static final String COLUMN_CCW = "ccw"; // this is comma separated list
     public static final String COLUMN_SPEC = "spec"; // this is comma separated list
-    public static final String COLUMN_UNIT_ID = "unit_id";
     public static final String COLUMN_CC = "cc";
 
     // ===== ARMY Data =====
@@ -165,9 +170,9 @@ public class InfinityDatabase extends SQLiteOpenHelper {
             COLUMN_IMAGE + " text " +
             ");";
 
-    private static final String CREATE_TABLE_OPTIONS = "create table " + TABLE_OPTIONS + " ( " +
+    private static final String CREATE_TABLE_CHILDREN = "create table " + TABLE_CHILDREN + " ( " +
             COLUMN_ID + " integer primary key, " +
-            COLUMN_UNIT_ID + " integer, " +
+            COLUMN_CHILD_ID + " integer, " +
             COLUMN_NAME + " text, " +
             COLUMN_CODE + " text, " +
             COLUMN_NOTE + " text, " +
@@ -204,7 +209,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
             COLUMN_BSW + " text, " +
             COLUMN_CCW + " text, " +
             COLUMN_SPEC + " text, " +
-            COLUMN_OPTION_SPECIFIC + " text, " +
+            COLUMN_CHILD_SPECIFIC + " text, " +
             COLUMN_ALL_DIE + " text, " +
             COLUMN_AVA + " text " +
             ");";
@@ -246,9 +251,16 @@ public class InfinityDatabase extends SQLiteOpenHelper {
             COLUMN_ID + " integer primary key, " +
             COLUMN_ARMY_ID + " integer, " +
             COLUMN_AVA + " text, " +
-            COLUMN_ISC + " text, " +
+            COLUMN_UNIT_ID + " text, " +
             COLUMN_LINKABLE + " integer, " + // boolean
             COLUMN_FACTION + " text " +
+            ");";
+
+    private static final String CREATE_TABLE_ARMY_UNITS_CHILDREN = "create table " + TABLE_ARMY_UNITS_CHILDREN + " ( " +
+            COLUMN_ID + " integer primary key, " +
+            COLUMN_ARMY_UNIT_ID + " integer, " +
+            COLUMN_SWC + " text, " +
+            COLUMN_HIDE + " text " +
             ");";
 
     private static final String CREATE_TABLE_ARMY_LISTS = "create table if not exists " + TABLE_ARMY_LISTS + " ( " +
@@ -263,7 +275,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
             COLUMN_LIST_ID + " integer, " +
             COLUMN_GROUP + " integer, " +
             COLUMN_UNIT_ID + " integer, " +
-            COLUMN_PROFILE + " integer " +
+            COLUMN_CHILD_ID + " integer " +
             ");";
 
     private Context m_context;
@@ -279,10 +291,11 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_WEAPONS);
         db.execSQL(CREATE_TABLE_UNITS);
-        db.execSQL(CREATE_TABLE_OPTIONS);
+        db.execSQL(CREATE_TABLE_CHILDREN);
         db.execSQL(CREATE_TABLE_PROFILES);
         db.execSQL(CREATE_TABLE_ARMY);
         db.execSQL(CREATE_TABLE_ARMY_UNITS);
+        db.execSQL(CREATE_TABLE_ARMY_UNITS_CHILDREN);
         db.execSQL(CREATE_TABLE_ARMY_LISTS);
         db.execSQL(CREATE_TABLE_ARMY_LIST_UNITS);
 
@@ -298,7 +311,6 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         unitsData.writeUnits(unitParser.parse(R.raw.alep_units));
         unitsData.writeUnits(unitParser.parse(R.raw.toha_units));
         unitsData.writeUnits(unitParser.parse(R.raw.merc_units));
-        unitsData.writeUnits(unitParser.parse(R.raw.other_units));
 
         // Load sectorial data
         SectorialParser sectorialParser = new SectorialParser(m_context);
@@ -315,12 +327,15 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_WEAPONS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_UNITS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_OPTIONS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CHILDREN);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROFILES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_UNITS);
-//        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LISTS);
-//        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LIST_UNITS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_UNITS_CHILDREN);
+        if (oldVersion < 34) {
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LISTS);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARMY_LIST_UNITS);
+        }
 
         onCreate(db);
     }

@@ -31,7 +31,7 @@ import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.MainActivity;
-import com.cgordon.infinityandroid.data.Option;
+import com.cgordon.infinityandroid.data.Child;
 import com.cgordon.infinityandroid.data.Unit;
 
 public class OptionsFragment extends Fragment {
@@ -76,44 +76,44 @@ public class OptionsFragment extends Fragment {
 
 
 
-        Option option = unit.options.get(index);
+        Child child = unit.children.get(index);
 
         TextView name = (TextView) view.findViewById(R.id.name);
-        name.setText(option.code);
+        name.setText(child.code);
 
         TextView swc = (TextView) view.findViewById(R.id.swc);
-        swc.setText("SWC: " + Double.toString(option.swc));
+        swc.setText("SWC: " + Double.toString(child.swc));
 
         TextView cost = (TextView) view.findViewById(R.id.cost);
-        cost.setText("C: " + Integer.toString(option.cost));
+        cost.setText("C: " + Integer.toString(child.cost));
 
         TextView bsw = (TextView) view.findViewById(R.id.bsw);
-        if (option.bsw != null && option.bsw.size() > 0) {
-            bsw.setText("BSW: " + TextUtils.join(", ", option.bsw));
+        if (child.bsw != null && child.bsw.size() > 0) {
+            bsw.setText("BSW: " + TextUtils.join(", ", child.bsw));
         } else {
             bsw.setVisibility(View.GONE);
         }
 
         TextView ccw = (TextView) view.findViewById(R.id.ccw);
-        if (option.ccw != null && option.ccw.size() > 0) {
-            ccw.setText("CCW: " + TextUtils.join(", ", option.ccw));
+        if (child.ccw != null && child.ccw.size() > 0) {
+            ccw.setText("CCW: " + TextUtils.join(", ", child.ccw));
         } else {
             ccw.setVisibility(View.GONE);
         }
 
-        if (option.profile != 0) {
-            option.spec.add(unit.profiles.get(option.profile).name);
+        if (child.profile != 0) {
+            child.spec.add(unit.profiles.get(child.profile).name);
         }
         TextView spec = (TextView) view.findViewById(R.id.spec);
-        if (option.spec != null && option.spec.size() > 0) {
-            spec.setText("Spec: " + TextUtils.join(", ", option.spec));
+        if (child.spec != null && child.spec.size() > 0) {
+            spec.setText("Spec: " + TextUtils.join(", ", child.spec));
         } else {
             spec.setVisibility(View.GONE);
         }
 
         TextView note = (TextView) view.findViewById(R.id.note);
-        if (option.note != null && !option.note.isEmpty()) {
-            note.setText("Note: " + option.note);
+        if (child.note != null && !child.note.isEmpty()) {
+            note.setText("Note: " + child.note);
         } else {
             note.setVisibility(View.GONE);
         }

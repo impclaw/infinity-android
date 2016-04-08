@@ -32,7 +32,7 @@ import android.widget.ScrollView;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
 import com.cgordon.infinityandroid.activity.MainActivity;
-import com.cgordon.infinityandroid.data.Option;
+import com.cgordon.infinityandroid.data.Child;
 import com.cgordon.infinityandroid.data.Profile;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
@@ -119,7 +119,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         if (m_scrollview != null) {
             m_scrollview.scrollTo(0, 0);
         }
-        Log.d(TAG, "UnitFragment setId: " + unit.dbId);
+        Log.d(TAG, "UnitFragment setId: " + unit.id);
 
         if (getActivity() == null) {
             return;
@@ -149,7 +149,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
 
         }
 
-        for (int i = 0; i < m_unit.options.size(); i++) {
+        for (int i = 0; i < m_unit.children.size(); i++) {
             OptionsFragment optionsFragment = new OptionsFragment();
             Bundle bundle = new Bundle();
             bundle.putParcelable(MainActivity.UNIT, m_unit);
@@ -179,12 +179,12 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
             }
         }
 
-        it = unit.options.iterator();
+        it = unit.children.iterator();
         while (it.hasNext()) {
-            Option option = (Option) it.next();
-            bsw.addAll(option.bsw);
-            ccw.addAll(option.ccw);
-            if (option.spec.indexOf(FORWARD_OBSERVER) != -1) {
+            Child child = (Child) it.next();
+            bsw.addAll(child.bsw);
+            ccw.addAll(child.ccw);
+            if (child.spec.indexOf(FORWARD_OBSERVER) != -1) {
                 forwardObserver = true;
             }
         }

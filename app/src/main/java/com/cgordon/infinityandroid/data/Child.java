@@ -23,8 +23,9 @@ import android.text.TextUtils;
 
 import java.util.ArrayList;
 
-public class Option implements Parcelable {
+public class Child implements Parcelable {
 
+    public int id;
     public String name;
     public String code; // a short name to identify this child
     public String note;
@@ -38,13 +39,14 @@ public class Option implements Parcelable {
     public ArrayList<String> ccw;
 
 
-    public Option() {
+    public Child() {
         bsw = new ArrayList<String>();
         ccw = new ArrayList<String>();
         spec = new ArrayList<String>();
     }
 
-    public Option(Parcel parcel) {
+    public Child(Parcel parcel) {
+        id = parcel.readInt();
         name = parcel.readString();
         code = parcel.readString();
         note = parcel.readString();
@@ -60,6 +62,7 @@ public class Option implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
         dest.writeString(name);
         dest.writeString(code);
         dest.writeString(note);
@@ -96,14 +99,14 @@ public class Option implements Parcelable {
         return 0;
     }
 
-    public static final Parcelable.Creator<Option> CREATOR
-            = new Parcelable.Creator<Option>() {
-        public Option createFromParcel(Parcel in) {
-            return new Option(in);
+    public static final Parcelable.Creator<Child> CREATOR
+            = new Parcelable.Creator<Child>() {
+        public Child createFromParcel(Parcel in) {
+            return new Child(in);
         }
 
-        public Option[] newArray(int size) {
-            return new Option[size];
+        public Child[] newArray(int size) {
+            return new Child[size];
         }
     };
 

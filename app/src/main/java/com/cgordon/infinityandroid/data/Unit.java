@@ -24,11 +24,11 @@ import java.util.ArrayList;
 
 public class Unit implements Parcelable, ListElement {
 
-    public long dbId;
+    public long id;
     public String ava;  // sometimes this can be 'T', so can't be an int
     public String sharedAva; // Name of other unit that subtracts from this units Ava
     public ArrayList<Profile> profiles;
-    public ArrayList<Option> options;
+    public ArrayList<Child> children;
     public String faction;
     public String note;  //used?
     public String name;
@@ -38,16 +38,16 @@ public class Unit implements Parcelable, ListElement {
 
 
     public Unit() {
-        options = new ArrayList<Option>();
+        children = new ArrayList<Child>();
         profiles = new ArrayList<Profile>();
     }
 
     public Unit(Parcel parcel) {
-        dbId = parcel.readLong();
+        id = parcel.readLong();
         ava = parcel.readString();
         sharedAva = parcel.readString();
         profiles = parcel.readArrayList(Profile.class.getClassLoader());
-        options = parcel.readArrayList(Option.class.getClassLoader());
+        children = parcel.readArrayList(Child.class.getClassLoader());
         faction = parcel.readString();
         note = parcel.readString();
         name = parcel.readString();
@@ -58,11 +58,11 @@ public class Unit implements Parcelable, ListElement {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(dbId);
+        dest.writeLong(id);
         dest.writeString(ava);
         dest.writeString(sharedAva);
         dest.writeList(profiles);
-        dest.writeList(options);
+        dest.writeList(children);
         dest.writeString(faction);
         dest.writeString(note);
         dest.writeString(name);
@@ -89,8 +89,8 @@ public class Unit implements Parcelable, ListElement {
         }
 
         sb.append("Options:").append("\n");
-        for (int i = 0; i < options.size(); i++) {
-            sb.append("- ").append(name).append(options.get(i).toString()).append("\n");
+        for (int i = 0; i < children.size(); i++) {
+            sb.append("- ").append(name).append(children.get(i).toString()).append("\n");
         }
         sb.append("\n");
 

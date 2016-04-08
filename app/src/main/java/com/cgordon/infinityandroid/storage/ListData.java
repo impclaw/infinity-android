@@ -27,11 +27,9 @@ import com.cgordon.infinityandroid.data.ArmyList;
 import com.cgordon.infinityandroid.data.CombatGroup;
 import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.data.Weapon;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -112,7 +110,7 @@ public class ListData {
                     v.put(InfinityDatabase.COLUMN_LIST_ID, listId);
                     Unit unit = (Unit) listItem.getKey();
                     v.put(InfinityDatabase.COLUMN_GROUP, combatGroup);
-                    v.put(InfinityDatabase.COLUMN_UNIT_ID, unit.dbId);
+                    v.put(InfinityDatabase.COLUMN_UNIT_ID, unit.id);
                     v.put(InfinityDatabase.COLUMN_PROFILE, listItem.getValue());
 
                     if (m_database.insert(InfinityDatabase.TABLE_ARMY_LIST_UNITS, null, v) == -1) {

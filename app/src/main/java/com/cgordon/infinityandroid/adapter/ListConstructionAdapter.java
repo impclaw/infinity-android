@@ -33,17 +33,15 @@ import android.widget.Toast;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.CombatGroup;
 import com.cgordon.infinityandroid.data.ListElement;
-import com.cgordon.infinityandroid.data.Option;
+import com.cgordon.infinityandroid.data.Child;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
 import com.cgordon.infinityandroid.storage.ListData;
 
-import java.security.acl.Group;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -175,10 +173,10 @@ public class ListConstructionAdapter
             if (le instanceof Unit) {
                 Unit unit = (Unit) le;
                 int option = (int) e.getValue();
-                costTotal += unit.options.get(option).cost;
-                swcTotal += unit.options.get(option).swc;
+                costTotal += unit.children.get(option).cost;
+                swcTotal += unit.children.get(option).swc;
 
-                if (unit.options.get(option).spec.contains("Lieutenant")) {
+                if (unit.children.get(option).spec.contains("Lieutenant")) {
                     ltCount++;
                 }
 
@@ -250,15 +248,15 @@ public class ListConstructionAdapter
             UnitViewHolder unitViewHolder = (UnitViewHolder)holder;
 
             Unit unit = (Unit) m_list.get(position).getKey();
-            Option option = unit.options.get(m_list.get(position).getValue());
+            Child child = unit.children.get(m_list.get(position).getValue());
 
             int resourceId = UnitListAdapter.getDrawableResource(unit, m_context, 48);
             unitViewHolder.m_image.setImageResource(resourceId);
 
             unitViewHolder.m_isc.setText(unit.isc);
-            unitViewHolder.m_option.setText(option.code);
-            unitViewHolder.m_points.setText(Integer.toString(option.cost));
-            unitViewHolder.m_swc.setText(Double.toString(option.swc));
+            unitViewHolder.m_option.setText(child.code);
+            unitViewHolder.m_points.setText(Integer.toString(child.cost));
+            unitViewHolder.m_swc.setText(Double.toString(child.swc));
         } else {
             GroupViewHolder groupViewHolder = (GroupViewHolder)holder;
             CombatGroup combatGroup = (CombatGroup) m_list.get(position).getKey();

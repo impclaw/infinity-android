@@ -22,7 +22,7 @@ import android.util.JsonReader;
 import android.util.JsonToken;
 import android.util.Log;
 
-import com.cgordon.infinityandroid.data.Option;
+import com.cgordon.infinityandroid.data.Child;
 import com.cgordon.infinityandroid.data.Profile;
 import com.cgordon.infinityandroid.data.Unit;
 
@@ -63,30 +63,31 @@ public class UnitParser {
         return units;
     }
 
-    private ArrayList<Option> parseChilds(JsonReader reader) throws IOException {
+    private ArrayList<Child> parseChilds(JsonReader reader) throws IOException {
         reader.beginArray();
 
-        ArrayList<Option> options = new ArrayList<Option>();
+        ArrayList<Child> children = new ArrayList<Child>();
 
         while (reader.hasNext()) {
-            options.add(parseChild(reader));
+            children.add(parseChild(reader));
         }
 
         reader.endArray();
 
-        return options;
+        return children;
     }
 
     private Unit parseUnit(JsonReader reader) throws IOException {
         Unit unit = new Unit();
         Profile profile = new Profile();
+        profile.id = 0;
 
         reader.beginObject();
 
         while (reader.hasNext()) {
             String name = reader.nextName();
             if (name.equals("childs")) {
-                unit.options.addAll(parseChilds(reader));
+                unit.children.addAll(parseChilds(reader));
             } else if (name.equals("bsw")) {
                 profile.bsw.addAll(parseSubArray(reader));
             } else if (name.equals("ccw")) {
@@ -148,7 +149,8 @@ public class UnitParser {
                 reader.skipValue();
             } else if (name.equals("s")) {
                 profile.silhouette = reader.nextString();
-            } else if (name.equals("index")) {
+            } else if (name.equals("id")) {
+                unit.id = reader.nextInt();
                 Log.d(TAG, "index: " + reader.nextString());
             } else {
                 throw new IOException("Unknown tag in parse Unit: " + name);
@@ -259,6 +261,8 @@ public class UnitParser {
                 profile.ava = reader.nextString();
             } else if (name.equals("image")) {
                 reader.nextString();
+            } else if (name.equals("id")) {
+                profile.id = reader.nextInt();
             } else {
                 throw new IOException("Unknown tag in parse Profile: " + name);
             }
@@ -271,8 +275,8 @@ public class UnitParser {
     }
 
 
-    private Option parseChild(JsonReader reader) throws IOException {
-        Option option = new Option();
+    private Child parseChild(JsonReader reader) throws IOException {
+        Child child = new Child();
 
         reader.beginObject();
 
@@ -280,23 +284,23 @@ public class UnitParser {
             String name = reader.nextName();
 
             if (name.equals("bsw")) {
-                option.bsw.addAll(parseSubArray(reader));
+                child.bsw.addAll(parseSubArray(reader));
             } else if (name.equals("swc")) {
-                option.swc = reader.nextDouble();
+                child.swc = reader.nextDouble();
             } else if (name.equals("cbcode")) {
                 reader.skipValue();
             } else if (name.equals("code")) {
-                option.code = reader.nextString();
+                child.code = reader.nextString();
             } else if (name.equals("note")) {
-                option.note = reader.nextString();
+                child.note = reader.nextString();
             } else if (name.equals("ccw")) {
-                option.ccw.addAll(parseSubArray(reader));
+                child.ccw.addAll(parseSubArray(reader));
             } else if (name.equals("codename")) {
-                option.codename = reader.nextString();
+                child.codename = reader.nextString();
             } else if (name.equals("cost")) {
-                option.cost = Integer.parseInt(reader.nextString());
+                child.cost = Integer.parseInt(reader.nextString());
             } else if (name.equals("spec")) {
-                option.spec.addAll(parseSubArray(reader));
+                child.spec.addAll(parseSubArray(reader));
             } else if (name.equals("independent")) {
                 // This may never become relevant until/unless an in-play unit status/retreat
                 // tracker is implemented.
@@ -307,12 +311,14 @@ public class UnitParser {
                 reader.nextString(); //swc
                 reader.endObject();
             } else if (name.equals("profile")) {
-                option.profile = Integer.parseInt(reader.nextString());
+                child.profile = Integer.parseInt(reader.nextString());
             } else if (name.equals("profiles")) {
                 // this is for Kerail Preceptors - need to resolve this at some point
                 // Does profile become a list?
                 // Is there a separate tag for profileS?
                 reader.skipValue();
+            } else if (name.equals("id")) {
+                child.id = reader.nextInt();
             } else {
                 throw new IOException("Unknown tag in parse Child: " + name);
             }
@@ -320,7 +326,7 @@ public class UnitParser {
         }
 
         reader.endObject();
-        return option;
+        return child;
     }
 
     private ArrayList<String> parseSubArray(JsonReader reader) throws IOException {

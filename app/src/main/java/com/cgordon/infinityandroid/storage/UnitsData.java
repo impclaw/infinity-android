@@ -27,7 +27,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.cgordon.infinityandroid.data.Army;
-import com.cgordon.infinityandroid.data.Option;
+import com.cgordon.infinityandroid.data.Child;
 import com.cgordon.infinityandroid.data.Profile;
 import com.cgordon.infinityandroid.data.Unit;
 
@@ -116,7 +116,7 @@ public class UnitsData {
             InfinityDatabase.COLUMN_BSW,
             InfinityDatabase.COLUMN_CCW,
             InfinityDatabase.COLUMN_SPEC,
-            InfinityDatabase.COLUMN_OPTION_SPECIFIC,
+            InfinityDatabase.COLUMN_CHILD_SPECIFIC,
             InfinityDatabase.COLUMN_ALL_DIE,
             InfinityDatabase.COLUMN_AVA
     };
@@ -164,9 +164,9 @@ public class UnitsData {
 
             }
 
-            List<Option> options = unit.options;
-            for (Option option : options) {
-                long optionId = writeOption(option, unitId);
+            List<Child> children = unit.children;
+            for (Child child : children) {
+                long optionId = writeOption(child, unitId);
                 if (optionId == -1) {
                     Log.d(TAG, "failed to write option");
                     return;
@@ -290,7 +290,7 @@ public class UnitsData {
             } else {
 
 //            cursor = m_database.rawQuery("SELECT " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ISC + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
-//                    + " where " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
+//                    + " where " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ARMY_ID + "=" + army.id
 //                    , null);
 //            Log.e(TAG, "army units isc count: "+cursor.getCount());
 //            printCursor(cursor);
@@ -365,25 +365,25 @@ public class UnitsData {
         return retval;
     }
 
-    private ArrayList<Option> getOptions(long unitId) {
+    private ArrayList<Child> getOptions(long unitId) {
         Cursor cursor = null;
         try {
-            cursor = m_database.query(InfinityDatabase.TABLE_OPTIONS, optionsColumns, InfinityDatabase.COLUMN_UNIT_ID + "=" + unitId, null, null, null, null, null);
+            cursor = m_database.query(InfinityDatabase.TABLE_CHILDREN, optionsColumns, InfinityDatabase.COLUMN_UNIT_ID + "=" + unitId, null, null, null, null, null);
 
 
             cursor.moveToFirst();
 
-            ArrayList<Option> options = new ArrayList<>();
+            ArrayList<Child> children = new ArrayList<>();
 
             while (!cursor.isAfterLast()) {
-                Option option = cursorToOption(cursor);
+                Child child = cursorToOption(cursor);
 
-                options.add(option);
+                children.add(child);
 
                 cursor.moveToNext();
             }
 
-            return options;
+            return children;
 
         } finally {
             if (cursor != null) {
@@ -392,39 +392,39 @@ public class UnitsData {
         }
     }
 
-    private Option cursorToOption(Cursor cursor) {
-        Option option = new Option();
+    private Child cursorToOption(Cursor cursor) {
+        Child child = new Child();
 
         // 0 - COLUMN_ID + " integer primary key, " +
         // 1 - COLUMN_UNIT_ID + " integer, " +
 
-        option.name = cursor.getString(2);
-        option.code = cursor.getString(3);
-        option.note = cursor.getString(4);
-        option.codename = cursor.getString(5);
-        option.cost = cursor.getInt(6);
-        option.swc = cursor.getDouble(7);
+        child.name = cursor.getString(2);
+        child.code = cursor.getString(3);
+        child.note = cursor.getString(4);
+        child.codename = cursor.getString(5);
+        child.cost = cursor.getInt(6);
+        child.swc = cursor.getDouble(7);
 
         String temp = cursor.getString(8);
         if (!temp.isEmpty()) {
-            option.bsw = new ArrayList<>(Arrays.asList(temp.split(",")));
+            child.bsw = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
         temp = cursor.getString(9);
         if (!temp.isEmpty()) {
-            option.ccw = new ArrayList<>(Arrays.asList(temp.split(",")));
+            child.ccw = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
         temp = cursor.getString(10);
         if (!temp.isEmpty()) {
-            option.spec = new ArrayList<>(Arrays.asList(temp.split(",")));
+            child.spec = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
-        expandSpec(option.spec);
+        expandSpec(child.spec);
 
-        option.profile = cursor.getInt(11);
+        child.profile = cursor.getInt(11);
 
-        return option;
+        return child;
 
     }
 
@@ -548,7 +548,7 @@ public class UnitsData {
     private Unit cursorToUnit(Cursor cursor) {
         Unit unit = new Unit();
 
-        unit.dbId = cursor.getLong(0);
+        unit.id = cursor.getLong(0);
         unit.ava = cursor.getString(1);
         unit.sharedAva = cursor.getString(2);
         unit.faction = cursor.getString(3);
@@ -561,31 +561,31 @@ public class UnitsData {
         }
 
         // read profiles
-        unit.profiles = getProfiles(unit.dbId);
+        unit.profiles = getProfiles(unit.id);
 
         // read options
-        unit.options = getOptions(unit.dbId);
+        unit.children = getOptions(unit.id);
 
         return unit;
     }
 
-    private long writeOption(Option option, long unitId) {
+    private long writeOption(Child child, long unitId) {
 
         ContentValues v = new ContentValues();
 
         v.put(InfinityDatabase.COLUMN_UNIT_ID, unitId);
-        v.put(InfinityDatabase.COLUMN_NAME, option.name);
-        v.put(InfinityDatabase.COLUMN_CODE, option.code);
-        v.put(InfinityDatabase.COLUMN_NOTE, option.note);
-        v.put(InfinityDatabase.COLUMN_CODENAME, option.codename);
-        v.put(InfinityDatabase.COLUMN_COST, option.cost);
-        v.put(InfinityDatabase.COLUMN_SWC, option.swc);
-        v.put(InfinityDatabase.COLUMN_BSW, TextUtils.join(",", option.bsw));
-        v.put(InfinityDatabase.COLUMN_CCW, TextUtils.join(",", option.ccw));
-        v.put(InfinityDatabase.COLUMN_SPEC, TextUtils.join(",", option.spec));
-        v.put(InfinityDatabase.COLUMN_PROFILE, option.profile);
+        v.put(InfinityDatabase.COLUMN_NAME, child.name);
+        v.put(InfinityDatabase.COLUMN_CODE, child.code);
+        v.put(InfinityDatabase.COLUMN_NOTE, child.note);
+        v.put(InfinityDatabase.COLUMN_CODENAME, child.codename);
+        v.put(InfinityDatabase.COLUMN_COST, child.cost);
+        v.put(InfinityDatabase.COLUMN_SWC, child.swc);
+        v.put(InfinityDatabase.COLUMN_BSW, TextUtils.join(",", child.bsw));
+        v.put(InfinityDatabase.COLUMN_CCW, TextUtils.join(",", child.ccw));
+        v.put(InfinityDatabase.COLUMN_SPEC, TextUtils.join(",", child.spec));
+        v.put(InfinityDatabase.COLUMN_PROFILE, child.profile);
 
-        return m_database.insert(InfinityDatabase.TABLE_OPTIONS, null, v);
+        return m_database.insert(InfinityDatabase.TABLE_CHILDREN, null, v);
     }
 
     private long writeProfile(Profile profile, long unitId) {
@@ -614,7 +614,7 @@ public class UnitsData {
         v.put(InfinityDatabase.COLUMN_BSW, TextUtils.join(",", profile.bsw));
         v.put(InfinityDatabase.COLUMN_CCW, TextUtils.join(",", profile.ccw));
         v.put(InfinityDatabase.COLUMN_SPEC, TextUtils.join(",", profile.spec));
-        v.put(InfinityDatabase.COLUMN_OPTION_SPECIFIC, profile.optionSpecific);
+        v.put(InfinityDatabase.COLUMN_CHILD_SPECIFIC, profile.optionSpecific);
         v.put(InfinityDatabase.COLUMN_ALL_DIE, profile.allProfilesMustDie);
         v.put(InfinityDatabase.COLUMN_AVA, profile.ava);
 
@@ -627,6 +627,7 @@ public class UnitsData {
         ContentValues v = new ContentValues();
         //v.put(InfinityDatabase.COLUMN_AMMO, w.ammo);
 
+        v.put(InfinityDatabase.COLUMN_ID, unit.id);
         v.put(InfinityDatabase.COLUMN_AVA, unit.ava);
         v.put(InfinityDatabase.COLUMN_SHARED_AVA, unit.sharedAva);
         v.put(InfinityDatabase.COLUMN_FACTION, unit.faction);

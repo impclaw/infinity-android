@@ -174,9 +174,9 @@ public class UnitListActivity extends AppCompatActivity
             ccw.addAll(unit.profiles.get(i).ccw);
         }
 
-        for (int i = 0; i < unit.options.size(); i++) {
-            bsw.addAll(unit.options.get(i).bsw);
-            ccw.addAll(unit.options.get(i).ccw);
+        for (int i = 0; i < unit.children.size(); i++) {
+            bsw.addAll(unit.children.get(i).bsw);
+            ccw.addAll(unit.children.get(i).ccw);
         }
 
         sb.append("BS Weapons\n");
