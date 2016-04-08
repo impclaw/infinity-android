@@ -22,7 +22,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.json.SectorialParser;
+import com.cgordon.infinityandroid.json.ArmyParser;
 import com.cgordon.infinityandroid.json.UnitParser;
 import com.cgordon.infinityandroid.json.WeaponParser;
 
@@ -56,6 +56,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
 
     // ===== PROFILES COLUMNS =====
     // Unit ID
+    public static final String COLUMN_PROFILE_ID = "profile_id";
     public static final String COLUMN_MOV = "mov";
     //COLUMN_CC
     public static final String COLUMN_BS = "bs";
@@ -77,7 +78,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     // COLUMN_BSW
     // COLUMN_CCW
     // COLUMN_SPEC
-    public static final String COLUMN_CHILD_SPECIFIC = "childSpecific";
+    public static final String COLUMN_OPTION_SPECIFIC = "childSpecific";
     public static final String COLUMN_ALL_DIE = "allProfilesMustDie";
     // COLUMN_AVA
 
@@ -172,6 +173,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
 
     private static final String CREATE_TABLE_CHILDREN = "create table " + TABLE_CHILDREN + " ( " +
             COLUMN_ID + " integer primary key, " +
+            COLUMN_UNIT_ID + " integer, " +
             COLUMN_CHILD_ID + " integer, " +
             COLUMN_NAME + " text, " +
             COLUMN_CODE + " text, " +
@@ -188,6 +190,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_PROFILES = "create table " + TABLE_PROFILES + " ( " +
             COLUMN_ID + " integer primary key, " +
             COLUMN_UNIT_ID + " integer, " +
+            COLUMN_PROFILE_ID + " integer, " +
             COLUMN_MOV + " text, " +
             COLUMN_CC + " text, " +
             COLUMN_BS + " text, " +
@@ -209,7 +212,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
             COLUMN_BSW + " text, " +
             COLUMN_CCW + " text, " +
             COLUMN_SPEC + " text, " +
-            COLUMN_CHILD_SPECIFIC + " text, " +
+            COLUMN_OPTION_SPECIFIC + " text, " +
             COLUMN_ALL_DIE + " text, " +
             COLUMN_AVA + " text " +
             ");";
@@ -313,9 +316,13 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         unitsData.writeUnits(unitParser.parse(R.raw.merc_units));
 
         // Load sectorial data
-        SectorialParser sectorialParser = new SectorialParser(m_context);
+        ArmyParser armyParser = new ArmyParser(m_context);
         ArmyData armyData = new ArmyData(db);
-        armyData.writeArmy(sectorialParser.parse(R.raw.sectorials));
+
+        armyData.writeArmy(armyParser.parse(R.raw.pano_army));
+        armyData.writeArmy(armyParser.parse(R.raw.pano_acontecimento_army));
+        armyData.writeArmy(armyParser.parse(R.raw.pano_militaryorders_army));
+        armyData.writeArmy(armyParser.parse(R.raw.pano_noeterran_army));
 
         // Load weapon data
         WeaponParser weaponParser = new WeaponParser(m_context);

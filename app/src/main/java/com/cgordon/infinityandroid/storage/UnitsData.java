@@ -77,7 +77,7 @@ public class UnitsData {
             InfinityDatabase.COLUMN_IMAGE
     };
 
-    private final String[] optionsColumns = {
+    private final String[] childColumns = {
             InfinityDatabase.COLUMN_ID,
             InfinityDatabase.COLUMN_UNIT_ID,
             InfinityDatabase.COLUMN_NAME,
@@ -116,7 +116,7 @@ public class UnitsData {
             InfinityDatabase.COLUMN_BSW,
             InfinityDatabase.COLUMN_CCW,
             InfinityDatabase.COLUMN_SPEC,
-            InfinityDatabase.COLUMN_CHILD_SPECIFIC,
+            InfinityDatabase.COLUMN_OPTION_SPECIFIC,
             InfinityDatabase.COLUMN_ALL_DIE,
             InfinityDatabase.COLUMN_AVA
     };
@@ -166,9 +166,9 @@ public class UnitsData {
 
             List<Child> children = unit.children;
             for (Child child : children) {
-                long optionId = writeOption(child, unitId);
-                if (optionId == -1) {
-                    Log.d(TAG, "failed to write option");
+                long childId = writeChild(child, unitId);
+                if (childId == -1) {
+                    Log.d(TAG, "failed to write child");
                     return;
                 }
             }
@@ -365,10 +365,10 @@ public class UnitsData {
         return retval;
     }
 
-    private ArrayList<Child> getOptions(long unitId) {
+    private ArrayList<Child> getChildren(long unitId) {
         Cursor cursor = null;
         try {
-            cursor = m_database.query(InfinityDatabase.TABLE_CHILDREN, optionsColumns, InfinityDatabase.COLUMN_UNIT_ID + "=" + unitId, null, null, null, null, null);
+            cursor = m_database.query(InfinityDatabase.TABLE_CHILDREN, childColumns, InfinityDatabase.COLUMN_UNIT_ID + "=" + unitId, null, null, null, null, null);
 
 
             cursor.moveToFirst();
@@ -376,7 +376,7 @@ public class UnitsData {
             ArrayList<Child> children = new ArrayList<>();
 
             while (!cursor.isAfterLast()) {
-                Child child = cursorToOption(cursor);
+                Child child = cursorToChild(cursor);
 
                 children.add(child);
 
@@ -392,37 +392,37 @@ public class UnitsData {
         }
     }
 
-    private Child cursorToOption(Cursor cursor) {
+    private Child cursorToChild(Cursor cursor) {
         Child child = new Child();
 
         // 0 - COLUMN_ID + " integer primary key, " +
         // 1 - COLUMN_UNIT_ID + " integer, " +
+        child.id = cursor.getInt(2);
+        child.name = cursor.getString(3);
+        child.code = cursor.getString(4);
+        child.note = cursor.getString(5);
+        child.codename = cursor.getString(6);
+        child.cost = cursor.getInt(7);
+        child.swc = cursor.getDouble(8);
 
-        child.name = cursor.getString(2);
-        child.code = cursor.getString(3);
-        child.note = cursor.getString(4);
-        child.codename = cursor.getString(5);
-        child.cost = cursor.getInt(6);
-        child.swc = cursor.getDouble(7);
-
-        String temp = cursor.getString(8);
+        String temp = cursor.getString(9);
         if (!temp.isEmpty()) {
             child.bsw = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
-        temp = cursor.getString(9);
+        temp = cursor.getString(10);
         if (!temp.isEmpty()) {
             child.ccw = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
-        temp = cursor.getString(10);
+        temp = cursor.getString(11);
         if (!temp.isEmpty()) {
             child.spec = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
         expandSpec(child.spec);
 
-        child.profile = cursor.getInt(11);
+        child.profile = cursor.getInt(12);
 
         return child;
 
@@ -459,45 +459,46 @@ public class UnitsData {
         // 0 - COLUMN_ID + " integer primary key, " +
         // 1 - COLUMN_UNIT_ID + " integer, " +
 
-        profile.mov = cursor.getString(2);
-        profile.cc = cursor.getString(3);
-        profile.bs = cursor.getString(4);
-        profile.ph = cursor.getString(5);
-        profile.wip = cursor.getString(6);
-        profile.arm = cursor.getString(7);
-        profile.bts = cursor.getString(8);
-        profile.wounds = cursor.getString(9);
-        profile.woundType = cursor.getString(10);
-        profile.silhouette = cursor.getString(11);
-        profile.irr = (cursor.getInt(12) != 0); // boolean
-        profile.imp = cursor.getString(13);
-        profile.cube = cursor.getString(14);
-        profile.note = cursor.getString(15);
-        profile.isc = cursor.getString(16);
-        profile.name = cursor.getString(17);
-        profile.type = cursor.getString(18);
-        profile.hackable = (cursor.getInt(19) != 0);
+        profile.id = cursor.getInt(2);
+        profile.mov = cursor.getString(3);
+        profile.cc = cursor.getString(4);
+        profile.bs = cursor.getString(5);
+        profile.ph = cursor.getString(6);
+        profile.wip = cursor.getString(7);
+        profile.arm = cursor.getString(8);
+        profile.bts = cursor.getString(9);
+        profile.wounds = cursor.getString(10);
+        profile.woundType = cursor.getString(11);
+        profile.silhouette = cursor.getString(12);
+        profile.irr = (cursor.getInt(13) != 0); // boolean
+        profile.imp = cursor.getString(14);
+        profile.cube = cursor.getString(15);
+        profile.note = cursor.getString(16);
+        profile.isc = cursor.getString(17);
+        profile.name = cursor.getString(18);
+        profile.type = cursor.getString(19);
+        profile.hackable = (cursor.getInt(20) != 0);
 
-        String temp = cursor.getString(20);
+        String temp = cursor.getString(21);
         if (!temp.isEmpty()) {
             profile.bsw = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
-        temp = cursor.getString(21);
+        temp = cursor.getString(22);
         if (!temp.isEmpty()) {
             profile.ccw = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
-        temp = cursor.getString(22);
+        temp = cursor.getString(23);
         if (!temp.isEmpty()) {
             profile.spec = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
         expandSpec(profile.spec);
 
-        profile.optionSpecific = cursor.getString(23);
-        profile.allProfilesMustDie = cursor.getString(24);
-        profile.ava = cursor.getString(25);
+        profile.optionSpecific = cursor.getString(24);
+        profile.allProfilesMustDie = cursor.getString(25);
+        profile.ava = cursor.getString(26);
 
         return profile;
     }
@@ -563,17 +564,18 @@ public class UnitsData {
         // read profiles
         unit.profiles = getProfiles(unit.id);
 
-        // read options
-        unit.children = getOptions(unit.id);
+        // read children
+        unit.children = getChildren(unit.id);
 
         return unit;
     }
 
-    private long writeOption(Child child, long unitId) {
+    private long writeChild(Child child, long unitId) {
 
         ContentValues v = new ContentValues();
 
         v.put(InfinityDatabase.COLUMN_UNIT_ID, unitId);
+        v.put(InfinityDatabase.COLUMN_CHILD_ID, child.id);
         v.put(InfinityDatabase.COLUMN_NAME, child.name);
         v.put(InfinityDatabase.COLUMN_CODE, child.code);
         v.put(InfinityDatabase.COLUMN_NOTE, child.note);
@@ -593,6 +595,7 @@ public class UnitsData {
         ContentValues v = new ContentValues();
 
         v.put(InfinityDatabase.COLUMN_UNIT_ID, unitId);
+        v.put(InfinityDatabase.COLUMN_PROFILE_ID, profile.id);
         v.put(InfinityDatabase.COLUMN_MOV, profile.mov);
         v.put(InfinityDatabase.COLUMN_CC, profile.cc);
         v.put(InfinityDatabase.COLUMN_BS, profile.bs);
@@ -614,7 +617,7 @@ public class UnitsData {
         v.put(InfinityDatabase.COLUMN_BSW, TextUtils.join(",", profile.bsw));
         v.put(InfinityDatabase.COLUMN_CCW, TextUtils.join(",", profile.ccw));
         v.put(InfinityDatabase.COLUMN_SPEC, TextUtils.join(",", profile.spec));
-        v.put(InfinityDatabase.COLUMN_CHILD_SPECIFIC, profile.optionSpecific);
+        v.put(InfinityDatabase.COLUMN_OPTION_SPECIFIC, profile.optionSpecific);
         v.put(InfinityDatabase.COLUMN_ALL_DIE, profile.allProfilesMustDie);
         v.put(InfinityDatabase.COLUMN_AVA, profile.ava);
 

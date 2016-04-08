@@ -28,20 +28,20 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class SectorialParser {
+public class ArmyParser {
 
-    private final String TAG = SectorialParser.class.getSimpleName();
+    private final String TAG = ArmyParser.class.getSimpleName();
 
     private Context m_context;
 
-    public SectorialParser(Context context) {
+    public ArmyParser(Context context) {
         m_context = context;
     }
 
     public ArrayList<Army> parse(int resourceId) {
         InputStream inputStream = m_context.getResources().openRawResource(resourceId);
 
-        ArrayList<Army> sectorials = new ArrayList<Army>();
+        ArrayList<Army> armies = new ArrayList<Army>();
 
         JsonReader reader = new JsonReader(new InputStreamReader(inputStream));
 
@@ -49,7 +49,7 @@ public class SectorialParser {
             reader.beginArray();
 
             while (reader.hasNext()) {
-                sectorials.add(parseSectorialArmy(reader));
+                armies.add(parseArmy(reader));
             }
 
             reader.endArray();
@@ -57,10 +57,10 @@ public class SectorialParser {
             ioe.printStackTrace();
         }
 
-        return sectorials;
+        return armies;
     }
 
-    private Army parseSectorialArmy(JsonReader reader) throws IOException {
+    private Army parseArmy(JsonReader reader) throws IOException {
         reader.beginObject();
 
         Army sectorial = new Army();
@@ -77,7 +77,7 @@ public class SectorialParser {
             } else if (name.equals("units")) {
                 sectorial.units.addAll(parseSectorialUnits(reader));
             } else {
-                throw new IOException("Unable to parse tag in parseSectorialArmy: " + name);
+                throw new IOException("Unable to parse tag in parseArmy: " + name);
             }
         }
         reader.endObject();

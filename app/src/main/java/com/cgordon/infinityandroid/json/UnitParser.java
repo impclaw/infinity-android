@@ -151,7 +151,7 @@ public class UnitParser {
                 profile.silhouette = reader.nextString();
             } else if (name.equals("id")) {
                 unit.id = reader.nextInt();
-                Log.d(TAG, "index: " + reader.nextString());
+                Log.d(TAG, "id: " + unit.id);
             } else {
                 throw new IOException("Unknown tag in parse Unit: " + name);
             }
