@@ -1,5 +1,5 @@
 /*
- * Copyright 2015-2016 by Chris Gordon
+ * Copyright 2016 by Chris Gordon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,29 +20,21 @@ package com.cgordon.infinityandroid.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
-
-public class ArmyUnit implements Parcelable {
+public class ArmyUnitChild implements Parcelable {
 
     public long dbId;
     public int id;
-    public long armyId;
-    public String ava;
-    public boolean linkable;
+    public Double swc;
+    public boolean hide;
 
-    public ArrayList children;
-
-    public ArmyUnit() {
-        children = new ArrayList<ArmyUnitChild>();
+    public ArmyUnitChild() {
     }
 
-    public ArmyUnit(Parcel parcel) {
+    public ArmyUnitChild(Parcel parcel) {
         dbId = parcel.readLong();
         id = parcel.readInt();
-        armyId = parcel.readLong();
-        ava = parcel.readString();
-        linkable = parcel.readByte() != 0;     //linkable == true if byte != 0
-        children = parcel.readArrayList(null);
+        swc = parcel.readDouble();
+        hide = parcel.readByte() != 0;     //true if byte != 0
     }
 
     public static final Parcelable.Creator<ArmyUnit> CREATOR
@@ -65,10 +57,8 @@ public class ArmyUnit implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(dbId);
         dest.writeInt(id);
-        dest.writeLong(armyId);
-        dest.writeString(ava);
-        dest.writeByte((byte) (linkable ? 1 : 0));     //if linkable == true, byte == 1
-        dest.writeList(children);
+        dest.writeDouble(swc);
+        dest.writeByte((byte) (hide ? 1 : 0));     //true, byte == 1
 
     }
 }

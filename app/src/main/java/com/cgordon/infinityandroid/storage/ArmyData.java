@@ -138,7 +138,7 @@ public class ArmyData {
             ArrayList<ArmyUnit> armyUnits = new ArrayList<>();
 
             while (!cursor.isAfterLast()) {
-                ArmyUnit armyUnit = cursorToSectorialUnit(cursor);
+                ArmyUnit armyUnit = cursorToArmyUnit(cursor);
 
                 armyUnits.add(armyUnit);
 
@@ -154,15 +154,14 @@ public class ArmyData {
 
     }
 
-    private ArmyUnit cursorToSectorialUnit(Cursor cursor) {
+    private ArmyUnit cursorToArmyUnit(Cursor cursor) {
         ArmyUnit armyUnit = new ArmyUnit();
 
         armyUnit.dbId = cursor.getLong(0);
-        armyUnit.sectorialId = cursor.getLong(1);
+        armyUnit.armyId = cursor.getLong(1);
         armyUnit.ava = cursor.getString(2);
-        armyUnit.isc = cursor.getString(3);
+        armyUnit.id = cursor.getInt(3);
         armyUnit.linkable = (cursor.getInt(4) != 0); // boolean
-        armyUnit.army = cursor.getString(5);
 
         return armyUnit;
     }
@@ -184,9 +183,8 @@ public class ArmyData {
 
         v.put(InfinityDatabase.COLUMN_ARMY_ID, sectorialId);
         v.put(InfinityDatabase.COLUMN_AVA, armyUnit.ava);
-        v.put(InfinityDatabase.COLUMN_ISC, armyUnit.isc);
+        v.put(InfinityDatabase.COLUMN_ID, armyUnit.id);
         v.put(InfinityDatabase.COLUMN_LINKABLE, armyUnit.linkable);
-        v.put(InfinityDatabase.COLUMN_FACTION, armyUnit.army);
 
         return m_database.insert(InfinityDatabase.TABLE_ARMY_UNITS, null, v);
     }

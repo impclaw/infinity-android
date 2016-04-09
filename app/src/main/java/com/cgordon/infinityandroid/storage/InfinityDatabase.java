@@ -96,6 +96,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_PROFILE = "profile"; // This option requires an additional profile (0-based index)
 
     public static final String COLUMN_ARMY_UNIT_ID = "army_unit_id";
+    public static final String COLUMN_ARMY_UNIT_CHILD_ID = "army_unit_child_id";
     public static final String COLUMN_HIDE = "hide";
 
 
@@ -254,16 +255,16 @@ public class InfinityDatabase extends SQLiteOpenHelper {
             COLUMN_ID + " integer primary key, " +
             COLUMN_ARMY_ID + " integer, " +
             COLUMN_AVA + " text, " +
-            COLUMN_UNIT_ID + " text, " +
-            COLUMN_LINKABLE + " integer, " + // boolean
-            COLUMN_FACTION + " text " +
+            COLUMN_UNIT_ID + " integer, " +
+            COLUMN_LINKABLE + " integer " + // boolean
             ");";
 
     private static final String CREATE_TABLE_ARMY_UNITS_CHILDREN = "create table " + TABLE_ARMY_UNITS_CHILDREN + " ( " +
             COLUMN_ID + " integer primary key, " +
             COLUMN_ARMY_UNIT_ID + " integer, " +
-            COLUMN_SWC + " text, " +
-            COLUMN_HIDE + " text " +
+            COLUMN_ARMY_UNIT_CHILD_ID + " integer, " +
+            COLUMN_SWC + " real, " +
+            COLUMN_HIDE + " integer " +  // boolean
             ");";
 
     private static final String CREATE_TABLE_ARMY_LISTS = "create table if not exists " + TABLE_ARMY_LISTS + " ( " +

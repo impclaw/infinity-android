@@ -22,6 +22,7 @@ import android.util.JsonReader;
 
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.ArmyUnit;
+import com.cgordon.infinityandroid.data.ArmyUnitChild;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -63,35 +64,35 @@ public class ArmyParser {
     private Army parseArmy(JsonReader reader) throws IOException {
         reader.beginObject();
 
-        Army sectorial = new Army();
+        Army army = new Army();
 
         while (reader.hasNext()) {
             String name = reader.nextName();
 
             if (name.equals("army")) {
-                sectorial.faction = reader.nextString();
+                army.faction = reader.nextString();
             } else if (name.equals("name")) {
-                sectorial.name = reader.nextString();
+                army.name = reader.nextString();
             } else if (name.equals("abbr")) {
-                sectorial.abbr = reader.nextString();
+                army.abbr = reader.nextString();
             } else if (name.equals("units")) {
-                sectorial.units.addAll(parseSectorialUnits(reader));
+                army.units.addAll(parseArmyUnits(reader));
             } else {
                 throw new IOException("Unable to parse tag in parseArmy: " + name);
             }
         }
         reader.endObject();
 
-        return sectorial;
+        return army;
     }
 
-    private ArrayList<ArmyUnit> parseSectorialUnits(JsonReader reader) throws IOException {
+    private ArrayList<ArmyUnit> parseArmyUnits(JsonReader reader) throws IOException {
         reader.beginArray();
 
         ArrayList<ArmyUnit> units = new ArrayList<ArmyUnit>();
 
         while (reader.hasNext()) {
-            units.add(parseSectorialUnit(reader));
+            units.add(parseArmyUnit(reader));
         }
 
         reader.endArray();
@@ -100,7 +101,7 @@ public class ArmyParser {
 
     }
 
-    private ArmyUnit parseSectorialUnit(JsonReader reader) throws IOException {
+    private ArmyUnit parseArmyUnit(JsonReader reader) throws IOException {
         reader.beginObject();
 
         ArmyUnit unit = new ArmyUnit();
@@ -110,19 +111,62 @@ public class ArmyParser {
 
             if (name.equals("ava")) {
                 unit.ava = reader.nextString();
-            } else if (name.equals("isc")) {
-                unit.isc = reader.nextString();
+            } else if (name.equals("id")) {
+                unit.id = reader.nextInt();
             } else if (name.equals("linkable")) {
                 unit.linkable = reader.nextBoolean();
-            } else if (name.equals("army")) { // it's from an faction other than the sectorial faction
-                unit.army = reader.nextString();
+            } else if (name.equals("comment")) {
+                reader.nextString();
+            } else if (name.equals("childs")) {
+                unit.children.addAll(parseArmyUnitChildren(reader));
             } else {
-                throw new IOException("unknown tag in parseSectorialUnit: " + name);
+                throw new IOException("unknown tag in parseArmyUnit: " + name);
             }
         }
 
         reader.endObject();
 
         return unit;
+    }
+
+    private ArrayList<ArmyUnitChild> parseArmyUnitChildren(JsonReader reader) throws IOException {
+        reader.beginArray();
+
+        ArrayList<ArmyUnitChild> unitChildren = new ArrayList<ArmyUnitChild>();
+
+        while (reader.hasNext()) {
+            unitChildren.add(parseArmyUnitChild(reader));
+        }
+
+        reader.endArray();
+
+        return unitChildren;
+
+    }
+
+    private ArmyUnitChild parseArmyUnitChild(JsonReader reader) throws IOException {
+        reader.beginObject();
+
+        ArmyUnitChild unitChild = new ArmyUnitChild();
+
+        while (reader.hasNext()) {
+            String name = reader.nextName();
+
+            if (name.equals("id")) {
+                unitChild.id = reader.nextInt();
+            } else if (name.equals("swc")) {
+                unitChild.swc = reader.nextDouble();
+            } else if (name.equals("hide")) {
+                unitChild.hide = reader.nextBoolean();
+            } else if (name.equals("comment")) {
+                reader.nextString();
+            } else {
+                throw new IOException("unknown tag in parseArmyUnit: " + name);
+            }
+        }
+
+        reader.endObject();
+
+        return unitChild;
     }
 }
