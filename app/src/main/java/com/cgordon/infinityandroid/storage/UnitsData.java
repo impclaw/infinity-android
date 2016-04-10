@@ -80,6 +80,7 @@ public class UnitsData {
     private final String[] childColumns = {
             InfinityDatabase.COLUMN_ID,
             InfinityDatabase.COLUMN_UNIT_ID,
+            InfinityDatabase.COLUMN_CHILD_ID,
             InfinityDatabase.COLUMN_NAME,
             InfinityDatabase.COLUMN_CODE,
             InfinityDatabase.COLUMN_NOTE,
@@ -95,6 +96,7 @@ public class UnitsData {
     private final String[] profileColumns = {
             InfinityDatabase.COLUMN_ID,
             InfinityDatabase.COLUMN_UNIT_ID,
+            InfinityDatabase.COLUMN_PROFILE_ID,
             InfinityDatabase.COLUMN_MOV,
             InfinityDatabase.COLUMN_CC,
             InfinityDatabase.COLUMN_BS,
