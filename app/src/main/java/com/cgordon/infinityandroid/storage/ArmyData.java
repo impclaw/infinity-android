@@ -183,7 +183,7 @@ public class ArmyData {
 
         v.put(InfinityDatabase.COLUMN_ARMY_ID, sectorialId);
         v.put(InfinityDatabase.COLUMN_AVA, armyUnit.ava);
-        v.put(InfinityDatabase.COLUMN_ID, armyUnit.id);
+        v.put(InfinityDatabase.COLUMN_UNIT_ID, armyUnit.id);
         v.put(InfinityDatabase.COLUMN_LINKABLE, armyUnit.linkable);
 
         return m_database.insert(InfinityDatabase.TABLE_ARMY_UNITS, null, v);

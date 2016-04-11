@@ -321,9 +321,29 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         ArmyData armyData = new ArmyData(db);
 
         armyData.writeArmy(armyParser.parse(R.raw.pano_army));
+        armyData.writeArmy(armyParser.parse(R.raw.yuji_army));
+        armyData.writeArmy(armyParser.parse(R.raw.aria_army));
+        armyData.writeArmy(armyParser.parse(R.raw.haqq_army));
+        armyData.writeArmy(armyParser.parse(R.raw.noma_army));
+        armyData.writeArmy(armyParser.parse(R.raw.comb_army));
+        armyData.writeArmy(armyParser.parse(R.raw.alep_army));
+        armyData.writeArmy(armyParser.parse(R.raw.toha_army));
+        armyData.writeArmy(armyParser.parse(R.raw.merc_army));
         armyData.writeArmy(armyParser.parse(R.raw.pano_acontecimento_army));
         armyData.writeArmy(armyParser.parse(R.raw.pano_militaryorders_army));
         armyData.writeArmy(armyParser.parse(R.raw.pano_noeterran_army));
+        armyData.writeArmy(armyParser.parse(R.raw.yuji_imperialservice_army));
+        armyData.writeArmy(armyParser.parse(R.raw.yuji_jsa_army));
+        armyData.writeArmy(armyParser.parse(R.raw.aria_caledonian_army));
+        armyData.writeArmy(armyParser.parse(R.raw.aria_mrrf_army));
+        armyData.writeArmy(armyParser.parse(R.raw.aria_usa_army));
+        armyData.writeArmy(armyParser.parse(R.raw.haqq_qk_army));
+        armyData.writeArmy(armyParser.parse(R.raw.haqq_hassassin_army));
+        armyData.writeArmy(armyParser.parse(R.raw.noma_bakunin_army));
+        armyData.writeArmy(armyParser.parse(R.raw.noma_corregidor_army));
+        armyData.writeArmy(armyParser.parse(R.raw.comb_morat_army));
+        armyData.writeArmy(armyParser.parse(R.raw.comb_shasvastii_army));
+        armyData.writeArmy(armyParser.parse(R.raw.alep_phalanx_army));
 
         // Load weapon data
         WeaponParser weaponParser = new WeaponParser(m_context);
