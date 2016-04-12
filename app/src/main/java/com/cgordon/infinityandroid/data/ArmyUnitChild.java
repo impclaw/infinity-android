@@ -23,15 +23,23 @@ import android.os.Parcelable;
 public class ArmyUnitChild implements Parcelable {
 
     public long dbId;
+    public long armyId;
+    public int unitId;
     public int id;
     public Double swc;
     public boolean hide;
 
     public ArmyUnitChild() {
+        // since SWC can be 0.0 legitmately, we need to differentiate between an un-set SWC and
+        // a 0 SWC
+        swc = -1.0;
     }
 
     public ArmyUnitChild(Parcel parcel) {
+
         dbId = parcel.readLong();
+        armyId = parcel.readLong();
+        unitId = parcel.readInt();
         id = parcel.readInt();
         swc = parcel.readDouble();
         hide = parcel.readByte() != 0;     //true if byte != 0
@@ -56,6 +64,8 @@ public class ArmyUnitChild implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(dbId);
+        dest.writeLong(armyId);
+        dest.writeInt(unitId);
         dest.writeInt(id);
         dest.writeDouble(swc);
         dest.writeByte((byte) (hide ? 1 : 0));     //true, byte == 1

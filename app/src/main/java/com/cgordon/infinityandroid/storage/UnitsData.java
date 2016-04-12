@@ -27,6 +27,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.cgordon.infinityandroid.data.Army;
+import com.cgordon.infinityandroid.data.ArmyUnitChild;
 import com.cgordon.infinityandroid.data.Child;
 import com.cgordon.infinityandroid.data.Profile;
 import com.cgordon.infinityandroid.data.Unit;
@@ -35,6 +36,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class UnitsData {
 
@@ -123,6 +125,7 @@ public class UnitsData {
             InfinityDatabase.COLUMN_AVA
     };
 
+
     public static final String ShowMercenariesListKey = "show_mercs";
 
     private SharedPreferences m_prefs;
@@ -209,7 +212,7 @@ public class UnitsData {
             for (int i = 0; i < columns.length; i++) {
                 sb.append(columns[i]).append(": ").append(cursor.getString(i)).append(" ");
             }
-            //Log.d(TAG, "ISC: " + sb.toString());
+            Log.d(TAG, "ISC: " + sb.toString());
 
             cursor.moveToNext();
 
@@ -248,9 +251,50 @@ public class UnitsData {
             );
 
             Log.e(TAG, "join units: " + cursor.getCount());
-            printCursor(cursor);
+            //printCursor(cursor);
             List<Unit> armyUnits = getArmyUnits(cursor);
             cursor.close();
+
+            // load specific army changes to the basic unit data.  ie. child entries that change swc
+            // costs or hide entries.
+
+            // get the list of differences for this army
+            Map<Integer, Map<Integer, ArmyUnitChild>> children = ArmyData.getArmyUnitChildren(army.dbId, m_database);
+
+            // loop through the list of units for this army
+            Iterator armyUnit_it = armyUnits.iterator();
+            while (armyUnit_it.hasNext()) {
+                Unit armyUnit = (Unit) armyUnit_it.next();
+
+                // if the unit id for this unit is in the map of unit-specific child modifications
+                if (children.containsKey((int)armyUnit.id)) {
+
+                    // get the list of child specific modifications
+                    Map<Integer, ArmyUnitChild> currentArmyUnitChildren = children.get((int) armyUnit.id);
+
+                    // loop through the list of children for this unit to apply the changes.
+                    Iterator children_it = armyUnit.children.iterator();
+                    while (children_it.hasNext()) {
+                        Child unitChild = (Child) children_it.next();
+
+                        // check the map for the current unit child id and apply the changes.
+                        if(currentArmyUnitChildren.containsKey(unitChild.id)) {
+                            ArmyUnitChild currentArmyChild = currentArmyUnitChildren.get(unitChild.id);;
+                            if (currentArmyChild.swc >=0) {
+                                unitChild.swc = currentArmyChild.swc;
+                            }
+                            if (currentArmyChild.hide) {
+                                children_it.remove();
+                            }
+                        }
+                    }
+
+                }
+            }
+
+
+
+
 
             boolean showMercs = false;
             if (m_prefs.contains(ShowMercenariesListKey)) {

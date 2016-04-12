@@ -25,10 +25,13 @@ import android.util.Log;
 
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.ArmyUnit;
+import com.cgordon.infinityandroid.data.ArmyUnitChild;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by cgordon on 6/1/2015.
@@ -55,6 +58,17 @@ public class ArmyData {
             InfinityDatabase.COLUMN_LINKABLE,
             InfinityDatabase.COLUMN_FACTION
     };
+
+    public static final String[] armyUnitChildColumns = {
+            InfinityDatabase.COLUMN_ID,
+            InfinityDatabase.COLUMN_ARMY_ID,
+            InfinityDatabase.COLUMN_ARMY_UNIT_ID,
+            InfinityDatabase.COLUMN_ARMY_UNIT_CHILD_ID,
+            InfinityDatabase.COLUMN_SWC,
+            InfinityDatabase.COLUMN_HIDE  // boolean
+    };
+
+
 
 
     public ArmyData(Context context) {
@@ -96,6 +110,12 @@ public class ArmyData {
                 if (armyUnitId == -1) {
                     Log.d(TAG, "Failed to write armyUnit");
                     return;
+                } else {
+                    if (!writeArmyUnitChildren(armyUnit.children, armyId, armyUnit.id)) {
+                        Log.d(TAG, "Failed to write armyUnitChildren");
+                        return;
+
+                    }
                 }
 
             }
@@ -154,6 +174,62 @@ public class ArmyData {
 
     }
 
+    static public Map<Integer, Map<Integer, ArmyUnitChild>> getArmyUnitChildren(long armyId, SQLiteDatabase database) {
+        Cursor cursor = null;
+        try {
+            cursor = database.query(InfinityDatabase.TABLE_ARMY_UNITS_CHILDREN,
+                    armyUnitChildColumns, InfinityDatabase.COLUMN_ARMY_ID + "=" + armyId, null,
+                    null, null, null, null);
+
+            cursor.moveToFirst();
+
+            Map<Integer, Map<Integer, ArmyUnitChild>> armyUnitChildren = new HashMap<>();
+
+            while (!cursor.isAfterLast()) {
+                ArmyUnitChild armyUnitChild =  new ArmyUnitChild();
+
+                armyUnitChild.dbId = cursor.getLong(0);
+                armyUnitChild.armyId = cursor.getLong(1);
+                armyUnitChild.unitId = cursor.getInt(2);
+                armyUnitChild.id = cursor.getInt(3);
+                armyUnitChild.swc = cursor.getDouble(4);
+                armyUnitChild.hide = (cursor.getInt(5) != 0); // boolean
+
+                Map<Integer, ArmyUnitChild> childList;
+                if (armyUnitChildren.containsKey(armyUnitChild.unitId)) {
+                    childList = armyUnitChildren.get(armyUnitChild.unitId);
+                } else {
+                    childList = new HashMap<>();
+                    armyUnitChildren.put(armyUnitChild.unitId, childList);
+                }
+
+                childList.put(armyUnitChild.id, armyUnitChild);
+
+                cursor.moveToNext();
+            }
+
+            return armyUnitChildren;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+
+    }
+//
+//    public static ArmyUnitChild cursorToArmyUnitChild(Cursor cursor) {
+//        ArmyUnitChild child = new ArmyUnitChild();
+//
+//        child.dbId = cursor.getLong(0);
+//        child.armyId = cursor.getLong(1);
+//        child.unitId = cursor.getInt(2);
+//        child.id = cursor.getInt(3);
+//        child.swc = cursor.getDouble(4);
+//        child.hide = (cursor.getInt(5) != 0); // boolean
+//
+//        return child;
+//    }
+
     private ArmyUnit cursorToArmyUnit(Cursor cursor) {
         ArmyUnit armyUnit = new ArmyUnit();
 
@@ -176,6 +252,38 @@ public class ArmyData {
 
         return sectorial;
     }
+
+    private boolean writeArmyUnitChildren(ArrayList<ArmyUnitChild> children, long armyId, long armyUnitId) {
+
+        Iterator it = children.iterator();
+
+        while (it.hasNext()) {
+            ArmyUnitChild child = (ArmyUnitChild) it.next();
+
+            /*
+            InfinityDatabase.COLUMN_ID,
+            InfinityDatabase.COLUMN_ARMY_ID,
+            InfinityDatabase.COLUMN_ARMY_UNIT_ID,
+            InfinityDatabase.COLUMN_ARMY_UNIT_CHILD_ID,
+            InfinityDatabase.COLUMN_SWC,
+            InfinityDatabase.COLUMN_HIDE  // boolean
+             */
+            ContentValues v = new ContentValues();
+            v.put(InfinityDatabase.COLUMN_ARMY_ID, armyId);
+            v.put(InfinityDatabase.COLUMN_ARMY_UNIT_ID, armyUnitId);
+            v.put(InfinityDatabase.COLUMN_ARMY_UNIT_CHILD_ID, child.id);
+            v.put(InfinityDatabase.COLUMN_SWC, child.swc);
+            v.put(InfinityDatabase.COLUMN_HIDE, child.hide);
+
+            if (m_database.insert(InfinityDatabase.TABLE_ARMY_UNITS_CHILDREN, null, v) == -1) {
+                return false;
+            }
+        }
+
+
+        return true;
+    }
+
 
     private long writeArmyUnit(ArmyUnit armyUnit, long sectorialId) {
 

@@ -30,10 +30,10 @@ public class ArmyUnit implements Parcelable {
     public String ava;
     public boolean linkable;
 
-    public ArrayList children;
+    public ArrayList<ArmyUnitChild> children;
 
     public ArmyUnit() {
-        children = new ArrayList<ArmyUnitChild>();
+        children = new ArrayList<>();
     }
 
     public ArmyUnit(Parcel parcel) {

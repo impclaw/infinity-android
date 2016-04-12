@@ -261,6 +261,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
 
     private static final String CREATE_TABLE_ARMY_UNITS_CHILDREN = "create table " + TABLE_ARMY_UNITS_CHILDREN + " ( " +
             COLUMN_ID + " integer primary key, " +
+            COLUMN_ARMY_ID + " integer, " +
             COLUMN_ARMY_UNIT_ID + " integer, " +
             COLUMN_ARMY_UNIT_CHILD_ID + " integer, " +
             COLUMN_SWC + " real, " +
