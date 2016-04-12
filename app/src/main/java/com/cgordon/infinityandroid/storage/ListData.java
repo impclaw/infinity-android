@@ -52,7 +52,7 @@ public class ListData {
             InfinityDatabase.COLUMN_LIST_ID,
             InfinityDatabase.COLUMN_GROUP,
             InfinityDatabase.COLUMN_UNIT_ID,
-            InfinityDatabase.COLUMN_PROFILE,
+            InfinityDatabase.COLUMN_CHILD_ID,
     };
 
     public ListData(Context context) {
@@ -111,7 +111,7 @@ public class ListData {
                     Unit unit = (Unit) listItem.getKey();
                     v.put(InfinityDatabase.COLUMN_GROUP, combatGroup);
                     v.put(InfinityDatabase.COLUMN_UNIT_ID, unit.id);
-                    v.put(InfinityDatabase.COLUMN_PROFILE, listItem.getValue());
+                    v.put(InfinityDatabase.COLUMN_CHILD_ID, listItem.getValue());
 
                     if (m_database.insert(InfinityDatabase.TABLE_ARMY_LIST_UNITS, null, v) == -1) {
                         listId = -1;
