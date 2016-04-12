@@ -224,127 +224,72 @@ public class UnitsData {
 
         Cursor cursor = null;
 
+        // get the data for the army as a whole.  Join the Army List with the Unit Data.
+
         try {
-            // there are two cases for an army.  Either it's the base force, where they need all the
-            // units or it's a sectorial where they need a specific subset
+            cursor = m_database.rawQuery("SELECT " +
 
-            // full faction
-//            if (army.name.equals(army.faction)) {
-//                cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
-//                        InfinityDatabase.COLUMN_FACTION + "='" + army.name + "'", null, null, null, InfinityDatabase.COLUMN_ISC, null);
-//
-//                List<Unit> units = getArmyUnits(cursor);
-//                cursor.close();
-//
-//                boolean showMercs = true;
-//                if (m_prefs.contains(ShowMercenariesListKey)) {
-//                    showMercs = m_prefs.getBoolean(ShowMercenariesListKey, true);
-//                }
-//
-//                if (showMercs) {
-//
-//                    // go get the list of mercenaries for the main factions.  Not allowed for aliens (and
-//                    // mercenaries)
-//                    if ((!army.name.equals("Combined Army"))
-//                            && (!army.name.equals("Tohaa"))
-//                            && (!army.name.equals("Mercenary"))) {
-//
-//                        cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
-//                                InfinityDatabase.COLUMN_FACTION + "='Mercenary'", null, null, null, InfinityDatabase.COLUMN_ISC, null);
-//
-//
-//                        cursor.moveToFirst();
-//                        while (!cursor.isAfterLast()) {
-//
-//                            Unit unit = cursorToUnit(cursor);
-//
-//                            // don't re-add units in the case where there is both a faction and merc
-//                            // version of the same unit.
-//                            if (!units.contains(unit)) {
-//                                units.add(unit);
-//                            }
-//
-//                            cursor.moveToNext();
-//                        }
-//                        cursor.close();
-//
-//                    } else if ((army.name.equals("Combined Army"))
-//                            || (army.name.equals("Tohaa"))) {
-//                        // we need to add armand 'le muet' to the list.  He's a special case
-//                        cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
-//                                InfinityDatabase.COLUMN_NAME + "='Armand'", null, null, null,
-//                                InfinityDatabase.COLUMN_ISC, null);
-//                        cursor.moveToFirst();
-//                        Unit unit = cursorToUnit(cursor);
-//                        if (!units.contains(unit)) {
-//                            units.add(unit);
-//                        }
-//                        cursor.close();
-//
-//
-//                    }
-//                }
-//
-//
-//
-//
-//                return units;
-//            } else {
+                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ID + ", " +
+                InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_AVA + ", " +
+                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_SHARED_AVA + ", " +
+                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_FACTION + ", " +
+                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_NOTE + ", " +
+                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_NAME + ", " +
+                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ISC + ", " +
+                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_IMAGE + ", " +
+                InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_LINKABLE
 
-//            cursor = m_database.rawQuery("SELECT " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ISC + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
-//                    + " where " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ARMY_ID + "=" + army.id
-//                    , null);
-//            Log.e(TAG, "army units isc count: "+cursor.getCount());
-//            printCursor(cursor);
-//            cursor.close();
+                + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
+                + " INNER JOIN " + InfinityDatabase.TABLE_UNITS
+                + " ON " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_UNIT_ID + " like " + InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ID
+                + " where " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
+                + " order by " + InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ISC
+                , null
+            );
 
-                cursor = m_database.rawQuery("SELECT " +
+            Log.e(TAG, "join units: " + cursor.getCount());
+            printCursor(cursor);
+            List<Unit> armyUnits = getArmyUnits(cursor);
+            cursor.close();
 
-                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ID + ", " +
-                                InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_AVA + ", " +
-                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_SHARED_AVA + ", " +
-                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_FACTION + ", " +
-                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_NOTE + ", " +
-                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_NAME + ", " +
-                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ISC + ", " +
-                                InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_IMAGE + ", " +
-                                InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_LINKABLE
+            boolean showMercs = false;
+            if (m_prefs.contains(ShowMercenariesListKey)) {
+                showMercs = m_prefs.getBoolean(ShowMercenariesListKey, false);
+            }
 
-                                + " FROM " + InfinityDatabase.TABLE_ARMY_UNITS
-                                + " INNER JOIN " + InfinityDatabase.TABLE_UNITS
-                                + " ON " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_UNIT_ID + " like " + InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ID
-                                + " where " + InfinityDatabase.TABLE_ARMY_UNITS + "." + InfinityDatabase.COLUMN_ARMY_ID + "=" + army.dbId
-                                + " order by " + InfinityDatabase.TABLE_UNITS + "." + InfinityDatabase.COLUMN_ISC
-                        ,
-                        null
-                );
+            // mercs are only allowed for vanilla factions.
+            if (army.name.equals(army.faction) && showMercs) {
 
-                Log.e(TAG, "join units: " + cursor.getCount());
-                printCursor(cursor);
-                List<Unit> armyUnits = getArmyUnits(cursor);
-                cursor.close();
+                // go get the list of mercenaries for the main factions.  Not allowed for aliens (and
+                // mercenaries)
+                if ((!army.name.equals("Combined Army"))
+                        && (!army.name.equals("Tohaa"))
+                        && (!army.name.equals("Mercenary"))) {
 
-                // remove mercenary duplicates - because we're using a non-unique key to join the
-                // tables, we get duplicate entries if the unit is available as both a faction and
-                // mercenary unit (ie. KTS in Qapu Khalki).  go through and remove the mercenary
-                // entry
+                    cursor = m_database.query(InfinityDatabase.TABLE_UNITS, unitColumns,
+                            InfinityDatabase.COLUMN_FACTION + "='Mercenary'", null, null, null, InfinityDatabase.COLUMN_ISC, null);
 
-                Iterator i = armyUnits.iterator();
 
-                Log.d(TAG, "Loaded units");
-                String previousUnit = "";
-                while (i.hasNext())
-                {
-                    Unit u = (Unit) i.next();
-                    if (u.isc.compareTo(previousUnit) == 0) {
-                        i.remove();
-                    } else {
-                        previousUnit = u.isc;
+                    cursor.moveToFirst();
+                    while (!cursor.isAfterLast()) {
+
+                        Unit unit = cursorToUnit(cursor);
+
+                        // don't re-add units in the case where there is both a faction and merc
+                        // version of the same unit.
+                        if (!armyUnits.contains(unit)) {
+                            armyUnits.add(unit);
+                        }
+
+                        cursor.moveToNext();
                     }
+                    cursor.close();
                 }
 
-                return armyUnits;
-//            }
+            }
+
+            return armyUnits;
+
         } finally {
             if (cursor != null) {
                 cursor.close();
