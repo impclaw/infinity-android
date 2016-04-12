@@ -374,8 +374,9 @@ public class ListConstructionActivity extends AppCompatActivity
             m_listDbId = m_listConstructionFragment.saveList(m_listName, m_army.dbId, 300, m_listDbId);
             if(m_listDbId != -1) {
                 m_listDirty = false;
+                Toast.makeText(this, "List Saved", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(this, "Save failed!", Toast.LENGTH_LONG);
+                Toast.makeText(this, "Save failed!", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -392,7 +393,7 @@ public class ListConstructionActivity extends AppCompatActivity
                     ListData listData = new ListData(getBaseContext());
                     listData.open();
                     if (!listData.deleteList(m_listDbId)) {
-                        Toast.makeText(getBaseContext(), R.string.error_deleting_list + m_listName, Toast.LENGTH_LONG);
+                        Toast.makeText(getBaseContext(), R.string.error_deleting_list + m_listName, Toast.LENGTH_LONG).show();
                         Log.d(TAG, "Error deleting list: " + m_listName);
                     }
                     listData.close();
@@ -403,7 +404,7 @@ public class ListConstructionActivity extends AppCompatActivity
             builder.show();
 
         } else {
-            Toast.makeText(this, R.string.list_not_saved, Toast.LENGTH_LONG);
+            Toast.makeText(this, R.string.list_not_saved, Toast.LENGTH_LONG).show();
         }
     }
 }
