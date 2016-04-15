@@ -21,12 +21,13 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class Unit implements Parcelable, ListElement {
+public class Unit implements Parcelable {
 
     public long id;
     public String ava;  // sometimes this can be 'T', so can't be an int
-    public String sharedAva; // Name of other unit that subtracts from this units Ava
+    public String sharedAva; // Name of other unit that subtracts from this armyUnits Ava
     public ArrayList<Profile> profiles;
     public ArrayList<Child> children;
     public String faction;
@@ -103,9 +104,9 @@ public class Unit implements Parcelable, ListElement {
     @Override
     public boolean equals(Object o) {
 
-        // determine equality based on ISC name.  This is used ofr indexOf operations on a list.
+        // determine equality based on ID.  This is used for indexOf operations on a list.
         if (o instanceof Unit) {
-            return isc.equals(((Unit) o).isc);
+            return id == ((Unit) o).id;
         } else {
             return super.equals(o);
         }
@@ -126,5 +127,16 @@ public class Unit implements Parcelable, ListElement {
             return new Unit[size];
         }
     };
+
+    public Child getChild(int id) {
+        Iterator it = children.iterator();
+        while (it.hasNext()) {
+            Child child = (Child) it.next();
+            if (child.id == id) {
+                return child;
+            }
+        }
+        return null;
+    }
 
 }

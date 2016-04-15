@@ -17,14 +17,19 @@
 
 package com.cgordon.infinityandroid.data;
 
-public class CombatGroup implements ListElement {
-    public int m_id = 0;
+public class UnitElement extends ListElement {
 
-    public int m_regularOrders = 0;
-    public int m_irregularOrders = 0;
-    public int m_impetuousOrders = 0;
+    public long dbId;
+    public int group;
+    public int unitId;
+    public int child;
 
-    public CombatGroup(int id) {
-        m_id = id;
+    public UnitElement() {}
+
+    public UnitElement(long dbId, int group, int unitId, int child) {
+        this.dbId = dbId;
+        this.group = group;
+        this.unitId = unitId;
+        this.child = child;
     }
 }

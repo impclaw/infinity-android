@@ -31,12 +31,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.data.CombatGroup;
+import com.cgordon.infinityandroid.data.CombatGroupElement;
 import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Child;
 import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.data.UnitElement;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
+import com.cgordon.infinityandroid.interfaces.UnitSource;
 import com.cgordon.infinityandroid.storage.ListData;
 
 import java.util.AbstractMap;
@@ -51,23 +53,40 @@ public class ListConstructionAdapter
 
 {
     private static final String TAG = ListConstructionAdapter.class.getSimpleName();
+    private final UnitSource m_unitSource;
     private UnitListFragment.UnitSelectedListener m_unitSelectedListener = null;
 
     private final int TYPE_UNIT = 0;
     private final int TYPE_GROUP = 1;
 
-    // list of unit, option selection for that unit.
-    private List<Entry<ListElement, Integer>> m_list;
-
     private Context m_context;
 
     private List<ListChangedListener> m_listeners;
 
-    public List<Entry<ListElement, Integer>> getList() {
+    // list of unit, option selection for that unit.
+    private List<ListElement> m_list;
+
+    public List<ListElement> getList() {
         return new ArrayList<>(m_list);
     }
 
+    public ListConstructionAdapter(Context context, UnitSource source) {
+        m_context = context;
+        m_unitSource = source;
+        m_list = new ArrayList<>();
 
+        m_list.add(new CombatGroupElement(1));
+        m_list.add(new CombatGroupElement(2));
+        m_list.add(new CombatGroupElement(3));
+        m_list.add(new CombatGroupElement(4));
+
+
+        m_listeners = new ArrayList<>();
+
+        if (context instanceof UnitListFragment.UnitSelectedListener) {
+            m_unitSelectedListener = (UnitListFragment.UnitSelectedListener) context;
+        }
+    }
 
     public void loadSavedList(long id) {
         if (id != -1) {
@@ -138,25 +157,8 @@ public class ListConstructionAdapter
         return m_listeners.remove(listener);
     }
 
-    public ListConstructionAdapter(Context context) {
-        m_context = context;
-        m_list = new ArrayList<>();
-
-        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(1), 0));
-        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(2), 0));
-        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(3), 0));
-        m_list.add(new AbstractMap.SimpleEntry<>((ListElement) new CombatGroup(4), 0));
-
-
-        m_listeners = new ArrayList<>();
-
-        if (context instanceof UnitListFragment.UnitSelectedListener) {
-            m_unitSelectedListener = (UnitListFragment.UnitSelectedListener) context;
-        }
-    }
-
     public void updateListener() {
-        CombatGroup currentCombatGroup = null;
+        CombatGroupElement currentCombatGroupElement = null;
         int currentCombatGroupIndex = 0;
 
         int costTotal = 0;
@@ -168,15 +170,17 @@ public class ListConstructionAdapter
 
 
         for (int i = 0; i < m_list.size(); i++) {
-            Entry e = (Entry) m_list.get(i);
-            ListElement le = (ListElement) e.getKey();
-            if (le instanceof Unit) {
-                Unit unit = (Unit) le;
-                int option = (int) e.getValue();
-                costTotal += unit.children.get(option).cost;
-                swcTotal += unit.children.get(option).swc;
+            ListElement le = m_list.get(i);
+            if (le instanceof UnitElement) {
+                UnitElement unitElement = (UnitElement) le;
 
-                if (unit.children.get(option).spec.contains("Lieutenant")) {
+                Unit unit = m_unitSource.getUnit(unitElement.unitId);
+                Child child = unit.getChild(unitElement.child);
+
+                costTotal += child.cost;
+                swcTotal += child.swc;
+
+                if (child.spec.contains("Lieutenant")) {
                     ltCount++;
                 }
 
@@ -195,25 +199,25 @@ public class ListConstructionAdapter
                     impetuousCount++;
                 }
             }
-            else if (le instanceof CombatGroup) {
-                if (currentCombatGroup != null) {
-                    currentCombatGroup.m_regularOrders = regularCount;
-                    currentCombatGroup.m_irregularOrders = irregularCount;
-                    currentCombatGroup.m_impetuousOrders = impetuousCount;
+            else if (le instanceof CombatGroupElement) {
+                if (currentCombatGroupElement != null) {
+                    currentCombatGroupElement.m_regularOrders = regularCount;
+                    currentCombatGroupElement.m_irregularOrders = irregularCount;
+                    currentCombatGroupElement.m_impetuousOrders = impetuousCount;
                     notifyItemChanged(currentCombatGroupIndex);
                 }
                 regularCount = 0;
                 irregularCount = 0;
                 impetuousCount = 0;
-                currentCombatGroup = (CombatGroup) le;
+                currentCombatGroupElement = (CombatGroupElement) le;
                 currentCombatGroupIndex = i;
             }
         }
         // update the last combat group since we're out of the loop.
-        if (currentCombatGroup != null) {
-            currentCombatGroup.m_regularOrders = regularCount;
-            currentCombatGroup.m_irregularOrders = irregularCount;
-            currentCombatGroup.m_impetuousOrders = impetuousCount;
+        if (currentCombatGroupElement != null) {
+            currentCombatGroupElement.m_regularOrders = regularCount;
+            currentCombatGroupElement.m_irregularOrders = irregularCount;
+            currentCombatGroupElement.m_impetuousOrders = impetuousCount;
             notifyItemChanged(currentCombatGroupIndex);
         }
 
@@ -247,8 +251,10 @@ public class ListConstructionAdapter
         if (holder instanceof UnitViewHolder) {
             UnitViewHolder unitViewHolder = (UnitViewHolder)holder;
 
-            Unit unit = (Unit) m_list.get(position).getKey();
-            Child child = unit.children.get(m_list.get(position).getValue());
+            UnitElement unitElement = (UnitElement) m_list.get(position);
+
+            Unit unit = m_unitSource.getUnit(unitElement.unitId);
+            Child child = unit.getChild(unitElement.child);
 
             int resourceId = UnitListAdapter.getDrawableResource(unit, m_context, 48);
             unitViewHolder.m_image.setImageResource(resourceId);
@@ -259,22 +265,22 @@ public class ListConstructionAdapter
             unitViewHolder.m_swc.setText(Double.toString(child.swc));
         } else {
             GroupViewHolder groupViewHolder = (GroupViewHolder)holder;
-            CombatGroup combatGroup = (CombatGroup) m_list.get(position).getKey();
-            groupViewHolder.m_group.setText("Group " + combatGroup.m_id);
-            groupViewHolder.m_regular.setText(Integer.toString(combatGroup.m_regularOrders));
-            groupViewHolder.m_irregular.setText(Integer.toString(combatGroup.m_irregularOrders));
-            groupViewHolder.m_impetuous.setText(Integer.toString(combatGroup.m_impetuousOrders));
+            CombatGroupElement combatGroupElement = (CombatGroupElement) m_list.get(position);
+            groupViewHolder.m_group.setText("Group " + combatGroupElement.m_id);
+            groupViewHolder.m_regular.setText(Integer.toString(combatGroupElement.m_regularOrders));
+            groupViewHolder.m_irregular.setText(Integer.toString(combatGroupElement.m_irregularOrders));
+            groupViewHolder.m_impetuous.setText(Integer.toString(combatGroupElement.m_impetuousOrders));
         }
     }
 
-    public void addUnit(Unit unit, int option) {
+    public void addUnit(Unit unit, int child) {
         // find the index of Combat Group 2 and insert it before that.
         int insertIndex = 1;
         for (int i = 0; i < m_list.size(); i++) {
-            ListElement listElement = (ListElement) m_list.get(i).getKey();
-            if (listElement instanceof CombatGroup) {
-                CombatGroup combatGroup = (CombatGroup) listElement;
-                if (combatGroup.m_id == 2)
+            ListElement listElement = m_list.get(i);
+            if (listElement instanceof CombatGroupElement) {
+                CombatGroupElement combatGroupElement = (CombatGroupElement) listElement;
+                if (combatGroupElement.m_id == 2)
                 {
                     insertIndex = i;
                     break;
@@ -282,7 +288,7 @@ public class ListConstructionAdapter
             }
         }
 
-        m_list.add(insertIndex, new AbstractMap.SimpleEntry<>((ListElement) unit, option));
+        m_list.add(insertIndex, new UnitElement(-1, 1, (int)unit.id, child));
         updateListener();
         notifyItemRangeInserted(insertIndex, 1);
     }
@@ -309,8 +315,8 @@ public class ListConstructionAdapter
 
     @Override
     public int getItemViewType(int position) {
-        ListElement le = m_list.get(position).getKey();
-        if (le instanceof Unit) {
+        ListElement le = m_list.get(position);
+        if (le instanceof UnitElement) {
             return TYPE_UNIT;
         } else {
             return TYPE_GROUP;
@@ -360,10 +366,11 @@ public class ListConstructionAdapter
             m_cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Entry<ListElement, Integer> temp = m_list.get(getAdapterPosition());
-                    Unit tmpUnit = (Unit) temp.getKey();
-                    m_unitSelectedListener.unitSelected((Unit) m_list.get(getAdapterPosition()).getKey(),
-                            UnitViewHolder.this);
+                    ListElement temp = m_list.get(getAdapterPosition());
+                    if (temp instanceof UnitElement) {
+                        m_unitSelectedListener.unitSelected(m_unitSource.getUnit(((UnitElement)temp).unitId),
+                                UnitViewHolder.this);
+                    }
                 }
             });
 

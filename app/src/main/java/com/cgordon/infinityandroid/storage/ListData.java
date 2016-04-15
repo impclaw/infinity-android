@@ -24,9 +24,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.cgordon.infinityandroid.data.ArmyList;
-import com.cgordon.infinityandroid.data.CombatGroup;
+import com.cgordon.infinityandroid.data.CombatGroupElement;
 import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.data.UnitElement;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -68,7 +69,7 @@ public class ListData {
         m_database.close();
     }
 
-    public long saveList(String listName, long army, int points, List<Map.Entry<ListElement, Integer>> list, long dbId) {
+    public long saveList(String listName, long army, int points, List<ListElement> list, long dbId) {
 
         m_database.beginTransaction();
 
@@ -102,16 +103,16 @@ public class ListData {
 
             for( int i = 0; i < list.size(); i++) {
 
-                Map.Entry<ListElement, Integer> listItem = list.get(i);
-                if (listItem.getKey() instanceof CombatGroup) {
-                    combatGroup = ((CombatGroup) listItem.getKey()).m_id;
+                ListElement listElement = list.get(i);
+                if (listElement instanceof CombatGroupElement) {
+                    combatGroup = ((CombatGroupElement) listElement).m_id;
                 } else {
                     v = new ContentValues();
                     v.put(InfinityDatabase.COLUMN_LIST_ID, listId);
-                    Unit unit = (Unit) listItem.getKey();
+                    UnitElement unitElement = (UnitElement) listElement;
                     v.put(InfinityDatabase.COLUMN_GROUP, combatGroup);
-                    v.put(InfinityDatabase.COLUMN_UNIT_ID, unit.id);
-                    v.put(InfinityDatabase.COLUMN_CHILD_ID, listItem.getValue());
+                    v.put(InfinityDatabase.COLUMN_UNIT_ID, unitElement.unitId);
+                    v.put(InfinityDatabase.COLUMN_CHILD_ID, unitElement.child);
 
                     if (m_database.insert(InfinityDatabase.TABLE_ARMY_LIST_UNITS, null, v) == -1) {
                         listId = -1;
@@ -176,8 +177,8 @@ public class ListData {
         return lists;
     }
 
-    public List<Map.Entry<ListElement, Integer>> getList(long listId) {
-        List<Map.Entry<ListElement, Integer>> retval = new ArrayList<>();
+    public List<ListElement> getList(long listId) {
+        List<ListElement> retval = new ArrayList<>();
 
         UnitsData unitsData = new UnitsData(m_database);
 
@@ -197,18 +198,19 @@ public class ListData {
             int profile = cursor.getInt(4);
 
             while (combatGroup < group) {
-                CombatGroup cg = new CombatGroup(++combatGroup);
-                retval.add(new AbstractMap.SimpleEntry<>((ListElement)cg, 0));
+                CombatGroupElement cg = new CombatGroupElement(++combatGroup);
+                retval.add(cg);
             }
 
-            retval.add(new AbstractMap.SimpleEntry<>((ListElement)unitsData.getUnit(unitId), profile));
+            UnitElement unit = new UnitElement(id, group, unitId, profile);
+            retval.add(unit);
 
             cursor.moveToNext();
         }
 
         while (combatGroup < 4) {
-            CombatGroup cg = new CombatGroup(++combatGroup);
-            retval.add(new AbstractMap.SimpleEntry<>((ListElement) cg, 0));
+            CombatGroupElement cg = new CombatGroupElement(++combatGroup);
+            retval.add(cg);
         }
 
         return retval;

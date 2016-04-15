@@ -29,10 +29,10 @@ public class Army implements Parcelable {
     public String name;
     public String abbr;
 
-    public ArrayList units;
+    public ArrayList armyUnits;
 
     public Army() {
-        units = new ArrayList<ArmyUnit>();
+        armyUnits = new ArrayList<ArmyUnit>();
     }
 
     public Army(Parcel parcel) {
@@ -40,7 +40,7 @@ public class Army implements Parcelable {
         faction = parcel.readString();
         name = parcel.readString();
         abbr = parcel.readString();
-        units = parcel.readArrayList(null);
+        armyUnits = parcel.readArrayList(null);
 
     }
 
@@ -50,7 +50,7 @@ public class Army implements Parcelable {
         dest.writeString(faction);
         dest.writeString(name);
         dest.writeString(abbr);
-        dest.writeList(units);
+        dest.writeList(armyUnits);
     }
 
     @Override

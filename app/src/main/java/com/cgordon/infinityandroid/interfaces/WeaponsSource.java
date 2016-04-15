@@ -15,8 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.cgordon.infinityandroid.data;
+package com.cgordon.infinityandroid.interfaces;
 
-public class ListElement {
+import com.cgordon.infinityandroid.data.Weapon;
 
+
+public interface WeaponsSource {
+
+    public Weapon getWeapon(String name);
 }

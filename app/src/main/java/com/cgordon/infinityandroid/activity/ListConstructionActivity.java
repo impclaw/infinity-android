@@ -43,14 +43,20 @@ import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
 import com.cgordon.infinityandroid.fragment.OptionsFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
+import com.cgordon.infinityandroid.interfaces.UnitSource;
 import com.cgordon.infinityandroid.storage.ArmyData;
 import com.cgordon.infinityandroid.storage.ListData;
+import com.cgordon.infinityandroid.storage.UnitsData;
 import com.cgordon.infinityandroid.widgets.SlidingTabLayout;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class ListConstructionActivity extends AppCompatActivity
     implements UnitListFragment.UnitSelectedListener,
         OptionsFragment.OnOptionSelectedListener,
-        ListConstructionAdapter.ListChangedListener
+        ListConstructionAdapter.ListChangedListener,
+        UnitSource
 {
 
     UnitChangedListener m_unitChangedListener = null;
@@ -68,6 +74,7 @@ public class ListConstructionActivity extends AppCompatActivity
     private long m_listDbId = -1;
     private boolean m_listDirty = false;
     private String m_listName = null;
+    private List<Unit> m_units;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,11 +100,13 @@ public class ListConstructionActivity extends AppCompatActivity
         if (m_army == null) {
             ArmyList armyList = getIntent().getParcelableExtra(MainActivity.LIST_ID);
             if (armyList != null) {
+
                 ArmyData armyData = new ArmyData(getBaseContext());
                 armyData.open();
                 m_army = armyData.getArmy(armyList.armyId);
-                m_listName = armyList.name;
                 armyData.close();
+
+                m_listName = armyList.name;
                 m_listDbId = armyList.dbId;
                 m_pager.setCurrentItem(2);
             }
@@ -106,6 +115,11 @@ public class ListConstructionActivity extends AppCompatActivity
         if (savedInstanceState != null) {
             m_currentSelectedUnit = savedInstanceState.getParcelable("unit");
         }
+
+        UnitsData unitsData = new UnitsData(this);
+        unitsData.open();
+        m_units = unitsData.getUnits(m_army);
+        unitsData.close();
 
     }
 
@@ -205,6 +219,18 @@ public class ListConstructionActivity extends AppCompatActivity
     @Override
     public void onOrderChanged(int oldPosition, int newPosition) {
         m_listDirty = true;
+    }
+
+    @Override
+    public Unit getUnit(int id) {
+        Iterator it = m_units.iterator();
+        while (it.hasNext()) {
+            Unit unit = (Unit) it.next();
+            if (unit.id == id) {
+                return unit;
+            }
+        }
+        return null;
     }
 
     class ListConstructionPagerAdapter extends FragmentPagerAdapter {

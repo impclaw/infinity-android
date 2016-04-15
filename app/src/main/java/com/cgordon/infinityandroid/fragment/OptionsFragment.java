@@ -65,18 +65,19 @@ public class OptionsFragment extends Fragment {
         final int index = arguments.getInt(MainActivity.INDEX);
 
 
+        final Child child = unit.children.get(index);
+
         CardView card = (CardView) view.findViewById(R.id.card_view);
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Option Clicked");
-                m_callback.onOptionSelected(index);
+                m_callback.onOptionSelected(child.id);
             }
         });
 
 
 
-        Child child = unit.children.get(index);
 
         TextView name = (TextView) view.findViewById(R.id.name);
         name.setText(child.code);

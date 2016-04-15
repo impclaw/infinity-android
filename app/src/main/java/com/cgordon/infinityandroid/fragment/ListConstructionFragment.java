@@ -39,6 +39,7 @@ import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
+import com.cgordon.infinityandroid.interfaces.UnitSource;
 import com.cgordon.infinityandroid.storage.ListData;
 
 import java.util.List;
@@ -74,7 +75,7 @@ public class ListConstructionFragment extends Fragment
                 LinearLayoutManager.VERTICAL, false);
         m_recyclerView.setLayoutManager(layoutManager);
         if (m_adapter == null) {
-            m_adapter = new ListConstructionAdapter(getActivity());
+            m_adapter = new ListConstructionAdapter(getActivity(), (UnitSource) getActivity());
         }
         Bundle arguments = getArguments();
         if (arguments != null) {

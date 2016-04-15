@@ -58,6 +58,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     List<Fragment> m_fragments;
     private LinearLayout m_linearLayout;
     private ScrollView m_scrollview;
+    private Map<String, Weapon> m_weaponsList;
 
     public UnitFragment() {
         m_unit = null;
@@ -70,6 +71,11 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         if (savedInstanceState != null) {
             m_unit = savedInstanceState.getParcelable(MainActivity.UNIT);
         }
+
+        WeaponsData wd = new WeaponsData(getActivity());
+        wd.open();
+        m_weaponsList = wd.getWeapons();
+        wd.close();
     }
 
     @Nullable
@@ -223,12 +229,6 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         bsw.addAll(ccw);
         bsw.add("Discover");
         bsw.add("Suppressive Fire");
-
-        WeaponsData wd = new WeaponsData(getActivity());
-        wd.open();
-        Map<String, Weapon> m_weaponsList = wd.getWeapons();
-        wd.close();
-
 
         for (int i = 0; i < bsw.size(); i++) {
             WeaponsFragment weaponsFragment = new WeaponsFragment();

@@ -17,6 +17,14 @@
 
 package com.cgordon.infinityandroid.data;
 
-public class ListElement {
+public class CombatGroupElement extends ListElement {
+    public int m_id = 0;
 
+    public int m_regularOrders = 0;
+    public int m_irregularOrders = 0;
+    public int m_impetuousOrders = 0;
+
+    public CombatGroupElement(int id) {
+        m_id = id;
+    }
 }

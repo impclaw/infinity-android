@@ -101,7 +101,7 @@ public class ArmyData {
                 return;
             }
 
-            ArrayList<ArmyUnit> armyUnits = army.units;
+            ArrayList<ArmyUnit> armyUnits = army.armyUnits;
             Iterator unit_it = armyUnits.iterator();
             while (unit_it.hasNext()) {
                 ArmyUnit armyUnit = (ArmyUnit) unit_it.next();
@@ -319,6 +319,7 @@ public class ArmyData {
             cursor.moveToFirst();
 
             Army army = cursorToArmy(cursor);
+
             return army;
         } finally {
             if (cursor != null) {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 by Chris Gordon
+ * Copyright 2015-2016 by Chris Gordon
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,8 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.cgordon.infinityandroid.data;
+package com.cgordon.infinityandroid.interfaces;
 
-public class ListElement {
+import com.cgordon.infinityandroid.data.Unit;
 
+public interface UnitSource {
+
+    Unit getUnit(int id);
 }

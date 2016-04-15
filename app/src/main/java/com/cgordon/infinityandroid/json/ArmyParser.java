@@ -76,7 +76,7 @@ public class ArmyParser {
             } else if (name.equals("abbr")) {
                 army.abbr = reader.nextString();
             } else if (name.equals("units")) {
-                army.units.addAll(parseArmyUnits(reader));
+                army.armyUnits.addAll(parseArmyUnits(reader));
             } else {
                 throw new IOException("Unable to parse tag in parseArmy: " + name);
             }
