@@ -35,6 +35,6 @@
         android:key="show_mercs"
         android:title="@string/ShowMercsTitle"
         android:summary="@string/ShowMercsSummary"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
 
 </PreferenceScreen>
