@@ -34,6 +34,7 @@ public class ComparatorType implements Comparator {
             "REM",
             "SK",
             "WB",
+            "SPEC-OPS",
     };
 
     private final boolean m_isc;
