@@ -27,9 +27,7 @@ public class Child implements Parcelable {
 
     public int id;
     public String name;
-    public String code; // a short name to identify this child
     public String note;
-    public String codename; // not sure where this is used...
     public int cost;
     public Double swc;
     public ArrayList<String> spec; // specific pieces of gear for this Option ie. MSV2, Hacking Device
@@ -48,9 +46,7 @@ public class Child implements Parcelable {
     public Child(Parcel parcel) {
         id = parcel.readInt();
         name = parcel.readString();
-        code = parcel.readString();
         note = parcel.readString();
-        codename = parcel.readString();
         cost = parcel.readInt();
         swc = parcel.readDouble();
         spec = parcel.readArrayList(String.class.getClassLoader());
@@ -64,9 +60,7 @@ public class Child implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(name);
-        dest.writeString(code);
         dest.writeString(note);
-        dest.writeString(codename);
         dest.writeInt(cost);
         dest.writeDouble(swc);
         dest.writeList(spec);

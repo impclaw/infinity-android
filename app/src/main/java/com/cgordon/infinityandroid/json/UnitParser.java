@@ -289,18 +289,16 @@ public class UnitParser {
                 child.swc = reader.nextDouble();
             } else if (name.equals("cbcode")) {
                 reader.skipValue();
-            } else if (name.equals("code")) {
-                child.code = reader.nextString();
             } else if (name.equals("note")) {
                 child.note = reader.nextString();
             } else if (name.equals("ccw")) {
                 child.ccw.addAll(parseSubArray(reader));
-            } else if (name.equals("codename")) {
-                child.codename = reader.nextString();
             } else if (name.equals("cost")) {
                 child.cost = Integer.parseInt(reader.nextString());
             } else if (name.equals("spec")) {
                 child.spec.addAll(parseSubArray(reader));
+            } else if (name.equals("name")) {
+                child.name = reader.nextString();
             } else if (name.equals("independent")) {
                 // This may never become relevant until/unless an in-play unit status/retreat
                 // tracker is implemented.

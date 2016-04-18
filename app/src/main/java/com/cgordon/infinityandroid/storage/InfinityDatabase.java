@@ -32,7 +32,7 @@ import com.cgordon.infinityandroid.json.WeaponParser;
 public class InfinityDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "infinity.db";
-    private static final int DATABASE_VERSION = 34;
+    private static final int DATABASE_VERSION = 35;
 
     public static final String TABLE_WEAPONS = "weapons";
     public static final String TABLE_UNITS = "units";
@@ -85,9 +85,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     // ===== CHILD COLUMNS =====
     public static final String COLUMN_CHILD_ID = "child_id";
     // COLUMN_Name
-    public static final String COLUMN_CODE = "code"; // a short name to identify this child
     // COLUMN_Note
-    public static final String COLUMN_CODENAME = "codename"; // not sure where this is used...
     public static final String COLUMN_COST = "cost";
     public static final String COLUMN_SWC = "swc";
     // COLUMN_BSW
@@ -177,9 +175,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
             COLUMN_UNIT_ID + " integer, " +
             COLUMN_CHILD_ID + " integer, " +
             COLUMN_NAME + " text, " +
-            COLUMN_CODE + " text, " +
             COLUMN_NOTE + " text, " +
-            COLUMN_CODENAME + " text, " +
             COLUMN_COST + " integer, " +
             COLUMN_SWC + " real, " +
             COLUMN_BSW + " text, " +

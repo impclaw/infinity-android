@@ -41,11 +41,9 @@ import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
 import com.cgordon.infinityandroid.interfaces.UnitSource;
 import com.cgordon.infinityandroid.storage.ListData;
 
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map.Entry;
 
 public class ListConstructionAdapter
     extends RecyclerView.Adapter<RecyclerView.ViewHolder>
@@ -260,7 +258,7 @@ public class ListConstructionAdapter
             unitViewHolder.m_image.setImageResource(resourceId);
 
             unitViewHolder.m_isc.setText(unit.isc);
-            unitViewHolder.m_option.setText(child.code);
+            unitViewHolder.m_child.setText(child.name);
             unitViewHolder.m_points.setText(Integer.toString(child.cost));
             unitViewHolder.m_swc.setText(Double.toString(child.swc));
         } else {
@@ -344,7 +342,7 @@ public class ListConstructionAdapter
 
         public ImageView m_image;
         public TextView m_isc;
-        public TextView m_option;
+        public TextView m_child;
         public TextView m_points;
         public TextView m_swc;
         public ImageButton m_delete;
@@ -357,7 +355,7 @@ public class ListConstructionAdapter
             super(itemView);
             m_image = (ImageView) itemView.findViewById(R.id.image_view);
             m_isc = (TextView) itemView.findViewById(R.id.text_isc);
-            m_option = (TextView) itemView.findViewById(R.id.text_option);
+            m_child = (TextView) itemView.findViewById(R.id.text_option);
             m_points = (TextView) itemView.findViewById(R.id.text_points);
             m_swc = (TextView) itemView.findViewById(R.id.text_swc);
             m_delete = (ImageButton) itemView.findViewById(R.id.delete);

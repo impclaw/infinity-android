@@ -84,9 +84,7 @@ public class UnitsData {
             InfinityDatabase.COLUMN_UNIT_ID,
             InfinityDatabase.COLUMN_CHILD_ID,
             InfinityDatabase.COLUMN_NAME,
-            InfinityDatabase.COLUMN_CODE,
             InfinityDatabase.COLUMN_NOTE,
-            InfinityDatabase.COLUMN_CODENAME,
             InfinityDatabase.COLUMN_COST,
             InfinityDatabase.COLUMN_SWC,
             InfinityDatabase.COLUMN_BSW,
@@ -390,30 +388,28 @@ public class UnitsData {
         // 1 - COLUMN_UNIT_ID + " integer, " +
         child.id = cursor.getInt(2);
         child.name = cursor.getString(3);
-        child.code = cursor.getString(4);
-        child.note = cursor.getString(5);
-        child.codename = cursor.getString(6);
-        child.cost = cursor.getInt(7);
-        child.swc = cursor.getDouble(8);
+        child.note = cursor.getString(4);
+        child.cost = cursor.getInt(5);
+        child.swc = cursor.getDouble(6);
 
-        String temp = cursor.getString(9);
+        String temp = cursor.getString(7);
         if (!temp.isEmpty()) {
             child.bsw = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
-        temp = cursor.getString(10);
+        temp = cursor.getString(8);
         if (!temp.isEmpty()) {
             child.ccw = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
-        temp = cursor.getString(11);
+        temp = cursor.getString(9);
         if (!temp.isEmpty()) {
             child.spec = new ArrayList<>(Arrays.asList(temp.split(",")));
         }
 
         expandSpec(child.spec);
 
-        child.profile = cursor.getInt(12);
+        child.profile = cursor.getInt(10);
 
         return child;
 
@@ -568,9 +564,7 @@ public class UnitsData {
         v.put(InfinityDatabase.COLUMN_UNIT_ID, unitId);
         v.put(InfinityDatabase.COLUMN_CHILD_ID, child.id);
         v.put(InfinityDatabase.COLUMN_NAME, child.name);
-        v.put(InfinityDatabase.COLUMN_CODE, child.code);
         v.put(InfinityDatabase.COLUMN_NOTE, child.note);
-        v.put(InfinityDatabase.COLUMN_CODENAME, child.codename);
         v.put(InfinityDatabase.COLUMN_COST, child.cost);
         v.put(InfinityDatabase.COLUMN_SWC, child.swc);
         v.put(InfinityDatabase.COLUMN_BSW, TextUtils.join(",", child.bsw));

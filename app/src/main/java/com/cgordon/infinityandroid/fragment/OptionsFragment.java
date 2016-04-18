@@ -80,7 +80,7 @@ public class OptionsFragment extends Fragment {
 
 
         TextView name = (TextView) view.findViewById(R.id.name);
-        name.setText(child.code);
+        name.setText(child.name);
 
         TextView swc = (TextView) view.findViewById(R.id.swc);
         swc.setText("SWC: " + Double.toString(child.swc));
