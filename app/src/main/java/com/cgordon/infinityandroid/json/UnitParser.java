@@ -297,8 +297,12 @@ public class UnitParser {
                 child.cost = Integer.parseInt(reader.nextString());
             } else if (name.equals("spec")) {
                 child.spec.addAll(parseSubArray(reader));
-            } else if (name.equals("name")) {
-                child.name = reader.nextString();
+
+            } else if (name.equals("code")) {
+                child.name = reader.nextString(); // TODO - change back to "name" when that goes live.
+            } else if (name.equals("codename")) {
+                reader.nextString(); // TODO - delete when "name" goes live.
+
             } else if (name.equals("independent")) {
                 // This may never become relevant until/unless an in-play unit status/retreat
                 // tracker is implemented.

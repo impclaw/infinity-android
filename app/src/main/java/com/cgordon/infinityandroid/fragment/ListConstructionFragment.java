@@ -25,27 +25,20 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
 import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
-import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
 import com.cgordon.infinityandroid.interfaces.UnitSource;
 import com.cgordon.infinityandroid.storage.ListData;
 
-import java.util.List;
-import java.util.Map;
-
-import static com.cgordon.infinityandroid.adapter.ListConstructionAdapter.*;
+import static com.cgordon.infinityandroid.adapter.ListConstructionAdapter.ListChangedListener;
+import static com.cgordon.infinityandroid.adapter.ListConstructionAdapter.ListConstructionTouchHelper;
 
 public class ListConstructionFragment extends Fragment
         implements ListConstructionActivity.OptionSelectedListener {
@@ -57,14 +50,11 @@ public class ListConstructionFragment extends Fragment
     private RecyclerView m_recyclerView;
 
     private ListConstructionAdapter m_adapter;
-    private TextView m_ordersRegular;
-    private TextView m_ordersIrregular;
-    private TextView m_ordersImpetuous;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_list_construction, container, false);
+        View v = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
         setRetainInstance(true);
 
