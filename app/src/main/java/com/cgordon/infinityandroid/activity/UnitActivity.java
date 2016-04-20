@@ -29,11 +29,11 @@ import android.widget.TextView;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.fragment.OptionsFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
+import com.cgordon.infinityandroid.interfaces.ChildSelectedListener;
 
 public class UnitActivity extends AppCompatActivity
-        implements OptionsFragment.OnOptionSelectedListener, UnitFragment.UnitChangeSource {
+        implements ChildSelectedListener, UnitFragment.UnitChangeSource {
 
     private static final String TAG = UnitActivity.class.getSimpleName();
     private Unit m_unit;
@@ -99,7 +99,7 @@ public class UnitActivity extends AppCompatActivity
     }
 
     @Override
-    public void onOptionSelected(int option) {
+    public void onChildSelected(int option) {
         Log.d(TAG, "option selected: " + option);
     }
 

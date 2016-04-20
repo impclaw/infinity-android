@@ -40,9 +40,9 @@ import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.ArmyList;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
-import com.cgordon.infinityandroid.fragment.OptionsFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
+import com.cgordon.infinityandroid.interfaces.ChildSelectedListener;
 import com.cgordon.infinityandroid.interfaces.UnitSource;
 import com.cgordon.infinityandroid.storage.ArmyData;
 import com.cgordon.infinityandroid.storage.ListData;
@@ -54,7 +54,7 @@ import java.util.List;
 
 public class ListConstructionActivity extends AppCompatActivity
     implements UnitListFragment.UnitSelectedListener,
-        OptionsFragment.OnOptionSelectedListener,
+        ChildSelectedListener,
         ListConstructionAdapter.ListChangedListener,
         UnitSource
 {
@@ -195,10 +195,10 @@ public class ListConstructionActivity extends AppCompatActivity
     }
 
     @Override
-    public void onOptionSelected(int option) {
-        Log.d(TAG, "Option Selected: " + option);
+    public void onChildSelected(int id) {
+        Log.d(TAG, "Option Selected: " + id);
         m_listDirty = true;
-        m_optionListener.OnOptionSelected(m_currentSelectedUnit, option);
+        m_optionListener.OnOptionSelected(m_currentSelectedUnit, id);
         m_pager.setCurrentItem(2);
     }
 

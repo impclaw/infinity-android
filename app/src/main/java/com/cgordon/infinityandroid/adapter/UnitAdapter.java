@@ -18,10 +18,12 @@
 package com.cgordon.infinityandroid.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +31,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.activity.UnitListActivity;
+import com.cgordon.infinityandroid.data.Child;
 import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Profile;
 import com.cgordon.infinityandroid.data.Unit;
@@ -43,6 +47,7 @@ public class UnitAdapter
         extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final int TYPE_PROFILE = 0;
+    private final int TYPE_CHILD = 1;
 
     private final Map<String, Weapon> m_weaponsList;
     private final Context m_context;
@@ -63,6 +68,9 @@ public class UnitAdapter
         if (viewType == TYPE_PROFILE) {
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_profile, parent, false);
             vh = new ProfileViewHolder(v);
+        } else if (viewType == TYPE_CHILD) {
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_child, parent, false);
+            vh = new ChildViewHolder(v);
 //        } else {
 //            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_group_header, parent, false);
 //            vh = new GroupViewHolder(v);
@@ -81,23 +89,34 @@ public class UnitAdapter
             // to do some math to figure out the position after this.
             Profile profile = m_unit.profiles.get(position);
             profileViewHolder.setProfile(m_unit, profile, m_context);
+        } else if (holder instanceof  ChildViewHolder) {
+            ChildViewHolder childViewHolder = (ChildViewHolder) holder;
+
+            // The position includes all the profile entries listed above the child entries.
+            // Subtract the number of profiles from the position to get the actual child index
+            Child child = m_unit.children.get(position - m_unit.profiles.size());
+            childViewHolder.setChild(m_unit, child);
         }
 
     }
 
     @Override
     public int getItemViewType(int position) {
-        return TYPE_PROFILE;
+        if (position < m_unit.profiles.size())
+            return TYPE_PROFILE;
+        else
+            return TYPE_CHILD;
     }
 
     @Override
     public int getItemCount() {
         return
-                m_unit.profiles.size();
+                m_unit.profiles.size() + m_unit.children.size();
     }
 
     public void setUnit(Unit unit) {
         m_unit = unit;
+        notifyDataSetChanged();
     }
 
 
@@ -242,5 +261,75 @@ public class UnitAdapter
 
 
         }
+    }
+
+    static public class ChildViewHolder extends RecyclerView.ViewHolder {
+
+        private final CardView card;
+        private final TextView name;
+        private final TextView swc;
+        private final TextView cost;
+        private final TextView bsw;
+        private final TextView ccw;
+        private final TextView spec;
+        private final TextView note;
+
+        public ChildViewHolder(View itemView) {
+            super(itemView);
+
+            card = (CardView) itemView.findViewById(R.id.card_view);
+            name = (TextView) itemView.findViewById(R.id.name);
+            swc = (TextView) itemView.findViewById(R.id.swc);
+            cost = (TextView) itemView.findViewById(R.id.cost);
+            bsw = (TextView) itemView.findViewById(R.id.bsw);
+            ccw = (TextView) itemView.findViewById(R.id.ccw);
+            spec = (TextView) itemView.findViewById(R.id.spec);
+            note = (TextView) itemView.findViewById(R.id.note);
+        }
+
+        public void setChild(Unit unit, Child child) {
+//            card.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Log.d(TAG, "Option Clicked");
+//                    m_callback.onOptionSelected(child.id);
+//                }
+//            });
+
+            name.setText(child.name);
+
+            swc.setText("SWC: " + Double.toString(child.swc));
+
+            cost.setText("C: " + Integer.toString(child.cost));
+
+            if (child.bsw != null && child.bsw.size() > 0) {
+                bsw.setText("BSW: " + TextUtils.join(", ", child.bsw));
+            } else {
+                bsw.setVisibility(View.GONE);
+            }
+
+            if (child.ccw != null && child.ccw.size() > 0) {
+                ccw.setText("CCW: " + TextUtils.join(", ", child.ccw));
+            } else {
+                ccw.setVisibility(View.GONE);
+            }
+
+            if (child.profile != 0) {
+                child.spec.add(unit.profiles.get(child.profile).name);
+            }
+
+            if (child.spec != null && child.spec.size() > 0) {
+                spec.setText("Spec: " + TextUtils.join(", ", child.spec));
+            } else {
+                spec.setVisibility(View.GONE);
+            }
+
+            if (child.note != null && !child.note.isEmpty()) {
+                note.setText("Note: " + child.note);
+            } else {
+                note.setVisibility(View.GONE);
+            }
+        }
+
     }
 }
