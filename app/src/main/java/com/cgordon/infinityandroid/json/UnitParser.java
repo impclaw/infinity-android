@@ -80,7 +80,7 @@ public class UnitParser {
     private Unit parseUnit(JsonReader reader) throws IOException {
         Unit unit = new Unit();
         Profile profile = new Profile();
-        profile.id = 0;
+        profile.id = 1;
 
         reader.beginObject();
 

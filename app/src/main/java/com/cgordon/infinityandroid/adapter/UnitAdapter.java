@@ -165,7 +165,7 @@ public class UnitAdapter
             wounds.setText(profile.wounds);
             silhouette.setText(profile.silhouette);
 
-            if ((profile.ava != null) && (profile.ava.isEmpty())) {
+            if ((profile.ava != null) && (!profile.ava.isEmpty())) {
                 ava.setText(profile.ava);
             } else {
                 ava.setText(unit.ava);
@@ -236,7 +236,7 @@ public class UnitAdapter
             imageView.setImageResource(resourceId);
 
             if (profile.id == 1) {
-                ViewCompat.setTransitionName(imageView, UnitListActivity.TRANSITION_IMAGE);
+                ViewCompat.setTransitionName(imageView, UnitListActivity.TRANSITION_IMAGE );
 //            ViewCompat.setTransitionName(isc, UnitListActivity.TRANSITION_UNIT_NAME);
             }
 
