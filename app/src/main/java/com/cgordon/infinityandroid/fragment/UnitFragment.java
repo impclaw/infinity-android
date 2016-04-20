@@ -45,8 +45,6 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
 
     private final static String TAG = UnitFragment.class.getSimpleName();
 
-    private final static String FORWARD_OBSERVER = "Forward Observer";
-
     Unit m_unit;
 
     List<Fragment> m_fragments;

@@ -23,7 +23,6 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,30 +33,39 @@ import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.activity.UnitListActivity;
 import com.cgordon.infinityandroid.data.Child;
-import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Profile;
 import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.data.UnitElement;
 import com.cgordon.infinityandroid.data.Weapon;
+import com.cgordon.infinityandroid.interfaces.ChildSelectedListener;
 import com.cgordon.infinityandroid.storage.WeaponsData;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 public class UnitAdapter
         extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    private final static String FORWARD_OBSERVER = "Forward Observer";
+
     private final int TYPE_PROFILE = 0;
     private final int TYPE_CHILD = 1;
+    private final int TYPE_WEAPON = 2;
 
-    private final Map<String, Weapon> m_weaponsList;
+    private final Map<String, Weapon> m_masterWeaponsList;
     private final Context m_context;
     private Unit m_unit;
+    private ArrayList<Weapon> m_unitWeapons;
 
     public UnitAdapter(Context context) {
         m_context = context;
         WeaponsData wd = new WeaponsData(context);
         wd.open();
-        m_weaponsList = wd.getWeapons();
+        m_masterWeaponsList = wd.getWeapons();
         wd.close();
     }
 
@@ -70,10 +78,10 @@ public class UnitAdapter
             vh = new ProfileViewHolder(v);
         } else if (viewType == TYPE_CHILD) {
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_child, parent, false);
-            vh = new ChildViewHolder(v);
-//        } else {
-//            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_group_header, parent, false);
-//            vh = new GroupViewHolder(v);
+            vh = new ChildViewHolder(v, null);
+        } else { // TYPE_WEAPON
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_weapon, parent, false);
+            vh = new WeaponViewHolder(v);
 
         }
 
@@ -89,34 +97,118 @@ public class UnitAdapter
             // to do some math to figure out the position after this.
             Profile profile = m_unit.profiles.get(position);
             profileViewHolder.setProfile(m_unit, profile, m_context);
-        } else if (holder instanceof  ChildViewHolder) {
+        } else if (holder instanceof ChildViewHolder) {
             ChildViewHolder childViewHolder = (ChildViewHolder) holder;
 
             // The position includes all the profile entries listed above the child entries.
             // Subtract the number of profiles from the position to get the actual child index
             Child child = m_unit.children.get(position - m_unit.profiles.size());
             childViewHolder.setChild(m_unit, child);
-        }
+        } else if (holder instanceof WeaponViewHolder) {
+            WeaponViewHolder weaponViewHolder = (WeaponViewHolder) holder;
 
+            // the position includes all the profile/child entries above.  Subtract them to get the
+            // real index
+            Weapon weapon = m_unitWeapons.get(position - m_unit.profiles.size() - m_unit.children.size());
+            weaponViewHolder.setWeapon(weapon);
+        }
     }
 
     @Override
     public int getItemViewType(int position) {
         if (position < m_unit.profiles.size())
             return TYPE_PROFILE;
-        else
+        else if (position < m_unit.profiles.size() + m_unit.children.size())
             return TYPE_CHILD;
+        else
+            return TYPE_WEAPON;
     }
 
     @Override
     public int getItemCount() {
         return
-                m_unit.profiles.size() + m_unit.children.size();
+                m_unit.profiles.size() + m_unit.children.size() + m_unitWeapons.size();
     }
 
     public void setUnit(Unit unit) {
         m_unit = unit;
+
+        setUnitWeaponsList();
+
         notifyDataSetChanged();
+    }
+
+    private void setUnitWeaponsList() {
+        ArrayList<String> bsw = new ArrayList<>();
+        ArrayList<String> ccw = new ArrayList<>();
+
+        boolean forwardObserver = false;
+        //boolean impersonation = false;
+
+        Iterator it = m_unit.profiles.iterator();
+        while (it.hasNext()) {
+            Profile profile = (Profile) it.next();
+            bsw.addAll(profile.bsw);
+            ccw.addAll(profile.ccw);
+
+            if (profile.spec.indexOf(FORWARD_OBSERVER) != -1) {
+                forwardObserver = true;
+            }
+        }
+
+        it = m_unit.children.iterator();
+        while (it.hasNext()) {
+            Child child = (Child) it.next();
+            bsw.addAll(child.bsw);
+            ccw.addAll(child.ccw);
+            if (child.spec.indexOf(FORWARD_OBSERVER) != -1) {
+                forwardObserver = true;
+            }
+        }
+
+        if (forwardObserver) {
+            bsw.add(FORWARD_OBSERVER);
+            bsw.add("Flash Pulse");
+        }
+
+        // remove duplicates
+        Set<String> hs = new HashSet<>();
+        hs.addAll(bsw);
+        bsw.clear();
+        bsw.addAll(hs);
+
+        hs.clear();
+        hs.addAll(ccw);
+        ccw.clear();
+        ccw.addAll(hs);
+
+        Collections.sort(bsw, new Comparator<String>() {
+            @Override
+            public int compare(String lhs, String rhs) {
+                return lhs.compareToIgnoreCase(rhs);
+            }
+        });
+
+        Collections.sort(ccw, new Comparator<String>() {
+            @Override
+            public int compare(String lhs, String rhs) {
+                return lhs.compareToIgnoreCase(rhs);
+            }
+        });
+
+        bsw.addAll(ccw);
+        bsw.add("Discover");
+        bsw.add("Suppressive Fire");
+
+        m_unitWeapons = new ArrayList<>();
+        for (int i = 0; i < bsw.size(); i++) {
+            String name = bsw.get(i);
+            if (name.endsWith(" (2)")) {
+                name = name.substring(0, name.length() - 4);
+            }
+            m_unitWeapons.add(m_masterWeaponsList.get(name));
+        }
+
     }
 
 
@@ -255,7 +347,7 @@ public class UnitAdapter
             imageView.setImageResource(resourceId);
 
             if (profile.id == 1) {
-                ViewCompat.setTransitionName(imageView, UnitListActivity.TRANSITION_IMAGE );
+                ViewCompat.setTransitionName(imageView, UnitListActivity.TRANSITION_IMAGE);
 //            ViewCompat.setTransitionName(isc, UnitListActivity.TRANSITION_UNIT_NAME);
             }
 
@@ -263,8 +355,10 @@ public class UnitAdapter
         }
     }
 
-    static public class ChildViewHolder extends RecyclerView.ViewHolder {
+    static public class ChildViewHolder extends RecyclerView.ViewHolder
+            implements View.OnClickListener {
 
+        private int id;
         private final CardView card;
         private final TextView name;
         private final TextView swc;
@@ -273,9 +367,14 @@ public class UnitAdapter
         private final TextView ccw;
         private final TextView spec;
         private final TextView note;
+        private final ChildSelectedListener m_listener;
 
-        public ChildViewHolder(View itemView) {
+        public ChildViewHolder(View itemView, ChildSelectedListener listener) {
             super(itemView);
+
+            id = -1;
+
+            m_listener = listener;
 
             card = (CardView) itemView.findViewById(R.id.card_view);
             name = (TextView) itemView.findViewById(R.id.name);
@@ -288,13 +387,7 @@ public class UnitAdapter
         }
 
         public void setChild(Unit unit, Child child) {
-//            card.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Log.d(TAG, "Option Clicked");
-//                    m_callback.onOptionSelected(child.id);
-//                }
-//            });
+            id = child.id;
 
             name.setText(child.name);
 
@@ -331,5 +424,99 @@ public class UnitAdapter
             }
         }
 
+        @Override
+        public void onClick(View v) {
+            if (m_listener != null)
+                m_listener.onChildSelected(id);
+        }
+    }
+
+    static public class WeaponViewHolder extends RecyclerView.ViewHolder {
+
+        private final TextView name;
+        private final TextView burst;
+        private final TextView damage;
+        private final TextView ammo;
+        private final TextView suppressive;
+        private final TextView cc;
+        private final TextView ranges;
+        private final TextView note;
+
+        public WeaponViewHolder(View itemView) {
+            super(itemView);
+
+            name = (TextView) itemView.findViewById(R.id.name);
+            burst = (TextView) itemView.findViewById(R.id.burst);
+            damage = (TextView) itemView.findViewById(R.id.damage);
+            ammo = (TextView) itemView.findViewById(R.id.ammo);
+            suppressive = (TextView) itemView.findViewById(R.id.suppressive);
+            cc = (TextView) itemView.findViewById(R.id.cc);
+            ranges = (TextView) itemView.findViewById(R.id.ranges);
+            note = (TextView) itemView.findViewById(R.id.note);
+        }
+
+        public void setWeapon(Weapon weapon) {
+            if (weapon == null) {
+                weapon = new Weapon();
+            }
+
+            name.setText(weapon.name);
+            burst.setText("B: " + weapon.burst);
+            damage.setText("Dmg: " + weapon.damage);
+            ammo.setText("Ammo: " + weapon.ammo);
+            if (weapon.suppressive == null || weapon.suppressive.isEmpty()) {
+                suppressive.setText("Suppressive: No, ");
+            } else {
+                suppressive.setText("Suppressive: " + weapon.suppressive + ", ");
+            }
+            cc.setText("CC: " + weapon.cc);
+            StringBuffer sb = new StringBuffer();
+
+            if (!weapon.short_dist.equals("--")) {
+                sb.append("0-").append(weapon.short_dist);
+                sb.append(": ").append(weapon.short_mod);
+            }
+            if (!weapon.medium_dist.equals("--")) {
+                sb.append(", ").append(weapon.short_dist).append("-").append(weapon.medium_dist);
+                sb.append(": ").append(weapon.medium_mod);
+            }
+            if (!weapon.long_dist.equals("--")) {
+                sb.append(", ").append(weapon.medium_dist).append("-").append(weapon.long_dist);
+                sb.append(": ").append(weapon.long_mod);
+            }
+            if (!weapon.max_dist.equals("--")) {
+                sb.append(", ").append(weapon.long_dist).append("-").append(weapon.max_dist);
+                sb.append(": ").append(weapon.max_mod);
+            }
+            ranges.setText(sb.toString());
+
+            String noteText = "";
+            if (weapon.note != null && !weapon.note.isEmpty()) {
+                noteText = weapon.note;
+            }
+
+            if (weapon.template != null
+                    && !weapon.template.isEmpty()
+                    && !weapon.template.toLowerCase().equals("no")) {
+                if (!noteText.isEmpty()) {
+                    noteText += ", ";
+                }
+                noteText += weapon.template;
+            }
+
+            if (weapon.uses != null && !weapon.uses.isEmpty()) {
+                if (!noteText.isEmpty()) {
+                    noteText += ", ";
+                }
+                noteText += "Uses: " + weapon.uses;
+
+            }
+
+            if (noteText.isEmpty()) {
+                note.setVisibility(View.GONE);
+            } else {
+                note.setText(noteText);
+            }
+        }
     }
 }
