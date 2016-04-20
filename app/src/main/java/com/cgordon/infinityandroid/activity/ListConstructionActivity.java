@@ -247,6 +247,7 @@ public class ListConstructionActivity extends AppCompatActivity
         @Override
         public Fragment getItem(int position) {
             Fragment fragment = null;
+            Bundle b;
 
             switch (position) {
                 case 0:
@@ -256,11 +257,14 @@ public class ListConstructionActivity extends AppCompatActivity
                     fragment.setArguments(bundle);
                     break;
                 case 1:
+                    b = new Bundle();
+                    b.putBoolean (MainActivity.CLICKABLE_CHILD, true);
                     fragment = new UnitFragment();
+                    fragment.setArguments(b);
                     break;
                 case 2:
                     m_listConstructionFragment = new ListConstructionFragment();
-                    Bundle b = new Bundle();
+                    b = new Bundle();
                     b.putLong(MainActivity.ID, m_listDbId);
                     m_listConstructionFragment.setArguments(b);
                     fragment = m_listConstructionFragment;

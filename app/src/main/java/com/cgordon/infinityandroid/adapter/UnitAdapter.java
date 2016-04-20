@@ -58,15 +58,20 @@ public class UnitAdapter
 
     private final Map<String, Weapon> m_masterWeaponsList;
     private final Context m_context;
+    private final boolean m_clickableChild;
+    private final ChildSelectedListener m_listener;
     private Unit m_unit;
     private ArrayList<Weapon> m_unitWeapons;
 
-    public UnitAdapter(Context context) {
+    public UnitAdapter(Context context, ChildSelectedListener listener, boolean clickableChild) {
         m_context = context;
+        m_listener = listener;
         WeaponsData wd = new WeaponsData(context);
         wd.open();
         m_masterWeaponsList = wd.getWeapons();
         wd.close();
+
+        m_clickableChild = clickableChild;
     }
 
     @Override
@@ -78,7 +83,7 @@ public class UnitAdapter
             vh = new ProfileViewHolder(v);
         } else if (viewType == TYPE_CHILD) {
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_child, parent, false);
-            vh = new ChildViewHolder(v, null);
+            vh = new ChildViewHolder(v, m_listener, m_clickableChild);
         } else { // TYPE_WEAPON
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_weapon, parent, false);
             vh = new WeaponViewHolder(v);
@@ -126,8 +131,10 @@ public class UnitAdapter
 
     @Override
     public int getItemCount() {
-        return
-                m_unit.profiles.size() + m_unit.children.size() + m_unitWeapons.size();
+        if (m_unit == null)
+            return 0;
+        else
+            return m_unit.profiles.size() + m_unit.children.size() + m_unitWeapons.size();
     }
 
     public void setUnit(Unit unit) {
@@ -139,6 +146,9 @@ public class UnitAdapter
     }
 
     private void setUnitWeaponsList() {
+        if (m_unit == null)
+            return;
+
         ArrayList<String> bsw = new ArrayList<>();
         ArrayList<String> ccw = new ArrayList<>();
 
@@ -369,7 +379,7 @@ public class UnitAdapter
         private final TextView note;
         private final ChildSelectedListener m_listener;
 
-        public ChildViewHolder(View itemView, ChildSelectedListener listener) {
+        public ChildViewHolder(View itemView, ChildSelectedListener listener, boolean clickable) {
             super(itemView);
 
             id = -1;
@@ -377,6 +387,8 @@ public class UnitAdapter
             m_listener = listener;
 
             card = (CardView) itemView.findViewById(R.id.card_view);
+            card.setOnClickListener(this);
+            card.setClickable(clickable);
             name = (TextView) itemView.findViewById(R.id.name);
             swc = (TextView) itemView.findViewById(R.id.swc);
             cost = (TextView) itemView.findViewById(R.id.cost);

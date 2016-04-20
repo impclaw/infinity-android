@@ -35,6 +35,7 @@ import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.adapter.UnitAdapter;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
+import com.cgordon.infinityandroid.interfaces.ChildSelectedListener;
 import com.cgordon.infinityandroid.storage.WeaponsData;
 
 import java.util.ArrayList;
@@ -80,8 +81,20 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
         m_recyclerView.setLayoutManager(layoutManager);
+
+        boolean clickable = false;
+        Bundle arguments = getArguments();
+        if (arguments != null) {
+            clickable = arguments.getBoolean(MainActivity.CLICKABLE_CHILD, false);
+        }
+
         if (m_adapter == null) {
-            m_adapter = new UnitAdapter(getActivity());
+            Activity activity = getActivity();
+            ChildSelectedListener childSelectedListener = null;
+            if (activity instanceof ChildSelectedListener) {
+                childSelectedListener = (ChildSelectedListener) activity;
+            }
+            m_adapter = new UnitAdapter(getActivity(), childSelectedListener, clickable);
         }
 //        Bundle arguments = getArguments();
 //        if (arguments != null) {

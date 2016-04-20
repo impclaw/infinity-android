@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements ArmyListFragment.
     public static final String INDEX = "profile";
     public static final String WEAPON = "weapon";
     public static final String LIST_ID = "list_id";
+    public static final String CLICKABLE_CHILD = "clickable_child";
+
     private DrawerLayout m_drawerLayout;
     private ActionBarDrawerToggle m_drawerToggle;
 

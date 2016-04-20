@@ -31,8 +31,7 @@
         android:layout_height="wrap_content"
         card_view:cardUseCompatPadding="true"
         android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:onClick="optionClicked">
+        android:clickable="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
