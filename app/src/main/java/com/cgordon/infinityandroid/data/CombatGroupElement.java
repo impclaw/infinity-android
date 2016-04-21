@@ -17,9 +17,12 @@
 
 package com.cgordon.infinityandroid.data;
 
-public class CombatGroupElement extends ListElement {
-    public int m_id = 0;
+import android.os.Parcel;
+import android.os.Parcelable;
 
+public class CombatGroupElement extends ListElement {
+
+    public int m_id = 0;
     public int m_regularOrders = 0;
     public int m_irregularOrders = 0;
     public int m_impetuousOrders = 0;
@@ -27,4 +30,36 @@ public class CombatGroupElement extends ListElement {
     public CombatGroupElement(int id) {
         m_id = id;
     }
+
+    public CombatGroupElement(Parcel in) {
+        m_id = in.readInt();
+        m_regularOrders = in.readInt();
+        m_irregularOrders = in.readInt();
+        m_impetuousOrders = in.readInt();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(m_id);
+        dest.writeInt(m_regularOrders);
+        dest.writeInt(m_irregularOrders);
+        dest.writeInt(m_impetuousOrders);
+    }
+
+    public static final Parcelable.Creator<CombatGroupElement> CREATOR
+            = new Parcelable.Creator<CombatGroupElement>() {
+        public CombatGroupElement createFromParcel(Parcel in) {
+            return new CombatGroupElement(in);
+        }
+
+        public CombatGroupElement[] newArray(int size) {
+            return new CombatGroupElement[size];
+        }
+    };
+
 }

@@ -17,6 +17,9 @@
 
 package com.cgordon.infinityandroid.data;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 public class UnitElement extends ListElement {
 
     public long dbId;
@@ -24,7 +27,12 @@ public class UnitElement extends ListElement {
     public int unitId;
     public int child;
 
-    public UnitElement() {}
+    public UnitElement(Parcel in) {
+        dbId = in.readLong();
+        group = in.readInt();
+        unitId = in.readInt();
+        child = in.readInt();
+    }
 
     public UnitElement(long dbId, int group, int unitId, int child) {
         this.dbId = dbId;
@@ -32,4 +40,29 @@ public class UnitElement extends ListElement {
         this.unitId = unitId;
         this.child = child;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(dbId);
+        dest.writeInt(group);
+        dest.writeInt(unitId);
+        dest.writeInt(child);
+    }
+
+    public static final Parcelable.Creator<UnitElement> CREATOR
+            = new Parcelable.Creator<UnitElement>() {
+        public UnitElement createFromParcel(Parcel in) {
+            return new UnitElement(in);
+        }
+
+        public UnitElement[] newArray(int size) {
+            return new UnitElement[size];
+        }
+    };
+
 }

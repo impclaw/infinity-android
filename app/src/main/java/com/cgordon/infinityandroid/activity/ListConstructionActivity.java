@@ -59,11 +59,15 @@ public class ListConstructionActivity extends AppCompatActivity
         UnitSource
 {
 
+    private final static String TAG = AppCompatActivity.class.getSimpleName();
+
+    private final static String CURRENT_SELECTED_UNIT = "current_selected_unit";
+    private static final String LIST_DIRTY = "list_dirty";
+
     UnitChangedListener m_unitChangedListener = null;
 
     private Unit m_currentSelectedUnit = null;
 
-    private final static String TAG = AppCompatActivity.class.getSimpleName();
     private ViewPager m_pager;
     private Army m_army;
     private ListConstructionPagerAdapter m_adapter;
@@ -112,7 +116,7 @@ public class ListConstructionActivity extends AppCompatActivity
         }
 
         if (savedInstanceState != null) {
-            m_currentSelectedUnit = savedInstanceState.getParcelable("unit");
+            m_currentSelectedUnit = savedInstanceState.getParcelable(CURRENT_SELECTED_UNIT);
         }
 
         UnitsData unitsData = new UnitsData(this);
@@ -134,10 +138,18 @@ public class ListConstructionActivity extends AppCompatActivity
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putParcelable("unit", m_currentSelectedUnit);
+        outState.putParcelable(CURRENT_SELECTED_UNIT, m_currentSelectedUnit);
+        outState.putBoolean(LIST_DIRTY, m_listDirty);
         super.onSaveInstanceState(outState);
     }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null) {
+            m_listDirty = savedInstanceState.getBoolean(LIST_DIRTY);
+        }
+    }
 
     @Override
     public void onBackPressed() {

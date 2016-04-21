@@ -64,8 +64,14 @@ public class ListConstructionAdapter
     // list of unit, option selection for that unit.
     private List<ListElement> m_list;
 
-    public List<ListElement> getList() {
+    public ArrayList<ListElement> getList() {
         return new ArrayList<>(m_list);
+    }
+
+
+    public void setList(ArrayList<ListElement> currentList) {
+        m_list = currentList;
+        notifyDataSetChanged();
     }
 
     public ListConstructionAdapter(Context context, UnitSource source) {
@@ -131,6 +137,7 @@ public class ListConstructionAdapter
     public boolean onItemSwipe(int index) {
         return true;
     }
+
 
     public interface ListChangedListener {
         void onListChanged(int cost, double swc, int lieutenantCount);

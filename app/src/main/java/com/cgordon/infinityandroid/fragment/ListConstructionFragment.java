@@ -33,9 +33,12 @@ import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
 import com.cgordon.infinityandroid.activity.MainActivity;
 import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
+import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.interfaces.UnitSource;
 import com.cgordon.infinityandroid.storage.ListData;
+
+import java.util.ArrayList;
 
 import static com.cgordon.infinityandroid.adapter.ListConstructionAdapter.ListChangedListener;
 import static com.cgordon.infinityandroid.adapter.ListConstructionAdapter.ListConstructionTouchHelper;
@@ -44,6 +47,8 @@ public class ListConstructionFragment extends Fragment
         implements ListConstructionActivity.OptionSelectedListener {
 
     private static final String TAG = ListConstructionFragment.class.getSimpleName();
+
+    private static final String CURRENT_LIST = "current_list";
 
     private static Parcelable m_scrollState = null;
 
@@ -64,13 +69,16 @@ public class ListConstructionFragment extends Fragment
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
         m_recyclerView.setLayoutManager(layoutManager);
+
         if (m_adapter == null) {
             m_adapter = new ListConstructionAdapter(getActivity(), (UnitSource) getActivity());
         }
+
         Bundle arguments = getArguments();
         if (arguments != null) {
             m_adapter.loadSavedList(arguments.getLong(MainActivity.ID, -1));
         }
+
         if (getActivity() instanceof ListChangedListener) {
             m_adapter.addListChangedListener((ListChangedListener) getActivity());
         }
@@ -87,8 +95,6 @@ public class ListConstructionFragment extends Fragment
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        // TODO - handle orientation change to save work in progress list.
-        //outState.putParcelable(m_adapter.getList());
     }
 
     @Override
