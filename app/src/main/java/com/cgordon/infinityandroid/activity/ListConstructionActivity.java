@@ -115,9 +115,6 @@ public class ListConstructionActivity extends AppCompatActivity
             }
         }
 
-        if (savedInstanceState != null) {
-            m_currentSelectedUnit = savedInstanceState.getParcelable(CURRENT_SELECTED_UNIT);
-        }
 
         UnitsData unitsData = new UnitsData(this);
         unitsData.open();
@@ -148,6 +145,7 @@ public class ListConstructionActivity extends AppCompatActivity
         super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState != null) {
             m_listDirty = savedInstanceState.getBoolean(LIST_DIRTY);
+            m_currentSelectedUnit = savedInstanceState.getParcelable(CURRENT_SELECTED_UNIT);
         }
     }
 

@@ -94,21 +94,17 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
             clickable = arguments.getBoolean(MainActivity.CLICKABLE_CHILD, false);
         }
 
-        if (m_adapter == null) {
-            Activity activity = getActivity();
-            ChildSelectedListener childSelectedListener = null;
-            if (activity instanceof ChildSelectedListener) {
-                childSelectedListener = (ChildSelectedListener) activity;
-            }
-            m_adapter = new UnitAdapter(getActivity(), childSelectedListener, clickable);
+        Activity activity = getActivity();
+        ChildSelectedListener childSelectedListener = null;
+        if (activity instanceof ChildSelectedListener) {
+            childSelectedListener = (ChildSelectedListener) activity;
         }
+        m_adapter = new UnitAdapter(getActivity(), childSelectedListener, clickable);
 
         m_recyclerView.setAdapter(m_adapter);
 
 
-        if (savedInstanceState == null) {
-            setUnit(m_unit);
-        }
+        setUnit(m_unit);
 
         // In case this activity was started with special instructions from an
         // Intent, pass the Intent's extras to the fragment as arguments
