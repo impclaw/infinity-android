@@ -68,7 +68,6 @@ public class ListConstructionActivity extends AppCompatActivity
     private Army m_army;
     private ListConstructionPagerAdapter m_adapter;
     private OptionSelectedListener m_optionListener;
-    private ListStatusListener m_listStatusListener;
     private ArmyStatusListener m_armyListener;
     private ListConstructionFragment m_listConstructionFragment;
     private long m_listDbId = -1;
@@ -199,15 +198,12 @@ public class ListConstructionActivity extends AppCompatActivity
         Log.d(TAG, "Option Selected: " + id);
         m_listDirty = true;
         m_optionListener.OnOptionSelected(m_currentSelectedUnit, id);
-        m_pager.setCurrentItem(2);
+        Toast.makeText(this, "Added " + m_currentSelectedUnit.getChild(id).name, Toast.LENGTH_SHORT).show();
+        //m_pager.setCurrentItem(2);
     }
 
     public void setOptionChangedListener(OptionSelectedListener optionListener) {
         m_optionListener = optionListener;
-    }
-
-    public void setListStatusChangedListener( ListStatusListener listStatusListener) {
-        m_listStatusListener = listStatusListener;
     }
 
     @Override

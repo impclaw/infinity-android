@@ -52,6 +52,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     private Map<String, Weapon> m_weaponsList;
     private RecyclerView m_recyclerView;
     private UnitAdapter m_adapter;
+    private LinearLayoutManager m_layoutManager;
 
     public UnitFragment() {
         m_unit = null;
@@ -61,10 +62,10 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) {
-            m_unit = savedInstanceState.getParcelable(MainActivity.UNIT);
-        }
 
+//        if (savedInstanceState != null) {
+//            m_unit = savedInstanceState.getParcelable(MainActivity.UNIT);
+//        }
 
     }
 
@@ -73,14 +74,19 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
+        if (savedInstanceState != null) {
+            m_unit = savedInstanceState.getParcelable(MainActivity.UNIT);
+        }
+
+
         setRetainInstance(true);
 
         m_recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         m_recyclerView.setHasFixedSize(true);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),
+        m_layoutManager = new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false);
-        m_recyclerView.setLayoutManager(layoutManager);
+        m_recyclerView.setLayoutManager(m_layoutManager);
 
         boolean clickable = false;
         Bundle arguments = getArguments();
@@ -96,17 +102,6 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
             }
             m_adapter = new UnitAdapter(getActivity(), childSelectedListener, clickable);
         }
-//        Bundle arguments = getArguments();
-//        if (arguments != null) {
-//            m_adapter.loadSavedList(arguments.getLong(MainActivity.ID, -1));
-//        }
-//        if (getActivity() instanceof ListConstructionAdapter.ListChangedListener) {
-//            m_adapter.addListChangedListener((ListConstructionAdapter.ListChangedListener) getActivity());
-//        }
-
-//        ItemTouchHelper.Callback callback = new ListConstructionAdapter.ListConstructionTouchHelper(m_adapter);
-//        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
-//        itemTouchHelper.attachToRecyclerView(m_recyclerView);
 
         m_recyclerView.setAdapter(m_adapter);
 
@@ -144,132 +139,10 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         if (unit != null) {
             m_adapter.setUnit(unit);
         }
-//
-//        if (m_scrollview != null) {
-//            m_scrollview.scrollTo(0, 0);
-//        }
-//        Log.d(TAG, "UnitFragment setId: " + unit.id);
-//
-//        if (getActivity() == null) {
-//            return;
-//        }
-//
-//        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//
-//        if (m_unit != null) {
-//            Iterator it = m_fragments.iterator();
-//            while (it.hasNext()) {
-//                transaction.remove((Fragment) it.next());
-//            }
-//        }
-//
-//        m_unit = unit;
-//
-//        for (int i = 0; i < m_unit.profiles.size(); i++) {
-//
-//            ProfileFragment profileFragment = new ProfileFragment();
-//            Bundle bundle = new Bundle();
-//            bundle.putParcelable(MainActivity.UNIT, m_unit);
-//            bundle.putInt(MainActivity.INDEX, i);
-//            profileFragment.setArguments(bundle);
-//
-//            m_fragments.add(0, profileFragment);
-//            transaction.add(R.id.fragment_container, profileFragment);
-//
-//        }
-//
-//        for (int i = 0; i < m_unit.children.size(); i++) {
-//            OptionsFragment optionsFragment = new OptionsFragment();
-//            Bundle bundle = new Bundle();
-//            bundle.putParcelable(MainActivity.UNIT, m_unit);
-//            bundle.putInt(MainActivity.INDEX, i);
-//            optionsFragment.setArguments(bundle);
-//
-//
-//            m_fragments.add(0, optionsFragment);
-//
-//            transaction.add(R.id.fragment_container, optionsFragment);
-//        }
-//
-//
-//        ArrayList<String> bsw = new ArrayList<>();
-//        ArrayList<String> ccw = new ArrayList<>();
-//
-//        boolean forwardObserver = false;
-//        boolean impersonation = false;
-//
-//        Iterator it = unit.profiles.iterator();
-//        while (it.hasNext()) {
-//            Profile profile = (Profile) it.next();
-//            bsw.addAll(profile.bsw);
-//            ccw.addAll(profile.ccw);
-//            if (profile.spec.indexOf(FORWARD_OBSERVER) != -1) {
-//                forwardObserver = true;
-//            }
-//        }
-//
-//        it = unit.children.iterator();
-//        while (it.hasNext()) {
-//            Child child = (Child) it.next();
-//            bsw.addAll(child.bsw);
-//            ccw.addAll(child.ccw);
-//            if (child.spec.indexOf(FORWARD_OBSERVER) != -1) {
-//                forwardObserver = true;
-//            }
-//        }
-//
-//        if (forwardObserver) {
-//            bsw.add(FORWARD_OBSERVER);
-//            bsw.add("Flash Pulse");
-//        }
-//
-//
-//        // remove duplicates
-//        Set<String> hs = new HashSet<>();
-//        hs.addAll(bsw);
-//        bsw.clear();
-//        bsw.addAll(hs);
-//
-//        hs.clear();
-//        hs.addAll(ccw);
-//        ccw.clear();
-//        ccw.addAll(hs);
-//
-//        Collections.sort(bsw, new Comparator<String>() {
-//            @Override
-//            public int compare(String lhs, String rhs) {
-//                return lhs.compareToIgnoreCase(rhs);
-//            }
-//        });
-//
-//        Collections.sort(ccw, new Comparator<String>() {
-//            @Override
-//            public int compare(String lhs, String rhs) {
-//                return lhs.compareToIgnoreCase(rhs);
-//            }
-//        });
-//
-//        bsw.addAll(ccw);
-//        bsw.add("Discover");
-//        bsw.add("Suppressive Fire");
-//
-//        for (int i = 0; i < bsw.size(); i++) {
-//            WeaponsFragment weaponsFragment = new WeaponsFragment();
-//            Bundle bundle = new Bundle();
-//            String name = bsw.get(i);
-//            if (name.endsWith(" (2)")) {
-//                name = name.substring(0, name.length() - 4);
-//            }
-//            bundle.putParcelable(MainActivity.WEAPON, m_weaponsList.get(name));
-//            weaponsFragment.setArguments(bundle);
-//
-//            m_fragments.add(0, weaponsFragment);
-//
-//            transaction.add(R.id.weapon_container, weaponsFragment);
-//        }
-//
-//        transaction.commit();
-//
+        m_unit = unit;
+
+        m_layoutManager.scrollToPositionWithOffset(0, 0);
+
     }
 
     @Override

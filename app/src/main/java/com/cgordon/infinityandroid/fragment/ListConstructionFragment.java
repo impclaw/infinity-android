@@ -85,6 +85,13 @@ public class ListConstructionFragment extends Fragment
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // TODO - handle orientation change to save work in progress list.
+        //outState.putParcelable(m_adapter.getList());
+    }
+
+    @Override
     public void onPause() {
         super.onPause();
         m_scrollState = m_recyclerView.getLayoutManager().onSaveInstanceState();
