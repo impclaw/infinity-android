@@ -32,6 +32,7 @@ import android.widget.ScrollView;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
 import com.cgordon.infinityandroid.activity.MainActivity;
+import com.cgordon.infinityandroid.activity.UnitActivity;
 import com.cgordon.infinityandroid.adapter.UnitAdapter;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
@@ -53,6 +54,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     private RecyclerView m_recyclerView;
     private UnitAdapter m_adapter;
     private LinearLayoutManager m_layoutManager;
+    private int m_selectedChildId;
 
     public UnitFragment() {
         m_unit = null;
@@ -63,21 +65,16 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        if (savedInstanceState != null) {
-//            m_unit = savedInstanceState.getParcelable(MainActivity.UNIT);
-//        }
-
+        if (savedInstanceState != null) {
+            m_unit = savedInstanceState.getParcelable(UnitActivity.UNIT);
+            m_selectedChildId = savedInstanceState.getInt(UnitActivity.SELECTED_CHILD_ID);
+        }
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_recycler_view, container, false);
-
-        if (savedInstanceState != null) {
-            m_unit = savedInstanceState.getParcelable(MainActivity.UNIT);
-        }
-
 
         setRetainInstance(true);
 
@@ -104,7 +101,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         m_recyclerView.setAdapter(m_adapter);
 
 
-        setUnit(m_unit);
+//        setUnit(m_unit);
 
         // In case this activity was started with special instructions from an
         // Intent, pass the Intent's extras to the fragment as arguments
@@ -119,23 +116,25 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         if (activity instanceof ListConstructionActivity) {
             ((ListConstructionActivity) activity).addUnitChangedListener(this);
         }
-
-        if (activity instanceof UnitChangeSource) {
-            m_unit = ((UnitChangeSource) activity).getUnit();
-        }
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putParcelable(MainActivity.UNIT, m_unit);
+        outState.putParcelable(UnitActivity.UNIT, m_unit);
+        outState.putInt(UnitActivity.SELECTED_CHILD_ID, m_selectedChildId);
     }
 
     public void setUnit(Unit unit) {
+        setUnit(unit, -1);
+    }
+
+    public void setUnit(Unit unit, int selectedChildId) {
         if (unit != null) {
-            m_adapter.setUnit(unit);
+            m_adapter.setUnit(unit, selectedChildId);
         }
         m_unit = unit;
+        m_selectedChildId = selectedChildId;
 
         m_layoutManager.scrollToPositionWithOffset(0, 0);
 

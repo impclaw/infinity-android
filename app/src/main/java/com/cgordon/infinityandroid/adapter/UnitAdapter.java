@@ -18,8 +18,6 @@
 package com.cgordon.infinityandroid.adapter;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -30,8 +28,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.activity.MainActivity;
-import com.cgordon.infinityandroid.activity.UnitListActivity;
 import com.cgordon.infinityandroid.data.Child;
 import com.cgordon.infinityandroid.data.Profile;
 import com.cgordon.infinityandroid.data.Unit;
@@ -60,8 +56,12 @@ public class UnitAdapter
     private final Context m_context;
     private final boolean m_clickableChild;
     private final ChildSelectedListener m_listener;
+
     private Unit m_unit;
+    private int m_selectedChildId;
+
     private ArrayList<Weapon> m_unitWeapons;
+    private ArrayList<Child> m_children;
 
     public UnitAdapter(Context context, ChildSelectedListener listener, boolean clickableChild) {
         m_context = context;
@@ -107,14 +107,14 @@ public class UnitAdapter
 
             // The position includes all the profile entries listed above the child entries.
             // Subtract the number of profiles from the position to get the actual child index
-            Child child = m_unit.children.get(position - m_unit.profiles.size());
+            Child child = m_children.get(position - m_unit.profiles.size());
             childViewHolder.setChild(m_unit, child);
         } else if (holder instanceof WeaponViewHolder) {
             WeaponViewHolder weaponViewHolder = (WeaponViewHolder) holder;
 
             // the position includes all the profile/child entries above.  Subtract them to get the
             // real index
-            Weapon weapon = m_unitWeapons.get(position - m_unit.profiles.size() - m_unit.children.size());
+            Weapon weapon = m_unitWeapons.get(position - m_unit.profiles.size() - m_children.size());
             weaponViewHolder.setWeapon(weapon);
         }
     }
@@ -123,7 +123,7 @@ public class UnitAdapter
     public int getItemViewType(int position) {
         if (position < m_unit.profiles.size())
             return TYPE_PROFILE;
-        else if (position < m_unit.profiles.size() + m_unit.children.size())
+        else if (position < m_unit.profiles.size() + m_children.size())
             return TYPE_CHILD;
         else
             return TYPE_WEAPON;
@@ -134,11 +134,19 @@ public class UnitAdapter
         if (m_unit == null)
             return 0;
         else
-            return m_unit.profiles.size() + m_unit.children.size() + m_unitWeapons.size();
+            return m_unit.profiles.size() + m_children.size() + m_unitWeapons.size();
+
     }
 
-    public void setUnit(Unit unit) {
+    public void setUnit(Unit unit, int selectedChildId) {
         m_unit = unit;
+        m_selectedChildId = selectedChildId;
+        if (selectedChildId == -1) {
+            m_children = unit.children;
+        } else {
+            m_children = new ArrayList<>();
+            m_children.add(unit.getChild(selectedChildId));
+        }
 
         setUnitWeaponsList();
 
@@ -166,7 +174,7 @@ public class UnitAdapter
             }
         }
 
-        it = m_unit.children.iterator();
+        it = m_children.iterator();
         while (it.hasNext()) {
             Child child = (Child) it.next();
             bsw.addAll(child.bsw);
@@ -356,10 +364,10 @@ public class UnitAdapter
             int resourceId = UnitListAdapter.getDrawableResource(unit, context, 24);
             imageView.setImageResource(resourceId);
 
-            if (profile.id == 1) {
-                ViewCompat.setTransitionName(imageView, UnitListActivity.TRANSITION_IMAGE);
-//            ViewCompat.setTransitionName(isc, UnitListActivity.TRANSITION_UNIT_NAME);
-            }
+//            if (profile.id == 1) {
+//                ViewCompat.setTransitionName(imageView, UnitListActivity.TRANSITION_IMAGE);
+////            ViewCompat.setTransitionName(isc, UnitListActivity.TRANSITION_UNIT_NAME);
+//            }
 
 
         }

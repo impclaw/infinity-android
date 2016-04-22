@@ -18,6 +18,7 @@
 package com.cgordon.infinityandroid.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -31,6 +32,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.activity.UnitActivity;
 import com.cgordon.infinityandroid.data.CombatGroupElement;
 import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Child;
@@ -52,7 +54,6 @@ public class ListConstructionAdapter
 {
     private static final String TAG = ListConstructionAdapter.class.getSimpleName();
     private final UnitSource m_unitSource;
-    private UnitListFragment.UnitSelectedListener m_unitSelectedListener = null;
 
     private final int TYPE_UNIT = 0;
     private final int TYPE_GROUP = 1;
@@ -86,10 +87,6 @@ public class ListConstructionAdapter
 
 
         m_listeners = new ArrayList<>();
-
-        if (context instanceof UnitListFragment.UnitSelectedListener) {
-            m_unitSelectedListener = (UnitListFragment.UnitSelectedListener) context;
-        }
     }
 
     public void loadSavedList(long id) {
@@ -142,6 +139,7 @@ public class ListConstructionAdapter
     public interface ListChangedListener {
         void onListChanged(int cost, double swc, int lieutenantCount);
         void onOrderChanged(int oldPosition, int newPosition);
+        void onUnitClicked(int unitId, int childId);
     }
 
     public boolean addListChangedListener(ListChangedListener listener) {
@@ -373,8 +371,13 @@ public class ListConstructionAdapter
                 public void onClick(View v) {
                     ListElement temp = m_list.get(getAdapterPosition());
                     if (temp instanceof UnitElement) {
-                        m_unitSelectedListener.unitSelected(m_unitSource.getUnit(((UnitElement)temp).unitId),
-                                UnitViewHolder.this);
+                        UnitElement unitElement = (UnitElement) temp;
+
+                        for (ListChangedListener l: m_listeners
+                                ) {
+                            l.onUnitClicked(unitElement.unitId, unitElement.child);
+
+                        }
                     }
                 }
             });

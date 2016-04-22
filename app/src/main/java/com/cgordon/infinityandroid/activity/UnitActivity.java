@@ -36,18 +36,31 @@ public class UnitActivity extends AppCompatActivity
         implements ChildSelectedListener, UnitFragment.UnitChangeSource {
 
     private static final String TAG = UnitActivity.class.getSimpleName();
+
+    public static final String UNIT = "unit";
+    public final static String SELECTED_CHILD_ID = "selected_child_id";
+
     private Unit m_unit;
 
     private UnitFragment m_unitFragment = null;
+    private int m_selectedChildId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_unit);
 
-        m_unit = getIntent().getParcelableExtra(MainActivity.UNIT);
+        UnitFragment unitFragment = (UnitFragment) getSupportFragmentManager().findFragmentById(R.id.unit);
+
+        m_unit = getIntent().getParcelableExtra(UNIT);
         Log.d(TAG, "Creating UnitActivity: " + m_unit.toString());
 
-        setContentView(R.layout.activity_unit);
+        m_selectedChildId = getIntent().getIntExtra (SELECTED_CHILD_ID, -1);
+        Log.d(TAG, "Selected Child: " + m_selectedChildId );
+
+
+        unitFragment.setUnit(m_unit, m_selectedChildId);
+
 
         Fragment unit = getSupportFragmentManager().findFragmentById(R.id.unit);
         if (unit instanceof UnitFragment) {

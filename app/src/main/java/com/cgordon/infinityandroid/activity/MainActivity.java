@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements ArmyListFragment.
     public static final String ARMY = "army";
     public static final String ID = "id";
     public static final String ABBR = "abbr";
-    public static final String UNIT = "unit";
     public static final String INDEX = "profile";
     public static final String WEAPON = "weapon";
     public static final String LIST_ID = "list_id";

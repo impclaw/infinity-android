@@ -51,10 +51,6 @@ public class UnitListActivity extends AppCompatActivity
         implements
         UnitListFragment.UnitSelectedListener {
 
-    public static final String TRANSITION_IMAGE = "Transition:image";
-    public static final String TRANSITION_UNIT_NAME = "Transition:unit_name";
-
-
     private static final String TAG = UnitListActivity.class.getSimpleName();
     private static Army m_army;
     private Map<String, Weapon> m_weapons;
@@ -141,7 +137,7 @@ public class UnitListActivity extends AppCompatActivity
     @Override
     protected void onPause() {
         super.onPause();
-        SharedPreferences p = getSharedPreferences(MainActivity.UNIT, MODE_PRIVATE);
+        SharedPreferences p = getSharedPreferences(UnitActivity.UNIT, MODE_PRIVATE);
         p.edit().putLong(MainActivity.ID, m_army.dbId).commit();
     }
 
@@ -149,7 +145,7 @@ public class UnitListActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         if (m_army == null) {
-            SharedPreferences p = getSharedPreferences(MainActivity.UNIT, MODE_PRIVATE);
+            SharedPreferences p = getSharedPreferences(UnitActivity.UNIT, MODE_PRIVATE);
             long dbId = p.getLong(MainActivity.ID, -1);
             ArmyData armyData = new ArmyData(this);
             armyData.open();
@@ -159,7 +155,7 @@ public class UnitListActivity extends AppCompatActivity
     }
 
     @Override
-    public void unitSelected(Unit unit, RecyclerView.ViewHolder viewHolder) {
+    public void unitSelected(Unit unit, int childId) {
         //Log.d(TAG, unit.toString());
         Intent intent = new Intent(this, UnitActivity.class);
 
@@ -185,20 +181,18 @@ public class UnitListActivity extends AppCompatActivity
         sb.append("\nCC Weapons\n");
         sb.append(weaponsToString(ccw));
 
-        if (viewHolder instanceof UnitListAdapter.ViewHolder) {
-            UnitListAdapter.ViewHolder tmpViewHolder = (UnitListAdapter.ViewHolder) viewHolder;
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
-                    new Pair<View, String>(tmpViewHolder.m_imageView, TRANSITION_IMAGE)
-                    //        ,new Pair<View, String>(viewHolder.m_textView, TRANSITION_UNIT_NAME)
-            );
+//        if (viewHolder instanceof UnitListAdapter.ViewHolder) {
+//            UnitListAdapter.ViewHolder tmpViewHolder = (UnitListAdapter.ViewHolder) viewHolder;
+//            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
+//                    new Pair<View, String>(tmpViewHolder.m_imageView, TRANSITION_IMAGE)
+//                    //        ,new Pair<View, String>(viewHolder.m_textView, TRANSITION_UNIT_NAME)
+//            );
+//
+//        ActivityCompat.startActivity(this, intent);
+//        }
 
-            intent.putExtra(MainActivity.UNIT, unit);
-            ActivityCompat.startActivity(this, intent, options.toBundle());
-        }
-
-
-        //startActivity(intent);
-
+        intent.putExtra(UnitActivity.UNIT, unit);
+        startActivity(intent);
     }
 
     private String weaponsToString(Set<String> weapons) {

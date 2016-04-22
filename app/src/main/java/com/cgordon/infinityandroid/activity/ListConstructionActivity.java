@@ -19,13 +19,13 @@ package com.cgordon.infinityandroid.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.util.Log;
@@ -39,6 +39,7 @@ import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.ArmyList;
 import com.cgordon.infinityandroid.data.Unit;
+import com.cgordon.infinityandroid.data.UnitElement;
 import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
@@ -53,11 +54,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public class ListConstructionActivity extends AppCompatActivity
-    implements UnitListFragment.UnitSelectedListener,
+        implements UnitListFragment.UnitSelectedListener,
         ChildSelectedListener,
         ListConstructionAdapter.ListChangedListener,
-        UnitSource
-{
+        UnitSource {
 
     private final static String TAG = AppCompatActivity.class.getSimpleName();
 
@@ -179,7 +179,7 @@ public class ListConstructionActivity extends AppCompatActivity
         }
     }
 
-    protected void notifyUnitSelected (Unit unit, RecyclerView.ViewHolder viewHolder) {
+    protected void notifyUnitSelected(Unit unit) {
         if (m_unitChangedListener != null) {
             m_unitChangedListener.OnUnitChanged(unit);
         }
@@ -189,8 +189,8 @@ public class ListConstructionActivity extends AppCompatActivity
         }
     }
 
-    public void unitSelected(Unit unit, RecyclerView.ViewHolder viewHolder) {
-        notifyUnitSelected(unit, viewHolder);
+    public void unitSelected(Unit unit, int child) {
+        notifyUnitSelected(unit);
         m_pager.setCurrentItem(1);
     }
 
@@ -228,6 +228,14 @@ public class ListConstructionActivity extends AppCompatActivity
     }
 
     @Override
+    public void onUnitClicked(int unitId, int childId) {
+        Intent i = new Intent(this, UnitActivity.class);
+        i.putExtra(UnitActivity.UNIT, getUnit(unitId));
+        i.putExtra(UnitActivity.SELECTED_CHILD_ID, childId);
+        startActivity(i);
+    }
+
+    @Override
     public Unit getUnit(int id) {
         Iterator it = m_units.iterator();
         while (it.hasNext()) {
@@ -242,6 +250,7 @@ public class ListConstructionActivity extends AppCompatActivity
     class ListConstructionPagerAdapter extends FragmentPagerAdapter {
 
         String tabs[];
+
         public ListConstructionPagerAdapter(FragmentManager fm) {
             super(fm);
             tabs = new String[3];
@@ -264,7 +273,7 @@ public class ListConstructionActivity extends AppCompatActivity
                     break;
                 case 1:
                     b = new Bundle();
-                    b.putBoolean (MainActivity.CLICKABLE_CHILD, true);
+                    b.putBoolean(MainActivity.CLICKABLE_CHILD, true);
                     fragment = new UnitFragment();
                     fragment.setArguments(b);
                     break;
@@ -299,7 +308,7 @@ public class ListConstructionActivity extends AppCompatActivity
         public void OnOptionSelected(Unit unitDBid, int option);
     }
 
-    public void setArmyStatusListener( ArmyStatusListener listener) {
+    public void setArmyStatusListener(ArmyStatusListener listener) {
         m_armyListener = listener;
     }
 
@@ -408,7 +417,7 @@ public class ListConstructionActivity extends AppCompatActivity
 
             // see if the save works:
             m_listDbId = m_listConstructionFragment.saveList(m_listName, m_army.dbId, 300, m_listDbId);
-            if(m_listDbId != -1) {
+            if (m_listDbId != -1) {
                 m_listDirty = false;
                 Toast.makeText(this, "List Saved", Toast.LENGTH_LONG).show();
             } else {
