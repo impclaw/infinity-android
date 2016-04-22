@@ -93,6 +93,15 @@ public class ListConstructionFragment extends Fragment
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (getActivity() instanceof ListChangedListener) {
+            m_adapter.removeListChangedListener((ListChangedListener) getActivity());
+        }
+
+    }
+
+    @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }

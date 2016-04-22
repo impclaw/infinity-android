@@ -18,16 +18,12 @@
 package com.cgordon.infinityandroid.activity;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.interfaces.ChildSelectedListener;
@@ -42,7 +38,6 @@ public class UnitActivity extends AppCompatActivity
 
     private Unit m_unit;
 
-    private UnitFragment m_unitFragment = null;
     private int m_selectedChildId;
 
     @Override
@@ -53,45 +48,12 @@ public class UnitActivity extends AppCompatActivity
         UnitFragment unitFragment = (UnitFragment) getSupportFragmentManager().findFragmentById(R.id.unit);
 
         m_unit = getIntent().getParcelableExtra(UNIT);
-        Log.d(TAG, "Creating UnitActivity: " + m_unit.toString());
-
-        m_selectedChildId = getIntent().getIntExtra (SELECTED_CHILD_ID, -1);
-        Log.d(TAG, "Selected Child: " + m_selectedChildId );
-
+        m_selectedChildId = getIntent().getIntExtra(SELECTED_CHILD_ID, -1);
 
         unitFragment.setUnit(m_unit, m_selectedChildId);
 
-
-        Fragment unit = getSupportFragmentManager().findFragmentById(R.id.unit);
-        if (unit instanceof UnitFragment) {
-            m_unitFragment = (UnitFragment) unit;
-        }
-
-        ImageView image = (ImageView) findViewById(R.id.image_view);
-
-        String imageSize = "_48";
-
-        String resourceName;
-        if (m_unit.image == null) {
-            resourceName = m_unit.faction + "_" + m_unit.isc;
-        } else {
-            resourceName = m_unit.faction + "_" + m_unit.image;
-        }
-
-        resourceName += imageSize;
-
-        resourceName = UnitListAdapter.prepareDrawableResource(resourceName);
-
-        int resourceId = getResources().getIdentifier(resourceName, "drawable", this.getPackageName());
-
-//        image.setImageResource(resourceId);
-//
-//        ViewCompat.setTransitionName(image, UnitListActivity.TRANSITION_IMAGE);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
         setSupportActionBar(toolbar);
-
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,13 +64,6 @@ public class UnitActivity extends AppCompatActivity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(m_unit.isc);
-
-
-//        ViewCompat.setTransitionName(toolbar, UnitListActivity.TRANSITION_UNIT_NAME);
-
-        TextView textView = (TextView) findViewById(R.id.text_name);
-//        textView.setText(m_unit.toString());
-
     }
 
     @Override

@@ -65,10 +65,6 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (savedInstanceState != null) {
-            m_unit = savedInstanceState.getParcelable(UnitActivity.UNIT);
-            m_selectedChildId = savedInstanceState.getInt(UnitActivity.SELECTED_CHILD_ID);
-        }
     }
 
     @Nullable
@@ -77,6 +73,11 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         View v = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
         setRetainInstance(true);
+
+        if (savedInstanceState != null) {
+            m_unit = savedInstanceState.getParcelable(UnitActivity.UNIT);
+            m_selectedChildId = savedInstanceState.getInt(UnitActivity.SELECTED_CHILD_ID);
+        }
 
         m_recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         m_recyclerView.setHasFixedSize(true);
@@ -101,7 +102,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         m_recyclerView.setAdapter(m_adapter);
 
 
-//        setUnit(m_unit);
+        setUnit(m_unit);
 
         // In case this activity was started with special instructions from an
         // Intent, pass the Intent's extras to the fragment as arguments
@@ -117,6 +118,8 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
             ((ListConstructionActivity) activity).addUnitChangedListener(this);
         }
     }
+
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
