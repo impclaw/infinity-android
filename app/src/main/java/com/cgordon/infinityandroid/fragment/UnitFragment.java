@@ -26,8 +26,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
@@ -37,7 +35,6 @@ import com.cgordon.infinityandroid.adapter.UnitAdapter;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
 import com.cgordon.infinityandroid.interfaces.ChildSelectedListener;
-import com.cgordon.infinityandroid.storage.WeaponsData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,7 +115,6 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
             ((ListConstructionActivity) activity).addUnitChangedListener(this);
         }
     }
-
 
 
     @Override
