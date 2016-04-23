@@ -101,10 +101,6 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
 
         setUnit(m_unit);
 
-        // In case this activity was started with special instructions from an
-        // Intent, pass the Intent's extras to the fragment as arguments
-        //profileFragment.setArguments(getIntent().getExtras());
-
         return v;
     }
 
