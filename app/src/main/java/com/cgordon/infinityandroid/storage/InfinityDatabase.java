@@ -26,13 +26,10 @@ import com.cgordon.infinityandroid.json.ArmyParser;
 import com.cgordon.infinityandroid.json.UnitParser;
 import com.cgordon.infinityandroid.json.WeaponParser;
 
-/**
- * Created by cgordon on 6/1/2015.
- */
 public class InfinityDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "infinity.db";
-    private static final int DATABASE_VERSION = 35;
+    private static final int DATABASE_VERSION = 36;
 
     public static final String TABLE_WEAPONS = "weapons";
     public static final String TABLE_UNITS = "units";
