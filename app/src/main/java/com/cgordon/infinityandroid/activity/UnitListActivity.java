@@ -20,21 +20,14 @@ package com.cgordon.infinityandroid.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NavUtils;
-import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.adapter.UnitListAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
@@ -49,7 +42,8 @@ import java.util.Set;
 
 public class UnitListActivity extends AppCompatActivity
         implements
-        UnitListFragment.UnitSelectedListener {
+        UnitListFragment.UnitSelectedListener,
+        View.OnClickListener {
 
     private static final String TAG = UnitListActivity.class.getSimpleName();
     private static Army m_army;
@@ -91,48 +85,19 @@ public class UnitListActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(m_army.name);
 
-
-//        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.unit_list);
-//        fragment.setRetainInstance(true);
-//        if (fragment instanceof UnitListFragment) {
-//            ((UnitListFragment) fragment).setOnUnitSelectedListener(this);
-//        }
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_unit_list, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-            case R.id.action_create:
-                Intent i = new Intent(this, ListConstructionActivity.class);
-                i.putExtra(MainActivity.ARMY, m_army);
-                startActivity(i);
-                return true;
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        if (fab != null) {
+            fab.setClickable(true);
+            fab.setOnClickListener(this);
         }
 
-        return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     protected void onPause() {
@@ -181,16 +146,6 @@ public class UnitListActivity extends AppCompatActivity
         sb.append("\nCC Weapons\n");
         sb.append(weaponsToString(ccw));
 
-//        if (viewHolder instanceof UnitListAdapter.ViewHolder) {
-//            UnitListAdapter.ViewHolder tmpViewHolder = (UnitListAdapter.ViewHolder) viewHolder;
-//            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
-//                    new Pair<View, String>(tmpViewHolder.m_imageView, TRANSITION_IMAGE)
-//                    //        ,new Pair<View, String>(viewHolder.m_textView, TRANSITION_UNIT_NAME)
-//            );
-//
-//        ActivityCompat.startActivity(this, intent);
-//        }
-
         intent.putExtra(UnitActivity.UNIT, unit);
         startActivity(intent);
     }
@@ -220,4 +175,10 @@ public class UnitListActivity extends AppCompatActivity
         return sb.toString();
     }
 
+    @Override
+    public void onClick(View v) {
+        Intent i = new Intent(this, ListConstructionActivity.class);
+        i.putExtra(MainActivity.ARMY, m_army);
+        startActivity(i);
+    }
 }

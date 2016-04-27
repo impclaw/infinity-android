@@ -32,7 +32,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.Army;
@@ -41,7 +40,7 @@ import com.cgordon.infinityandroid.fragment.SavedListsFragment;
 
 public class MainActivity extends AppCompatActivity
         implements ArmyListFragment.ArmyListListener,
-            NavigationView.OnNavigationItemSelectedListener {
+        NavigationView.OnNavigationItemSelectedListener {
 
     // this is a big hack, but I don't want to put any more time into figuring out the Fragment
     // lifecycle
@@ -81,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         m_drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        m_drawerToggle = new ActionBarDrawerToggle(this, m_drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_closed );
+        m_drawerToggle = new ActionBarDrawerToggle(this, m_drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_closed);
 
         m_drawerLayout.addDrawerListener(m_drawerToggle);
         m_drawerToggle.syncState();
@@ -178,11 +177,11 @@ public class MainActivity extends AppCompatActivity
         switch (itemId) {
             case R.id.navigation_browse:
                 getSupportActionBar().setTitle(R.string.app_name);
-                getSupportFragmentManager().beginTransaction().replace(R.id.content, m_armyListFragment ).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.content, m_armyListFragment).commit();
                 break;
             case R.id.navigation_saved_lists:
                 getSupportActionBar().setTitle(R.string.navigation_saved_lists);
-                getSupportFragmentManager().beginTransaction().replace(R.id.content, m_savedListsFragment ).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.content, m_savedListsFragment).commit();
                 break;
         }
     }
