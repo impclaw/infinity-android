@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_home"
+            android:checked="true"
+            android:icon="@drawable/panoceania_24"
+            android:title="@string/pano_main"/>
+
+        <item
+            android:id="@+id/drawer_favourite"
+            android:icon="@drawable/nomads_24"
+            android:title="@string/nomads_main"/>
+        ...
+
+        <item
+            android:id="@+id/drawer_settings"
+            android:icon="@drawable/ariadna_24"
+            android:title="@string/ariadna_main"/>
+
+    </group>
+</menu>

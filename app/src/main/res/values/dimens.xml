@@ -1,4 +1,3 @@
-
 <!--
  Copyright 2015 by Chris Gordon
 
@@ -22,4 +21,5 @@
     <dimen name="activity_vertical_margin">0dp</dimen>
     <dimen name="army_card_padding">2dp</dimen>
     <integer name="card_column_count">3</integer>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>
