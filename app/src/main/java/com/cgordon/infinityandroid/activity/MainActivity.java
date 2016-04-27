@@ -189,17 +189,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.navigation_browse) {
-            navigate(id);
-            Toast.makeText(this, "Home!", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.navigation_saved_lists) {
-            navigate(id);
-            Toast.makeText(this, "Lists!", Toast.LENGTH_SHORT).show();
-        }
+        navigate(item.getItemId());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
