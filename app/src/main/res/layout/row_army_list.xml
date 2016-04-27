@@ -27,21 +27,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/icon"
-        android:minWidth="24dp"
-        android:minHeight="24dp"
-        android:padding="2dp"/>
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:padding="4dp"
+        android:src="@drawable/panoceania_48"/>
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/text_name"
         android:layout_weight="1"
-        android:text="@string/app_name"
+        android:text="test stest testst setsete setsetest"
+        android:singleLine="true"
         android:layout_gravity="center_vertical"
-        android:padding="2dp"/>
+        android:padding="2dp"
+        android:paddingLeft="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:ellipsize="end"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text_points"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:text="300"
         android:layout_gravity="center_vertical"
         android:padding="2dp"/>

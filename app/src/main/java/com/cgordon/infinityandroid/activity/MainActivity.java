@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity
     private ActionBarDrawerToggle m_drawerToggle;
     private final String NAVIGATION_ITEM = "navigation_item";
     private int m_navigationItem;
+    private NavigationView m_navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +86,8 @@ public class MainActivity extends AppCompatActivity
         m_drawerLayout.addDrawerListener(m_drawerToggle);
         m_drawerToggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
-        navigationView.setNavigationItemSelectedListener(this);
+        m_navigationView = (NavigationView) findViewById(R.id.navigation);
+        m_navigationView.setNavigationItemSelectedListener(this);
 
         navigate(m_navigationItem);
     }
@@ -96,6 +97,9 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (m_navigationItem == R.id.navigation_saved_lists) {
+            m_navigationView.getMenu().getItem(0).setChecked(true);
+            navigate(R.id.navigation_browse);
         } else {
             super.onBackPressed();
         }
@@ -173,9 +177,11 @@ public class MainActivity extends AppCompatActivity
         m_navigationItem = itemId;
         switch (itemId) {
             case R.id.navigation_browse:
+                getSupportActionBar().setTitle(R.string.app_name);
                 getSupportFragmentManager().beginTransaction().replace(R.id.content, m_armyListFragment ).commit();
                 break;
             case R.id.navigation_saved_lists:
+                getSupportActionBar().setTitle(R.string.navigation_saved_lists);
                 getSupportFragmentManager().beginTransaction().replace(R.id.content, m_savedListsFragment ).commit();
                 break;
         }
