@@ -4,21 +4,16 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/drawer_home"
+            android:id="@+id/navigation_home"
             android:checked="true"
             android:icon="@drawable/panoceania_24"
-            android:title="@string/pano_main"/>
+            android:title="@string/navigation_home"/>
+
 
         <item
-            android:id="@+id/drawer_favourite"
-            android:icon="@drawable/nomads_24"
-            android:title="@string/nomads_main"/>
-        ...
-
-        <item
-            android:id="@+id/drawer_settings"
+            android:id="@+id/navigation_lists"
             android:icon="@drawable/ariadna_24"
-            android:title="@string/ariadna_main"/>
+            android:title="@string/navigation_lists"/>
 
     </group>
 </menu>

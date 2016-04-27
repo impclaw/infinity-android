@@ -33,12 +33,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.fragment.ArmyListFragment;
 
-public class MainActivity extends AppCompatActivity implements ArmyListFragment.ArmyListListener {
+public class MainActivity extends AppCompatActivity
+        implements ArmyListFragment.ArmyListListener,
+            NavigationView.OnNavigationItemSelectedListener {
 
     // this is a big hack, but I don't want to put any more time into figuring out the Fragment
     // lifecycle
@@ -65,41 +68,46 @@ public class MainActivity extends AppCompatActivity implements ArmyListFragment.
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        final ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setHomeAsUpIndicator(R.drawable.tohaa_24);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+
+//        final ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            actionBar.setHomeAsUpIndicator(R.drawable.tohaa_24);
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//        }
 
         m_drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        final View content = findViewById(R.id.content);
+        m_drawerToggle = new ActionBarDrawerToggle(this, m_drawerLayout, toolbar
+                , R.string.drawer_open, R.string.drawer_closed );
+//        {
+//            @Override
+//            public void onDrawerOpened(View drawerView) {
+//                super.onDrawerOpened(drawerView);
+//                invalidateOptionsMenu();
+//            }
+//
+//            @Override
+//            public void onDrawerClosed(View drawerView) {
+//                super.onDrawerClosed(drawerView);
+//                invalidateOptionsMenu();
+//            }
+//        };
+        m_drawerLayout.addDrawerListener(m_drawerToggle);
+        m_drawerToggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override public boolean onNavigationItemSelected(MenuItem menuItem) {
-                Snackbar.make(content, menuItem.getTitle() + " pressed", Snackbar.LENGTH_LONG).show();
-                menuItem.setChecked(true);
-                m_drawerLayout.closeDrawers();
-                return true;
-            }
-        });
-        m_drawerToggle = new ActionBarDrawerToggle(this, m_drawerLayout, toolbar
-                , R.string.drawer_open, R.string.drawer_closed ) {
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                invalidateOptionsMenu();
-            }
+        navigationView.setNavigationItemSelectedListener(this);
 
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-                invalidateOptionsMenu();
-            }
-        };
-        m_drawerLayout.setDrawerListener(m_drawerToggle);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
@@ -155,5 +163,22 @@ public class MainActivity extends AppCompatActivity implements ArmyListFragment.
         Intent i = new Intent(this, UnitListActivity.class);
         i.putExtra(MainActivity.ARMY, army);
         startActivity(i);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.navigation_home) {
+            Toast.makeText(this, "Home!", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.navigation_lists) {
+            Toast.makeText(this, "Lists!", Toast.LENGTH_SHORT).show();
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
