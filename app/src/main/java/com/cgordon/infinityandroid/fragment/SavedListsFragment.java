@@ -17,9 +17,8 @@
 
 package com.cgordon.infinityandroid.fragment;
 
-
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -27,12 +26,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.adapter.ArmyAdapter;
 import com.cgordon.infinityandroid.adapter.SavedListsAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class SavedListsFragment extends Fragment {
 
 
@@ -57,7 +52,7 @@ public class SavedListsFragment extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         m_recyclerView.setLayoutManager(layoutManager);
-        m_adapter= new SavedListsAdapter(getActivity());
+        m_adapter = new SavedListsAdapter(getActivity());
         m_recyclerView.setAdapter(m_adapter);
 
         return view;

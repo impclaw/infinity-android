@@ -19,25 +19,25 @@ package com.cgordon.infinityandroid.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.fragment.ArmyListFragment;
+import com.cgordon.infinityandroid.fragment.SavedListsFragment;
 
 public class MainActivity extends AppCompatActivity
         implements ArmyListFragment.ArmyListListener,
@@ -58,46 +58,37 @@ public class MainActivity extends AppCompatActivity
     public static final String LIST_ID = "list_id";
     public static final String CLICKABLE_CHILD = "clickable_child";
 
+    private ArmyListFragment m_armyListFragment = new ArmyListFragment();
+    private SavedListsFragment m_savedListsFragment = new SavedListsFragment();
+
     private DrawerLayout m_drawerLayout;
     private ActionBarDrawerToggle m_drawerToggle;
+    private final String NAVIGATION_ITEM = "navigation_item";
+    private int m_navigationItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        m_navigationItem = R.id.navigation_browse;
+        if (savedInstanceState != null) {
+            m_navigationItem = savedInstanceState.getInt(NAVIGATION_ITEM);
+        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        final ActionBar actionBar = getSupportActionBar();
-//        if (actionBar != null) {
-//            actionBar.setHomeAsUpIndicator(R.drawable.tohaa_24);
-//            actionBar.setDisplayHomeAsUpEnabled(true);
-//        }
-
         m_drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        m_drawerToggle = new ActionBarDrawerToggle(this, m_drawerLayout, toolbar
-                , R.string.drawer_open, R.string.drawer_closed );
-//        {
-//            @Override
-//            public void onDrawerOpened(View drawerView) {
-//                super.onDrawerOpened(drawerView);
-//                invalidateOptionsMenu();
-//            }
-//
-//            @Override
-//            public void onDrawerClosed(View drawerView) {
-//                super.onDrawerClosed(drawerView);
-//                invalidateOptionsMenu();
-//            }
-//        };
+        m_drawerToggle = new ActionBarDrawerToggle(this, m_drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_closed );
+
         m_drawerLayout.addDrawerListener(m_drawerToggle);
         m_drawerToggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        navigate(m_navigationItem);
     }
 
     @Override
@@ -111,10 +102,23 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        m_drawerToggle.syncState();
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        m_drawerToggle.onConfigurationChanged(newConfig);
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        outState.putInt(NAVIGATION_ITEM, m_navigationItem);
+
+    }
+
+    //    @Override
+//    protected void onPostCreate(Bundle savedInstanceState) {
+//        super.onPostCreate(savedInstanceState);
+//        m_drawerToggle.syncState();
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -165,15 +169,29 @@ public class MainActivity extends AppCompatActivity
         startActivity(i);
     }
 
+    private void navigate(int itemId) {
+        m_navigationItem = itemId;
+        switch (itemId) {
+            case R.id.navigation_browse:
+                getSupportFragmentManager().beginTransaction().replace(R.id.content, m_armyListFragment ).commit();
+                break;
+            case R.id.navigation_saved_lists:
+                getSupportFragmentManager().beginTransaction().replace(R.id.content, m_savedListsFragment ).commit();
+                break;
+        }
+    }
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.navigation_home) {
+        if (id == R.id.navigation_browse) {
+            navigate(id);
             Toast.makeText(this, "Home!", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.navigation_lists) {
+        } else if (id == R.id.navigation_saved_lists) {
+            navigate(id);
             Toast.makeText(this, "Lists!", Toast.LENGTH_SHORT).show();
         }
 

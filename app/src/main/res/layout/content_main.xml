@@ -13,11 +13,6 @@
     tools:context="com.cgordon.materialdesign.MainActivity">
     <!--tools:showIn="@layout/app_bar_main"-->
 
-    <fragment
-        android:name="com.cgordon.infinityandroid.fragment.ArmyListFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout="@layout/fragment_recycler_view" />
 </RelativeLayout>
 
 

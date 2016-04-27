@@ -4,16 +4,16 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/navigation_home"
+            android:id="@+id/navigation_browse"
             android:checked="true"
             android:icon="@drawable/panoceania_24"
-            android:title="@string/navigation_home"/>
+            android:title="@string/navigation_browse"/>
 
 
         <item
-            android:id="@+id/navigation_lists"
+            android:id="@+id/navigation_saved_lists"
             android:icon="@drawable/ariadna_24"
-            android:title="@string/navigation_lists"/>
+            android:title="@string/navigation_saved_lists"/>
 
     </group>
 </menu>
