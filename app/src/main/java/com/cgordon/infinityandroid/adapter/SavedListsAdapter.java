@@ -20,6 +20,7 @@ package com.cgordon.infinityandroid.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -114,6 +115,7 @@ public class SavedListsAdapter  extends RecyclerView.Adapter<SavedListsAdapter.V
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
+        private final CardView m_cardView;
         public ImageView icon;
         public TextView name;
         public TextView points;
@@ -126,10 +128,14 @@ public class SavedListsAdapter  extends RecyclerView.Adapter<SavedListsAdapter.V
             super(itemView);
             m_context = context;
 
-            itemView.setOnClickListener(this);
+//            itemView.setOnClickListener(this);
             icon = (ImageView) itemView.findViewById(R.id.icon);
             name = (TextView) itemView.findViewById(R.id.text_name);
             points = (TextView) itemView.findViewById(R.id.text_points);
+
+            m_cardView = (CardView) itemView.findViewById(R.id.card_view);
+            m_cardView.setOnClickListener(this);
+
         }
 
         @Override
