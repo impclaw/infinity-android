@@ -24,6 +24,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.SavedListsAdapter;
@@ -34,6 +35,7 @@ public class SavedListsFragment extends Fragment {
     private static final String TAG = SavedListsFragment.class.getSimpleName();
     private RecyclerView m_recyclerView;
     private SavedListsAdapter m_adapter;
+    private TextView m_note;
 
     public SavedListsFragment() {
         // Required empty public constructor
@@ -47,6 +49,7 @@ public class SavedListsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_saved_lists, container, false);
 
         m_recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        m_note = (TextView) view.findViewById(R.id.note);
 
         m_recyclerView.setHasFixedSize(true);
 
@@ -56,13 +59,24 @@ public class SavedListsFragment extends Fragment {
         m_adapter = new SavedListsAdapter(getActivity());
         m_recyclerView.setAdapter(m_adapter);
 
+
         return view;
 
     }
+
+
 
     @Override
     public void onResume() {
         super.onResume();
         m_adapter.refresh();
+        if (m_adapter.getItemCount() == 0) {
+            m_recyclerView.setVisibility(View.GONE);
+            m_note.setVisibility(View.VISIBLE);
+        } else {
+            m_recyclerView.setVisibility(View.VISIBLE);
+            m_note.setVisibility(View.GONE);
+        }
+
     }
 }

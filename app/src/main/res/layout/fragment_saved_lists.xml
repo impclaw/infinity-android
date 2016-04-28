@@ -30,5 +30,12 @@
         android:id="@+id/recycler_view">
     </android.support.v7.widget.RecyclerView>
 
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="No saved lists"
+    android:gravity="center"
+    android:id="@+id/note"/>
+
 
 </FrameLayout>
