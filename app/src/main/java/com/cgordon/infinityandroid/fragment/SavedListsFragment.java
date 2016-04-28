@@ -19,7 +19,7 @@ package com.cgordon.infinityandroid.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +50,8 @@ public class SavedListsFragment extends Fragment {
 
         m_recyclerView.setHasFixedSize(true);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(),
+                getActivity().getResources().getInteger(R.integer.wide_card_column_count));
         m_recyclerView.setLayoutManager(layoutManager);
         m_adapter = new SavedListsAdapter(getActivity());
         m_recyclerView.setAdapter(m_adapter);

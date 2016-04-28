@@ -22,7 +22,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -86,7 +85,7 @@ public class UnitListFragment extends Fragment {
             layoutManager = new LinearLayoutManager(getActivity());
         } else {
             layoutManager = new GridLayoutManager(getActivity(),
-                    getActivity().getResources().getInteger(R.integer.card_column_count));
+                    getActivity().getResources().getInteger(R.integer.narrow_card_column_count));
         }
         m_recyclerView.setLayoutManager(layoutManager);
 

@@ -18,5 +18,5 @@
 -->
 
 <resources>
-    <integer name="card_column_count">5</integer>
+    <integer name="narrow_card_column_count">5</integer>
 </resources>

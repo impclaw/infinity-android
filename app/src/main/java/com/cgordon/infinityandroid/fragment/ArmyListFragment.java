@@ -45,7 +45,7 @@ public class ArmyListFragment extends Fragment {
         m_recyclerView.setHasFixedSize(true);
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(),
-                getActivity().getResources().getInteger(R.integer.card_column_count));
+                getActivity().getResources().getInteger(R.integer.narrow_card_column_count));
         m_recyclerView.setLayoutManager(layoutManager);
         RecyclerView.Adapter adapter = new ArmyAdapter(getActivity());
         m_recyclerView.setAdapter(adapter);
