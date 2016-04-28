@@ -69,7 +69,6 @@ public class ListConstructionAdapter
         return new ArrayList<>(m_list);
     }
 
-
     public void setList(ArrayList<ListElement> currentList) {
         m_list = currentList;
         notifyDataSetChanged();
@@ -133,6 +132,14 @@ public class ListConstructionAdapter
     @Override
     public boolean onItemSwipe(int index) {
         return true;
+    }
+
+    public int getSpanSize(int position) {
+        if (m_list.get(position) instanceof CombatGroupElement) {
+            return m_context.getResources().getInteger(R.integer.wide_card_column_count);
+        } else {
+            return 1;
+        }
     }
 
 
@@ -403,7 +410,7 @@ public class ListConstructionAdapter
         @Override
         public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
             if (viewHolder instanceof UnitViewHolder) {
-                int drag = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+                int drag = ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
                 int swipe = 0; //ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
                 return makeMovementFlags(drag, swipe);
             }

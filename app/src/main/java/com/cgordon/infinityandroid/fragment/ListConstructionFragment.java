@@ -22,6 +22,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -66,19 +67,30 @@ public class ListConstructionFragment extends Fragment
         m_recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         m_recyclerView.setHasFixedSize(true);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),
-                LinearLayoutManager.VERTICAL, false);
+        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),
+                getActivity().getResources().getInteger(R.integer.wide_card_column_count));
+        layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                return m_adapter.getSpanSize(position);
+            }
+        });
+
         m_recyclerView.setLayoutManager(layoutManager);
 
         if (m_adapter == null) {
             m_adapter = new ListConstructionAdapter(getActivity(), (UnitSource) getActivity());
         }
 
-        Bundle arguments = getArguments();
-        if (arguments != null) {
-            m_adapter.loadSavedList(arguments.getLong(MainActivity.ID, -1));
+        if (savedInstanceState != null) {
+            ArrayList<ListElement> list = savedInstanceState.getParcelableArrayList(CURRENT_LIST);
+            m_adapter.setList(list);
+        } else {
+            Bundle arguments = getArguments();
+            if (arguments != null) {
+                m_adapter.loadSavedList(arguments.getLong(MainActivity.ID, -1));
+            }
         }
-
         if (getActivity() instanceof ListChangedListener) {
             m_adapter.addListChangedListener((ListChangedListener) getActivity());
         }
@@ -104,6 +116,7 @@ public class ListConstructionFragment extends Fragment
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(CURRENT_LIST, m_adapter.getList());
     }
 
     @Override
