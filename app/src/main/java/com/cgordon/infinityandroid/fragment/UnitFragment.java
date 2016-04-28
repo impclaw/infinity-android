@@ -21,7 +21,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +50,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     private Map<String, Weapon> m_weaponsList;
     private RecyclerView m_recyclerView;
     private UnitAdapter m_adapter;
-    private LinearLayoutManager m_layoutManager;
+    private GridLayoutManager m_layoutManager;
     private int m_selectedChildId;
 
     public UnitFragment() {
@@ -79,8 +79,22 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         m_recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         m_recyclerView.setHasFixedSize(true);
 
-        m_layoutManager = new LinearLayoutManager(getActivity(),
-                LinearLayoutManager.VERTICAL, false);
+        m_layoutManager = new GridLayoutManager(getActivity(),
+                getActivity().getResources().getInteger(R.integer.wide_card_column_count));
+
+        m_layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (m_unit != null) {
+                    // profiles are full width.  Everything else gets gridded.
+                    if (m_unit.profiles.size() > position) {
+                        return getActivity().getResources().getInteger(R.integer.wide_card_column_count);
+                    }
+                }
+                return 1;
+            }
+        });
+
         m_recyclerView.setLayoutManager(m_layoutManager);
 
         boolean clickable = false;
@@ -131,7 +145,7 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
         m_unit = unit;
         m_selectedChildId = selectedChildId;
 
-        m_layoutManager.scrollToPositionWithOffset(0, 0);
+        m_layoutManager.scrollToPosition(0); //scrollToPositionWithOffset(0, 0);
 
     }
 
