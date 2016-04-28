@@ -1,4 +1,3 @@
-
 <!--
  Copyright 2015 by Chris Gordon
 
@@ -16,19 +15,17 @@
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
-    <include
-        layout="@layout/toolbar"
-        android:id="@+id/toolbar" />
+    <include layout="@layout/toolbar" />
 
     <FrameLayout
         android:id="@+id/content_frame"
-        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-</RelativeLayout>
+</LinearLayout>

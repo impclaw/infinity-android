@@ -30,7 +30,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.cgordon.infinityandroid.R;
@@ -117,53 +116,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    //    @Override
-//    protected void onPostCreate(Bundle savedInstanceState) {
-//        super.onPostCreate(savedInstanceState);
-//        m_drawerToggle.syncState();
-//    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        switch (item.getItemId()) {
-
-            //noinspection SimplifiableIfStatement
-            case R.id.action_about: {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage(R.string.dialog_about)
-                        .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                            }
-                        });
-                // Create the AlertDialog object and return it
-                builder.create().show();
-
-                return true;
-            }
-            case R.id.action_settings: {
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
-                return true;
-            }
-            case android.R.id.home:
-                m_drawerLayout.openDrawer(GravityCompat.START);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @Override
     public void onArmyClicked(Army army) {
         unitListScrollState = null;
@@ -182,6 +134,23 @@ public class MainActivity extends AppCompatActivity
             case R.id.navigation_saved_lists:
                 getSupportActionBar().setTitle(R.string.navigation_saved_lists);
                 getSupportFragmentManager().beginTransaction().replace(R.id.content, m_savedListsFragment).commit();
+                break;
+            case R.id.navigation_settings:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.navigation_info:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage(R.string.dialog_about)
+                        .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                // Create the AlertDialog object and return it
+                builder.create().show();
+
                 break;
         }
     }
