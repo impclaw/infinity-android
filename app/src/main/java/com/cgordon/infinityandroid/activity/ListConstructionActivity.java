@@ -22,6 +22,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -85,19 +86,15 @@ public class ListConstructionActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setHomeButtonEnabled(true);
-//
-        //getSupportActionBar().setTitle(m_unit.isc);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setHomeButtonEnabled(true);
 
         m_pager = (ViewPager) findViewById(R.id.pager);
         m_adapter = new ListConstructionPagerAdapter(getSupportFragmentManager());
         m_pager.setAdapter(m_adapter);
         m_pager.setOffscreenPageLimit(3);
-        SlidingTabLayout tabs = (SlidingTabLayout) findViewById(R.id.tabs);
-        tabs.setViewPager(m_pager);
+        TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
+        tabs.setupWithViewPager(m_pager);
 
         m_army = getIntent().getParcelableExtra(MainActivity.ARMY);
         if (m_army == null) {
@@ -122,6 +119,8 @@ public class ListConstructionActivity extends AppCompatActivity
         unitsData.close();
 
     }
+
+
 
     @Override
     protected void onResume() {
@@ -345,6 +344,10 @@ public class ListConstructionActivity extends AppCompatActivity
 
             case R.id.action_delete:
                 deleteList();
+                return true;
+
+            case android.R.id.home:
+                onBackPressed();
                 return true;
 
             default:
