@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -39,7 +40,6 @@ import com.cgordon.infinityandroid.adapter.ListConstructionAdapter;
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.ArmyList;
 import com.cgordon.infinityandroid.data.Unit;
-import com.cgordon.infinityandroid.data.UnitElement;
 import com.cgordon.infinityandroid.fragment.ListConstructionFragment;
 import com.cgordon.infinityandroid.fragment.UnitFragment;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
@@ -208,7 +208,7 @@ public class ListConstructionActivity extends AppCompatActivity
         Log.d(TAG, "Option Selected: " + id);
         m_listDirty = true;
         m_optionListener.OnOptionSelected(m_currentSelectedUnit, id);
-        Toast.makeText(this, "Added " + m_currentSelectedUnit.getChild(id).name, Toast.LENGTH_SHORT).show();
+        Snackbar.make(m_pager, "Added " + m_currentSelectedUnit.getChild(id).name, Snackbar.LENGTH_SHORT).show();
         //m_pager.setCurrentItem(2);
     }
 
@@ -419,9 +419,9 @@ public class ListConstructionActivity extends AppCompatActivity
             m_listDbId = m_listConstructionFragment.saveList(m_listName, m_army.dbId, 300, m_listDbId);
             if (m_listDbId != -1) {
                 m_listDirty = false;
-                Toast.makeText(this, "List Saved", Toast.LENGTH_LONG).show();
+                Snackbar.make(m_pager, "List Saved", Snackbar.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Save failed!", Toast.LENGTH_LONG).show();
+                Snackbar.make(m_pager, "Save failed!", Snackbar.LENGTH_SHORT).show();
             }
         }
     }
@@ -449,7 +449,7 @@ public class ListConstructionActivity extends AppCompatActivity
             builder.show();
 
         } else {
-            Toast.makeText(this, R.string.list_not_saved, Toast.LENGTH_LONG).show();
+            Snackbar.make(m_pager, R.string.list_not_saved, Snackbar.LENGTH_LONG).show();
         }
     }
 }
