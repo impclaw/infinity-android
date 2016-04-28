@@ -17,7 +17,9 @@
 
 package com.cgordon.infinityandroid.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.widget.CardView;
@@ -26,8 +28,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.activity.ListConstructionActivity;
@@ -46,6 +50,7 @@ public class SavedListsAdapter  extends RecyclerView.Adapter<SavedListsAdapter.V
     private List<ArmyList> m_lists;
     private final Context m_context;
     private final Resources m_resources;
+    private SavedListsAdapterListener m_listener;
 
     public SavedListsAdapter(Context context) {
         m_context = context;
@@ -70,9 +75,13 @@ public class SavedListsAdapter  extends RecyclerView.Adapter<SavedListsAdapter.V
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_army_list, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_army_list, parent, false);
         ViewHolder vh = new ViewHolder(v, m_context);
         return vh;
+    }
+
+    public void setListener(SavedListsAdapterListener listener) {
+        m_listener = listener;
     }
 
     @Override
@@ -81,6 +90,7 @@ public class SavedListsAdapter  extends RecyclerView.Adapter<SavedListsAdapter.V
         holder.armyList = list;
         holder.name.setText(list.name);
         holder.points.setText(Integer.toString(list.points));
+        holder.dbId = list.dbId;
 
         Army army = getArmy(list.armyId);
         if (army != null) {
@@ -119,6 +129,8 @@ public class SavedListsAdapter  extends RecyclerView.Adapter<SavedListsAdapter.V
         public ImageView icon;
         public TextView name;
         public TextView points;
+        public ImageButton delete;
+        public long dbId;
 
         private Context m_context;
 
@@ -132,6 +144,8 @@ public class SavedListsAdapter  extends RecyclerView.Adapter<SavedListsAdapter.V
             icon = (ImageView) itemView.findViewById(R.id.icon);
             name = (TextView) itemView.findViewById(R.id.text_name);
             points = (TextView) itemView.findViewById(R.id.text_points);
+            delete = (ImageButton) itemView.findViewById(R.id.delete);
+            delete.setOnClickListener(this);
 
             m_cardView = (CardView) itemView.findViewById(R.id.card_view);
             m_cardView.setOnClickListener(this);
@@ -140,11 +154,39 @@ public class SavedListsAdapter  extends RecyclerView.Adapter<SavedListsAdapter.V
 
         @Override
         public void onClick(View v) {
-            Log.d(TAG, "Clicked saved list: " + getLayoutPosition());
-            Intent i = new Intent(m_context, ListConstructionActivity.class);
-            i.putExtra(MainActivity.LIST_ID, armyList);
-            m_context.startActivity(i);
+            if (v instanceof CardView) {
+                Log.d(TAG, "Clicked saved list: " + getLayoutPosition());
+                Intent i = new Intent(m_context, ListConstructionActivity.class);
+                i.putExtra(MainActivity.LIST_ID, armyList);
+                m_context.startActivity(i);
+            } else if (v instanceof ImageButton) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                builder.setTitle(R.string.action_delete);
+                builder.setMessage(R.string.delete_list_question);
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ListData listData = new ListData(m_context);
+                        listData.open();
+                        if (!listData.deleteList(dbId)) {
+                            Toast.makeText(m_context, R.string.error_deleting_list + name.getText().toString(), Toast.LENGTH_LONG).show();
+                            Log.d(TAG, "Error deleting list: " + name.getText().toString());
+                        }
+                        listData.close();
+                        refresh();
+                        if (m_listener != null) {
+                            m_listener.onDelete();
+                        }
+                    }
+                });
+                builder.setNegativeButton(R.string.cancel, null);
+                builder.show();
+            }
 
         }
+    }
+
+    public interface SavedListsAdapterListener {
+        public void onDelete();
     }
 }

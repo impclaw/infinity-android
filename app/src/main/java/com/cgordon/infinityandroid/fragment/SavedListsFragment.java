@@ -29,7 +29,7 @@ import android.widget.TextView;
 import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.adapter.SavedListsAdapter;
 
-public class SavedListsFragment extends Fragment {
+public class SavedListsFragment extends Fragment implements SavedListsAdapter.SavedListsAdapterListener {
 
 
     private static final String TAG = SavedListsFragment.class.getSimpleName();
@@ -57,8 +57,8 @@ public class SavedListsFragment extends Fragment {
                 getActivity().getResources().getInteger(R.integer.wide_card_column_count));
         m_recyclerView.setLayoutManager(layoutManager);
         m_adapter = new SavedListsAdapter(getActivity());
+        m_adapter.setListener(this);
         m_recyclerView.setAdapter(m_adapter);
-
 
         return view;
 
@@ -70,6 +70,10 @@ public class SavedListsFragment extends Fragment {
     public void onResume() {
         super.onResume();
         m_adapter.refresh();
+        updateViews();
+    }
+
+    private void updateViews() {
         if (m_adapter.getItemCount() == 0) {
             m_recyclerView.setVisibility(View.GONE);
             m_note.setVisibility(View.VISIBLE);
@@ -77,6 +81,11 @@ public class SavedListsFragment extends Fragment {
             m_recyclerView.setVisibility(View.VISIBLE);
             m_note.setVisibility(View.GONE);
         }
+    }
 
+
+    @Override
+    public void onDelete() {
+        updateViews();
     }
 }

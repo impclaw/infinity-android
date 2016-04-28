@@ -58,7 +58,7 @@
                 android:paddingLeft="4dp"
                 android:singleLine="true"
                 android:text="test stest testst setsete setsetest"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             <TextView
                 android:id="@+id/text_points"
@@ -68,6 +68,15 @@
                 android:padding="2dp"
                 android:text="300"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:id="@+id/delete"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/cancel"
+                />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
