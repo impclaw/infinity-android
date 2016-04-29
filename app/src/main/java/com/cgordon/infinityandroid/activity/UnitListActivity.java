@@ -18,10 +18,8 @@
 package com.cgordon.infinityandroid.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -32,7 +30,6 @@ import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.Weapon;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
-import com.cgordon.infinityandroid.storage.ArmyData;
 import com.cgordon.infinityandroid.storage.WeaponsData;
 
 import java.util.HashSet;
@@ -46,6 +43,7 @@ public class UnitListActivity extends AppCompatActivity
         View.OnClickListener {
 
     private static final String TAG = UnitListActivity.class.getSimpleName();
+
     private static Army m_army;
     private Map<String, Weapon> m_weapons;
 
@@ -54,34 +52,19 @@ public class UnitListActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_unit_list);
 
-        if (savedInstanceState != null) {
-            m_army = savedInstanceState.getParcelable(MainActivity.ARMY);
-        } else {
+        if (getIntent() != null) {
             m_army = getIntent().getParcelableExtra(MainActivity.ARMY);
         }
-        if (m_army == null) {
-            onResume();
-        }
 
+        UnitListFragment unitListFragment = (UnitListFragment) getSupportFragmentManager().findFragmentById(R.id.unit_list);
+        unitListFragment.setListener(this);
+        unitListFragment.setArmy(m_army);
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-        UnitListFragment unitListFragment = new UnitListFragment();
-
-        Bundle bundle = new Bundle();
-        bundle.putParcelable(MainActivity.ARMY, m_army);
-        unitListFragment.setArguments(bundle);
-
-        transaction.add(R.id.fragment_container, unitListFragment);
-
-        transaction.commit();
 
         WeaponsData weaponsData = new WeaponsData(this);
         weaponsData.open();
         m_weapons = weaponsData.getWeapons();
         weaponsData.close();
-
-        //Log.d(TAG, m_army.toString());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -96,27 +79,6 @@ public class UnitListActivity extends AppCompatActivity
             fab.setOnClickListener(this);
         }
 
-    }
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences p = getSharedPreferences(UnitActivity.UNIT, MODE_PRIVATE);
-        p.edit().putLong(MainActivity.ID, m_army.dbId).commit();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (m_army == null) {
-            SharedPreferences p = getSharedPreferences(UnitActivity.UNIT, MODE_PRIVATE);
-            long dbId = p.getLong(MainActivity.ID, -1);
-            ArmyData armyData = new ArmyData(this);
-            armyData.open();
-            m_army = armyData.getArmy(dbId);
-            armyData.close();
-        }
     }
 
     @Override

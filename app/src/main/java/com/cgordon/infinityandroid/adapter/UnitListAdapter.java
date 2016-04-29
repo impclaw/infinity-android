@@ -43,33 +43,34 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.ViewHo
     private final Resources m_resources;
     private final Context m_context;
 
-    private boolean m_showAsList;
+    private boolean m_showAsList = false;
 
     private UnitListFragment.UnitSelectedListener m_listener;
 
-    List<Unit> m_units;
+    List<Unit> m_units = null;
 
-    public UnitListAdapter(Context context, List<Unit> units) {
-        m_units = units;
+    public UnitListAdapter(Context context) {
         m_context = context;
         m_resources = context.getResources();
-
-        if (context instanceof UnitListFragment.UnitSelectedListener) {
-            m_listener = (UnitListFragment.UnitSelectedListener) context;
-        }
-
-    }
-
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(m_context);
         if (prefs.contains(UnitListFragment.ListAsListKey)) {
             m_showAsList = prefs.getBoolean(UnitListFragment.ListAsListKey, false);
         }
+
+    }
+
+    public void setListener(UnitListFragment.UnitSelectedListener listener) {
+        m_listener = listener;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+
         View v;
         if (m_showAsList) {
-            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_unit_list, parent, false);
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_unit_list, parent, false);
         } else {
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_unit, parent, false);
         }
@@ -103,7 +104,7 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.ViewHo
         holder.m_imageView.setImageResource(resourceId);
 
         if (m_showAsList) {
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
+            holder.m_cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (m_listener != null) {
@@ -166,7 +167,17 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return m_units.size();
+        if (m_units == null) {
+            return 0;
+        } else {
+            return m_units.size();
+        }
+    }
+
+    public void setUnits(List<Unit> units) {
+        m_units = units;
+
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

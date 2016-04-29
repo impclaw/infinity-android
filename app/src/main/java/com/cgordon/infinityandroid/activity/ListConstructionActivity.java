@@ -49,7 +49,6 @@ import com.cgordon.infinityandroid.interfaces.UnitSource;
 import com.cgordon.infinityandroid.storage.ArmyData;
 import com.cgordon.infinityandroid.storage.ListData;
 import com.cgordon.infinityandroid.storage.UnitsData;
-import com.cgordon.infinityandroid.widgets.SlidingTabLayout;
 
 import java.util.Iterator;
 import java.util.List;
@@ -119,7 +118,6 @@ public class ListConstructionActivity extends AppCompatActivity
         unitsData.close();
 
     }
-
 
 
     @Override
@@ -269,6 +267,7 @@ public class ListConstructionActivity extends AppCompatActivity
                     Bundle bundle = new Bundle();
                     bundle.putParcelable(MainActivity.ARMY, m_army);
                     fragment.setArguments(bundle);
+
                     break;
                 case 1:
                     b = new Bundle();

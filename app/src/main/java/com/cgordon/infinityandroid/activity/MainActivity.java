@@ -41,10 +41,6 @@ public class MainActivity extends AppCompatActivity
         implements ArmyListFragment.ArmyListListener,
         NavigationView.OnNavigationItemSelectedListener {
 
-    // this is a big hack, but I don't want to put any more time into figuring out the Fragment
-    // lifecycle
-    public static Parcelable unitListScrollState = null;
-
     private static final String TAG = MainActivity.class.getSimpleName();
 
     public static final String FACTION = "faction";
@@ -118,7 +114,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onArmyClicked(Army army) {
-        unitListScrollState = null;
         Intent i = new Intent(this, UnitListActivity.class);
         i.putExtra(MainActivity.ARMY, army);
         startActivity(i);

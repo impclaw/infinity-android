@@ -22,8 +22,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,7 +53,8 @@ public class UnitListFragment extends Fragment {
     RecyclerView m_recyclerView;
     Army m_army;
 
-    private UnitSelectedListener m_unitSelectedListener;
+    private boolean m_showAsList = false;
+    private boolean m_alphaList = false;
 
     @Nullable
     @Override
@@ -61,28 +62,31 @@ public class UnitListFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
-        m_army = getArguments().getParcelable(MainActivity.ARMY);
+        Bundle arguments = getArguments();
+        if (arguments != null) {
+            m_army = arguments.getParcelable(MainActivity.ARMY);
+        }
 
         Log.d(TAG, "m_army: " + m_army);
 
-//        FragmentActivity activity = getActivity();
-//        if (activity instanceof ArmyProvider) {
-//            m_army = ((ArmyProvider) activity).getArmy();
-//        }
+        FragmentActivity activity = getActivity();
 
         m_recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         m_recyclerView.setHasFixedSize(true);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
-        boolean showAsList = false;
         if (prefs.contains(UnitListFragment.ListAsListKey)) {
-            showAsList = prefs.getBoolean(UnitListFragment.ListAsListKey, false);
+            m_showAsList = prefs.getBoolean(UnitListFragment.ListAsListKey, false);
+        }
+        if (prefs.contains(UnitListFragment.AlphaUnitListKey)) {
+            m_alphaList = prefs.getBoolean(UnitListFragment.AlphaUnitListKey, false);
         }
 
         RecyclerView.LayoutManager layoutManager;
-        if (showAsList) {
-            layoutManager = new LinearLayoutManager(getActivity());
+        if (m_showAsList) {
+            layoutManager = new GridLayoutManager(getActivity(),
+                    getActivity().getResources().getInteger(R.integer.wide_card_column_count));
         } else {
             layoutManager = new GridLayoutManager(getActivity(),
                     getActivity().getResources().getInteger(R.integer.narrow_card_column_count));
@@ -94,28 +98,39 @@ public class UnitListFragment extends Fragment {
             m_army = savedInstanceState.getParcelable(MainActivity.ARMY);
         }
 
-        UnitsData unitsData = new UnitsData(getActivity());
+
+        m_adapter = new UnitListAdapter(getContext());
+        m_recyclerView.setAdapter(m_adapter);
+
+        if (activity instanceof UnitSelectedListener) {
+            setListener((UnitSelectedListener) activity);
+        }
+
+        setArmy(m_army);
+
+        return view;
+    }
+
+    public void setListener(UnitSelectedListener listener) {
+        m_adapter.setListener(listener);
+    }
+
+    public void setArmy(Army army) {
+        m_army = army;
+        UnitsData unitsData = new UnitsData(getContext());
         unitsData.open();
         List<Unit> units = unitsData.getUnits(m_army);
         unitsData.close();
 
-        boolean alphaList = false;
-        if (prefs.contains(UnitListFragment.AlphaUnitListKey)) {
-            alphaList = prefs.getBoolean(UnitListFragment.AlphaUnitListKey, false);
-        }
-
         if (units != null) {
-            if (alphaList) {
-                Collections.sort(units, new ComparatorName(showAsList));
+            if (m_alphaList) {
+                Collections.sort(units, new ComparatorName(m_showAsList));
             } else {
-                Collections.sort(units, new ComparatorType(showAsList));
+                Collections.sort(units, new ComparatorType(m_showAsList));
             }
         }
 
-        m_adapter = new UnitListAdapter(getActivity(), units);
-        m_recyclerView.setAdapter(m_adapter);
-
-        return view;
+        m_adapter.setUnits(units);
     }
 
     public interface UnitSelectedListener {
@@ -129,17 +144,5 @@ public class UnitListFragment extends Fragment {
         outState.putParcelable(MainActivity.ARMY, m_army);
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        MainActivity.unitListScrollState = m_recyclerView.getLayoutManager().onSaveInstanceState();
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        m_recyclerView.getLayoutManager().onRestoreInstanceState(MainActivity.unitListScrollState);
-    }
 
 }

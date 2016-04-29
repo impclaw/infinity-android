@@ -18,7 +18,6 @@
 package com.cgordon.infinityandroid.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -32,13 +31,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
-import com.cgordon.infinityandroid.activity.UnitActivity;
 import com.cgordon.infinityandroid.data.CombatGroupElement;
 import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Child;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.UnitElement;
-import com.cgordon.infinityandroid.fragment.UnitListFragment;
 import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
 import com.cgordon.infinityandroid.interfaces.UnitSource;
 import com.cgordon.infinityandroid.storage.ListData;
@@ -312,7 +309,7 @@ public class ListConstructionAdapter
         View v = null;
         RecyclerView.ViewHolder vh = null;
         if (viewType == TYPE_UNIT) {
-            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_unit_list, parent, false);
+            v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_unit_list_entry, parent, false);
             vh = new UnitViewHolder(v);
         } else {
             v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_group_header, parent, false);
