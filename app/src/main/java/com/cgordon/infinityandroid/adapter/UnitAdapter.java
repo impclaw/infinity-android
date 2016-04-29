@@ -294,7 +294,11 @@ public class UnitAdapter
             wounds.setText(profile.wounds);
             silhouette.setText(profile.silhouette);
 
-            ava.setText(unit.ava);
+            if (unit.ava != null) {
+                ava.setText(unit.ava);
+            } else if (profile != null){
+                ava.setText(profile.ava);
+            }
 
             String iscText = profile.name;
             if ((iscText == null) || (iscText.isEmpty())) {
