@@ -89,6 +89,7 @@ public class ListConstructionFragment extends Fragment
             Bundle arguments = getArguments();
             if (arguments != null) {
                 m_adapter.loadSavedList(arguments.getLong(MainActivity.ID, -1));
+                m_adapter.setPoints(arguments.getInt(ListConstructionActivity.POINTS));
             }
         }
         if (getActivity() instanceof ListChangedListener) {
@@ -102,6 +103,10 @@ public class ListConstructionFragment extends Fragment
         m_recyclerView.setAdapter(m_adapter);
 
         return v;
+    }
+
+    public void setPoints(int points) {
+        m_adapter.setPoints(points);
     }
 
     @Override

@@ -31,9 +31,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import com.cgordon.infinityandroid.R;
@@ -61,8 +64,9 @@ public class ListConstructionActivity extends AppCompatActivity
 
     private final static String TAG = AppCompatActivity.class.getSimpleName();
 
-    private final static String CURRENT_SELECTED_UNIT = "current_selected_unit";
+    private static final String CURRENT_SELECTED_UNIT = "current_selected_unit";
     private static final String LIST_DIRTY = "list_dirty";
+    public static final String POINTS = "points";
 
     UnitChangedListener m_unitChangedListener = null;
 
@@ -78,6 +82,7 @@ public class ListConstructionActivity extends AppCompatActivity
     private boolean m_listDirty = false;
     private String m_listName = null;
     private List<Unit> m_units;
+    private int m_points;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +112,7 @@ public class ListConstructionActivity extends AppCompatActivity
 
                 m_listName = armyList.name;
                 m_listDbId = armyList.dbId;
+                m_points = armyList.points;
                 m_pager.setCurrentItem(2);
             }
         }
@@ -279,6 +285,8 @@ public class ListConstructionActivity extends AppCompatActivity
                     m_listConstructionFragment = new ListConstructionFragment();
                     b = new Bundle();
                     b.putLong(MainActivity.ID, m_listDbId);
+                    b.putInt(POINTS, m_points);
+
                     m_listConstructionFragment.setArguments(b);
                     fragment = m_listConstructionFragment;
                     break;
@@ -349,10 +357,40 @@ public class ListConstructionActivity extends AppCompatActivity
                 onBackPressed();
                 return true;
 
+            case R.id.action_set_points:
+                setPoints();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    private void setPoints() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        final NumberPicker numberPicker = new NumberPicker(this);
+        numberPicker.setMinValue(1);
+        numberPicker.setMaxValue(999);
+        numberPicker.setValue(m_points);
+        final FrameLayout parent = new FrameLayout(this);
+        parent.addView(numberPicker, new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT,
+                FrameLayout.LayoutParams.WRAP_CONTENT,
+                Gravity.CENTER));
+
+        builder.setView(parent);
+        builder.setTitle(R.string.action_set_points);
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_points = numberPicker.getValue();
+                m_listConstructionFragment.setPoints(m_points);
+                m_listDirty = true;
+            }
+        });
+        builder.setNegativeButton(R.string.cancel, null);
+        builder.show();
     }
 
     private void save() {
@@ -418,7 +456,7 @@ public class ListConstructionActivity extends AppCompatActivity
         if (m_listName != null) {
 
             // see if the save works:
-            m_listDbId = m_listConstructionFragment.saveList(m_listName, m_army.dbId, 300, m_listDbId);
+            m_listDbId = m_listConstructionFragment.saveList(m_listName, m_army.dbId, m_points, m_listDbId);
             if (m_listDbId != -1) {
                 m_listDirty = false;
                 Snackbar.make(m_pager, "List Saved", Snackbar.LENGTH_SHORT).show();

@@ -61,6 +61,7 @@ public class ListConstructionAdapter
 
     // list of unit, option selection for that unit.
     private List<ListElement> m_list;
+    private int m_points = 0;
 
     public ArrayList<ListElement> getList() {
         return new ArrayList<>(m_list);
@@ -137,6 +138,10 @@ public class ListConstructionAdapter
         } else {
             return 1;
         }
+    }
+
+    public void setPoints(int points) {
+        m_points = points;
     }
 
 
