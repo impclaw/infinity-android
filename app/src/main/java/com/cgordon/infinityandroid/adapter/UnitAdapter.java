@@ -253,6 +253,7 @@ public class UnitAdapter
         private final ImageView cube;
         private final ImageView hackable;
         private final ImageView imageView;
+        private final TextView woundTitle;
 
         public CardView m_cardView;
 
@@ -266,6 +267,7 @@ public class UnitAdapter
             wip = (TextView) itemView.findViewById(R.id.wip);
             arm = (TextView) itemView.findViewById(R.id.arm);
             bts = (TextView) itemView.findViewById(R.id.bts);
+            woundTitle = (TextView) itemView.findViewById(R.id.woundsTitle);
             wounds = (TextView) itemView.findViewById(R.id.wounds);
             silhouette = (TextView) itemView.findViewById(R.id.silhouette);
             ava = (TextView) itemView.findViewById(R.id.ava);
@@ -291,6 +293,19 @@ public class UnitAdapter
             wip.setText(profile.wip);
             arm.setText(profile.arm);
             bts.setText(profile.bts);
+
+            if (profile.woundType != null) {
+                if (profile.woundType.equals("str")) {
+                    woundTitle.setText("STR");
+                } else if (profile.woundType.equals("w")) {
+                    // Gorgos is a TAG, but uses W so we need this case
+                    woundTitle.setText("W");
+                } else if (profile.type.equals("TAG") || profile.type.equals("REM")) {
+                    woundTitle.setText("STR");
+                }
+            }
+
+
             wounds.setText(profile.wounds);
             silhouette.setText(profile.silhouette);
 
@@ -427,12 +442,15 @@ public class UnitAdapter
                 ccw.setVisibility(View.GONE);
             }
 
+            // this is here because child is a reference, where the modifications persist to the
+            // parent
+            ArrayList<String> childSpec = new ArrayList<>(child.spec);
             if (child.profile != 0) {
-                child.spec.add(unit.profiles.get(child.profile).name);
+                childSpec.add(unit.profiles.get(child.profile).name);
             }
 
-            if (child.spec != null && child.spec.size() > 0) {
-                spec.setText("Spec: " + TextUtils.join(", ", child.spec));
+            if (childSpec != null && childSpec.size() > 0) {
+                spec.setText("Spec: " + TextUtils.join(", ", childSpec));
             } else {
                 spec.setVisibility(View.GONE);
             }

@@ -98,6 +98,7 @@
 
                     <TextView
                         android:text="W"
+                        android:id="@+id/woundsTitle"
                         style="@style/AppTheme.Stats" />
 
                     <TextView

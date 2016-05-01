@@ -8,8 +8,8 @@ android {
         applicationId "com.cgordon.infinityandroid"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 43
-        versionName "0.4.9"
+        versionCode 44
+        versionName "0.4.10"
     }
     buildTypes {
         release {

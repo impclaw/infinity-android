@@ -69,8 +69,6 @@ public class UnitFragment extends Fragment implements ListConstructionActivity.U
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
-        setRetainInstance(true);
-
         if (savedInstanceState != null) {
             m_unit = savedInstanceState.getParcelable(UnitActivity.UNIT);
             m_selectedChildId = savedInstanceState.getInt(UnitActivity.SELECTED_CHILD_ID);
