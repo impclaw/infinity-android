@@ -294,15 +294,13 @@ public class UnitAdapter
             arm.setText(profile.arm);
             bts.setText(profile.bts);
 
-            if (profile.woundType != null) {
-                if (profile.woundType.equals("str")) {
-                    woundTitle.setText("STR");
-                } else if (profile.woundType.equals("w")) {
-                    // Gorgos is a TAG, but uses W so we need this case
-                    woundTitle.setText("W");
-                } else if (profile.type.equals("TAG") || profile.type.equals("REM")) {
-                    woundTitle.setText("STR");
-                }
+            if ((profile.woundType != null) && (profile.woundType.equals("str"))) {
+                woundTitle.setText("STR");
+            } else if ((profile.woundType != null) && (profile.woundType.equals("w"))) {
+                // Gorgos is a TAG, but uses W so we need this case
+                woundTitle.setText("W");
+            } else if (profile.type.equals("TAG") || profile.type.equals("REM")) {
+                woundTitle.setText("STR");
             }
 
 
