@@ -299,7 +299,8 @@ public class UnitAdapter
             } else if ((profile.woundType != null) && (profile.woundType.equals("w"))) {
                 // Gorgos is a TAG, but uses W so we need this case
                 woundTitle.setText("W");
-            } else if (profile.type.equals("TAG") || profile.type.equals("REM")) {
+            } else if ((profile.type != null)
+                    && (profile.type.equals("TAG") || profile.type.equals("REM"))) {
                 woundTitle.setText("STR");
             }
 
