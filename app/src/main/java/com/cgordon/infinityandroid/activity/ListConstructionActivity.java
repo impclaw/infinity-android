@@ -370,9 +370,13 @@ public class ListConstructionActivity extends AppCompatActivity
     private void setPoints() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         final NumberPicker numberPicker = new NumberPicker(this);
+        numberPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        numberPicker.setDisplayedValues(
+                new String[] {"50", "100", "150", "200", "250", "300", "350", "400", "450", "500"});
         numberPicker.setMinValue(1);
-        numberPicker.setMaxValue(999);
-        numberPicker.setValue(m_points);
+        numberPicker.setMaxValue(10);
+        numberPicker.setValue(m_points / 50);
+        numberPicker.clearFocus();
         final FrameLayout parent = new FrameLayout(this);
         parent.addView(numberPicker, new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.WRAP_CONTENT,
@@ -384,7 +388,7 @@ public class ListConstructionActivity extends AppCompatActivity
         builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                m_points = numberPicker.getValue();
+                m_points = numberPicker.getValue() * 50;
                 m_listConstructionFragment.setPoints(m_points);
                 m_listDirty = true;
             }
