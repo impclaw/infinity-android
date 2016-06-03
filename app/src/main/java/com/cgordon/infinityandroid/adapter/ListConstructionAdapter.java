@@ -34,6 +34,7 @@ import com.cgordon.infinityandroid.R;
 import com.cgordon.infinityandroid.data.CombatGroupElement;
 import com.cgordon.infinityandroid.data.ListElement;
 import com.cgordon.infinityandroid.data.Child;
+import com.cgordon.infinityandroid.data.ListValidation;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.data.UnitElement;
 import com.cgordon.infinityandroid.interfaces.ItemTouchHelperListener;
@@ -57,6 +58,8 @@ public class ListConstructionAdapter
 
     private Context m_context;
 
+    ListValidation m_listValidation;
+
     private List<ListChangedListener> m_listeners;
 
     // list of unit, option selection for that unit.
@@ -77,6 +80,8 @@ public class ListConstructionAdapter
         m_unitSource = source;
         m_list = new ArrayList<>();
 
+        m_listValidation = new ListValidation();
+
         m_list.add(new CombatGroupElement(1));
         m_list.add(new CombatGroupElement(2));
         m_list.add(new CombatGroupElement(3));
@@ -93,6 +98,8 @@ public class ListConstructionAdapter
             listData.open();
             m_list = listData.getList(id);
             listData.close();
+
+            m_listValidation.validate(m_list);
 
             // probably not strictly necessary here...
             notifyDataSetChanged();
@@ -123,6 +130,8 @@ public class ListConstructionAdapter
             l.onOrderChanged(fromIndex, toIndex);
 
         }
+
+        m_listValidation.validate(m_list);
 
         return true;
     }
@@ -301,6 +310,7 @@ public class ListConstructionAdapter
         }
 
         m_list.add(insertIndex, new UnitElement(-1, 1, (int)unit.id, child));
+        m_listValidation.validate(m_list);
         updateListener();
         notifyItemRangeInserted(insertIndex, 1);
     }

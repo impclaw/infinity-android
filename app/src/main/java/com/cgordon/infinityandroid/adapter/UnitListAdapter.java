@@ -31,6 +31,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cgordon.infinityandroid.R;
+import com.cgordon.infinityandroid.data.ListValidation;
 import com.cgordon.infinityandroid.data.Unit;
 import com.cgordon.infinityandroid.fragment.UnitListFragment;
 
@@ -39,6 +40,7 @@ import java.util.List;
 public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.ViewHolder> {
 
     private static final String TAG = UnitListAdapter.class.getSimpleName();
+
 
     private final Resources m_resources;
     private final Context m_context;
