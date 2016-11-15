@@ -152,6 +152,8 @@ public class UnitParser {
             } else if (name.equals("id")) {
                 unit.id = reader.nextInt();
 //                Log.d(TAG, "id: " + unit.id);
+            } else if (name.equals("legacy_isc")) {
+                reader.skipValue(); // mayanet
             } else {
                 throw new IOException("Unknown tag in parse Unit: " + name);
             }
@@ -321,6 +323,8 @@ public class UnitParser {
                 reader.skipValue();
             } else if (name.equals("id")) {
                 child.id = reader.nextInt();
+            } else if (name.equals("legacy_code")) {
+                reader.skipValue(); // mayanet
             } else {
                 throw new IOException("Unknown tag in parse Child: " + name);
             }

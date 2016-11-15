@@ -56,7 +56,8 @@ public class ArmyData {
             InfinityDatabase.COLUMN_AVA,
             InfinityDatabase.COLUMN_ISC,
             InfinityDatabase.COLUMN_LINKABLE,
-            InfinityDatabase.COLUMN_FACTION
+            InfinityDatabase.COLUMN_FACTION,
+            InfinityDatabase.COLUMN_NOTE
     };
 
     public static final String[] armyUnitChildColumns = {
@@ -238,6 +239,7 @@ public class ArmyData {
         armyUnit.ava = cursor.getString(2);
         armyUnit.id = cursor.getInt(3);
         armyUnit.linkable = (cursor.getInt(4) != 0); // boolean
+        armyUnit.note = cursor.getString(5);
 
         return armyUnit;
     }
@@ -260,14 +262,6 @@ public class ArmyData {
         while (it.hasNext()) {
             ArmyUnitChild child = (ArmyUnitChild) it.next();
 
-            /*
-            InfinityDatabase.COLUMN_ID,
-            InfinityDatabase.COLUMN_ARMY_ID,
-            InfinityDatabase.COLUMN_ARMY_UNIT_ID,
-            InfinityDatabase.COLUMN_ARMY_UNIT_CHILD_ID,
-            InfinityDatabase.COLUMN_SWC,
-            InfinityDatabase.COLUMN_HIDE  // boolean
-             */
             ContentValues v = new ContentValues();
             v.put(InfinityDatabase.COLUMN_ARMY_ID, armyId);
             v.put(InfinityDatabase.COLUMN_ARMY_UNIT_ID, armyUnitId);
@@ -280,10 +274,8 @@ public class ArmyData {
             }
         }
 
-
         return true;
     }
-
 
     private long writeArmyUnit(ArmyUnit armyUnit, long sectorialId) {
 
@@ -293,10 +285,10 @@ public class ArmyData {
         v.put(InfinityDatabase.COLUMN_AVA, armyUnit.ava);
         v.put(InfinityDatabase.COLUMN_UNIT_ID, armyUnit.id);
         v.put(InfinityDatabase.COLUMN_LINKABLE, armyUnit.linkable);
+        v.put(InfinityDatabase.COLUMN_NOTE, armyUnit.note);
 
         return m_database.insert(InfinityDatabase.TABLE_ARMY_UNITS, null, v);
     }
-
 
     private long writeArmy(Army sectorial) {
 

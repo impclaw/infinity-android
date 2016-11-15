@@ -29,7 +29,7 @@ import com.cgordon.infinityandroid.json.WeaponParser;
 public class InfinityDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "infinity.db";
-    private static final int DATABASE_VERSION = 37;
+    private static final int DATABASE_VERSION = 38;
 
     public static final String TABLE_WEAPONS = "weapons";
     public static final String TABLE_UNITS = "units";
@@ -249,7 +249,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
             COLUMN_ARMY_ID + " integer, " +
             COLUMN_AVA + " text, " +
             COLUMN_UNIT_ID + " integer, " +
-            COLUMN_LINKABLE + " integer " + // boolean
+            COLUMN_LINKABLE + " integer, " + // boolean
+            COLUMN_NOTE+ " text " + // boolean
             ");";
 
     private static final String CREATE_TABLE_ARMY_UNITS_CHILDREN = "create table " + TABLE_ARMY_UNITS_CHILDREN + " ( " +
@@ -337,6 +338,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         armyData.writeArmy(armyParser.parse(R.raw.noma_corregidor_army));
         armyData.writeArmy(armyParser.parse(R.raw.comb_morat_army));
         armyData.writeArmy(armyParser.parse(R.raw.comb_shasvastii_army));
+        armyData.writeArmy(armyParser.parse(R.raw.comb_onyx_army));
         armyData.writeArmy(armyParser.parse(R.raw.alep_phalanx_army));
 
         // Load weapon data

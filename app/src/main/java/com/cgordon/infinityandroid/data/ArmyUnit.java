@@ -29,6 +29,7 @@ public class ArmyUnit implements Parcelable {
     public long armyId;
     public String ava;
     public boolean linkable;
+    public String note;
 
     public ArrayList<ArmyUnitChild> children;
 
@@ -43,6 +44,7 @@ public class ArmyUnit implements Parcelable {
         ava = parcel.readString();
         linkable = parcel.readByte() != 0;     //linkable == true if byte != 0
         children = parcel.readArrayList(null);
+        note = parcel.readString();
     }
 
     public static final Parcelable.Creator<ArmyUnit> CREATOR
@@ -69,6 +71,7 @@ public class ArmyUnit implements Parcelable {
         dest.writeString(ava);
         dest.writeByte((byte) (linkable ? 1 : 0));     //if linkable == true, byte == 1
         dest.writeList(children);
+        dest.writeString(note);
 
     }
 }

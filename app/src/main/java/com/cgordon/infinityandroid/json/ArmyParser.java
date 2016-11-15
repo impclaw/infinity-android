@@ -82,6 +82,10 @@ public class ArmyParser {
                 army.abbr = reader.nextString();
             } else if (name.equals("units")) {
                 army.armyUnits.addAll(parseArmyUnits(reader));
+            } else if (name.equals("legacy_name")) {
+                reader.skipValue(); // mayanet
+            } else if (name.equals("army_id")) {
+                reader.skipValue(); // mayanet
             } else {
                 throw new IOException("Unable to parse tag in parseArmy: " + name);
             }
@@ -124,6 +128,8 @@ public class ArmyParser {
                 reader.nextString();
             } else if (name.equals("childs")) {
                 unit.children.addAll(parseArmyUnitChildren(reader));
+            } else if (name.equals("note")) {
+                unit.note = reader.nextString();
             } else {
                 throw new IOException("unknown tag in parseArmyUnit: " + name);
             }
