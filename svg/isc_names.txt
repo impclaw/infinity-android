@@ -1,0 +1,142 @@
+
+11-28 15:10:03.379 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_krakot_renegades_morat_fugitives_48
+11-28 15:10:03.384 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: panoceania_machinist_48
+11-28 15:10:05.697 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: panoceania_trauma_doc_48
+11-28 15:10:05.702 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_warcor_48
+11-28 15:10:05.755 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: panoceania_black_friars_48
+11-28 15:10:06.102 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: panoceania_bulleteer_armbots_48
+11-28 15:10:06.126 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: panoceania_clipper_dronbot_48
+11-28 15:10:06.127 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: panoceania_fugazi_dronbot_48
+11-28 15:10:06.193 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: panoceania_pathfinder_dronbot_48
+11-28 15:10:06.194 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: panoceania_peacemaker_armbots_48
+11-28 15:10:06.241 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: panoceania_sierra_dronbot_48
+11-28 15:10:06.246 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: panoceania_locust_clandestine_action_team_48
+
+
+11-28 15:10:20.708 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_asuka_kisaragi_48
+11-28 15:10:20.717 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_krakot_renegades_morat_fugitives_48
+11-28 15:10:20.726 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_mech_engineer_48
+11-28 15:10:20.820 21114-21167/com.cgordon.infinityandroid D/OpenGLRenderer: endAllStagingAnimators on 0xa3845080 (CardView) with handle 0xa3836520
+11-28 15:10:22.848 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_warcor_48
+11-28 15:10:22.874 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_yisheng_48
+11-28 15:10:22.957 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_daofei_48
+11-28 15:10:22.976 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_hac_tao_48
+11-28 15:10:22.981 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_hsien_48
+11-28 15:10:23.038 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_shang_ji_48
+11-28 15:10:23.039 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_shikami_48
+11-28 15:10:23.071 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_wu_ming_48
+11-28 15:10:23.088 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_zuyong_invincibles_48
+11-28 15:10:23.091 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_guijia_48
+11-28 15:10:23.210 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_guilang_48
+11-28 15:10:23.237 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: yu_jing_kanren_counter_insurgency_group_48
+
+
+11-28 15:10:35.980 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: ariadna_col_yevgueni_voronin_48
+11-28 15:10:36.018 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_krakot_renegades_morat_fugitives_48
+11-28 15:10:36.026 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: ariadna_line_kazak_48
+11-28 15:10:36.134 21114-21167/com.cgordon.infinityandroid D/OpenGLRenderer: endAllStagingAnimators on 0xa3846200 (CardView) with handle 0xa38366a0
+11-28 15:10:37.452 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: ariadna_the_unknown_ranger_48
+11-28 15:10:37.485 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_warcor_48
+11-28 15:10:37.536 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: ariadna_briscard_48
+11-28 15:10:37.599 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: ariadna_tankhunters_48
+11-28 15:10:37.631 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: ariadna_blackjacks_10th_heavy_rangers_bat_48
+11-28 15:10:37.636 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: ariadna_3rd_highlander_grey_rifles_48
+11-28 15:10:37.667 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: ariadna_5th_minutemen_ohio_48
+11-28 15:10:37.731 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: ariadna_foxtrot_48
+11-28 15:10:37.866 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: ariadna_45th_highlanders_48
+
+
+11-28 15:10:47.142 21114-21114/com.cgordon.infinityandroid D/UnitsData: spec: [Akbar Doctor, MediKit, Doctor Plus]
+11-28 15:10:47.309 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_ghulam_48
+11-28 15:10:47.316 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_hassassin_govads_48
+11-28 15:10:47.331 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_halqa_48
+11-28 15:10:47.345 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_kaplan_tactical_services_kts_48
+11-28 15:10:47.352 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_krakot_renegades_morat_fugitives_48
+11-28 15:10:47.441 21114-21167/com.cgordon.infinityandroid D/OpenGLRenderer: endAllStagingAnimators on 0xa3847380 (CardView) with handle 0xa3836d00
+11-28 15:10:49.214 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_muttawiah_48
+11-28 15:10:49.283 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_tarik_mansuri_48
+11-28 15:10:49.285 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_warcor_48
+11-28 15:10:49.343 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_djanbazan_48
+11-28 15:10:49.391 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_druze_shock_teams_48
+11-28 15:10:49.396 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_azrail_48
+11-28 15:10:49.424 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_al_fasid_48
+11-28 15:10:49.428 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_hassassin_ayyar_48
+11-28 15:10:49.464 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_kameel_remotes_48
+11-28 15:10:49.626 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_murabids_tuareg_48
+11-28 15:10:49.657 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: haqqislam_kum_48
+
+
+11-28 15:11:01.587 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: nomads_alguaciles_48
+11-28 15:11:01.621 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: nomads_interventors_48
+11-28 15:11:01.631 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_krakot_renegades_morat_fugitives_48
+11-28 15:11:01.772 21114-21167/com.cgordon.infinityandroid D/OpenGLRenderer: endAllStagingAnimators on 0xa3848500 (CardView) with handle 0xa17e65b0
+11-28 15:11:03.344 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_warcor_48
+11-28 15:11:03.507 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: nomads_taskmasters_bakunin_swast_team_48
+11-28 15:11:03.508 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: nomads_gecko_48
+11-28 15:11:03.526 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: nomads_lizard_48
+
+
+11-28 15:11:15.156 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_i´metron_48
+11-28 15:11:15.169 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_shasvastii_aswangs_48
+11-28 15:11:15.178 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_shasvastii_cadmus_48
+11-28 15:11:15.187 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_shasvastii_haiduks_48
+11-28 15:11:15.196 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_krakot_renegades_morat_fugitives_48
+11-28 15:11:15.206 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_med_tech_obsidon_medchanoid_48
+11-28 15:11:15.222 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_nexus_operatives_48
+11-28 15:11:15.225 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_shasvastii_noctifers_48
+11-28 15:11:15.312 21114-21167/com.cgordon.infinityandroid D/OpenGLRenderer: endAllStagingAnimators on 0xa3849680 (CardView) with handle 0xa17e6fe0
+11-28 15:11:16.412 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_shasvastii_seed_soldiers_48
+11-28 15:11:16.460 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_umbra_samaritans_48
+11-28 15:11:16.467 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_shasvastii_caliban_infiltration_48
+11-28 15:11:16.476 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_shasvastii_caliban_seed_embryo_48
+11-28 15:11:16.477 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_shasvastii_caliban_developed_48
+11-28 15:11:16.480 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_shasvastii_corax_hasht_48
+11-28 15:11:16.510 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_shasvastii_gwailos_48
+11-28 15:11:16.593 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_the_anathematics_48
+11-28 15:11:16.636 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_overdron_batroids_48
+11-28 15:11:16.654 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_shasvastii_special_armoured_corp_sphinx_48
+11-28 15:11:16.656 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_xeodron_batroids_48
+11-28 15:11:16.694 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: combined_army_ikadron_batroids_48
+
+
+11-28 15:11:28.032 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_andromeda_sophistes_of_the_steel_phalanx_48
+11-28 15:11:28.059 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_diomedes_48
+11-28 15:11:28.078 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_krakot_renegades_morat_fugitives_48
+11-28 15:11:28.087 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_posthumans_proxy_mk1_48
+11-28 15:11:29.177 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_thamyris_48
+11-28 15:11:29.198 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_warcor_48
+11-28 15:11:29.201 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_agêma_marksman_48
+11-28 15:11:29.206 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_nesaie_alkê_48
+11-28 15:11:29.241 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_atalanta_48
+11-28 15:11:29.265 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_patroclus_48
+11-28 15:11:29.266 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_posthumans_proxy_mk5_48
+11-28 15:11:29.267 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_teucer_48
+11-28 15:11:29.298 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_ajax_48
+11-28 15:11:29.303 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_hector_homerid_champion_48
+11-28 15:11:29.318 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_posthumans_proxy_mk4_48
+11-28 15:11:29.399 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_posthumans_proxy_mk2_48
+11-28 15:11:29.400 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_eudoros_48
+11-28 15:11:29.430 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_machaon_48
+11-28 15:11:29.450 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: aleph_phoenix_48
+
+
+11-28 15:11:39.465 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: tohaa_tohaa_diplomatic_delegates_48
+11-28 15:11:39.488 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: tohaa_kaauri_sentinels_48
+11-28 15:11:39.536 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_krakot_renegades_morat_fugitives_48
+11-28 15:11:39.638 21114-21167/com.cgordon.infinityandroid D/OpenGLRenderer: endAllStagingAnimators on 0xa384b980 (CardView) with handle 0x9eafecf0
+11-28 15:11:41.011 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: tohaa_sukeul_commandos_48
+11-28 15:11:41.019 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: tohaa_gao_rael_48
+11-28 15:11:41.030 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: tohaa_gao_tarsos_48
+11-28 15:11:41.031 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: tohaa_taqeul_officers_48
+11-28 15:11:41.078 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: tohaa_makaul_48
+
+
+11-28 15:11:51.561 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_avicenna_mercenary_doctor_48
+11-28 15:11:51.592 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_kaplan_tactical_services_kts_48
+11-28 15:11:51.605 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_krakot_renegades_morat_fugitives_48
+11-28 15:11:51.624 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_warcor_48
+11-28 15:11:51.700 21114-21167/com.cgordon.infinityandroid D/OpenGLRenderer: endAllStagingAnimators on 0xa384cb00 (CardView) with handle 0x9eafeca0
+11-28 15:11:52.703 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_anaconda_48
+11-28 15:11:52.705 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_scarface_48
+11-28 15:11:52.753 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_miyamoto_mushashi_48
+11-28 15:11:52.783 21114-21114/com.cgordon.infinityandroid D/UnitListAdapter: Missing resource: mercenary_yojimbo_sword_for_hire_48
