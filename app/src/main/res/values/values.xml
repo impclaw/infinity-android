@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colourPrimary">#e2001a</color>
+    <color name="colourPrimaryDark">#b12024</color>
+    <color name="colourAccent">#18ffff</color>
+
+    <color name="range_minus_6">#D2232B</color>
+    <color name="range_minus_3">#FEBF23</color>
+    <color name="range_minuc_0">#00ADEE</color>
+    <color name="range_plus_3">#3DAE48</color>
+    <color name="range_plus_6">#3DAE48</color>
+    <color name="range_no">#231F20</color>
+</resources>

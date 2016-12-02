@@ -45,7 +45,7 @@
                 android:minHeight="48dp"
                 android:minWidth="48dp"
                 android:padding="8dp"
-                android:src="@drawable/panoceania_48" />
+                android:src="@drawable/image_1999_48" />
 
             <TextView
                 android:id="@+id/text_name"

@@ -47,7 +47,8 @@ public class ArmyData {
             InfinityDatabase.COLUMN_ID,
             InfinityDatabase.COLUMN_FACTION,
             InfinityDatabase.COLUMN_NAME,
-            InfinityDatabase.COLUMN_ABBREVIATION
+            InfinityDatabase.COLUMN_ABBREVIATION,
+            InfinityDatabase.COLUMN_JSON_ID
     };
 
     private final String[] armyUnitColumns = {
@@ -224,7 +225,7 @@ public class ArmyData {
 //        child.dbId = cursor.getLong(0);
 //        child.armyId = cursor.getLong(1);
 //        child.unitId = cursor.getInt(2);
-//        child.id = cursor.getInt(3);
+//        child.jsonId = cursor.getInt(3);
 //        child.swc = cursor.getDouble(4);
 //        child.hide = (cursor.getInt(5) != 0); // boolean
 //
@@ -298,6 +299,7 @@ public class ArmyData {
         v.put(InfinityDatabase.COLUMN_FACTION, sectorial.faction);
         v.put(InfinityDatabase.COLUMN_NAME, sectorial.name);
         v.put(InfinityDatabase.COLUMN_ABBREVIATION, sectorial.abbr);
+        v.put(InfinityDatabase.COLUMN_JSON_ID, sectorial.jsonId);
 
         return m_database.insert(InfinityDatabase.TABLE_ARMY, null, v);
 
@@ -329,6 +331,7 @@ public class ArmyData {
         army.faction = cursor.getString(1);
         army.name = cursor.getString(2);
         army.abbr = cursor.getString(3);
+        army.jsonId = cursor.getInt(4);
 
         return army;
     }

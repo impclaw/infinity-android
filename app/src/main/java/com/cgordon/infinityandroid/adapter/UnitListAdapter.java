@@ -134,20 +134,18 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.ViewHo
         String imageSize = "_" + Integer.toString(size);
 
         String resourceName;
-        if (unit.image == null) {
-            resourceName = unit.faction + "_" + unit.isc;
+        if (unit.image == -1) {
+            resourceName = "image_" + unit.id + imageSize;
         } else {
-            resourceName = unit.faction + "_" + unit.image;
+            resourceName = "image_" + unit.image + imageSize;
         }
 
-        resourceName += imageSize;
-
-        resourceName = UnitListAdapter.prepareDrawableResource(resourceName);
+//        resourceName = UnitListAdapter.prepareDrawableResource(resourceName);
 
         int resourceId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
 
         if (resourceId == 0) {
-            Log.d(TAG, "Missing resource: " + resourceName);
+            Log.d(TAG, "Missing resource: " + unit.id + " " + resourceName);
             String factionResource = UnitListAdapter.prepareDrawableResource(unit.faction + imageSize);
             resourceId = context.getResources().getIdentifier(factionResource, "drawable", context.getPackageName());
         }

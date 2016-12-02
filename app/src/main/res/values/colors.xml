@@ -1,47 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!--
- Copyright 2015 by Chris Gordon
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
--->
-
 <resources>
-    <color name="army_background">#F00</color>
-    <color name="army_card_background">#DDD</color>
-
-    <color name="colourPrimary">#e2001a</color>
-    <color name="colourPrimaryDark">#b12024</color>
-    <color name="colourAccent">#18ffff</color>
-    <color name="cardBackground">#e0e0e0</color>
-    <color name="listDivider">@color/primary_dark_material_light</color>
-
-    <color name="pano">#23A1D9</color>
-    <color name="yujing">#DA8C31</color>
-    <color name="ariadna">#4E7C3D</color>
-    <color name="haqqislam">#E0DAA0</color>
-    <color name="nomads">#B12024</color>
-    <color name="ca">#36285A</color>
-    <color name="aleph">#A9A2B6</color>
-    <color name="tohaa">#020507</color>
-    <color name="mercs">#7C8768</color>
-
-    <color name="range_minus_6">#D2232B</color>
-    <color name="range_minus_3">#FEBF23</color>
-    <color name="range_minuc_0">#00ADEE</color>
-    <color name="range_plus_3">#3DAE48</color>
-    <color name="range_plus_6">#3DAE48</color>
-    <color name="range_no">#231F20</color>
 
 </resources>

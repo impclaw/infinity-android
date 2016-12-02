@@ -34,7 +34,7 @@ public class Unit implements Parcelable {
     public String note;  //used?
     public String name;
     public String isc;
-    public String image;
+    public int image = -1;
     public boolean linkable = false;
 
 
@@ -53,7 +53,7 @@ public class Unit implements Parcelable {
         note = parcel.readString();
         name = parcel.readString();
         isc = parcel.readString();
-        image = parcel.readString();
+        image = parcel.readInt();
         linkable = parcel.readByte() != 0;
     }
 
@@ -68,7 +68,7 @@ public class Unit implements Parcelable {
         dest.writeString(note);
         dest.writeString(name);
         dest.writeString(isc);
-        dest.writeString(image);
+        dest.writeInt(image);
         dest.writeByte((byte) (linkable ? 1 : 0));
     }
 

@@ -41,7 +41,7 @@
                 android:id="@+id/image_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/panoceania_24"
+                android:src="@drawable/image_1999_24"
                 android:padding="4dp" />
 
             <TextView

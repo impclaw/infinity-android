@@ -543,7 +543,7 @@ public class UnitsData {
         unit.note = cursor.getString(4);
         unit.name = cursor.getString(5);
         unit.isc = cursor.getString(6);
-        unit.image = cursor.getString(7);
+        unit.image = cursor.getInt(7);
         if (cursor.getColumnNames().length > 8) {
             unit.linkable = (cursor.getInt(8) != 0);
         }

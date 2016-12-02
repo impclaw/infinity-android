@@ -29,7 +29,7 @@ import com.cgordon.infinityandroid.json.WeaponParser;
 public class InfinityDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "infinity.db";
-    private static final int DATABASE_VERSION = 38;
+    private static final int DATABASE_VERSION = 39;
 
     public static final String TABLE_WEAPONS = "weapons";
     public static final String TABLE_UNITS = "units";
@@ -127,6 +127,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
     public static final String COLUMN_CCW = "ccw"; // this is comma separated list
     public static final String COLUMN_SPEC = "spec"; // this is comma separated list
     public static final String COLUMN_CC = "cc";
+    public static final String COLUMN_JSON_ID = "jsonid";
 
     // ===== ARMY Data =====
     // COLUMN_ID
@@ -164,7 +165,7 @@ public class InfinityDatabase extends SQLiteOpenHelper {
             COLUMN_NOTE + " text, " +
             COLUMN_NAME + " text, " +
             COLUMN_ISC + " text, " +
-            COLUMN_IMAGE + " text " +
+            COLUMN_IMAGE + " int " +
             ");";
 
     private static final String CREATE_TABLE_CHILDREN = "create table " + TABLE_CHILDREN + " ( " +
@@ -241,7 +242,8 @@ public class InfinityDatabase extends SQLiteOpenHelper {
             COLUMN_ID + " integer primary key, " +
             COLUMN_FACTION + " text, " +
             COLUMN_NAME + " text, " +
-            COLUMN_ABBREVIATION + " text " +
+            COLUMN_ABBREVIATION + " text, " +
+            COLUMN_JSON_ID + " integer " +
             ");";
 
     private static final String CREATE_TABLE_ARMY_UNITS = "create table " + TABLE_ARMY_UNITS + " ( " +

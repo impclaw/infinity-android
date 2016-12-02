@@ -136,7 +136,7 @@ public class UnitParser {
             } else if (name.equals("profiles")) {
                 unit.profiles.addAll(parseProfiles(reader));
             } else if (name.equals("image")) { // this is the unit image to use if there isn't one specifically; usually a spec-ops model using a base model's logo
-                unit.image = reader.nextString();
+                unit.image = reader.nextInt();
             } else if (name.equals("wtype")) {
                 profile.woundType = reader.nextString();
             } else if (name.equals("hackable")) {
@@ -264,7 +264,7 @@ public class UnitParser {
             } else if (name.equals("ava")) {
                 profile.ava = reader.nextString();
             } else if (name.equals("image")) {
-                reader.nextString();
+                reader.nextInt();
             } else if (name.equals("id")) {
                 profile.id = reader.nextInt();
             } else {

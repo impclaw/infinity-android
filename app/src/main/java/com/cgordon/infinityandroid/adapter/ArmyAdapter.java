@@ -85,13 +85,14 @@ public class ArmyAdapter extends RecyclerView.Adapter<ArmyAdapter.ViewHolder> {
         }
         holder.m_textView.setText(name);
 
-        String resourceName = army.faction;
-        if (!army.faction.equals(army.name)) {
-            resourceName += "_" + army.name;
-        }
-        resourceName += "_48";
+        String resourceName = "image_" + Long.toString(army.jsonId) + "_48"; // army.faction;
+//        if (!army.faction.equals(army.name)) {
+//            resourceName += "_" + army.name;
+//        }
 
-        resourceName = resourceName.toLowerCase().replace(" ", "_");
+//        resourceName += "_48";
+
+//        resourceName = resourceName.toLowerCase().replace(" ", "_");
 
         int resourceId = m_resources.getIdentifier(resourceName, "drawable", m_context.getPackageName());
         holder.m_imageView.setImageResource(resourceId);

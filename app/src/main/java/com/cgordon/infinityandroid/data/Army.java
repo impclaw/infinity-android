@@ -28,6 +28,7 @@ public class Army implements Parcelable {
     public String faction;
     public String name;
     public String abbr;
+    public int jsonId = -1;
 
     public ArrayList armyUnits;
 
@@ -41,6 +42,7 @@ public class Army implements Parcelable {
         name = parcel.readString();
         abbr = parcel.readString();
         armyUnits = parcel.readArrayList(null);
+        jsonId = parcel.readInt();
 
     }
 
@@ -51,6 +53,7 @@ public class Army implements Parcelable {
         dest.writeString(name);
         dest.writeString(abbr);
         dest.writeList(armyUnits);
+        dest.writeInt(jsonId);
     }
 
     @Override

@@ -21,11 +21,14 @@ Bitmap saved as: drawing72.png
 
 C:\projects\Personal\Android-SVG-Asset-Generator\assets>
 
-
-
 Lower case everything in a directory
 for /f "Tokens=*" %f in ('dir /l/b/a-d') do (rename "%f" "%f")
 
+When bulk converting svg files into android xml files, use the the program in the folder "SvgToVectorDrawableConverter".  It's currently hard coded to set the output image size to 48dp instead of using the image's size.  The images come from Vyo with a very
+large size and there's no setting for Inkscape to change the size with the command line.  
+https://github.com/a-student/SvgToVectorDrawableConverter
+https://commandline.codeplex.com/
 
 
 
+for /f "Tokens=*" %f in ('dir /l/b/a-d') do (rename "%f" "image_%f")

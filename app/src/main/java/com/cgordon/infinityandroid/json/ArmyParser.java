@@ -72,10 +72,7 @@ public class ArmyParser {
             if (name.equals("army")) {
                 army.faction = reader.nextString();
             } else if (name.equals("id")) {
-                // We're ignoring the army id in favour of an auto-generated one because this
-                // lets us control the order of the items in the main page easily.  If we rely
-                // on the Army Id, we get a very strange order when sorted asc/desc
-                reader.nextInt();
+                army.jsonId = reader.nextInt();
             } else if (name.equals("name")) {
                 army.name = reader.nextString();
             } else if (name.equals("abbr")) {
@@ -85,7 +82,7 @@ public class ArmyParser {
             } else if (name.equals("legacy_name")) {
                 reader.skipValue(); // mayanet
             } else if (name.equals("army_id")) {
-                reader.skipValue(); // mayanet
+                reader.skipValue();
             } else {
                 throw new IOException("Unable to parse tag in parseArmy: " + name);
             }
