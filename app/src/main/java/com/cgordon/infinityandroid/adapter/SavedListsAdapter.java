@@ -94,13 +94,8 @@ public class SavedListsAdapter  extends RecyclerView.Adapter<SavedListsAdapter.V
 
         Army army = getArmy(list.armyId);
         if (army != null) {
-            String resourceName = army.faction;
-            if (!army.faction.equals(army.name)) {
-                resourceName += "_" + army.name;
-            }
+            String resourceName = "image_" + Integer.toString(army.jsonId);
             resourceName += "_48";
-
-            resourceName = resourceName.toLowerCase().replace(" ", "_");
 
             int resourceId = m_resources.getIdentifier(resourceName, "drawable", m_context.getPackageName());
             holder.icon.setImageResource(resourceId);
