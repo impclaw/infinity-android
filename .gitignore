@@ -6,3 +6,5 @@
 /build
 /*.keystore
 /PlayStore/drawing.dxf
+app/app-release.apk
+app/app-debug.apk
