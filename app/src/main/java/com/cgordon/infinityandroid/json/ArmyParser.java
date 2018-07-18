@@ -19,6 +19,7 @@ package com.cgordon.infinityandroid.json;
 
 import android.content.Context;
 import android.util.JsonReader;
+import android.util.Log;
 
 import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.ArmyUnit;
@@ -45,6 +46,7 @@ public class ArmyParser {
         ArrayList<Army> armies = new ArrayList<Army>();
 
         JsonReader reader = new JsonReader(new InputStreamReader(inputStream));
+        reader.setLenient(true);
 
         try {
             reader.beginArray();

@@ -48,12 +48,14 @@ public class UnitParser {
         InputStream inputStream = m_context.getResources().openRawResource(resourceId);
 
         JsonReader reader = new JsonReader(new InputStreamReader(inputStream));
+        reader.setLenient(true);
 
         try {
             reader.beginArray();
 
             while (reader.hasNext()) {
-                units.add(parseUnit(reader));
+                Unit u = parseUnit(reader);
+                if (u != null) units.add(u);
             }
 
             reader.endArray();
@@ -81,6 +83,7 @@ public class UnitParser {
         Unit unit = new Unit();
         Profile profile = new Profile();
         profile.id = 1;
+        boolean obsolete = false;
 
         reader.beginObject();
 
@@ -154,6 +157,11 @@ public class UnitParser {
 //                Log.d(TAG, "id: " + unit.id);
             } else if (name.equals("legacy_isc")) {
                 reader.skipValue(); // mayanet
+            } else if (name.equals("classification")) {
+                reader.skipValue();
+            } else if (name.equals("obsolete")) {
+                obsolete = true;
+                reader.skipValue();
             } else {
                 throw new IOException("Unknown tag in parse Unit: " + name);
             }
@@ -183,6 +191,8 @@ public class UnitParser {
 
             Log.d(TAG, "Missed some data!");
         }
+
+        if (obsolete) return null;
         return unit;
     }
 
@@ -267,6 +277,8 @@ public class UnitParser {
                 reader.nextInt();
             } else if (name.equals("id")) {
                 profile.id = reader.nextInt();
+            } else if (name.equals("classification")) {
+                reader.skipValue();
             } else {
                 throw new IOException("Unknown tag in parse Profile: " + name);
             }

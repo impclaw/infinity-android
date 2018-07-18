@@ -145,9 +145,10 @@ public class UnitListAdapter extends RecyclerView.Adapter<UnitListAdapter.ViewHo
         int resourceId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
 
         if (resourceId == 0) {
-            Log.d(TAG, "Missing resource: " + unit.id + " " + resourceName);
-            String factionResource = UnitListAdapter.prepareDrawableResource(unit.faction + imageSize);
-            resourceId = context.getResources().getIdentifier(factionResource, "drawable", context.getPackageName());
+            String newResource = "image_" + unit.id / 1000 + "999" + imageSize;
+            Log.d(TAG, "Missing resource: " + unit.id + " " + resourceName + ", using " + newResource);
+            //String factionResource = UnitListAdapter.prepareDrawableResource(newResource + "_" + imageSize);
+            resourceId = context.getResources().getIdentifier(newResource, "drawable", context.getPackageName());
         }
 
         return resourceId;

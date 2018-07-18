@@ -29,7 +29,8 @@ import com.cgordon.infinityandroid.json.WeaponParser;
 public class InfinityDatabase extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "infinity.db";
-    private static final int DATABASE_VERSION = 39;
+    private static final int DATABASE_VERSION = 43;
+    //private static final int DATABASE_VERSION = 51;
 
     public static final String TABLE_WEAPONS = "weapons";
     public static final String TABLE_UNITS = "units";
@@ -330,7 +331,6 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         armyData.writeArmy(armyParser.parse(R.raw.pano_militaryorders_army));
         armyData.writeArmy(armyParser.parse(R.raw.pano_noeterran_army));
         armyData.writeArmy(armyParser.parse(R.raw.yuji_imperialservice_army));
-        armyData.writeArmy(armyParser.parse(R.raw.yuji_jsa_army));
         armyData.writeArmy(armyParser.parse(R.raw.aria_caledonian_army));
         armyData.writeArmy(armyParser.parse(R.raw.aria_mrrf_army));
         armyData.writeArmy(armyParser.parse(R.raw.aria_usa_army));
@@ -342,6 +342,11 @@ public class InfinityDatabase extends SQLiteOpenHelper {
         armyData.writeArmy(armyParser.parse(R.raw.comb_shasvastii_army));
         armyData.writeArmy(armyParser.parse(R.raw.comb_onyx_army));
         armyData.writeArmy(armyParser.parse(R.raw.alep_phalanx_army));
+
+        armyData.writeArmy(armyParser.parse(R.raw.merc_jsa_army));
+        armyData.writeArmy(armyParser.parse(R.raw.merc_bayram_army));
+        armyData.writeArmy(armyParser.parse(R.raw.merc_ikari_army));
+        armyData.writeArmy(armyParser.parse(R.raw.merc_starco_army));
 
         // Load weapon data
         WeaponParser weaponParser = new WeaponParser(m_context);

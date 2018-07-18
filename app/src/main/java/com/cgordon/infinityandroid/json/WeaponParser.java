@@ -19,6 +19,7 @@ package com.cgordon.infinityandroid.json;
 
 import android.content.Context;
 import android.util.JsonReader;
+import android.util.Log;
 
 import com.cgordon.infinityandroid.data.Weapon;
 
@@ -65,7 +66,6 @@ public class WeaponParser {
 
         while (reader.hasNext()) {
             String name = reader.nextName();
-
             if (name.equals("ammo")) {
                 weapon.ammo = reader.nextString();
             } else if (name.equals("burst")) {
