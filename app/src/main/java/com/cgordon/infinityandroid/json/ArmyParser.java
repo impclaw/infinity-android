@@ -25,6 +25,8 @@ import com.cgordon.infinityandroid.data.Army;
 import com.cgordon.infinityandroid.data.ArmyUnit;
 import com.cgordon.infinityandroid.data.ArmyUnitChild;
 
+import org.json.JSONArray;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -129,6 +131,42 @@ public class ArmyParser {
                 unit.children.addAll(parseArmyUnitChildren(reader));
             } else if (name.equals("note")) {
                 unit.note = reader.nextString();
+            } else if (name.equals("notes")) {
+                reader.beginArray();
+                while (reader.hasNext()) {
+                    reader.beginObject();
+                    while (reader.hasNext()) {
+                        String innerName = reader.nextName();
+                        if (innerName.equals("title")) {
+                            reader.nextString();
+                        } else if (innerName.equals("note")) {
+                            reader.nextString();
+                        }
+                        else {
+                            throw new IOException("unknown tag in parseArmyUnit: " + name);
+                        }
+                    }
+                    reader.endObject();
+                }
+                reader.endArray();
+            } else if (name.equals("skills")) {
+                reader.beginArray();
+                while (reader.hasNext()) {
+                    reader.beginObject();
+                    while (reader.hasNext()) {
+                        String innerName = reader.nextName();
+                        if (innerName.equals("name")) {
+                            reader.nextString();
+                        } else if (innerName.equals("hide")) {
+                            reader.nextBoolean();
+                        }
+                        else {
+                            throw new IOException("unknown tag in parseArmyUnit: " + name);
+                        }
+                    }
+                    reader.endObject();
+                }
+                reader.endArray();
             } else {
                 throw new IOException("unknown tag in parseArmyUnit: " + name);
             }
